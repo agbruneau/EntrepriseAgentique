@@ -1,5 +1,5 @@
 Thèse : Cadriciel d'Architecture d'Interopérabilité Cognitivo-Adaptative - L'Entreprise Agentique
-Ce dépôt contient la thèse de recherche intitulée « Cadriciel d'Architecture d'Interopérabilité Cognitivo-Adaptative - Entreprise Agentique ».
+Ce dépôt contient la thèse de recherche intitulée "Cadriciel d'Architecture d'Interopérabilité Cognitivo-Adaptative - Entreprise Agentique".
 
 Résumé (Abstract)
 Les architectures d'intégration traditionnelles, qu'il s'agisse de l'enchevêtrement ingérable des connexions point à point ou des goulots d'étranglement monolithiques des bus de services d'entreprise (ESB), ont atteint leurs limites. Elles ne parviennent plus à répondre aux exigences de l'économie numérique en matière d'agilité, de résilience et de prise de décision en temps réel. Cette inadéquation structurelle ne se traduit pas seulement par une dette technique, mais par une dette cognitive systémique qui fragmente les actifs TI et paralyse les capacités d'adaptation.
