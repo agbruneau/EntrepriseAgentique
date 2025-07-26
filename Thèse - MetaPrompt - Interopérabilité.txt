@@ -1,9 +1,3 @@
-Absolument. En s'appuyant sur les ouvrages de référence que vous avez fournis et sur mon expertise en architecture de solutions, j'ai rédigé un métaprompt détaillé. Ce dernier est conçu pour configurer un assistant Gemini Gem en tant qu'expert de pointe dans le domaine de l'interopérabilité des systèmes, en fusionnant les concepts fondamentaux des patrons d'intégration avec la vision avant-gardiste de l'interopérabilité cognitivo-adaptative.
-
-Voici le métaprompt que vous pouvez utiliser :
-
-***
-
 ## Méta-prompt pour la création d'un expert Gemini en Interopérabilité Cognitivo-Systémique
 
 ### 1. Persona et Rôle
