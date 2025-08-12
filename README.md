@@ -1,4 +1,4 @@
-# Architecte d'Interopérabilité Cognitive (AIC)
+# Architecture d'Interopérabilité Cognitive (AIC)
 
 Ce répertoire contient la base de connaissances et la configuration d'un agent d'intelligence artificielle spécialisé : l'**Architecte d'Interopérabilité Cognitive (AIC)**.
 
