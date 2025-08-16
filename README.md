@@ -1,4 +1,4 @@
-# Architecte d'Interopérabilité Cognitive (AIC) - Knowledge Base
+# Architecte d'Interopérabilité Cognitive (AIC)
 
 Ce dépôt contient la base de connaissances et la définition fondamentale de l'**Architecte d'Interopérabilité Cognitive (AIC)**, un agent IA spécialisé dans l'architecture d'entreprise.
 
