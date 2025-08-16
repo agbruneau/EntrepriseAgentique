@@ -1,8 +1,4 @@
-Absolument. Voici une proposition pour un fichier `README.md` qui structure et présente de manière professionnelle le contenu de ce référentiel GitHub, en adoptant le style et le ton requis.
-
----
-
-# Monographie : Cadre d'Architecture d'Interopérabilité Cognitive et Adaptative pour une Entreprise Agentique
+# Monographie : Architecture d'Interopérabilité Cognitive et Adaptative pour une Entreprise Agentique
 
 ## 1. Objet de la Monographie
 
