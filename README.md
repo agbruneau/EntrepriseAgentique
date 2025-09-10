@@ -1,25 +1,49 @@
 # Entreprise Agentique : Une Collection de Ressources
 
-Ce dépôt rassemble une collection de documents et de livres blancs sur le thème de l'Entreprise Agentique, de l'interopérabilité et des architectures de systèmes modernes. Le document principal de ce dépôt est une synthèse détaillée qui s'appuie sur les diverses sources incluses.
+Ce dépôt rassemble une collection de documents, de médias et de livres blancs sur le thème de l'Entreprise Agentique, de l'interopérabilité et des architectures de systèmes modernes. Le document principal de ce dépôt est une synthèse détaillée qui s'appuie sur les diverses sources incluses.
 
-## Documents Disponibles
+## Structure du Dépôt
 
-Voici la liste des documents que vous trouverez dans ce dépôt :
+Les documents sont organisés de la manière suivante :
 
+### A. Thèse de Recherche Fondamentale
+
+- `A - Thèse de Recherche – Architecture Symbiotique de Résonance Quantique-Cognitive – Informatique Théorique.pdf`
+
+### 1. Entreprise Agentique - Fondamentaux
+
+- `1a - Entreprise Agentique - Avant-Propos - PodCast.mp4`
+- `1a - Entreprise Agentique - Avant-Propos - Vidéo.mp4`
 - `1a - Entreprise Agentique - Livre Blanc.pdf`
 - `1b - Entreprise Agentique - Systèmes Multi Agents Autonomes.pdf`
 - `1c - Entreprise Agentique - Études de Cas.pdf`
 - `1d - Entreprise Agentique - Compendium.pdf`
 - `1e - Industrie 5.0 - Systèmes sociotechniques - Essai.pdf`
+
+### 2. Patterns d'Intégration d'Entreprise
+
 - `2 - EIP - Enterprise Integration Patterns.pdf`
+
+### 3. Architecture et Ingénierie Agentique
+
 - `3a - Plan Directeur – Architecture d’Interopérabilité Agentique.pdf`
 - `3b - Ingénierie Systémique – Architecture et Orchestration Maillage Agentique et AgentOps.pdf`
 - `3c - Chorégraphie Stigmergie - Coordination et Médiation Algorithmiques Agentiques.pdf`
 - `3d - BluePrint Agentique - Architecture des Systèmes Agentiques en Entreprise.pdf`
 - `3e - Chaos Agentique - Gouvernance et Stabilité des Systèmes Agentiques.pdf`
 - `3f - Confluent - Google Cloud - Architecture Agentique Unifiée.pdf`
+
+### 4. Technologies de Data Streaming
+
 - `4 - Kafka - Data Streaming.pdf`
+
+### 5. Guides de Design
+
 - `5 - Confluent - Guide de Design des systèmes multi-agents.pdf`
+
+### A. Thèse de Recherche
+
+- `A - Jarvis – Architecture Symbiotique de Résonance Quantique-Cognitive – Informatique Théorique`
 
 ---
 
