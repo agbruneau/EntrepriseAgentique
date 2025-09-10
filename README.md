@@ -41,6 +41,10 @@ Les documents sont organisés de la manière suivante :
 
 - `5 - Confluent - Guide de Design des systèmes multi-agents.pdf`
 
+### A. Thèse de Recherche
+
+- `A - Jarvis – Architecture Symbiotique de Résonance Quantique-Cognitive – Informatique Théorique`
+
 ---
 
 # Synthèse : Entreprise Agentique et l'Interopérabilité Cognitivo-Adaptative
