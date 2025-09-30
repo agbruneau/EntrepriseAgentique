@@ -6,6 +6,7 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 
 ### 1. Fondamentaux de l'Entreprise Agentique
 Cette section regroupe les documents fondamentaux qui introduisent les concepts clés de l'entreprise agentique.
+- `MindMap - Corpus Enteprise Agentique.png`
 - `ReadMe - Architecture Entreprise Agentique.pdf`
 - `1a - Entreprise Agentique - Livre Blanc.pdf`
 - `1b - Entreprise Agentique - Systèmes Multi Agents Autonomes.pdf`
