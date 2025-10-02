@@ -59,4 +59,4 @@ Ce dépôt constitue une collection structurée de documents, livres blancs, ét
 
 ## Licence
 
-Ce projet est sous licence Apache 2.0. Pour plus de détails, veuillez consulter le fichier [LICENSE](LICENSE).
+Ce projet est sous licence Apache 2.0.
