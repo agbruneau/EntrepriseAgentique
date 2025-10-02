@@ -1,6 +1,6 @@
 # Entreprise Agentique - Corpus
 
-Ce dépôt rassemble une collection de documents, livres blancs, études et livres sur le concept d'**Entreprise Agentique**. L'objectif est de fournir une base de connaissances centralisée pour toute personne intéressée par l'architecture des systèmes multi-agents, l'interopérabilité, l'ingénierie systémique et leur application en entreprise.
+Ce dépôt constitue une collection structurée de documents, livres blancs, études et ouvrages portant sur l’**Entreprise Agentique**. Son objectif est de mettre à disposition un référentiel de connaissances unifié pour les chercheurs, praticiens et professionnels explorant l’architecture des systèmes multi‑agents, l’interopérabilité, l’ingénierie systémique et leurs usages en entreprise
 
 ## Contenu
 
