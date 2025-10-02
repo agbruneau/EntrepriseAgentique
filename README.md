@@ -51,7 +51,7 @@ Ce dépôt constitue une collection structurée de documents, livres blancs, ét
 - [Cursus - Volume V - Science et Génie Informatiques.pdf](Cursus%20-%20Volume%20V%20-%20Science%20et%20G%C3%A9nie%20Informatiques.pdf)
 - [Cursus - Volume VI - Science et Génie Informatiques.pdf](Cursus%20-%20Volume%20VI%20-%20Science%20et%20G%C3%A9nie%20Informatiques.pdf)
 
-### 7. Média Complémentaire
+### 7. ReadMe
 - [ReadMe - Architecture Entreprise Agentique.pdf](ReadMe%20-%20Architecture%20Entreprise%20Agentique.pdf)
 - [ReadMe - Architecture Entreprise Agentique - Mind Mapping.png](ReadMe%20-%20Architecture%20Entreprise%20Agentique%20-%20Mind%20Mapping.png)
 - [ReadMe - Architecture Entreprise Agentique - PodCast.m4a](ReadMe%20-%20Architecture%20Entreprise%20Agentique%20-%20PodCast.m4a)
