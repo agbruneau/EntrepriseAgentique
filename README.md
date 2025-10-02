@@ -4,8 +4,6 @@ Ce dépôt constitue une collection structurée de documents, livres blancs, ét
 
 ## Contenu
 
-La collection est organisée en plusieurs catégories thématiques pour faciliter la navigation.
-
 ### 1. Introduction à l'Entreprise Agentique
 - [1 - Entreprise Agentique - Mind Mapping.png](1%20-%20Entreprise%20Agentique%20-%20Mind%20Mapping.png)
 - [1a - Entreprise Agentique - Livre Blanc.pdf](1a%20-%20Entreprise%20Agentique%20-%20Livre%20Blanc.pdf)
