@@ -13,7 +13,8 @@ Ce dépôt constitue une collection structurée de documents, livres blancs, ét
 - [1e - Industrie 5.0 - Systèmes sociotechniques - Essai.pdf](1e%20-%20Industrie%205.0%20-%20Syst%C3%A8mes%20sociotechniques%20-%20Essai.pdf)
 
 ### 2. Architecture et Patterns
-- [2 - EIP - Enterprise Integration Patterns.pdf](2%20-%20EIP%20-%20Enterprise%20Integration%20Patterns.pdf)
+- [2a - EIP - Enterprise Integration Patterns.pdf](2%20-%20EIP%20-%20Enterprise%20Integration%20Patterns.pdf)
+- [2b - Agentic Design Patterns.pdf](Book%20-%20Agentic%20Design%20Patterns.pdf)
 - [3a - Plan Directeur – Architecture d’Interopérabilité Agentique.pdf](3a%20-%20Plan%20Directeur%20%E2%80%93%20Architecture%20d%E2%80%99Interop%C3%A9rabilit%C3%A9%20Agentique.pdf)
 - [3b - Ingénierie Systémique – Architecture et Orchestration Maillage Agentique et AgentOps.pdf](3b%20-%20Ing%C3%A9nierie%20Syst%C3%A9mique%20%E2%80%93%20Architecture%20et%20Orchestration%20Maillage%20Agentique%20et%20AgentOps.pdf)
 - [3c - Chorégraphie Stigmergie - Coordination et Médiation Algorithmiques Agentiques.pdf](3c%20-%20Chor%C3%A9graphie%20Stigmergie%20-%20Coordination%20et%20M%C3%A9diation%20Algorithmiques%20Agentiques.pdf)
@@ -39,7 +40,6 @@ Ce dépôt constitue une collection structurée de documents, livres blancs, ét
 ### 5. Livres de Référence
 - [Book - AI - Modern Approach 4th-Edition.pdf](Book%20-%20AI%20-%20Modern%20Approach%204th-Edition.pdf)
 - [Book - AI Engineering.pdf](Book%20-%20AI%20Engineering.pdf)
-- [Book - Agentic Design Patterns.pdf](Book%20-%20Agentic%20Design%20Patterns.pdf)
 - [Book - Learning System Thinking.pdf](Book%20-%20Learning%20System%20Thinking.pdf)
 - [Book - Solutions Architects Handbook.pdf](Book%20-%20Solutions%20Architects%20Handbook.pdf)
 
