@@ -15,8 +15,6 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 - `2b - Ingénierie Systémique – Architecture et Orchestration Maillage Agentique et AgentOps.pdf`
 - `2c - Chorégraphie Stigmergie - Coordination et Médiation Algorithmiques Agentiques.pdf`
 - `2d - BluePrint Agentique - Architecture des Systèmes Agentiques en Entreprise.pdf`
-- `2e - Chaos Agentique - Gouvernance et Stabilité des Systèmes Agentiques.pdf`
-- `2f - Confluent - Google Cloud - Architecture Agentique Unifiée.pdf`
 
 ### 3. Technologies et Plateformes
 - `3a - Kafka - Kafka pour Architectes.pdf`
