@@ -6,8 +6,9 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 
 ### 1. Introduction à l'Entreprise Agentique
 - `1a - Entreprise Agentique - Livre Blanc.pdf`
-- `1b - Entreprise Agentique - Études de Cas.pdf`
-- `1c - Entreprise Agentique - Compendium.pdf`
+- `1b - Entreprise Agentique - Systèmes Multi Agents Autonomes.pdf`
+- `1c - Entreprise Agentique - Études de Cas.pdf`
+- `1d - Entreprise Agentique - Compendium.pdf`
 
 ### 2. Architecture des Systèmes Agentiques
 - `2a - Plan Directeur – Architecture d’Interopérabilité Agentique.pdf`
