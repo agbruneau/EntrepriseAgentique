@@ -24,7 +24,8 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 - `3e - Google - Virtual Agent Economies.pdf`
 
 ### 4. Architectures Avancées
-- `4 - Jarvis – Architecture Cognitivo-Quantique - Informatique Théorique.pdf`
+- `4a - Jarvis – Architecture Cognitivo-Quantique - Informatique Théorique.pdf`
+- `4b - Epoch AI - Artificial Inteliigence in 2030.pdf`
 
 ### 5. Cursus - Science et Génie Informatiques
 - `5 - Cursus - Volume I - Science et Génie Informatiques.pdf`
