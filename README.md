@@ -28,6 +28,7 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 - `4b - Epoch AI - Artificial Inteliigence in 2030.pdf`
 
 ### 5. Cursus - Science et Génie Informatiques
+- `5 - Cursus - Volume I - Princple of Probability.pdf`
 - `5 - Cursus - Volume I - Science et Génie Informatiques.pdf`
 - `5 - Cursus - Volume II - Science et Génie Informatiques.pdf`
 - `5 - Cursus - Volume III - Science et Génie Informatiques.pdf`
