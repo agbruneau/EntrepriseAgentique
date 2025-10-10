@@ -4,6 +4,11 @@
 
 L'**Entreprise Agentique**, un nouveau paradigme architectural qui modélise les systèmes non pas comme des machines monolithiques, mais comme des organismes numériques composés d'agents autonomes et collaboratifs. Cette mutation est rendue nécessaire par l'**insoutenabilité du statu quo** dans les architectures distribuées traditionnelles, qui souffrent de complexité et de couplage excessif. Le fondement technique de ce changement repose sur l'**Architecture Orientée Événements (EDA)**, avec Apache Kafka servant de « Système Nerveux Numérique » pour assurer une communication asynchrone, découplée et dotée d'une mémoire collective immuable. La gestion de ces systèmes autonomes requiert une nouvelle discipline opérationnelle, l'**AgentOps**, pour encadrer leur cycle de vie, leur gouvernance et leur conformité. Parallèlement, d'autres textes abordent des sujets connexes comme l'**évolution exponentielle de l'IA** et la recherche en **informatique quantique**, y compris les défis des qubits NISQ (Noisy Intermediate-Scale Quantum) et les progrès dans les communications et capteurs quantiques. Enfin, les sources couvrent également des concepts fondamentaux de la **logique mathématique** et de la **théorie de la complexité**, encadrant ainsi les bases théoriques et les limites des systèmes informatiques.
 
+## Architecture
+
+- [Architecture Entreprise Agentique](./ReadMe%20-%20Architecture%20Entreprise%20Agentique.pdf)
+- [MindMap Architecture](./Readme%20-%20MindMapping.png)
+
 ## Table des Matières
 
 ### 1. Entreprise Agentique - Fondamentaux
@@ -60,4 +65,3 @@ L'**Entreprise Agentique**, un nouveau paradigme architectural qui modélise les
 - [QuantumComputing - LeLabQuantique - Partie 5](./Book%20-%20QuantumComputing%20-%20LeLabQuantique%20-%20Partie%205.pdf)
 - [Solutions Architects Handbook](./Book%20-%20Solutions%20Architects%20Handbook.pdf)
 - [Theory of Computation](./Book%20-%20Theory%20of%20Computation.pdf)
-- [ReadMe - Architecture Entreprise Agentique](./ReadMe%20-%20Architecture%20Entreprise%20Agentique.pdf)
