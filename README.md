@@ -7,8 +7,8 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 ### 1. Introduction à l'Entreprise Agentique
 - `1a - Entreprise Agentique - Livre Blanc.pdf`
 - `1b - Entreprise Agentique - Systèmes Multi Agents Autonomes.pdf`
-- `1c - Entreprise Agentique - Études de Cas.pdf`
-- `1d - Entreprise Agentique - Compendium.pdf`
+- `1c - Entreprise Agentique - Compendium.pdf`
+- `1d - Entreprise Agentique - Études de Cas.pdf`
 
 ### 2. Architecture des Systèmes Agentiques
 - `2a - Plan Directeur – Architecture d’Interopérabilité Agentique.pdf`
@@ -19,16 +19,18 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 ### 3. Technologies et Plateformes
 - `3a - Kafka - Kafka pour Architectes.pdf`
 - `3b - Kafka - Streaming Data Pipelines with Kafka.pdf`
-- `3c - Confluent - Guide de Conception des Systèmes Multi-Agents.pdf`
-- `3d - CERN - Federation of Agents.pdf`
-- `3e - Google - Virtual Agent Economies.pdf`
+- `3c - Confluent - Data Streaming Report 2025.pdf`
+- `3d- Turning Data Into Business Value Age of AI.pdf`
+- `3e -Guide to Event-Driven Design for Agents and Multi-Agent Systems.pdf`
+- `3f - CERN - Federation of Agents.pdf`
+- `3g - Google - Virtual Agent Economies.pdf`
 
 ### 4. Architectures Avancées
 - `4a - Jarvis – Architecture Cognitivo-Quantique - Informatique Théorique.pdf`
 - `4b - Epoch AI - Artificial Inteliigence in 2030.pdf`
 
 ### 5. Cursus - Science et Génie Informatiques
-- `5 - Cursus - Volume I - Princple of Probability.pdf`
+- `5 - Cursus - Volume I - Principle of Probability.pdf`
 - `5 - Cursus - Volume I - Science et Génie Informatiques.pdf`
 - `5 - Cursus - Volume II - Science et Génie Informatiques.pdf`
 - `5 - Cursus - Volume III - Science et Génie Informatiques.pdf`
@@ -53,6 +55,9 @@ Ce dépôt rassemble une collection de documents, de livres blancs, d'études de
 - `QuantumComputing - LeLabQuantique - Partie 3.pdf`
 - `QuantumComputing - LeLabQuantique - Partie 4.pdf`
 - `QuantumComputing - LeLabQuantique - Partie 5.pdf`
+
+### Carte Mentale (Mind Map)
+![NotebookLM Mind Map](NotebookLM%20Mind%20Map.png)
 
 ---
 
