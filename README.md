@@ -46,10 +46,10 @@ L'**Entreprise Agentique**, un nouveau paradigme architectural qui modélise les
 - [Cursus - Volume VI - Science et Génie Informatiques](./5%20-%20Cursus%20-%20Volume%20VI%20-%20Science%20et%20Génie%20Informatiques.pdf)
 
 ### Livres de Référence
-- [AI - Engineering](./Book%20-%20AI%20-%20Engineering.pdf)
-- [AI - Foundations of Computational Agents](./Book%20-%20AI%20-%20Foundations%20of%20Computational%20Agents.pdf)
-- [AI - Modern Approach 4th-Edition](./Book%20-%20AI%20-%20Modern%20Approach%204th-Edition.pdf)
-- [AI - Product Development](./Book%20-%20AI%20-%20Product%20Development.pdf)
+- [Artificial Intelligence - Engineering](./Book%20-%20AI%20-%20Engineering.pdf)
+- [Artificial Intelligence - Foundations of Computational Agents](./Book%20-%20AI%20-%20Foundations%20of%20Computational%20Agents.pdf)
+- [Artificial Intelligence - Modern Approach 4th-Edition](./Book%20-%20AI%20-%20Modern%20Approach%204th-Edition.pdf)
+- [Artificial Intelligence - Product Development](./Book%20-%20AI%20-%20Product%20Development.pdf)
 - [Design - Platform Engineering for Architects](./Book%20-%20Design%20-%20Platform%20Engineering%20for%20Architects.pdf)
 - [Design - Solutions Architects Handbook](./Book%20-%20Design%20-%20Solutions%20Architects%20Handbook.pdf)
 - [Pattern - Agentic Design Patterns](./Book%20-%20Pattern%20-%20Agentic%20Design%20Patterns.pdf)
