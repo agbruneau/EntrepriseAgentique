@@ -28,11 +28,12 @@ L'Entreprise Agentique est un paradigme où des agents autonomes, orchestrés vi
 
 *   [3a - Kafka - Kafka pour Architectes](3a%20-%20Kafka%20-%20Kafka%20pour%20Architectes.pdf)
 *   [3b - Kafka - Streaming Data Pipelines with Kafka](3b%20-%20Kafka%20-%20Streaming%20Data%20Pipelines%20with%20Kafka.pdf)
-*   [3c - Confluent - Data Streaming Report 2025](3c%20-%20Confluent%20-%20Data%20Streaming%20Report%202025.pdf)
-*   [3d- Turning Data Into Business Value Age of AI](3d-%20Turning%20Data%20Into%20Business%20Value%20Age%20of%20AI.pdf)
-*   [3e -Guide to Event-Driven Design for Agents and Multi-Agent Systems](3e%20-Guide%20to%20Event-Driven%20Design%20for%20Agents%20and%20Multi-Agent%20Systems.pdf)
+*   [3c - Confluent - Data Streaming Guide](3c%20-%20Confluent%20-%20Data%20Streaming%20Guide.pdf)
+*   [3d - Confluent - Data Streaming Report 2025](3d%20-%20Confluent%20-%20Data%20Streaming%20Report%202025.pdf)
+*   [3e - Confluent - Guide to Event-Driven Design for Agents and Multi-Agent Systems](3e%20-%20Confluent%20-%20Guide%20to%20Event-Driven%20Design%20for%20Agents%20and%20Multi-Agent%20Systems.pdf)
 *   [3f - CERN - Federation of Agents](3f%20-%20CERN%20-%20Federation%20of%20Agents.pdf)
-*   [3g - Google - Virtual Agent Economies](3g%20-%20Google%20-%20Virtual%20Agent%20Economies.pdf)
+*   [3g - Confluent - Turning Data Into Business Value Age of AI](3g%20-%20Confluent%20-%20Turning%20Data%20Into%20Business%20Value%20Age%20of%20AI.pdf)
+*   [3h - Google - Virtual Agent Economies](3h%20-%20Google%20-%20Virtual%20Agent%20Economies.pdf)
 
 ## Livres de Référence
 
