@@ -30,6 +30,9 @@ Faute de sources amont (Typst du Compendium, de la Veille et de la Revue; HTML d
 
     Restent partiels : le texte normatif d'ArchiMate 4, derrière un compte The Open Group (#18-20), et, pour le #2, une recherche faite avec les moteurs des sites du BSIF et de l'AMF plutôt qu'une lecture intégrale de leurs publications.
 - **Hors d'atteinte ici** : le report des corrections dans les sources amont (Typst, HTML), absentes de ce poste et de GitHub. À faire par l'auteur dans son dépôt de rédaction.
+- **Clôture (29 oct. 2026)** : l'auteur lève l'objectif. Deux points restent à sa charge :
+  - la lecture du texte normatif d'ArchiMate 4 (#18-20), sur compte The Open Group;
+  - le report des corrections dans les sources amont.
 - **Cadre** :
   - P2.2 : arguments JSON de C.6 recomposés en IBM Plex Mono, coupés entre propriétés seulement; condensés toujours exacts.
   - P2.3 : « André-Guy » aux p. 1 et 2.
