@@ -4,6 +4,21 @@ Ce plan structure la résolution exhaustive des constats relevés lors de l'audi
 
 **Validation du 29 octobre 2026.** Chaque constat a été confronté aux PDF du dépôt : extraction PyMuPDF sur texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées), recalcul des condensés de l'Annexe C du Cadre, lecture de `NiveauMaturité.html` (commit `4457a54`). Les constats faux ont été corrigés ou retirés. Les décomptes sont ceux de [verifier.py](verifier.py) (contrôle P6).
 
+**État d'exécution (29 oct. 2026) — `verifier.py` : 19 contrôles réussis sur 27.**
+
+- **Fait dans ce dépôt** :
+  - **P4** au complet. `NiveauMaturité.pdf` a été recompilé (Chrome sans interface) à partir de `NiveauMaturité.html` (`4457a54`). Modifications de la source :
+    - `&shy;` → `-`, commentaire CSS et `aria-label` compris;
+    - `<meta name="author">`;
+    - mention `André-Guy Bruneau · Octobre 2026 · Version 1.0` dans l'en-tête de la p. 1;
+    - `@page { size: 281mm 158mm; margin: 0 }`, format 16:9 de l'édition publiée, au lieu de l'A4 avec marges de la source;
+    - `.slide[aria-current="true"] { animation: none }` à l'impression, faute de quoi la p. 1 sortait vide (opacité 0 de l'animation d'entrée).
+
+    Métadonnées et 7 signets injectés avec `pymupdf`. L'espace insécable avant `?` est conservée (P5.4.2).
+  - **P5.4.1** et volet métadonnée de **P2.3** : `author = André-Guy Bruneau` posé dans les cinq PDF (sauvegarde incrémentale, contenu intact), `subject` du Compendium renseigné. À reporter dans les sources amont, sinon la prochaine compilation fera régresser le contrôle.
+  - **P5.2**, **P5.3.3**, **P5.4.2** : table de correspondance des échelles, date et version de NiveauMaturité, et absence de convention pour `?`, consignées dans le [README.md](README.md).
+- **Bloqué : sources amont absentes** de ce poste et de GitHub (Typst du Compendium, de la Veille et de la Revue; HTML du Cadre) : P1 (tout), P2.2, P2.3 (texte des p. 1–2), P3 (tout), P5.1, P5.3.1, P5.3.2. Le chantier P1.2 exige en outre des re-vérifications en source primaire (ch. 35, 40, 44, 47) qui relèvent de l'auteur.
+
 **Pagination.** `Compendium.pdf` : folios imprimés (folio = page du PDF − 14). Autres documents : pages du PDF.
 
 ---
@@ -195,7 +210,7 @@ Avant tout commit des nouveaux PDF dans ce dépôt, exécuter le script [verifie
 python verifier.py
 ```
 
-Les recherches de chaînes portent sur le texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées); sans normalisation, les césures masquent des occurrences. **Référence au 29 oct. 2026 : 13 contrôles réussis sur 27**, conformes aux constats des chantiers P1 à P5.
+Les recherches de chaînes portent sur le texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées); sans normalisation, les césures masquent des occurrences. **Référence initiale au 29 oct. 2026 : 13 contrôles réussis sur 27; 19 après les corrections faisables dans ce dépôt.**
 
 - [ ] **Présence et intégrité** : Les 5 PDF et [README.md](README.md) s'ouvrent sans erreur; tous les liens internes des 5 PDF pointent vers des pages valides (`broken_internal_links == 0`). Les destinations nommées UTF-8 de Typst, que PyMuPDF lit en Latin-1, sont résolues par l'arbre des noms (vrai aujourd'hui pour les 5 PDF).
 - [ ] **Métadonnées et signets** : Pour chacun des 5 PDF, `metadata["author"] == "André-Guy Bruneau"` (cf. P5.4), `metadata["title"] != ""` et `len(doc.get_toc()) > 0`.
