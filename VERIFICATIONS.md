@@ -5,7 +5,7 @@ Les 26 dettes ouvertes (`☐`) du Compendium ont été instruites le 29 octobre 
 | # | Folio (ch.) | Objet | Source consultée | Résultat | Suite donnée dans le Compendium |
 | :-: | :-- | :-- | :-- | :-- | :-- |
 | 1 | 374 (21) | S-153, invariant à quatre termes | Dépôt amont : fichier retiré le 22 juill. 2026 | Non rejouable; thèse d'auteur du Vol. I | Entrée close comme non rejouable (D-5) |
-| 2 | 384 (21) | Groupe CFDIR; échéance post-quantique du BSIF ou de l'AMF | Recherche documentaire ciblée | Ni publication du CFDIR ni échéance du BSIF ou de l'AMF remontée; pas un balayage exhaustif | Lacune instruite, absence maintenue au degré 3 |
+| 2 | 384 (21) | Groupe CFDIR; échéance post-quantique du BSIF ou de l'AMF | Recherche sur les sites des autorités : [bulletin du BSIF, mars 2026](https://www.osfi-bsif.gc.ca/en/risks/technology-cyber-risk-management/technology-risk-bulletin/quantum-readiness-phases-timelines), [Perspectives AMF](https://lautorite.qc.ca/grand-public/publications/pour-les-professionnels/perspectives-amf/informatique-quantique-le-temps-dagir) | BSIF : phases de migration et horizon de 2035 rapporté d'après les experts, sans échéance propre; AMF : analyse informative sans échéance; CFDIR : aucune publication remontée | Lacune instruite et réécrite |
 | 3 | 461 (25) | Date québécoise (S-023, S-114) | [AMF, page de la ligne directrice](https://lautorite.qc.ca/professionnels/assureurs/lignes-directrices/utilisation-des-modeles/ld-utilisation-de-lintelligence-artificielle) | « Prise d'effet : 1er mai 2027 » | Date re-constatée; même état de preuve que la date fédérale |
 | 4 | 485 (27) | Datation de la ligne directrice de l'AMF | Même page | Affiche « Avril 2026 »; ni 30 mars ni 7 avril | Divergence résolue en absence de datation au jour près (S-113) |
 | 5 | 583 (33) | S-043, jalons du rail Lynx | Paiements Canada : [2 mai 2019](https://payments.ca/ibm-canada-joins-payments-modernization-journey-lead-technology-partner-canadas-new-high-value), [1er sept. 2021](https://payments.ca/payments-canada-launches-lynx-canadas-new-high-value-payment-system), [16 oct. 2023](https://www.payments.ca/payments-canada-strengthens-resilience-lynx-canadas-high-value-payment-system-additional-data) | Trois dates re-constatées | Borne de régime levée |
@@ -31,5 +31,5 @@ Les 26 dettes ouvertes (`☐`) du Compendium ont été instruites le 29 octobre 
 
 **Limites.**
 - Le texte normatif d'ArchiMate 4 (#18-20) exige un compte The Open Group, que l'auteur doit ouvrir lui-même.
-- La recherche du #2 n'est pas un balayage exhaustif des publications du BSIF et de l'AMF.
+- Pour le #2, la recherche passe par les moteurs de recherche des sites du BSIF et de l'AMF; elle ne vaut pas lecture intégrale de leurs publications.
 - Le #11 ne pourra être instruit que si l'auteur précise les affirmations en cause.
