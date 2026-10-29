@@ -2,7 +2,7 @@
 
 Ce plan structure la résolution exhaustive des constats relevés lors de l'audit des six fichiers du dépôt ([README.md](README.md), [NiveauMaturité.pdf](NiveauMaturit%C3%A9.pdf), [Veille Technologique.pdf](Veille%20Technologique.pdf), [Revue de littérature.pdf](Revue%20de%20litt%C3%A9rature.pdf), [Cadre de Référence - Interopérabilité et Orchestration en Entreprise Agentique.pdf](Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) et [Compendium.pdf](Compendium.pdf)).
 
-**Validation du 29 octobre 2026.** Chaque constat a été confronté aux PDF du dépôt : extraction PyMuPDF sur texte normalisé (`U+00AD` retirés, lignes fusionnées), recalcul des condensés de l'Annexe C du Cadre, lecture de `NiveauMaturité.html` (commit `4457a54`). Les constats faux ont été corrigés ou retirés; les décomptes marqués « heuristique » restent approximatifs.
+**Validation du 29 octobre 2026.** Chaque constat a été confronté aux PDF du dépôt : extraction PyMuPDF sur texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées), recalcul des condensés de l'Annexe C du Cadre, lecture de `NiveauMaturité.html` (commit `4457a54`). Les constats faux ont été corrigés ou retirés. Les décomptes sont ceux de [verifier.py](verifier.py) (contrôle P6).
 
 **Pagination.** `Compendium.pdf` : folios imprimés (folio = page du PDF − 14). Autres documents : pages du PDF.
 
@@ -25,7 +25,7 @@ Ce dépôt ne contient que les PDF compilés et [README.md](README.md). L'exécu
 
 | Priorité | Chantier | Livrable(s) cible(s) | Volume d'anomalies traitées |
 | :---: | :--- | :--- | :--- |
-| **P1** | Assainissement éditorial et bibliographique du Compendium | [Compendium.pdf](Compendium.pdf) | 50 bandeaux de chantier, 26 `☐`, 148 `☑`, 483 `⚠`, 108 `CA-IV-`, ~64 notes infiltrées en Annexe I.1 (heuristique), 15 notes « hors du rendu », doublons bibliographiques, erreur CRR3 `2024/1619`, renvois à des annexes non rédigées, en-têtes tronqués |
+| **P1** | Assainissement éditorial et bibliographique du Compendium | [Compendium.pdf](Compendium.pdf) | 50 bandeaux de chantier, 26 `☐`, 148 `☑`, 483 `⚠`, 116 `CA-IV-`, 64 notes infiltrées en Annexe I.1, 15 notes « hors du rendu », doublons bibliographiques, erreur CRR3 `2024/1619`, renvois à des annexes non rédigées, en-têtes tronqués |
 | **P2** | Corrections formelles du Cadre de référence | [Cadre de Référence](Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Coupures de lignes JSON (Annexe C), accent de l'auteur (`André-Guy Bruneau`); condensés `SHA-256` vérifiés exacts (aucune action) |
 | **P3** | Nettoyage de la Veille technologique et de la Revue de littérature | [Veille Technologique.pdf](Veille%20Technologique.pdf), [Revue de littérature.pdf](Revue%20de%20litt%C3%A9rature.pdf) | 140 `et al..`, 19 `☑`, 193 `⚠` (184 + 9), § 13 anachronique (Tableaux 15 et 16), page 145 veuve, première ligne du Résumé p. 1 |
 | **P4** | Mise à niveau des métadonnées, signets et typographie | [NiveauMaturité.pdf](NiveauMaturit%C3%A9.pdf) | Attribution auteur/date/version, signets PDF (`TOC`), `&shy;` de `Technico-Syntaxique`, espace avant `?` |
@@ -37,20 +37,20 @@ Ce dépôt ne contient que les PDF compilés et [README.md](README.md). L'exécu
 ## Chantier P1 — Assainissement de `Compendium.pdf` (Critique & Majeur)
 
 ### P1.1 Purge des bandeaux d'échafaudage en tête des 50 chapitres
-- **Constat** : Les 50 chapitres affichent sous leur titre un bandeau interne de gestion de projet (`TOC.md v0.23` à `v0.30`, `CA-IV-11 et CA-IV-13 insatisfaites`, `G-4 à G-6 ouvertes`, `aucun vote adversarial`, `rédigé hors portes le 27 juillet 2026 et malgré la remontée bloquante R-IV-01`, `au compte des huit (D-21)`). 85 des 108 occurrences de `CA-IV-` s'y trouvent.
+- **Constat** : Les 50 chapitres affichent sous leur titre un bandeau interne de gestion de projet (`TOC.md v0.23` à `v0.30`, `CA-IV-11 et CA-IV-13 insatisfaites`, `G-4 à G-6 ouvertes`, `aucun vote adversarial`, `rédigé hors portes le 27 juillet 2026 et malgré la remontée bloquante R-IV-01`, `au compte des huit (D-21)`). 90 des 116 occurrences de `CA-IV-` s'y trouvent.
 - **Action** :
   - Désactiver l'affichage du bloc de métadonnées de chantier dans le gabarit Typst des chapitres ou retirer ces sous-titres des 50 fichiers sources.
   - Conserver uniquement, si souhaité pour la traçabilité éditoriale, une notice méthodologique unifiée en début d'ouvrage (pages liminaires).
 
 ### P1.2 Résolution des 26 dettes ouvertes (`☐`) et retrait des marqueurs internes (`☑`, `⚠`)
-- **Constat** : Le volume contient **26 cases `☐`** (ch. 21 : 2; ch. 35 : 6; ch. 40 : 4; ch. 44 : 3; ch. 50 : 4; ch. 25, 27, 33, 38, 42, 47 et 49 : 1 chacun), **148 cases `☑`**, **483 symboles `⚠`** (dont 468 dans l'Annexe I) et **23 mentions `CA-IV-`** hors des bandeaux.
+- **Constat** : Le volume contient **26 cases `☐`** (ch. 21 : 2; ch. 35 : 6; ch. 40 : 4; ch. 44 : 3; ch. 50 : 4; ch. 25, 27, 33, 38, 42, 47 et 49 : 1 chacun), **148 cases `☑`**, **483 symboles `⚠`** (dont 468 dans l'Annexe I) et **26 mentions `CA-IV-`** hors des bandeaux.
 - **Action** :
   1. Traiter sur le fond les dettes de vérification signalées par les 26 `☐`, en particulier :
      - **Ch. 35 (p. 626, 627, 630, 634, 636, 637)** : six entrées « non ré-établies » à la re-datation du 28 juillet 2026; les re-dater en source primaire ou retirer les affirmations qu'elles portent.
      - **Ch. 40 (p. 722, 726, 727)** : entrées non établies, dont deux ont pour source des fichiers du Vol. I retirés du dépôt le 22 juillet 2026; les sourcer autrement ou les retirer.
      - **Ch. 44 (p. 783, 789, 797)** : conduire la re-vérification du mécanisme d'extension (Specialization + stéréotype + Profiles) sur le document normatif d'**ArchiMate 4** (The Open Group, C260, 27 avril 2026), version de référence du chapitre, puis retirer les encadrés d'aveu de non-lecture.
      - **Ch. 47 (p. 845)** : payer le jalon `J-IV-7` (confronter la cinquième horloge du § 47.8.1 au texte des ch. 37 à 40) ou retirer le paragraphe qui expose cette dette.
-  2. Supprimer du rendu final toutes les cases `☐` et `☑`, les marqueurs `⚠` et les 23 mentions `CA-IV-` résiduelles.
+  2. Supprimer du rendu final toutes les cases `☐` et `☑`, les marqueurs `⚠` et les 26 mentions `CA-IV-` résiduelles.
 
 ### P1.3 Résolution des annexes absentes et des renvois internes cassés
 - **Constat** : Le volume passe du Chapitre 50 (p. 915) à la `Liste des références` (p. 916, 159 entrées `S-001` à `S-159`), puis à l'`Annexe I` (p. 926), *« neuvième et dernière »* annexe du plan. Le texte renvoie pourtant aux Annexes B à H (aucun renvoi à une Annexe A), jusque dans la table des matières (`45.4 Correspondance réglementaire : le tableau B.3 développé`) :
@@ -66,14 +66,14 @@ Ce dépôt ne contient que les PDF compilés et [README.md](README.md). L'exécu
 
 ### P1.4 Nettoyage et dédoublonnage de l'Annexe I.1 (`build/assemble-bibliographie.py`)
 - **Constat** :
-  - **Environ 64 notes** (heuristique : entrées sans « (année) » avant leur premier « : ») ont été aspirées comme entrées bibliographiques et triées de A à Y :
+  - **64 notes** ont été aspirées comme entrées bibliographiques et triées de A à Y. Règle de détection (`is_note` de [verifier.py](verifier.py)) : un « : » hors parenthèses avant le premier « (année). », ou aucun « (année). ». Elle signale aussi l'entrée `LangChain (The LangChain Team) ; version originale : Martin, L. (2025)`, vraie référence dont le champ auteur est à normaliser :
     - une dizaine de consignes et statistiques de méthode (`Anti-hype`, `Doublons fusionnés`, `Entrée générique`, `Entrées uniques`, `Les ressources marquées`, `Marquer le statut`, `Pour les textes`, `Privilégier les sources`, `Ressources vivantes`, `Tous les chiffres`, `Verdicts d'origine`);
     - une cinquantaine de notes d'errata de la forme « Référence : correction » (p. ex. `AI Act 2024/1689 : date d'adoption 13.6.2024 ajoutée…`, `SEC S7-12-23 : retiré le 12.6.2025…`, `Y201 : Case Study publiée en 2020…`).
   - **Erreur factuelle (p. 970)** : le règlement **CRR III** est cité sous `Règlement (UE) 2024/1619` et `http://data.europa.eu/eli/reg/2024/1619/oj`; `2024/1619` est le numéro de la directive **CRD VI** (ELI `dir/2024/1619`, entrée distincte p. 969), et CRR III est le `Règlement (UE) 2024/1623` (déjà présent p. 969).
-  - **Doublons multiples non fusionnés** : `arXiv:0908.0191` (3×), `arXiv:2312.00326` (2×), `arXiv:2501.07913` (2×), `Règlement (UE) 2024/1689` (4 entrées consécutives p. 969, plus la note d'errata `AI Act` p. 928), `DORA 2022/2554` (3×), `MiCA 2023/1114` (3×), `eIDAS 2 2024/1183` (2×), `PLD 2024/2853` (2×), `RFC 6749` (3×), `RFC 8693` (4×), `RFC 8707` (3×), `RFC 9421` (3×), `RFC 9728` (2×), `SPIFFE` (3×), ligne directrice IA de l'AMF (2×, p. 929 et 931), `Rao & Georgeff 1995` (2×), `Tolk & Muguira 2003` (2×), `Wooldridge 2009` (2×), `Yan 2025` (2×).
-  - **Artefacts résiduels** : **100** mentions `⚠ à re-vérifier à la rédaction` et **41** mentions `(contexte non cité)` (texte normalisé; une recherche brute sur l'extraction en manque une vingtaine, coupées par les césures). Aucun double point `..` dans le rendu actuel.
+  - **Doublons multiples non fusionnés** : `arXiv:0908.0191` (3×), `arXiv:2312.00326` (2×), `arXiv:2501.07913` (2×), `Règlement (UE) 2024/1689` (4 entrées consécutives p. 969, plus la note d'errata `AI Act` p. 928), `DORA 2022/2554` (3×), `MiCA 2023/1114` (3×), `eIDAS 2 2024/1183` (2×), `PLD 2024/2853` (2×), `RFC 6749` (2×), `RFC 8693` (2×), `RFC 8707` (2×), `RFC 9728` (2×), `SPIFFE` (3×), ligne directrice IA de l'AMF (2×, p. 929 et 931), `Rao & Georgeff 1995` (2×), `Tolk & Muguira 2003` (2×), `Wooldridge 2009` (2×), `Yan 2025` (2×). Les décomptes RFC de l'audit initial (6749 : 3×, 8693 : 4×, 8707 : 3×, 9421 : 3×) comptaient des entrées qui citent la RFC sans en être la notice (p. ex. le brouillon OAuth 2.1, Okta XAA, Visa TAP); `RFC 9421` n'a qu'une notice.
+  - **Artefacts résiduels** : **101** mentions `⚠ à re-vérifier à la rédaction` et **41** mentions `(contexte non cité)` (texte normalisé; une recherche brute sur l'extraction en manque une vingtaine, coupées par les césures). Aucun double point `..` dans le rendu actuel.
 - **Action** :
-  1. Dans `build/assemble-bibliographie.py`, ajouter un filtre d'exclusion rejetant les consignes (préfixes ci-dessus) **et** les notes d'errata (entrée sans « (année) » avant le premier « : »); contrôler le résultat sur la liste ci-dessus.
+  1. Dans `build/assemble-bibliographie.py`, ajouter un filtre d'exclusion rejetant les consignes (préfixes ci-dessus) **et** les notes d'errata (règle `is_note` ci-dessus); normaliser le champ auteur de l'entrée LangChain; contrôler le résultat avec [verifier.py](verifier.py).
   2. Corriger à la source l'entrée `2024/1619 (CRR3)` → `2024/1623 (CRR3)` et la fusionner avec l'entrée existante; conserver l'entrée `Directive (UE) 2024/1619 (CRD VI)`.
   3. Renforcer la clé de dédoublonnage dans `build/assemble-bibliographie.py` :
      - Normalisation par identifiant canonique prioritaire : `arXiv:XXXX.XXXXX` (sans numéro de version `vN`), `RFC NNNN`, `ELI/CELEX` européen (`reg/YYYY/NNNN`, `dir/YYYY/NNNN`), `DOI` en minuscules.
@@ -189,9 +189,15 @@ Ce dépôt ne contient que les PDF compilés et [README.md](README.md). L'exécu
 
 ## Chantier P6 — Grille de vérification automatisée (Gate de sortie)
 
-Avant tout commit des nouveaux PDF dans ce dépôt, exécuter un script Python (`pymupdf`) vérifiant que **toutes** les assertions suivantes passent à `True`. Les recherches de chaînes portent sur le texte normalisé (`U+00AD` retirés, lignes fusionnées); sans normalisation, les césures masquent des occurrences.
+Avant tout commit des nouveaux PDF dans ce dépôt, exécuter le script [verifier.py](verifier.py) (`pymupdf`), qui vérifie que **toutes** les assertions suivantes passent à `True` et sort en erreur sinon :
 
-- [ ] **Présence et intégrité** : Les 5 PDF et [README.md](README.md) s'ouvrent sans erreur; tous les liens internes des 5 PDF pointent vers des pages valides (`broken_internal_links == 0`).
+```bash
+python verifier.py
+```
+
+Les recherches de chaînes portent sur le texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées); sans normalisation, les césures masquent des occurrences. **Référence au 29 oct. 2026 : 13 contrôles réussis sur 27**, conformes aux constats des chantiers P1 à P5.
+
+- [ ] **Présence et intégrité** : Les 5 PDF et [README.md](README.md) s'ouvrent sans erreur; tous les liens internes des 5 PDF pointent vers des pages valides (`broken_internal_links == 0`). Les destinations nommées UTF-8 de Typst, que PyMuPDF lit en Latin-1, sont résolues par l'arbre des noms (vrai aujourd'hui pour les 5 PDF).
 - [ ] **Métadonnées et signets** : Pour chacun des 5 PDF, `metadata["author"] == "André-Guy Bruneau"` (cf. P5.4), `metadata["title"] != ""` et `len(doc.get_toc()) > 0`.
 - [ ] **Absence de marqueurs de chantier** : `0` occurrence de `☐`, `☑`, `⚠` (hormis l'avertissement voulu de `NiveauMaturité.pdf` p. 1), `CA-IV-`, `R-IV-01`, `hors du rendu` et `à re-vérifier à la rédaction` dans les 5 PDF.
 - [ ] **Hygiène typographique et Unicode** : `0` occurrence de `­` dans [NiveauMaturité.pdf](NiveauMaturit%C3%A9.pdf) (dans les PDF Typst, `U+00AD` marque les césures de fin de ligne — 3 171 dans le Compendium, 107 dans la Veille, 37 dans la Revue — et reste légitime), `0` occurrence de `et al..` dans [Revue de littérature.pdf](Revue%20de%20litt%C3%A9rature.pdf), et aucune page de fin veuve de moins de 5 lignes dans [Veille Technologique.pdf](Veille%20Technologique.pdf).
@@ -200,6 +206,6 @@ Avant tout commit des nouveaux PDF dans ce dépôt, exécuter un script Python (
   - Condensés recalculés à partir des valeurs affichées et égaux à celles-ci : `h` (C.6, repris dans `action_sha256` et `empreinte_approbation` en C.8) == `SHA-256(identifiant de l'outil ‖ JCS(arguments))`, `definition_digest` (C.2), `idempotency_key` et `arguments_sha256` (C.8); `0` occurrence de `9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08`.
 - [ ] **Intégrité bibliographique du Compendium** :
   - `0` note méthodologique ou d'errata infiltrée dans l'Annexe I.1 (règle de P1.4).
-  - `0` doublon d'identifiant principal `arXiv`, `RFC` ou `Règlement (UE)` dans l'Annexe I.1 (une entrée qui en cite une autre, p. ex. le RTS 2018/389 qui renvoie à PSD2 2015/2366, n'est pas un doublon).
+  - `0` doublon d'identifiant principal dans l'Annexe I.1 : `Règlement`/`Directive (UE)` en tête de titre, RFC publiée par l'IETF (`IETF RFC NNNN`), `arXiv` sans version. Une entrée qui en cite une autre (p. ex. le RTS 2018/389 qui renvoie à PSD2 2015/2366) n'est pas un doublon.
   - Règlement CRR III associé exclusivement à `2024/1623` (et non `2024/1619`).
   - Concordance exacte entre le nombre réel d'entrées de l'Annexe I.1 et le total affiché au tableau récapitulatif de l'annexe.
