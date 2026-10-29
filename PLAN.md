@@ -22,7 +22,14 @@ Faute de sources amont (Typst du Compendium, de la Veille et de la Revue; HTML d
   - P1.5 : 22 titres d'en-tête (106 pages) coupés au dernier mot entier.
   - P5.1 : « l'un des cinq livrables du dépôt ».
   - P5.3.1 : « Version finale d'avril 2026 ».
-  - **Non fait** : les re-vérifications en source primaire de P1.2.1 (ch. 35, 40, 44 et 47), qui relèvent de l'auteur; les marqueurs sont retirés, mais les dettes qu'ils signalaient demeurent.
+  - P1.2.1 : les 26 dettes ont été instruites le 29 oct. 2026, et les paragraphes réécrits selon le résultat (journal : [VERIFICATIONS.md](VERIFICATIONS.md)) :
+    - 13 sources re-constatées à la source primaire;
+    - 2 corrections de fond : l'offre d'observabilité est en disponibilité générale; deux composantes d'un dispositif de gouvernance sont retirées;
+    - 4 dettes closes ou devenues sans objet;
+    - 1 obligation interne payée (J-IV-7) et 1 rapprochement fait (lacunes ↔ S-nnn).
+
+    Restent partiels : le texte normatif d'ArchiMate 4, derrière un compte The Open Group (#18-20), et la recherche post-quantique du #2, qui n'est pas un balayage exhaustif.
+- **Hors d'atteinte ici** : le report des corrections dans les sources amont (Typst, HTML), absentes de ce poste et de GitHub. À faire par l'auteur dans son dépôt de rédaction.
 - **Cadre** :
   - P2.2 : arguments JSON de C.6 recomposés en IBM Plex Mono, coupés entre propriétés seulement; condensés toujours exacts.
   - P2.3 : « André-Guy » aux p. 1 et 2.

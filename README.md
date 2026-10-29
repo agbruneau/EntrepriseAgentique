@@ -15,7 +15,7 @@ Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déplo
 ## Statut et limites
 
 - Le **Cadre de référence** (v1.1) est une version finale soumise à l'approbation du comité; il n'est pas encore approuvé.
-- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses renvois aux volumes I à III visent des documents absents de ce dépôt, et les re-vérifications en source primaire que l'audit réclame (ch. 35, 40, 44 et 47) restent à faire.
+- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses renvois aux volumes I à III visent des documents absents de ce dépôt, et ses dettes de vérification ont été instruites le 29 oct. 2026 (journal : [VERIFICATIONS.md](VERIFICATIONS.md)).
 - La **Veille** (§ 13) décrit une version antérieure du Compendium, en douze livres; une note datée sous le Tableau 16 le signale, et la structure en vigueur est celle du Compendium livré.
 - Les cinq PDF ont été corrigés le 29 oct. 2026 selon [PLAN.md](PLAN.md), par retouche directe faute de sources amont dans ce dépôt. Les sources doivent recevoir les mêmes corrections avant toute recompilation; `python verifier.py` contrôle le résultat.
 - Les échelles diffèrent d'un document à l'autre (voir ci-dessous). Un rang ne se cite pas d'une échelle à l'autre.
