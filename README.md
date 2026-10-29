@@ -2,25 +2,46 @@
 
 Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déploiement et la supervision d'agents d'IA fondés sur les grands modèles de langue en entreprise, avec un accent sur les services financiers réglementés au Canada.
 
-## Documents
+## Structure du dépôt
 
-| Document | Nature | Date |
-|---|---|---|
-| [Veille Technologique.pdf](Veille%20Technologique.pdf) | État de l'art en entreprise : protocoles MCP, A2A et ANP, gouvernance, adoption, sécurité, sept couches implicites. | Faits gelés au 15 août 2026; reprise datée du 29 oct. 2026 en annexe |
-| [Revue de littérature.pdf](Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, surtout arXiv) sur dix fronts; confronte trois énoncés de la veille. | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
-| [Cadre de Référence - Interopérabilité et Orchestration en Entreprise Agentique.pdf](Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 28 oct. 2026 |
-| [NiveauMaturité.pdf](NiveauMaturit%C3%A9.pdf) | Pile d'interopérabilité en six paliers, propre à ce document : technico-syntaxique, sémantique, chorégraphique, politique, juridique, agentique. | Version 1.0, compilée le 29 oct. 2026 |
-| [Compendium.pdf](Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
+```
+documents/          Les cinq livrables en PDF
+sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
+```
+
+Les sources amont des cinq PDF ne sont pas dans ce dépôt.
+
+## Livrables
+
+| Document | Nature | Pages | Date |
+|---|---|---|---|
+| [NiveauMaturité](documents/NiveauMaturit%C3%A9.pdf) | Pile d'interopérabilité en six paliers, propre à ce document : technico-syntaxique, sémantique, chorégraphique, politique, juridique, agentique. | 7 | Version 1.0, compilée le 29 oct. 2026 |
+| [Veille technologique](documents/Veille%20Technologique.pdf) | État de l'art en entreprise : protocoles MCP, A2A et ANP, gouvernance, adoption, sécurité, sept couches implicites. | 152 | Faits gelés au 15 août 2026; reprise datée du 29 oct. 2026 en annexe |
+| [Revue de littérature](documents/Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, dont 189 sur arXiv) sur dix fronts; confronte trois énoncés de la veille. | 64 | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
+| [Cadre de référence](documents/Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 294 | 28 oct. 2026 |
+| [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 1000 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
 
 ## Statut et limites
 
 - Le **Cadre de référence** (v1.1) est une version finale soumise à l'approbation du comité; il n'est pas encore approuvé.
-- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses renvois aux volumes I à III visent des documents absents de ce dépôt, et ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git).
+- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses renvois aux volumes I à III visent des documents absents de ce dépôt, et ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git). Neuf liens de fichier (p. 152, 154, 279, 280, 353 et 940) pointent vers des fichiers de travail (`PRD/*.md`, `annexe-references.md`) absents du dépôt et ne s'ouvrent donc pas.
 - La **Veille** (§ 13) décrit une version antérieure du Compendium, en douze livres; une note datée sous le Tableau 16 le signale, et la structure en vigueur est celle du Compendium livré.
 - Les cinq PDF ont été corrigés le 29 oct. 2026 selon `PLAN.md`, par retouche directe faute de sources amont dans ce dépôt; `PLAN.md` et le contrôle `verifier.py` ont été retirés au commit `d47db0f` et restent dans l'historique git. Les sources doivent recevoir les mêmes corrections avant toute recompilation.
-- La **Veille** et la **Revue** ont été révisées le même jour, en après-midi : errata corrigés à leur place quand ils tenaient dans la ligne, puis une annexe « Reprise du 29 octobre 2026 » ajoutée à chacune (Veille : énoncés datés rouverts sur source primaire, onze errata, références [343] à [371]; Revue : 189 notices arXiv reprises, régimes de preuve recomptés, quatre errata). Le corps reste gelé au 15 août 2026; l'annexe fait foi pour le 29 octobre. Ces ajouts sont à reporter dans les sources amont; les sources Typst des deux annexes sont dans [sources-annexes/](sources-annexes/) (`typst compile veille_annexe.typ`, Typst 0.15.1).
+- La **Veille** et la **Revue** ont été révisées le même jour, en après-midi : errata corrigés à leur place quand ils tenaient dans la ligne, puis une annexe « Reprise du 29 octobre 2026 » ajoutée à chacune (Veille : énoncés datés rouverts sur source primaire, onze errata, références [343] à [371]; Revue : 189 notices arXiv reprises, régimes de preuve recomptés, quatre errata). Le corps reste gelé au 15 août 2026; l'annexe fait foi pour le 29 octobre. Ces ajouts sont à reporter dans les sources amont.
 - Les échelles diffèrent d'un document à l'autre (voir ci-dessous). Un rang ne se cite pas d'une échelle à l'autre.
 - La typographie de la ponctuation haute n'est pas harmonisée : NiveauMaturité met une espace insécable avant `?`, le Cadre n'en met généralement pas, les autres documents varient.
+
+## Sources des annexes
+
+Les annexes de la Veille et de la Revue se recompilent séparément avec Typst 0.15.1; `tpl.typ` porte la mise en page commune. Les PDF produits sont ignorés par git.
+
+```bash
+typst compile sources/annexes/veille_annexe.typ
+```
+
+```bash
+typst compile sources/annexes/revue_annexe.typ
+```
 
 ## Correspondance des échelles du corpus
 
@@ -40,6 +61,8 @@ Les échelles du corpus ne se superposent pas rang pour rang. Le tableau les rel
 | 6 Agentique | Autonomie N0 à N4 (ch. 8); maturité en cinq niveaux (ch. 14) | Niveaux d'autonomie (§ 4.1.4) |
 
 ## Ordre de lecture suggéré
+
+L'ordre du tableau des livrables suit cet ordre de lecture.
 
 1. **NiveauMaturité** pour la vue d'ensemble, à lire avec son échelle propre.
 2. **Veille technologique** puis **Revue de littérature** pour l'état des connaissances.
