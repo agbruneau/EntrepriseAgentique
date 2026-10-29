@@ -64,6 +64,13 @@ def section(doc, prefix):
     return start, end
 
 
+def page_text(page):
+    """Texte de la page dans l'ordre visuel des lignes : un contenu retouché ou déplacé arrive en fin de flux."""
+    lines = [(round(l['spans'][0]['origin'][1]), l['bbox'][0], ''.join(s['text'] for s in l['spans']))
+             for b in page.get_text('dict')['blocks'] for l in b.get('lines', [])]
+    return '\n'.join(t for _, _, t in sorted(lines))
+
+
 def link_page(link, names):
     """Page cible d'un lien interne; PyMuPDF lit en Latin-1 les noms de destination UTF-8 de Typst, d'où le recodage."""
     if link.get('page') is not None:
@@ -251,7 +258,7 @@ def main():
         check('Présence : 5 PDF et README lisibles', False, str(exc))
         return 1
     check('Présence : 5 PDF et README lisibles', True)
-    texts = {key: [page.get_text() for page in doc] for key, doc in docs.items()}
+    texts = {key: [page_text(page) for page in doc] for key, doc in docs.items()}
 
     check_documents(docs, texts)
     check_typography(docs, texts)

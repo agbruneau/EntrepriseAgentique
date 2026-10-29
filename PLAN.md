@@ -4,9 +4,36 @@ Ce plan structure la résolution exhaustive des constats relevés lors de l'audi
 
 **Validation du 29 octobre 2026.** Chaque constat a été confronté aux PDF du dépôt : extraction PyMuPDF sur texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées), recalcul des condensés de l'Annexe C du Cadre, lecture de `NiveauMaturité.html` (commit `4457a54`). Les constats faux ont été corrigés ou retirés. Les décomptes sont ceux de [verifier.py](verifier.py) (contrôle P6).
 
-**État d'exécution (29 oct. 2026) — `verifier.py` : 19 contrôles réussis sur 27.**
+**État d'exécution (29 oct. 2026) — `verifier.py` : 27 contrôles réussis sur 27.**
 
-- **Fait dans ce dépôt** :
+Faute de sources amont (Typst du Compendium, de la Veille et de la Revue; HTML du Cadre), P1, P2.2, P2.3, P3, P5.1 et P5.3 ont été exécutés **par retouche directe des PDF**, à la demande de l'auteur. Méthode : masquage du texte seul (graphismes conservés); recomposition des paragraphes touchés avec Typst 0.15.1 et la police d'origine (Constantia/Corbel, New Computer Modern), styles et exposants préservés; glyphes transplantés pour IBM Plex Sans (Cadre), absente du poste; resserrement des vides de l'Annexe I. **Ces corrections sont à reporter dans les sources** avant toute recompilation.
+
+- **Compendium** :
+  - P1.1 : 50 bandeaux retirés.
+  - P1.2 : 26 `☐`, 148 `☑` et 483 `⚠` retirés, paragraphes recomposés; les thèses perdent leur parenthèse de provenance `TOC.md`.
+  - P1.3 :
+    - 116 `CA-IV-` réécrits (« le plan », « au sens du plan ») ou retirés;
+    - renvois aux annexes non rédigées remplacés : « registre du plan », catalogue de patrons du Vol. III, § 45.7, chronologie des Vol. II et III;
+    - fichiers internes renommés ou retirés;
+    - 15 notes « hors du rendu » et leurs appels retirés;
+    - `Liste des références` titrée « Annexe B » (titre, en-têtes, signet);
+    - « neuvième et dernière » retiré, titre du § 45.4 sans « B.3 ».
+  - P1.4 : 64 notes infiltrées et 25 doublons retirés (dont l'entrée CRR III sous `2024/1619`), 101 « à re-vérifier » et 41 « (contexte non cité) » purgés, champ auteur de l'entrée LangChain normalisé, compteurs mis à jour (134 doublons fondus, 1065 entrées uniques).
+  - P1.5 : 22 titres d'en-tête (106 pages) coupés au dernier mot entier.
+  - P5.1 : « l'un des cinq livrables du dépôt ».
+  - P5.3.1 : « Version finale d'avril 2026 ».
+  - **Non fait** : les re-vérifications en source primaire de P1.2.1 (ch. 35, 40, 44 et 47), qui relèvent de l'auteur; les marqueurs sont retirés, mais les dettes qu'ils signalaient demeurent.
+- **Cadre** :
+  - P2.2 : arguments JSON de C.6 recomposés en IBM Plex Mono, coupés entre propriétés seulement; condensés toujours exacts.
+  - P2.3 : « André-Guy » aux p. 1 et 2.
+  - P5.3.1 : « version d'avril 2026 » (p. 189).
+  - P5.3.2 : renvoi à la section 10.1 sous le Tableau 41.
+- **Veille** :
+  - P3.1 : 19 `☑` et 184 `⚠` retirés; note datée sous le Tableau 16; page veuve résorbée (144 pages).
+  - P5.3.1 : « finale en avril 2026 » (p. 38 et 119).
+  - La notice de la p. 122 (« 54 chapitres et 12 livres ») cite un statut d'époque et reste telle quelle.
+- **Revue** : P3.2 : 140 `et al..` corrigés, 9 `⚠` retirés, première ligne du Résumé respacée.
+- **Déjà fait plus tôt dans ce dépôt** :
   - **P4** au complet. `NiveauMaturité.pdf` a été recompilé (Chrome sans interface) à partir de `NiveauMaturité.html` (`4457a54`). Modifications de la source :
     - `&shy;` → `-`, commentaire CSS et `aria-label` compris;
     - `<meta name="author">`;
@@ -17,7 +44,6 @@ Ce plan structure la résolution exhaustive des constats relevés lors de l'audi
     Métadonnées et 7 signets injectés avec `pymupdf`. L'espace insécable avant `?` est conservée (P5.4.2).
   - **P5.4.1** et volet métadonnée de **P2.3** : `author = André-Guy Bruneau` posé dans les cinq PDF (sauvegarde incrémentale, contenu intact), `subject` du Compendium renseigné. À reporter dans les sources amont, sinon la prochaine compilation fera régresser le contrôle.
   - **P5.2**, **P5.3.3**, **P5.4.2** : table de correspondance des échelles, date et version de NiveauMaturité, et absence de convention pour `?`, consignées dans le [README.md](README.md).
-- **Bloqué : sources amont absentes** de ce poste et de GitHub (Typst du Compendium, de la Veille et de la Revue; HTML du Cadre) : P1 (tout), P2.2, P2.3 (texte des p. 1–2), P3 (tout), P5.1, P5.3.1, P5.3.2. Le chantier P1.2 exige en outre des re-vérifications en source primaire (ch. 35, 40, 44, 47) qui relèvent de l'auteur.
 
 **Pagination.** `Compendium.pdf` : folios imprimés (folio = page du PDF − 14). Autres documents : pages du PDF.
 
@@ -210,7 +236,7 @@ Avant tout commit des nouveaux PDF dans ce dépôt, exécuter le script [verifie
 python verifier.py
 ```
 
-Les recherches de chaînes portent sur le texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées); sans normalisation, les césures masquent des occurrences. **Référence initiale au 29 oct. 2026 : 13 contrôles réussis sur 27; 19 après les corrections faisables dans ce dépôt.**
+Les recherches de chaînes portent sur le texte normalisé (césures recollées, `U+00AD` retirés, lignes fusionnées); sans normalisation, les césures masquent des occurrences. **Référence initiale au 29 oct. 2026 : 13 contrôles réussis sur 27; 19 après les premières corrections, 27 après les retouches directes des PDF.**
 
 - [ ] **Présence et intégrité** : Les 5 PDF et [README.md](README.md) s'ouvrent sans erreur; tous les liens internes des 5 PDF pointent vers des pages valides (`broken_internal_links == 0`). Les destinations nommées UTF-8 de Typst, que PyMuPDF lit en Latin-1, sont résolues par l'arbre des noms (vrai aujourd'hui pour les 5 PDF).
 - [ ] **Métadonnées et signets** : Pour chacun des 5 PDF, `metadata["author"] == "André-Guy Bruneau"` (cf. P5.4), `metadata["title"] != ""` et `len(doc.get_toc()) > 0`.
