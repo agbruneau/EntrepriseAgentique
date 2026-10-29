@@ -21,7 +21,7 @@ Les 26 dettes ouvertes (`☐`) du Compendium ont été instruites le 29 octobre 
 | 15 | 726 (40) | S-153 | Voir #1 | Non rejouable | Close comme non rejouable |
 | 16 | 727 (40) | S-154 | Dépôt amont : Synthèse du Vol. I supprimée | Non rejouable | Close comme non rejouable |
 | 17 | 748 (42) | Re-mesure contre la matrice consolidée | Statut des annexes | L'annexe de consolidation ne sera pas rédigée | Dette sans objet |
-| 18-20 | 783, 789, 797 (44) | Mécanisme d'extension d'ArchiMate 4 | [Extrait officiel de la spécification](https://download.boekhuis.nl/9789401814751_fragm-docb.pdf) (Van Haren, avril 2026) | Ch. 14 « Language Customization Mechanisms » : attributs (14.1) et spécialisation (14.2) confirmés; texte normatif sur compte The Open Group, non lu | Préalable tenu en partie; registre maintenu en [C] |
+| 18-20 | 783, 789, 797 (44) | Mécanisme d'extension d'ArchiMate 4 | [Extrait officiel de la spécification](https://download.boekhuis.nl/9789401814751_fragm-docb.pdf) (Van Haren, avril 2026); [recherche dans le texte intégral](https://books.google.com/books?id=yJ7SEQAAQBAJ) (Google Livres) | Ch. 14 : un profil est un jeu d'attributs; le concept spécialisé se modélise en assignant un profil au concept général, avec une notation propre au besoin; les relations se spécialisent aussi. Retirés : trois interactions, constraint, contract, gap, representation; contract → spécialisation de business object, gap → d'assessment ou de deliverable | Préalable tenu sur extraits; mécanisme et deux substitutions confirmés; stéréotypes maintenus en [C] comme conventions du Vol. I |
 | 21 | 845 (47) | Jalon J-IV-7 : 5e horloge contre ch. 37 à 40 | Texte du Compendium | Aucune contradiction (ch. 37; § 39.4; § 39.5) | Obligation payée; renvoi au § 47.13 hors du rendu retiré |
 | 22 | 886 (49) | Rapprochement des lacunes avec les S-nnn | Annexe B et ch. 49, 50 | Aucune entrée de l'Annexe B ne porte d'identifiant de lacune; §10.9e ↔ S-090 | Rapprochement fait |
 | 23 | 905 (50) | A2A, nouvelles versions | [Versions publiées, dépôt `a2aproject/A2A`](https://github.com/a2aproject/A2A/releases) | Dernière : v1.0.1 du 28 mai 2026 | Constat daté du 29 oct. 2026 |
@@ -30,6 +30,6 @@ Les 26 dettes ouvertes (`☐`) du Compendium ont été instruites le 29 octobre 
 | 26 | 914 (50) | Tenue du registre de gel | — | Les en-têtes de statut ne figurent plus dans le rendu | Dette sans objet dans le rendu; renvoi au § 50.5 hors du rendu retiré |
 
 **Limites.**
-- Le texte normatif d'ArchiMate 4 (#18-20) exige un compte The Open Group, que l'auteur doit ouvrir lui-même.
+- ArchiMate 4 (#18-20) est lu par extraits, pas en entier : la lecture intégrale exige un compte The Open Group. La recherche de Google Livres a manqué des mots présents dans le texte (« profile »); une absence n'y prouve donc rien, et le « non-événement » du § 44.9 (aucun élément natif d'IA ou d'agent) reste en [C].
 - Pour le #2, la recherche passe par les moteurs de recherche des sites du BSIF et de l'AMF; elle ne vaut pas lecture intégrale de leurs publications.
 - Le #11 ne pourra être instruit que si l'auteur précise les affirmations en cause.

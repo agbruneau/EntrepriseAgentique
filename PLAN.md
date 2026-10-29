@@ -28,10 +28,10 @@ Faute de sources amont (Typst du Compendium, de la Veille et de la Revue; HTML d
     - 4 dettes closes ou devenues sans objet;
     - 1 obligation interne payée (J-IV-7) et 1 rapprochement fait (lacunes ↔ S-nnn).
 
-    Restent partiels : le texte normatif d'ArchiMate 4, derrière un compte The Open Group (#18-20), et, pour le #2, une recherche faite avec les moteurs des sites du BSIF et de l'AMF plutôt qu'une lecture intégrale de leurs publications.
-- **Hors d'atteinte ici** : le report des corrections dans les sources amont (Typst, HTML), absentes de ce poste et de GitHub. À faire par l'auteur dans son dépôt de rédaction.
+    Le ch. 44 (#18-20) est re-vérifié sur extraits du texte normatif d'ArchiMate 4 (recherche dans le texte intégral par Google Livres) : mécanisme d'extension et substitutions confirmés, encadrés d'aveu de non-lecture remplacés. Restent partiels : la lecture intégrale du ch. 14, servie sur compte The Open Group, et, pour le #2, une recherche faite avec les moteurs des sites du BSIF et de l'AMF plutôt qu'une lecture intégrale de leurs publications.
+- **Hors d'atteinte ici** : le report des corrections dans les sources amont (Typst, HTML), absentes de ce poste, de GitHub et de Google Drive (dossier « Entreprise Agentique » vide). À faire par l'auteur dans son dépôt de rédaction.
 - **Clôture (29 oct. 2026)** : l'auteur lève l'objectif. Deux points restent à sa charge :
-  - la lecture du texte normatif d'ArchiMate 4 (#18-20), sur compte The Open Group;
+  - la lecture intégrale du ch. 14 d'ArchiMate 4, sur compte The Open Group (facultative : le préalable est tenu sur extraits);
   - le report des corrections dans les sources amont.
 - **Cadre** :
   - P2.2 : arguments JSON de C.6 recomposés en IBM Plex Mono, coupés entre propriétés seulement; condensés toujours exacts.
