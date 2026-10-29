@@ -9,7 +9,7 @@ documents/          Les cinq livrables en PDF
 sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
 ```
 
-Les sources amont des cinq PDF ne sont pas dans ce dépôt.
+Les documents dont le corpus dépend sans être versés ici sont listés à la section [Documents absents du dépôt](#documents-absents-du-dépôt).
 
 ## Livrables
 
@@ -24,12 +24,27 @@ Les sources amont des cinq PDF ne sont pas dans ce dépôt.
 ## Statut et limites
 
 - Le **Cadre de référence** (v1.1) est une version finale soumise à l'approbation du comité; il n'est pas encore approuvé.
-- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses renvois aux volumes I à III visent des documents absents de ce dépôt, et ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git). Neuf liens de fichier (p. 152, 154, 279, 280, 353 et 940) pointent vers des fichiers de travail (`PRD/*.md`, `annexe-references.md`) absents du dépôt et ne s'ouvrent donc pas.
+- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git). Ses renvois aux volumes I à III et ses liens de fichier visent des documents absents du dépôt (voir ci-dessous).
 - La **Veille** (§ 13) décrit une version antérieure du Compendium, en douze livres; une note datée sous le Tableau 16 le signale, et la structure en vigueur est celle du Compendium livré.
 - Les cinq PDF ont été corrigés le 29 oct. 2026 selon `PLAN.md`, par retouche directe faute de sources amont dans ce dépôt; `PLAN.md` et le contrôle `verifier.py` ont été retirés au commit `d47db0f` et restent dans l'historique git. Les sources doivent recevoir les mêmes corrections avant toute recompilation.
 - La **Veille** et la **Revue** ont été révisées le même jour, en après-midi : errata corrigés à leur place quand ils tenaient dans la ligne, puis une annexe « Reprise du 29 octobre 2026 » ajoutée à chacune (Veille : énoncés datés rouverts sur source primaire, onze errata, références [343] à [371]; Revue : 189 notices arXiv reprises, régimes de preuve recomptés, quatre errata). Le corps reste gelé au 15 août 2026; l'annexe fait foi pour le 29 octobre. Ces ajouts sont à reporter dans les sources amont.
 - Les échelles diffèrent d'un document à l'autre (voir ci-dessous). Un rang ne se cite pas d'une échelle à l'autre.
 - La typographie de la ponctuation haute n'est pas harmonisée : NiveauMaturité met une espace insécable avant `?`, le Cadre n'en met généralement pas, les autres documents varient.
+
+## Documents absents du dépôt
+
+Le corpus s'appuie sur des documents qui ne sont pas versés ici. Leur absence n'empêche pas la lecture, mais elle empêche de vérifier une partie des citations et de recompiler les PDF.
+
+| Document | Qui y renvoie | Conséquence de l'absence |
+|---|---|---|
+| Sources amont des PDF : Typst 0.15.1 pour la Veille, la Revue et le Compendium; HTML imprimé par Chrome pour le Cadre et NiveauMaturité (d'après les métadonnées des PDF) | Les cinq livrables | Recompilation impossible. Seule la source HTML de NiveauMaturité subsiste, dans l'historique git (commit `4457a54`), dans un état antérieur aux corrections du 29 oct. 2026. |
+| Vol. I — *Interopérabilité agentique* (7 ch.) | Compendium (373 renvois); Veille § 4.12 et § 13 | Renvois invérifiables depuis ce dépôt. |
+| Vol. II — *L'autonomie encadrée* (24 ch.) et son socle coté (46 entrées) | Compendium (542 renvois); Veille § 8.4 et § 13 | Faits repris du socle invérifiables depuis ce dépôt. |
+| Vol. III — *L'entreprise agentique* et ses fiches F-xx et H-xx | Compendium (858 renvois, dont 123 fiches distinctes citées comme sources); Veille § 7.6 et § 13 | Énoncés appuyés sur une fiche invérifiables depuis ce dépôt. |
+| Démonstrateur Borealis-Go (Vol. I) | Veille § 4.12 | Retiré de son dépôt le 25 juill. 2026 (Veille § 13.2), rejouable dans le seul historique git de ce dépôt-là. |
+| Fichiers de travail : `PRD/PRD.md` (dont les décisions d'auteur D-n, § 15), `PRD/socle-consolide.md`, `PRD/TOC.md`, `PRD/gel-2026-07-27.md`, `PRD/gel-2026-07-28-volet-residuel.md`, `annexe-references.md` | Compendium : 9 liens de fichier (p. 152, 154, 279, 280, 353 et 940) et renvois aux décisions D-n | Liens morts. La teneur des décisions D-18 et D-21, qui fixent le périmètre du dépôt à cinq livrables, n'est pas consultable. |
+
+Au 15 août 2026, la Veille (§ 13.8) décrit les volumes III et IV comme diffusés à leur seul auteur, faute de relecteur distinct; le Vol. IV est depuis versé ici comme Compendium (décision D-21). L'absence des volumes I à III peut donc être voulue.
 
 ## Sources des annexes
 
