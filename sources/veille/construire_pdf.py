@@ -62,17 +62,10 @@ else:
                                    capture_output=True, check=True).stdout)
 
 # Écarts connus du contrôle de complétude (mots du PDF d'origine absents de l'extraction) :
-#  - en-têtes répétés des tableaux de l'annexe non balisée, que le repli range une seule
-#    fois dans le tableau : tableau 25 (« Objet / Au 15 août 2026 / Au 29 octobre 2026 /
-#    Réf. », répété pp. 146 et 147) et tableau 26 (« No Où Erreur Correction Traitement »,
-#    répété p. 149). Ceux des tableaux balisés sont retirés par entetes_repetes();
-#  - p. 1 et 95 : le contrôle lit le PDF mot à mot dans l'ordre du flux; les lignes
-#    retouchées y sont rangées en fin de page, si bien que « méca-/nisme », « dé-/posi-
-#    taire » se recollent de travers (« mécadécrivent »). L'extraction, qui range par
-#    position, a les bons mots (mécanisme, dépositaire, décrivent).
-ECARTS_CONNUS = {'no': 1, 'où': 1, 'erreur': 1, 'correction': 1, 'traitement': 1,
-                 'objet': 2, 'au': 4, '15': 2, 'août': 2, '2026': 4, '29': 2, 'octobre': 2, 'réf': 2,
-                 'mécadécrivent': 1, 'nisme': 1, 'déposi': 1, 'taire': 1}
+# aucun. Les en-têtes répétés de l'annexe non balisée (tableaux 25 et 26) sont absorbés
+# par l'extraction, qui les soustrait au contrôle; celui-ci lit les césures par position
+# (« méca-/nisme », « dé-/posi-/taire » des lignes retouchées, p. 1 et 95).
+ECARTS_CONNUS = {}
 
 # Frontières déplacées par les retouches : (avant, après). « recoller » réunit deux blocs
 # que l'extraction a séparés ([balise fermante + ouvrante] retirées entre les deux

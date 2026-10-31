@@ -44,11 +44,10 @@ else:
                                    capture_output=True, check=True).stdout)
 
 # Écarts connus du contrôle de complétude (mots du PDF d'origine absents de l'extraction) :
-#  - l'en-tête du tableau 11 est répété en tête de la p. 63 (« No Où Erreur Correction
-#    Traitement ») : une fois dans l'extraction, deux fois dans le PDF;
-#  - « excep-/tions » est coupé entre les p. 62 et 63, dans une cellule : le contrôle lit le
-#    PDF mot à mot et ne recolle une césure qu'avec le mot qui la suit immédiatement.
-ECARTS_CONNUS = {'no': 1, 'où': 1, 'erreur': 1, 'correction': 1, 'traitement': 1, 'excep': 1, 'tions': 1}
+# aucun. L'en-tête du tableau 11 répété en tête de la p. 63 est absorbé par l'extraction,
+# qui le soustrait au contrôle; « excep-/tions », coupé entre les p. 62 et 63 dans une
+# cellule, s'y recolle donc.
+ECARTS_CONNUS = {}
 
 
 def page_de_titre(pdf):

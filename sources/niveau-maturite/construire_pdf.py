@@ -263,8 +263,6 @@ def main():
 // signets : l'ensemble et les six paliers, comme l'édition d'origine
 #set heading(bookmarked: false)
 #show heading.where(level: 2): set heading(bookmarked: true)
-// avertissement en glyphe de texte, pas en émoji couleur
-#show "⚠": set text(font: "Segoe UI Symbol", fill: accent)
 // question du palier, en exergue, jamais seule en bas de page
 #show quote.where(block: true): it => block(above: 6pt, below: 16pt, sticky: true, stroke: (left: 2.5pt + accent),
   inset: (left: 11pt, y: 3pt), {{

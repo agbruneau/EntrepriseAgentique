@@ -84,17 +84,12 @@ PAGES_BIBLIO = range(940, 1000)
 JUSTIF_ORIGINE = 448
 
 # Écarts connus du contrôle de complétude (mots du PDF d'origine absents de l'extraction).
-# Le texte des figures est compté à part (il passe dans l'image). Restent des mots coupés
-# en fin de ligne dans une cellule de tableau : le contrôle lit le PDF mot à mot, rangée
-# visuelle par rangée visuelle, et recolle la césure au mot de la cellule voisine
-# (« préimpres- la sion ») ; le mot entier est bien dans l'extraction (donnée, attributs,
-# tokenisation, communautaire, préimpression, procédure, protégé, substituabilité,
-# attribuée, posée : p. 198, 345-346, 389-391, 554-555, 693-694, 723-724). Enfin, l'en-tête
-# du tableau des mesures de l'annexe I, répété en haut de la p. 941 (« Mesure Valeur ») :
-# une fois dans l'extraction, deux fois dans le PDF.
-ECARTS_CONNUS = dict.fromkeys(
-    'don née buts to kenisation taire préimpresla sion proprocédure tégé substich tuabilité communau '
-    'atune po tribuée sée attriqu mesure valeur'.split(), 1)
+# Le texte des figures est compté à part (il passe dans l'image). Reste « don-/née »,
+# coupé au saut des p. 71-72 : en fin de page, le contrôle recolle une césure du texte
+# courant au mot suivant du flux, ici un autre (« Le »); le mot entier est bien dans
+# l'extraction. Enfin, l'en-tête du tableau des mesures de l'annexe I, répété en haut de
+# la p. 941 (« Mesure Valeur ») : une fois dans l'extraction, deux fois dans le PDF.
+ECARTS_CONNUS = dict.fromkeys('don née mesure valeur'.split(), 1)
 # Lignes de cellule encore hors de leur colonne après recolonner() (controler_colonnes) :
 #  - p. 905, dernière rangée du tableau des lacunes : retouche directe du PDF d'origine,
 #    dont le texte de la 3e colonne est dessiné sous la 1re (« instruite, non close —
