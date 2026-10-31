@@ -7,7 +7,7 @@ Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déplo
 ```
 documents/          Les six livrables en PDF
 sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
-sources/note-amf/   Export HTML de la source de la Note AMF IA et script de retouche de son PDF
+sources/note-amf/   Export HTML de la source de la Note AMF IA et chaîne de composition de son PDF
 ```
 
 Les documents dont le corpus dépend sans être versés ici sont listés à la section [Documents absents du dépôt](#documents-absents-du-dépôt).
@@ -20,7 +20,7 @@ Les documents dont le corpus dépend sans être versés ici sont listés à la s
 | [Veille technologique](documents/Veille%20Technologique.pdf) | État de l'art en entreprise : protocoles MCP, A2A et ANP, gouvernance, adoption, sécurité, sept couches implicites. | 152 | Faits gelés au 15 août 2026; reprise datée du 29 oct. 2026 en annexe |
 | [Revue de littérature](documents/Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, dont 189 sur arXiv) sur dix fronts; confronte trois énoncés de la veille. | 64 | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
 | [Cadre de référence](documents/Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 294 | 28 oct. 2026 |
-| [Note AMF IA](documents/Note%20AMF%20IA.pdf) | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v1.0, version finale pour publication) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 72 | 31 oct. 2026 (v1.0) |
+| [Note AMF IA](documents/Note%20AMF%20IA.pdf) | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v1.0, version finale pour publication) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 39 | 31 oct. 2026 (v1.0) |
 | [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 1000 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
 
 ## Statut et limites
@@ -63,11 +63,13 @@ typst compile sources/annexes/revue_annexe.typ
 
 ## Source de la Note AMF IA
 
-La source de la Note AMF IA est un document Claude Docs ([lien](https://claude.ai/artifact/RBLR169KURVcsLrP1NE6PS), accès réservé à l'auteur). `sources/note-amf/note-amf-ia.html` en est l'export HTML pour la version 1.0; il sert à comparer le texte d'une version à l'autre. Le PDF se refait en deux temps : exporter le document en PDF (format lettre) depuis Claude Docs, puis retoucher l'export avec PyMuPDF. Le script met la date et la pagination en français, remonte sous son titre le tableau du § 11.3 et renseigne les métadonnées.
+La source de la Note AMF IA est un document Claude Docs ([lien](https://claude.ai/artifact/RBLR169KURVcsLrP1NE6PS), accès réservé à l'auteur). `sources/note-amf/note-amf-ia.html` en est l'export HTML pour la version 1.0; le PDF se compose à partir de cet export avec pandoc 3 et Typst 0.15.1 (PyMuPDF pour le contrôle). `filtre.lua` dimensionne les colonnes des tableaux et rend insécables les identifiants (EXIG-AMF-05, AMF-R-04); `gabarit.typ` porte la mise en page (format lettre, texte justifié avec césure française, couverture, table des matières, en-têtes de section, tableaux à en-tête répété) et redessine le calendrier du § 12, que l'export HTML ne contient pas. Le script refuse d'écrire le PDF si un mot de la source y manque.
 
 ```bash
-python sources/note-amf/finaliser_pdf.py export.pdf "documents/Note AMF IA.pdf"
+python sources/note-amf/construire_pdf.py
 ```
+
+Après une modification de la source dans Claude Docs, réexporter le HTML par-dessus `note-amf-ia.html` avant de relancer le script; si les dates du calendrier changent, les reporter dans `calendrier()` de `gabarit.typ`.
 
 ## Correspondance des échelles du corpus
 
