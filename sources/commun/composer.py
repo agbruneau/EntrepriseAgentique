@@ -6,7 +6,8 @@ contrôle que chaque mot du texte source se retrouve dans le PDF.
 Un script de document appelle composer() avec :
   - fragments : {nom: html} ; chaque fragment devient <nom>.typ, à inclure par main ;
   - main : le fichier Typst principal (couverture, sommaire, #include des fragments) ;
-  - extras : fichiers Typst propres au document, copiés à côté (figures…) ;
+  - extras : fichiers propres au document, copiés à côté (figures Typst, images…);
+    les .typ sont importés dans chaque fragment ;
   - source_controle : le texte que le PDF doit contenir mot pour mot.
 """
 import collections, html, pathlib, re, shutil, subprocess, sys, tempfile, unicodedata
@@ -24,16 +25,27 @@ def date_fr(a, m, j):
 
 def typographie(fragment):
     """Espaces insécables et apostrophe typographique, dans le texte seulement : ni dans
-    les balises, ni dans <code> ou <pre>, dont le contenu reste littéral."""
+    les balises, ni dans <code> ou <pre>, dont le contenu reste littéral. Les adresses
+    web du texte courant deviennent des liens (le gabarit ne les coupe qu'à leurs
+    barres, points et traits)."""
     def texte(t):
-        t = t.replace('&#39;', '’').replace("'", '’')
+        t = t.replace('&#39;', '’').replace('&#x27;', '’').replace("'", '’')
         t = re.sub(r' ([:;?!»])', NBSP + r'\1', t)
         t = re.sub(r'« ', '«' + NBSP, t)
         t = re.sub(r'§ ', '§' + NBSP, t)
         return t
     morceaux = re.split(r'(<pre\b.*?</pre>|<code\b.*?</code>)', fragment, flags=re.S)
-    return ''.join(m if i % 2 else re.sub(r'>([^<]+)<', lambda x: '>' + texte(x.group(1)) + '<', m)
+    return ''.join(m if i % 2 else re.sub(r'>([^<]+)<', lambda x: '>' + texte(x.group(1)) + '<', lier_url(m))
                    for i, m in enumerate(morceaux))
+
+
+def lier_url(fragment):
+    """Adresses web du texte -> <a href>, hors balises et hors liens existants."""
+    def lier(m):
+        u = m.group(0).rstrip('.,;:)»')
+        return f'<a href="{u}">{u}</a>' + m.group(0)[len(u):]
+    morceaux = re.split(r'(<a\b.*?</a>|<[^>]+>)', fragment, flags=re.S)
+    return ''.join(m if i % 2 else re.sub(r'https?://[^\s<>"]+', lier, m) for i, m in enumerate(morceaux))
 
 
 def pandoc(fragment, dest, imports=()):
@@ -41,7 +53,7 @@ def pandoc(fragment, dest, imports=()):
                     '-o', str(dest)], input=typographie(fragment).encode('utf8'), check=True)
     # pandoc centre ses tableaux (align(center)[...]) : les cellules en héritent
     typ = dest.read_text(encoding='utf8').replace('align(center)[#table(', '[#table(')
-    entete = ''.join(f'#import "{i}": *\n' for i in ('gabarit.typ', *imports))
+    entete = ''.join(f'#import "{i}": *\n' for i in ('gabarit.typ', *imports) if i.endswith('.typ'))
     dest.write_text(entete + typ, encoding='utf8')
 
 
@@ -50,7 +62,8 @@ def chaine_typst(t):
 
 
 def texte_html(fragment):
-    return re.sub(r'<[^>]+>', ' ', html.unescape(fragment))
+    # balises ôtées avant le décodage : « &lt;tool&gt; » reste un mot du texte
+    return html.unescape(re.sub(r'<[^>]+>', ' ', fragment))
 
 
 def mots(t):
@@ -61,7 +74,7 @@ def mots(t):
     return collections.Counter(re.findall(r"[^\W_]+", t.lower()))
 
 
-def controler(source, pdf):
+def controler(source, pdf, marges=(70, 60)):
     """Chaque mot de la source doit figurer dans le PDF.
 
     Le PDF est lu mot à mot (deux cellules voisines ne se collent pas), hors en-têtes
@@ -69,10 +82,12 @@ def controler(source, pdf):
     de ligne, retiré pour recoller le mot. Quand la coupure tombe sur un saut de page
     au milieu d'un tableau, l'en-tête répété s'intercale : le mot compte alors si son
     début (avant le trait conditionnel) et sa fin se trouvent tous deux dans le PDF.
-    Les mots se comparent hors traits d'union.
+    Les mots se comparent hors traits d'union. marges : hauteurs (pt) du haut et du
+    bas de page écartées comme en-tête et pied.
     """
     doc = pymupdf.open(pdf)
-    corps = lambda p: [w[4] for w in p.get_text('words') if w[1] > 70 and w[3] < p.rect.height - 60]
+    haut, bas = marges
+    corps = lambda p: [w[4] for w in p.get_text('words') if w[1] > haut and w[3] < p.rect.height - bas]
     rendu = ' '.join(w for p in doc for w in corps(p))
     lu = mots(rendu.replace('­ ', ''))
     debuts = {m.group(1).lower() for m in re.finditer(r'(\w+)­', rendu)}
@@ -85,7 +100,7 @@ def controler(source, pdf):
     return doc.page_count, sum(manque.values())
 
 
-def composer(fragments, main, sortie, source_controle, extras=()):
+def composer(fragments, main, sortie, source_controle, extras=(), marges=(70, 60)):
     sortie = pathlib.Path(sortie)
     with tempfile.TemporaryDirectory() as tmp:
         tmp = pathlib.Path(tmp)
@@ -97,7 +112,7 @@ def composer(fragments, main, sortie, source_controle, extras=()):
         (tmp / 'main.typ').write_text(main, encoding='utf8')
         brouillon = tmp / 'main.pdf'
         subprocess.run(['typst', 'compile', '--root', str(tmp), str(tmp / 'main.typ'), str(brouillon)], check=True)
-        pages, manquants = controler(source_controle, brouillon)
+        pages, manquants = controler(source_controle, brouillon, marges)
         if manquants:
             rejet = sortie.with_name(sortie.stem + ' (rejeté).pdf')
             shutil.copy(brouillon, rejet)

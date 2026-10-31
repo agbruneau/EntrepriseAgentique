@@ -46,7 +46,16 @@
     marker: text(fill: accent, size: 0.8em, baseline: -0.1em, sym.bullet))
   set enum(indent: 0.4em, body-indent: 0.55em, spacing: 0.75em)
   show link: set text(fill: accent)
+  // Liens : coupés à leurs barres, points et traits seulement. Sinon Typst coupe une
+  // adresse n'importe où, sans trait (« cloudsecurityallia / nce ») : illisible, et le
+  // contrôle mot à mot ne peut la recoller. Chaque segment alphanumérique est en boîte.
+  show link: it => {
+    show regex("[\p{L}\p{N}_]+"): box
+    it
+  }
   show strong: set text(weight: "bold")
+  // ⚠ en glyphe de texte, non en émoji couleur
+  show "⚠": set text(font: "Segoe UI Symbol", fill: accent)
 
   // Parties (niveau 1) : page neuve, bandeau.
   show heading.where(level: 1): it => {
@@ -75,6 +84,8 @@
   })
   show heading.where(level: 4): it => block(above: 12pt, below: 6pt, sticky: true,
     text(font: sans, size: 10pt, weight: "semibold", style: "italic", it.body))
+  show heading.where(level: 5): it => block(above: 10pt, below: 5pt, sticky: true,
+    text(font: sans, size: 9.5pt, weight: "regular", style: "italic", fill: gris, it.body))
 
   // Tableaux : en-tête répété, zébrure, texte aligné à gauche (pas de justification
   // dans les cellules étroites).
@@ -120,7 +131,7 @@
   v(14pt)
   line(length: 56pt, stroke: 3pt + accent)
   v(16pt)
-  block(text(font: serif, size: 25pt, fill: encre, par(leading: 0.42em, titre)))
+  block(text(font: serif, size: 25pt, fill: encre, hyphenate: false, par(leading: 0.42em, titre)))
   v(12pt)
   text(font: serif, size: 14pt, style: "italic", fill: gris, sous-titre)
   v(18pt)

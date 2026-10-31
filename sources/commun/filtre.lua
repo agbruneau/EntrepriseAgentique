@@ -8,9 +8,11 @@ local stringify = pandoc.utils.stringify
 
 -- Identifiants à traits d'union (EXIG-AMF-05, AMF-R-04, CRE-IA-2026-01-QC, 2026-10-31) :
 -- mis en boîte pour ne jamais se couper en fin de ligne. Un mot composé ordinaire
--- (mi-mars, peut-être) n'a ni chiffre ni deux majuscules et reste sécable.
+-- (mi-mars, peut-être) n'a ni chiffre ni deux majuscules et reste sécable. Une
+-- adresse ou un chemin (contient « / ») n'est pas mis en boîte : il déborderait.
 function Str(s)
   local t = s.text
+  if t:find("/") then return nil end
   local a, b = t:find("[%w][%w%.]*%-[%w%-%.]*%w")
   if not a then return nil end
   local id = t:sub(a, b)
@@ -47,7 +49,15 @@ function Table(tbl)
     for i, cell in ipairs(row.cells) do
       local t = cell_text(cell)
       if not is_head then total[i] = total[i] + utf8.len(t) end
-      for w in t:gmatch("%S+") do longest[i] = math.max(longest[i], utf8.len(w)) end
+      for w in t:gmatch("%S+") do
+        -- une adresse ou un chemin se coupe après « / », « . » ou « - » : seul son
+        -- plus long segment compte
+        if w:find("/") then
+          for seg in w:gmatch("[^/%.%-]+") do longest[i] = math.max(longest[i], utf8.len(seg) + 1) end
+        else
+          longest[i] = math.max(longest[i], utf8.len(w))
+        end
+      end
     end
   end)
   -- Plancher : le mot le plus long tient sur une ligne (≈ 5,6 pt par signe en
@@ -59,6 +69,13 @@ function Table(tbl)
     poids[i] = (total[i] / math.max(rows, 1)) ^ 0.75 + 1
   end
   local fixe, frac = {}, {}
+  local planchers = 0
+  for i = 1, n do planchers = planchers + plancher[i] end
+  if planchers >= 1 then
+    -- les planchers ne tiennent pas ensemble : on les réduit en proportion
+    for i = 1, n do tbl.colspecs[i][2] = plancher[i] / planchers end
+    return tbl
+  end
   repeat
     local reste, somme, change = 1, 0, false
     for i = 1, n do
