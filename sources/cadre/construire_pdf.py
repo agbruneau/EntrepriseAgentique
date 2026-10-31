@@ -25,11 +25,10 @@ Particularités traitées ici :
     selon le rectangle de fond qui les contient dans l'original, puis stylés;
   - blocs de code (NonStruct en chasse fixe) : <pre>, ligne visuelle par ligne
     (retours de Chrome gardés, corps réduit pour que la plus longue tienne);
-  - code en ligne : espaces lues dans la marge interne des pastilles retirées; URL
-    coupées par Chrome recollées; renvois d'exigences de la grille d'homologation
-    (lus en exposant) remis en fin d'item;
-  - Typst (schemas.typ) : colonnes ramenées à 100 % quand le filtre commun les fait
-    déborder; URL coupées seulement après « / » ou « - »;
+  - code en ligne : pastilles de Chrome lues sans leur marge interne (extracteur
+    commun, pastilles=True); renvois d'exigences de la grille d'homologation (lus en
+    exposant) remis en fin d'item;
+  - Typst (schemas.typ) : code en ligne long coupé seulement après « / » ou « - »;
   - « André-Guy » : le « é » est un span à part, suivi d'un blanc.
 
 Contrôles : complétude de l'extraction (écarts connus listés), recadrage sans perte
@@ -69,8 +68,8 @@ PARTIES = ('Fondements', 'Architecture, interopérabilité et orchestration', 'C
 LARGEUR = 468              # justification du gabarit (pt)
 EXIG = re.compile(r'EXIG-[A-Z0-9]{3}-\d{2}')
 
-# Écarts connus du contrôle de complétude, hors en-têtes de tableau répétés (comptés à
-# l'extraction, voir Cadre.tableau) : « André » (p. 1 et 2) est composé de deux spans
+# Écarts connus du contrôle de complétude (les en-têtes de tableau répétés, absorbés par
+# l'extracteur, en sont soustraits) : « André » (p. 1 et 2) est composé de deux spans
 # séparés par un blanc; le PDF se lit « Andr » + « é », l'extraction donne « André ».
 ECARTS_CONNUS = {'andr': 2, 'é': 2}
 
@@ -92,7 +91,6 @@ class Cadre(Extracteur):
         super().__init__(pdf, **params)
         self.cadres = {}            # clé de Figure intérieure -> (page, Rect de structure)
         self.schemas = []           # [(clé intérieure, page, Rect)], dans l'ordre du texte
-        self.repetes = collections.Counter()   # mots des en-têtes de tableau répétés
         self.fonds = {}             # page -> rectangles de fond pleins, larges
 
     def lire_page(self, page):
@@ -118,14 +116,6 @@ class Cadre(Extracteur):
         self.feuilles -= figs
         super().recaser()
         self.feuilles |= figs
-
-    def tableau(self, cle, legende):
-        avant = [r.texte for r in self.runs_de(cle)]
-        h = super().tableau(cle, legende)
-        apres = collections.Counter(r.texte for r in self.runs_de(cle))
-        retires = collections.Counter(avant) - apres
-        self.repetes += mots(' '.join(retires.elements()))
-        return h
 
     def code(self, cle):
         """Bloc en chasse fixe sur plusieurs lignes : texte ligne à ligne, blancs de tête
@@ -299,20 +289,6 @@ def corps(blocs, tableaux, figures):
     # espace ordinaire collée à une insécable (lien voisin d'un « : ») : une seule
     morceaux = re.split(r'(<pre\b.*?</pre>)', s, flags=re.S)
     s = ''.join(m if i % 2 else re.sub(r' ?\xa0 ?', '\xa0', m) for i, m in enumerate(morceaux))
-    # code en ligne : Chrome le compose dans une pastille à marge interne, que
-    # l'extraction lit comme une espace (« ( typ ) », « l’ ETag »)
-    s = re.sub(r'([(’]) (<code>)', r'\1\2', s)
-    s = re.sub(r'(</code>) ([),.;])', r'\1\2', s)
-    # URL coupées par Chrome : l'extraction a mis une espace à la coupure; le texte du
-    # lien redevient l'adresse
-    recollees = collections.Counter()
-    def url(m):
-        texte = html.unescape(re.sub(r'<[^>]+>', '', m.group(2)))
-        if ' ' in texte and texte.replace(' ', '') == html.unescape(m.group(1)):
-            recollees.update(mots(texte) - mots(texte.replace(' ', '')))
-            return m.group(0).replace(m.group(2), m.group(2).replace(' ', ''))
-        return m.group(0)
-    s = re.sub(r'<a href="([^"]*)">(.*?)</a>', url, s)
     # grille d'homologation (annexe A) : les renvois d'exigences, alignés à droite sur la
     # première ligne de l'item, sont lus comme un exposant en milieu de phrase; ils
     # passent en fin d'item
@@ -326,11 +302,11 @@ def corps(blocs, tableaux, figures):
     s = s[:i] + '\n<div id="references">\n' + s[i:] + '\n</div>'
     debut = s.index('<h2>Méthode et avertissements</h2>')
     fin = s.index('<h2>', debut + 1)
-    return fiche, s[:fin], s[fin:], recollees
+    return fiche, s[:fin], s[fin:]
 
 
 def main():
-    e = Cadre(SRC, niveaux=niveau, marges=MARGES)
+    e = Cadre(SRC, niveaux=niveau, marges=MARGES, pastilles=True)
     blocs = e.extraire()
     brut = vers_html(blocs)
     if HTML:
@@ -356,21 +332,20 @@ def main():
         sys.exit(f'recadrage des schémas incomplet : {dict(perdu)}')
 
     # complétude : chaque mot du texte courant d'origine (hors marges et table des
-    # matières) se retrouve dans l'extraction ou dans un schéma; seuls manquent les
-    # en-têtes de tableau répétés à chaque page
+    # matières) se retrouve dans l'extraction ou dans un schéma, aux écarts connus près
     ecarter = zones_ecartees(SRC) + [(i, src[i].rect) for i in PAGES_TDM]
     manque, surplus = controler_extraction(SRC, brut, marges=MARGES, ecarter=ecarter)
     manque -= figures_mots
-    inexplique = manque - e.repetes - collections.Counter(ECARTS_CONNUS)
+    inexplique = manque - collections.Counter(ECARTS_CONNUS)
     if inexplique:
         sys.exit(f'extraction incomplète : {dict(inexplique.most_common(40))}')
     print(f'extraction : {len(blocs)} blocs, {len(e.schemas)} schémas; écarts connus seulement'
-          f' ({sum(manque.values())} mots d’en-têtes de tableau répétés)')
+          f' ({sum(manque.values())} mots)')
 
     p = couverture(SRC)
     tableaux, figures = listes_origine(blocs)
     assert len(tableaux) == 69 and len(figures) == len(e.schemas) == 28, (len(tableaux), len(figures))
-    fiche_html, preambule, texte, recollees = corps(blocs, tableaux, figures)
+    fiche_html, preambule, texte = corps(blocs, tableaux, figures)
     rangs = re.findall(r'<tr><th>(?:<strong>)?(.*?)(?:</strong>)?</th><td>(.*?)</td></tr>', fiche_html)
     assert len(rangs) == 10, rangs
     fiche = ('<div class="fiche"><table><tbody>' +
@@ -409,11 +384,7 @@ def main():
     # libellés de partie réécrits (« PA R T I E I V », « A N N E X E S »)
     perte -= mots('PA R T I E I V X A N N E X E S ' * 5)
     perte -= mots('Fiche du document')   # titre de la p. 2 : la fiche passe sur la couverture
-    perte -= recollees                    # fragments d'URL recollés
     assert not perte, perte
-    # extras : les schémas (PDF) ne s'importent pas; composer() importe tout extra
-    _pandoc = C.pandoc
-    C.pandoc = lambda frag, dest, imports=(): _pandoc(frag, dest, [i for i in imports if i.endswith('.typ')])
     composer({'fiche': fiche, 'preambule': preambule, 'corps': texte}, main_typ, OUT, source, extras=extras)
     verifier_numeros(OUT, tableaux, figures)
 
@@ -437,8 +408,6 @@ SCHEMAS_TYP = r'''// Règles propres au Cadre de référence, appliquées après
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.caption.where(position: top): it => block(sticky: true, it)
   show figure.where(kind: image): set block(above: 14pt, below: 16pt)
-  show heading.where(level: 5): it => block(above: 10pt, below: 5pt, sticky: true,
-    text(font: sans, size: 9.5pt, weight: "semibold", fill: gris, it.body))
   // identifiants en chasse fixe (EXIG-AUT-09, tools/call) : insécables. Une URL (texte
   // d'un lien, que Typst coupe à n'importe quel signe) ou un long nom : coupé seulement
   // après « / » ou « - », chaque morceau insécable.
@@ -447,18 +416,6 @@ SCHEMAS_TYP = r'''// Règles propres au Cadre de référence, appliquées après
     let morceaux = it.text.matches(regex("[^/-]+[/-]*|[/-]+")).map(m => m.text)
     if morceaux.len() <= 1 { return it }
     morceaux.map(m => raw(m)).join(sym.zws)
-  }
-  // colonnes : le filtre commun peut dépasser 100 % quand les mots les plus longs de
-  // chaque colonne ne tiennent pas ensemble; on ramène la somme à 100 %
-  show table: it => {
-    let cols = it.columns
-    if type(cols) != array or cols.any(c => type(c) != relative or c.length != 0pt) { return it }
-    let somme = cols.fold(0%, (a, c) => a + c.ratio)
-    if somme <= 100.5% { return it }
-    let champs = it.fields()
-    let cellules = champs.remove("children")
-    champs.insert("columns", cols.map(c => c.ratio / (somme / 100%)))
-    table(..champs, ..cellules)
   }
   // blocs de code : lignes de Chrome gardées; 6,8 pt pour que la plus longue (109
   // signes) tienne sur la justification

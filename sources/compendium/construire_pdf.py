@@ -28,11 +28,11 @@ Particularités traitées ici :
   - encadrés « Thèse — … » de tête de chapitre (balisés comme un paragraphe) : en citation;
   - titres balisés en paragraphe gras : promus d'après les signets d'origine (912, tous
     retrouvés dans l'ordre);
-  - balisage abîmé par des retouches directes du PDF d'origine, corrigé dans la sous-classe
-    Extracteur : éléments vides qui rompent un paragraphe, étiquettes de liste porteuses de
-    texte, lignes de cellule rangées dans la colonne voisine, paragraphes balisés dans le
-    tableau qui les suit, en-têtes de tableau répétés à chaque page, haut de page rattaché
-    au mauvais bloc, bibliographie de l'annexe I (p. 941-1000) relue par sa géométrie;
+  - balisage abîmé par des retouches directes du PDF d'origine : l'extracteur commun
+    traite éléments vides, étiquettes de liste porteuses de texte, en-têtes de tableau
+    répétés, haut de page rattaché au mauvais bloc et lignes de cellule dans la colonne
+    voisine; la sous-classe Extracteur ajoute les paragraphes balisés dans le tableau qui
+    les suit et la bibliographie de l'annexe I (p. 941-1000), relue par sa géométrie;
   - adresses : coupables à leurs traits d'union (U+200B), sans césure, contrôlées à part.
 
 Contrôles laissés dans le code : complétude de l'extraction (écarts connus listés),
@@ -241,185 +241,6 @@ class Extracteur(extraire_mod.Extracteur):
                 self.biblio = ('p', cle, p)
             self.noeuds[cle].runs += l
 
-    def ecarter_entetes_repetes(self):
-        """En-tête de tableau répété par Typst à chaque nouvelle page : hors arborescence
-        (texte anonyme « hors »), il deviendrait un paragraphe après le tableau, ou des
-        lignes que recaser() verserait dans les cellules. Est écarté le texte anonyme
-        posé juste au-dessus de la première ligne du tableau sur la page (60 pt au plus),
-        dont tous les mots sont ceux de l'en-tête."""
-        hors = collections.defaultdict(list)
-        for k, n in self.noeuds.items():
-            if k[0] == 'hors':
-                for r in n.runs:
-                    hors[r.page].append((k, r))
-        self.entetes_repetes, self.mots_entetes = 0, collections.Counter()
-        for cle, n in self.noeuds.items():
-            if n.role != 'Table':
-                continue
-            trs = list(self.rangees(cle))
-            if not trs:
-                continue
-            tete = self.runs_de(trs[0])
-            # en-tête d'un seul tenant (sans blancs ni césures) : un fragment de mot coupé
-            # autrement qu'à la première page (« pres- / crit ») s'y retrouve aussi
-            tete_txt = re.sub(r'[\s\xad]', '', ''.join(r.texte for r in tete).lower())
-            p0 = min((r.page for r in tete), default=None)
-            corps = collections.defaultdict(list)
-            for tr in trs:
-                for r in self.runs_de(tr):
-                    corps[r.page].append(r)
-            for p, rs in corps.items():
-                if p == p0:
-                    continue
-                y = min(r.bbox[1] for r in rs)
-                retires = []
-                for k, r in hors.get(p, ()):
-                    mots_r = set(re.findall(r'\w+', r.texte.lower()))
-                    if y - 60 <= r.bbox[1] < y and all(m in tete_txt for m in mots_r) and r in self.noeuds[k].runs:
-                        self.noeuds[k].runs.remove(r)
-                        retires.append(r)
-                self.entetes_repetes += len(retires)
-                # mots comptés comme le contrôle les lit : mots du PDF dans ces zones, dans
-                # l'ordre du PDF, césures recollées
-                zones = [pymupdf.Rect(r.bbox) for r in retires]
-                lus = [w[4] for w in self.doc[p].get_text('words')
-                       if any(pymupdf.Rect(w[:4]).intersects(z) for z in zones)]
-                self.mots_entetes += mots(re.sub(r'\xad\s+', '', ' '.join(lus)).replace('\xad', ''))
-        self.ecarts.append(f'{self.entetes_repetes} span(s) d\'en-tête de tableau répété écarté(s)')
-
-    def classer(self):
-        """Trois retouches de l'arborescence avant le classement commun :
-          - en-têtes de tableau répétés : écartés (ecarter_entetes_repetes);
-          - éléments vides (appels de note Note > Lbl > Link sans texte, citations vides) :
-            retirés; un paragraphe qui en contient un passerait pour un conteneur de blocs
-            et se romprait en un fragment par élément en ligne (p. 473-474);
-          - étiquette de liste (Lbl) qui porte une phrase et non un repère (« • », « 2. ») :
-            terme d'une liste à alinéa suspendu (p. 561, 563, 710); elle devient un
-            paragraphe de l'item, sans quoi liste() l'écarterait avec les repères."""
-        self.ecarter_entetes_repetes()
-        garder = set(self.figures) | self.ancetres
-        vides = {}
-
-        def vide(cle):
-            if cle not in vides:
-                n = self.noeuds[cle]
-                vides[cle] = not n.runs and all(vide(c) for c in n.enfants)
-            return vides[cle]
-        for n in list(self.noeuds.values()):
-            n.enfants = [c for c in n.enfants if c in garder or not vide(c) or
-                         self.noeuds[c].role in extraire_mod.EN_LIGNE | {'TD', 'TH', 'TR', 'THead', 'TBody', 'Table'}]
-        self.termes = set()
-        for cle, n in self.noeuds.items():
-            if n.role == 'Lbl' and len(re.sub(r'\s', '', ''.join(r.texte for r in self.runs_de(cle)))) > 6:
-                n.role = 'P'
-                self.termes.add(cle)
-        super().classer()
-
-    def rangees(self, cle):
-        n = self.noeuds[cle]
-        if n.role == 'TR':
-            yield cle
-        elif n.role not in ECARTES:
-            for c in n.enfants:
-                if self.noeuds[c].role != 'Table':
-                    yield from self.rangees(c)
-
-    def colonnes(self, table):
-        """Rangées (cellules) d'un tableau, et début (x, pt) de chaque colonne, le même à
-        chaque page : celui des cellules de la première rangée (l'en-tête) si aucune n'est
-        vide, sinon None. Une estimation par la majorité des rangées échoue quand la
-        rangée mal balisée l'emporte en nombre (p. 918-920)."""
-        trs = [[c for c in self.noeuds[tr].enfants if self.noeuds[c].role in ('TD', 'TH')]
-               for tr in self.rangees(table)]
-        if not trs:
-            return trs, None
-        debuts = [min([r.bbox[0] for r in self.runs_de(c) if r.texte.strip()] or [None]) for c in trs[0]]
-        return trs, None if None in debuts else debuts
-
-    def completer_rangees(self, table):
-        """Rangée balisée sans ses cellules vides (coin d'un tableau à double entrée :
-        p. 263, 563, 665, 682, 752…) : pandoc la décalerait à gauche. Une cellule vide est
-        rétablie à chaque colonne où rien ne commence; colonnes d'après les rangées
-        complètes (début le plus fréquent de chaque rang)."""
-        cellules = lambda tr: [c for c in self.noeuds[tr].enfants if self.noeuds[c].role in ('TD', 'TH')]
-        debut = lambda c: min([r.bbox[0] for r in self.runs_de(c) if r.texte.strip()] or [None])
-        trs = list(self.rangees(table))
-        n = max((len(cellules(t)) for t in trs), default=0)
-        compte = collections.defaultdict(collections.Counter)
-        for t in trs:
-            if len(cellules(t)) == n:
-                for j, c in enumerate(cellules(t)):
-                    if debut(c) is not None:
-                        compte[j][round(debut(c))] += 1
-        if len(compte) != n:
-            return
-        d = [compte[j].most_common(1)[0][0] for j in range(n)]
-        if d != sorted(set(d)):
-            return
-        for t in trs:
-            cs = cellules(t)
-            if len(cs) >= n or any(debut(c) is None for c in cs):
-                continue
-            place = {max([i for i, x in enumerate(d) if x - 3 <= debut(c)] or [0]): c for c in cs}
-            if len(place) != len(cs):
-                continue
-            role = self.noeuds[cs[0]].role
-            rangee = []
-            for k in range(n):
-                if k not in place:
-                    place[k] = t + (len(self.noeuds), 'coin')
-                    self.noeuds[place[k]] = extraire_mod.Noeud(place[k], role, t)
-                rangee.append(place[k])
-            self.noeuds[t].enfants = [c for c in self.noeuds[t].enfants if c not in cs] + rangee
-            p = min(r.page for c in cs for r in self.runs_de(c)) + 1
-            self.ecarts.append(f'p. {p} : rangée de {len(cs)} cellule(s) sur {n}, cellule(s) vide(s) rétablie(s)')
-
-    def recolonner(self, cle):
-        """Chaque span d'une rangée complète rejoint la cellule de la colonne où il est
-        dessiné."""
-        trs, debuts = self.colonnes(cle)
-        if not debuts or len(debuts) < 2 or debuts != sorted(set(debuts)):
-            return
-        for tr, cells in zip(self.rangees(cle), trs):
-            # cellule ajoutée par recaser() pour une ligne égarée (inserer_cellule) :
-            # sa ligne rejoint, elle aussi, la cellule de sa colonne
-            propres = [c for c in cells if c[-1] != 'retouche']
-            if len(propres) != len(debuts):
-                continue
-            for c in cells:
-                for r in self.runs_de(c):
-                    k = max([i for i, d in enumerate(debuts) if d - 3 <= r.bbox[0]] or [0])
-                    if propres[k] == c:
-                        continue
-                    self.noeuds[self.proprietaire(r)].runs.remove(r)
-                    r.bloc = propres[k]
-                    self.noeuds[propres[k]].runs.append(r)
-                    self.feuilles.add(propres[k])
-                    self.hors_colonne.append((r.page, r))
-            n = self.noeuds[tr]
-            n.enfants = [c for c in n.enfants if c[-1] != 'retouche' or self.runs_de(c)]
-
-    def inserer_paragraphe(self, voisin, page, y):
-        """inserer_paragraphe() commun, au rang près : il place le paragraphe avant le
-        premier frère qui commence plus bas sur la même page, sinon en fin de section. Ici,
-        tout le livre est une seule section (racine Document) : une ligne égarée en bas de
-        page partait en fin de volume (p. 849, 860, 864, 883, 884, 925). Le rang retenu est
-        celui du premier frère qui commence après elle, page puis hauteur."""
-        nouveau = super().inserer_paragraphe(voisin, page, y)
-        parent = self.noeuds[nouveau].parent
-        freres = self.noeuds[parent].enfants
-        freres.remove(nouveau)
-        # début de chaque frère, mis en cache (les lignes déplacées ne le changent guère)
-        cache = self.__dict__.setdefault('debuts', {})
-
-        def debut(c):
-            if c not in cache:
-                cache[c] = min(((r.page, r.bbox[1]) for r in self.runs_de(c)), default=None)
-            return cache[c]
-        pos = next((i for i, c in enumerate(freres) if (d := debut(c)) is not None and d > (page, y)), len(freres))
-        freres.insert(pos, nouveau)
-        return nouveau
-
     def sortir_du_tableau(self, table):
         """Texte dessiné au-dessus de l'en-tête d'un tableau mais balisé dans ses rangées
         (p. 597, 763, 803, 822, 841, 851, 901, 904, 940 : paragraphe ou légende qui précède
@@ -465,131 +286,15 @@ class Extracteur(extraire_mod.Extracteur):
             self.ecarts.append(f'p. {p + 1} : {len(alineas)} paragraphe(s) balisé(s) dans le tableau qui les '
                                f'suit, sorti(s) avant lui (« {self.texte_runs(lignes[0])[:50]} »)')
 
-    def recaser_suite(self):
-        """recaser() de extraire.py, recopié avec un cas de plus : un amas de lignes en haut
-        de page, rangé dans un bloc qui commence plus bas sans venir de la page précédente,
-        rejoint le bloc qui terminait celle-ci. Sans quoi le commun, qui garde à chaque bloc
-        son amas le plus fourni, garde cet amas étranger et chasse les lignes du bloc
-        lui-même : l'ordre du texte s'inverse (p. 562 : « … la vérification » avant
-        « commerciales, jamais pour… », fin du paragraphe de la p. 561)."""
-        par_page = collections.defaultdict(lambda: collections.defaultdict(list))
-        for f in self.feuilles:
-            for r in self.runs_de(f):
-                par_page[r.page][f].append(r)
-        pages_de = collections.defaultdict(set)
-        for p, blocs in par_page.items():
-            for f in blocs:
-                pages_de[f].add(p)
-        # bloc qui finit chaque page (ligne la plus basse) sans se poursuivre à la suivante
-        # et la fin de son texte (sa ligne la plus basse, dernier span)
-        dernier, fin = {}, {}
-        for p, blocs in par_page.items():
-            bas_page = max(((r.bbox[3], r.bbox[2], f, i) for f, rs in blocs.items() for i, r in enumerate(rs)
-                            if r.texte.strip()), default=None)
-            if bas_page and p + 1 not in pages_de[bas_page[2]] and \
-                    self.noeuds[bas_page[2]].role in ('P', 'LBody', 'LI', 'Span'):
-                dernier[p] = bas_page[2]
-                fin[p] = blocs[bas_page[2]][bas_page[3]].texte.rstrip()
-        # suite de phrase : la page précédente ne finit pas sur une ponctuation finale, ou
-        # le haut de page commence par une minuscule (un encadré flottant en haut de page,
-        # « Revalidation du 30 juillet 2026 : … », p. 154, ne se rattache pas)
-        suite = lambda p, t: not re.search(r'[.!?:;»)\]]$', fin[p]) or t[:1].islower()
-        for p, blocs in sorted(par_page.items()):
-            etendue, tailles, egares = {}, {}, []
-            haut_page = min((r.bbox[1] for rs in blocs.values() for r in rs if r.texte.strip()), default=0)
-            for f, runs in blocs.items():
-                amas, bas = [], None
-                for r in sorted((r for r in runs if r.texte.strip()), key=lambda r: r.bbox[1]):
-                    if amas and r.bbox[1] - bas < 1.5 * r.taille:
-                        amas[-1].append(r)
-                        bas = max(bas, r.bbox[3])
-                    else:
-                        amas.append([r])
-                        bas = r.bbox[3]
-                if not amas:
-                    continue
-                if len(amas) > 1 and p - 1 not in pages_de[f] and amas[0][0].bbox[1] <= haut_page + 1 \
-                        and dernier.get(p - 1) not in (None, f) \
-                        and suite(p - 1, self.texte_runs(self.lignes_visuelles(amas[0])[0])):
-                    # amas du haut de page dans un bloc qui commence plus bas : la fin du
-                    # bloc qui terminait la page précédente (p. 562 : « commerciales,
-                    # jamais pour… », balisé dans le paragraphe du bas de page)
-                    hote = dernier[p - 1]
-                    for l in self.lignes_visuelles(amas[0]):
-                        self.ecarts.append(f'p. {p + 1} : haut de page rendu au bloc de la page précédente '
-                                           f'« {self.texte_runs(l)[:50]} »')
-                        for r in l:
-                            self.noeuds[self.proprietaire(r)].runs.remove(r)
-                            r.bloc = hote
-                            self.noeuds[hote].runs.append(r)
-                    amas = amas[1:]
-                principal = max(amas, key=lambda a: sum(len(r.texte.strip()) for r in a))
-                etendue[f] = extraire_mod.cadre(principal)
-                tailles[f] = {round(r.taille, 1) for r in principal}
-                for a in amas:
-                    if a is not principal:
-                        egares += [(f, l) for l in self.lignes_visuelles(a)]
-
-            def touche(l, g):
-                x0, y0, x1, y1 = extraire_mod.cadre(l)
-                gx0, gy0, gx1, gy1 = etendue[g]
-                h = max(r.taille for r in l)
-                ecart = max(gy0 - y1, y0 - gy1, 0)
-                return ecart < 0.6 * h and x0 < gx1 and x1 > gx0 and any(
-                    abs(r.taille - t) <= 0.5 for r in l for t in tailles[g])
-
-            def deplacer(l, f, hote):
-                self.ecarts.append(f'p. {p + 1} : ligne déplacée « {self.texte_runs(l)[:60]} »')
-                y0, y1 = extraire_mod.cadre(l)[1], extraire_mod.cadre(l)[3]
-                blancs = [r for r in blocs[f] if not r.texte.strip() and y0 - 1 <= r.bbox[1] and r.bbox[3] <= y1 + 1]
-                for r in l + blancs:
-                    self.noeuds[self.proprietaire(r)].runs.remove(r)
-                    r.bloc = hote
-                    self.noeuds[hote].runs.append(r)
-
-            grandir = lambda g, l: etendue.__setitem__(g, extraire_mod.cadre([etendue[g], extraire_mod.cadre(l)]))
-            change = True
-            while change and egares:
-                change = False
-                for f, l in list(egares):
-                    hote = f if touche(l, f) else next((g for g in etendue if g != f and touche(l, g)), None)
-                    if hote is None:
-                        continue
-                    if hote != f:
-                        deplacer(l, f, hote)
-                    grandir(hote, l)
-                    egares.remove((f, l))
-                    change = True
-            for f, l in egares:
-                x0, y0, x1, y1 = extraire_mod.cadre(l)
-                hote = next((g for g in etendue if 'retouche' in g and touche(l, g)), None)
-                if hote is None:
-                    hote = self.inserer_cellule(f, p, l) or self.inserer_paragraphe(f, p, y0)
-                    etendue[hote], tailles[hote] = extraire_mod.cadre(l), {round(r.taille, 1) for r in l}
-                deplacer(l, f, hote)
-                grandir(hote, l)
-
     def recaser(self):
-        """recaser_suite(), puis les cellules : sur certaines pages (p. 803, 849, 905, 918,
-        922, 940), l'arborescence range dans une cellule des lignes dessinées dans la colonne
-        voisine de la même rangée, et la lecture visuelle les entrelace (« sa période traverse
-        deux de commentaires échéances »). Chaque ligne rejoint la cellule de la colonne où
-        elle est dessinée."""
-        self.recaser_suite()
-        self.hors_colonne = []
+        super().recaser()
         for cle in [k for k, n in self.noeuds.items() if n.role == 'Table']:
             self.sortir_du_tableau(cle)
-            # deux passes : une rangée ne se complète qu'une fois ses lignes recasées
             for _ in range(2):
                 self.completer_rangees(cle)
                 self.recolonner(cle)
-        pages = collections.Counter(p + 1 for p, _ in self.hors_colonne)
-        for p, n in sorted(pages.items()):
-            self.ecarts.append(f'p. {p} : {n} span(s) de tableau rendu(s) à la cellule de leur colonne')
 
     def rendre(self, cle, legende=None):
-        if cle in getattr(self, 'termes', ()):
-            return f'<p data-terme="">{self.en_ligne_html(cle)}</p>'
         f = self.figures.get(cle)
         if f:
             alt = re.sub(r'\s+', ' ', ' '.join(' '.join(r.texte for r in l) for l in self.lignes_visuelles(f.runs)))
@@ -775,8 +480,8 @@ def corps(blocs, p, toc):
             b = re.sub(r'<(/?)h([3-6])>', lambda m: f'<{m.group(1)}h{int(m.group(2)) - 1}>', b)
         m = re.fullmatch(r'<p><strong>([^<]+)</strong></p>', b)
         if m and out and out[-1].startswith('<table'):
-            # reste d'en-tête répété que ecarter_entetes_repetes() n'a pas reconnu (posé
-            # plus haut que sa fenêtre) : ses mots sont tous ceux de l'en-tête qui précède
+            # reste d'en-tête répété que l'extracteur commun n'a pas absorbé (texte
+            # étranger intercalé) : ses mots sont tous ceux de l'en-tête qui précède
             tete = re.sub(r'<[^>]+>|\s', '', out[-1].split('</thead>')[0]).lower()
             if all(x in tete for x in re.findall(r'\w+', html.unescape(m.group(1)).lower())):
                 entetes += 1
@@ -787,10 +492,6 @@ def corps(blocs, p, toc):
     assert (livres, chapitres, annexes) == (5, 50, 2), (livres, chapitres, annexes)
     print(f"corps : {entetes} reste(s) d'en-tête de tableau répété écarté(s)")
     s = '\n'.join(out)
-    # terme d'une liste à alinéa suspendu : il ouvre le texte de son item
-    s = re.sub(r'<p data-terme="">((?:(?!</p>).)*)</p>\n<p>', r'<p>\1 ', s)
-    s = re.sub(r'<p data-terme="">((?:(?!</p>).)*)</p>\n', r'\1 ', s)
-    assert 'data-terme' not in s
     # encadrés de thèse
     s, n = re.subn(r'<p><strong>Thèse</strong> —(.*?)</p>', r'<blockquote><p><strong>Thèse</strong> —\1</p></blockquote>', s)
     # légendes de figure : rejoignent l'image qui les suit (ou, à défaut, qui les précède)
@@ -890,7 +591,6 @@ def main():
     manque, _ = controler_extraction(SRC, brut, marges=MARGES, ecarter=zones)
     # en-têtes de tableau répétés à chaque page : écartés à dessein (une fois dans
     # l'extraction, à chaque page dans le PDF)
-    manque -= e.mots_entetes
     inexplique = {m: n for m, n in manque.items() if n > ECARTS_CONNUS.get(m, 0)}
     if inexplique:
         sys.exit(f'extraction incomplète ({sum(inexplique.values())} mots) : '
