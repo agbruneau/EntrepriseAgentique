@@ -1,8 +1,8 @@
--- Filtre pandoc (HTML -> Typst) pour la Note AMF IA.
+-- Filtre pandoc (HTML -> Typst) commun aux livrables du corpus.
 -- 1. Largeur des colonnes : proportionnelle au texte de chaque colonne, bornée par
 --    son mot le plus long, pour que les colonnes courtes (Id, p., §) restent étroites.
 -- 2. Div « fiche » : la table des rubriques devient un appel #fiche(...) du gabarit.
--- 3. Div « calendrier » : remplacé par la figure dessinée dans le gabarit.
+-- 3. Div data-typst : remplacé par l'appel Typst indiqué (figure propre au document).
 
 local stringify = pandoc.utils.stringify
 
@@ -82,8 +82,10 @@ local function typst(blocks)
 end
 
 function Div(div)
-  if div.classes:includes("calendrier") then
-    return pandoc.RawBlock("typst", "#calendrier()")
+  -- <div data-typst="expr()"> : appel Typst propre au document (figure redessinée…)
+  local expr = div.attributes["typst"] or div.attributes["data-typst"]
+  if expr then
+    return pandoc.RawBlock("typst", "#" .. expr)
   end
   if div.classes:includes("fiche") then
     local tbl = div.content[1]
