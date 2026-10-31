@@ -6,8 +6,9 @@ Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déplo
 
 ```
 documents/          Les six livrables en PDF
+sources/commun/     Chaîne de composition commune : extracteur de PDF balisé, gabarit Typst, filtre pandoc, contrôles
+sources/<document>/ Script de composition de chaque livrable (note-amf, revue, veille, cadre, compendium, niveau-maturite)
 sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
-sources/note-amf/   Export HTML de la source de la Note AMF IA et chaîne de composition de son PDF
 ```
 
 Les documents dont le corpus dépend sans être versés ici sont listés à la section [Documents absents du dépôt](#documents-absents-du-dépôt).
@@ -16,12 +17,12 @@ Les documents dont le corpus dépend sans être versés ici sont listés à la s
 
 | Document | Nature | Pages | Date |
 |---|---|---|---|
-| [NiveauMaturité](documents/NiveauMaturit%C3%A9.pdf) | Pile d'interopérabilité en six paliers, propre à ce document : technico-syntaxique, sémantique, chorégraphique, politique, juridique, agentique. | 7 | Version 1.0, compilée le 29 oct. 2026 |
-| [Veille technologique](documents/Veille%20Technologique.pdf) | État de l'art en entreprise : protocoles MCP, A2A et ANP, gouvernance, adoption, sécurité, sept couches implicites. | 152 | Faits gelés au 15 août 2026; reprise datée du 29 oct. 2026 en annexe |
-| [Revue de littérature](documents/Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, dont 189 sur arXiv) sur dix fronts; confronte trois énoncés de la veille. | 64 | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
-| [Cadre de référence](documents/Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 294 | 28 oct. 2026 |
+| [NiveauMaturité](documents/NiveauMaturit%C3%A9.pdf) | Pile d'interopérabilité en six paliers, propre à ce document : technico-syntaxique, sémantique, chorégraphique, politique, juridique, agentique. | 5 | Version 1.0, compilée le 29 oct. 2026 |
+| [Veille technologique](documents/Veille%20Technologique.pdf) | État de l'art en entreprise : protocoles MCP, A2A et ANP, gouvernance, adoption, sécurité, sept couches implicites. | 110 | Faits gelés au 15 août 2026; reprise datée du 29 oct. 2026 en annexe |
+| [Revue de littérature](documents/Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, dont 189 sur arXiv) sur dix fronts; confronte trois énoncés de la veille. | 48 | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
+| [Cadre de référence](documents/Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 278 | 28 oct. 2026 |
 | [Note AMF IA](documents/Note%20AMF%20IA.pdf) | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v1.0, version finale pour publication) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 39 | 31 oct. 2026 (v1.0) |
-| [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 1000 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
+| [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 660 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
 
 ## Statut et limites
 
@@ -29,18 +30,18 @@ Les documents dont le corpus dépend sans être versés ici sont listés à la s
 - La **Note AMF IA** (v1.0) est une version finale pour publication, non encore soumise au comité. Ses états de correspondance ont été revus par quatre relectures assistées par IA; une relecture par la conformité et l'audit interne reste un préalable à l'adoption de ses exigences EXIG-AMF (§ 13.2, point 1). Les reports qu'elle propose au Cadre, au Compendium et à la Veille (annexe D) ne sont pas appliqués à ces documents.
 - Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git). Ses renvois aux volumes I à III et ses liens de fichier visent des documents absents du dépôt (voir ci-dessous).
 - La **Veille** (§ 13) décrit une version antérieure du Compendium, en douze livres; une note datée sous le Tableau 16 le signale, et la structure en vigueur est celle du Compendium livré.
-- Les cinq PDF ont été corrigés le 29 oct. 2026 selon `PLAN.md`, par retouche directe faute de sources amont dans ce dépôt; `PLAN.md` et le contrôle `verifier.py` ont été retirés au commit `d47db0f` et restent dans l'historique git. Les sources doivent recevoir les mêmes corrections avant toute recompilation.
-- La **Veille** et la **Revue** ont été révisées le même jour, en après-midi : errata corrigés à leur place quand ils tenaient dans la ligne, puis une annexe « Reprise du 29 octobre 2026 » ajoutée à chacune (Veille : énoncés datés rouverts sur source primaire, onze errata, références [343] à [371]; Revue : 189 notices arXiv reprises, régimes de preuve recomptés, quatre errata). Le corps reste gelé au 15 août 2026; l'annexe fait foi pour le 29 octobre. Ces ajouts sont à reporter dans les sources amont.
+- Les cinq PDF ont été corrigés le 29 oct. 2026 selon `PLAN.md`, par retouche directe faute de sources amont dans ce dépôt; `PLAN.md` et le contrôle `verifier.py` ont été retirés au commit `d47db0f` et restent dans l'historique git. Ces corrections sont dans les PDF d'origine (commit `d28324a`), dont la recomposition du 31 oct. 2026 extrait le texte (voir [Composition des PDF](#composition-des-pdf)).
+- La **Veille** et la **Revue** ont été révisées le même jour, en après-midi : errata corrigés à leur place quand ils tenaient dans la ligne, puis une annexe « Reprise du 29 octobre 2026 » ajoutée à chacune (Veille : énoncés datés rouverts sur source primaire, onze errata, références [343] à [371]; Revue : 189 notices arXiv reprises, régimes de preuve recomptés, quatre errata). Le corps reste gelé au 15 août 2026; l'annexe fait foi pour le 29 octobre. Ces ajouts sont repris dans les PDF recomposés; les sources amont, absentes, ne les ont pas reçus.
 - Les échelles diffèrent d'un document à l'autre (voir ci-dessous). Un rang ne se cite pas d'une échelle à l'autre.
 - La typographie de la ponctuation haute n'est pas harmonisée : NiveauMaturité met une espace insécable avant `?`, le Cadre n'en met généralement pas, les autres documents varient.
 
 ## Documents absents du dépôt
 
-Le corpus s'appuie sur des documents qui ne sont pas versés ici. Leur absence n'empêche pas la lecture, mais elle empêche de vérifier une partie des citations et de recompiler les PDF.
+Le corpus s'appuie sur des documents qui ne sont pas versés ici. Leur absence n'empêche pas la lecture, mais elle empêche de vérifier une partie des citations et de recompiler les PDF depuis leurs sources.
 
 | Document | Qui y renvoie | Conséquence de l'absence |
 |---|---|---|
-| Sources amont des PDF : Typst 0.15.1 pour la Veille, la Revue et le Compendium; HTML imprimé par Chrome pour le Cadre et NiveauMaturité (d'après les métadonnées des PDF) | Les cinq livrables | Recompilation impossible. Seule la source HTML de NiveauMaturité subsiste, dans l'historique git (commit `4457a54`), dans un état antérieur aux corrections du 29 oct. 2026. |
+| Sources amont des PDF : Typst 0.15.1 pour la Veille, la Revue et le Compendium; HTML imprimé par Chrome pour le Cadre et NiveauMaturité (d'après les métadonnées des PDF) | Les cinq livrables | Recompilation depuis la source impossible. Les PDF se recomposent à partir de leur édition d'origine (voir [Composition des PDF](#composition-des-pdf)); NiveauMaturité, depuis sa source HTML de l'historique git (commit `4457a54`), corrections du 29 oct. 2026 reportées. |
 | Vol. I — *Interopérabilité agentique* (7 ch.) | Compendium (373 renvois); Veille § 4.12 et § 13 | Renvois invérifiables depuis ce dépôt. |
 | Vol. II — *L'autonomie encadrée* (24 ch.) et son socle coté (46 entrées) | Compendium (542 renvois); Veille § 8.4 et § 13 | Faits repris du socle invérifiables depuis ce dépôt. |
 | Vol. III — *L'entreprise agentique* et ses fiches F-xx et H-xx | Compendium (858 renvois, dont 123 fiches distinctes citées comme sources); Veille § 7.6 et § 13 | Énoncés appuyés sur une fiche invérifiables depuis ce dépôt. |
@@ -61,15 +62,26 @@ typst compile sources/annexes/veille_annexe.typ
 typst compile sources/annexes/revue_annexe.typ
 ```
 
-## Source de la Note AMF IA
+## Composition des PDF
 
-La source de la Note AMF IA est un document Claude Docs ([lien](https://claude.ai/artifact/RBLR169KURVcsLrP1NE6PS), accès réservé à l'auteur). `sources/note-amf/note-amf-ia.html` en est l'export HTML pour la version 1.0; le PDF se compose à partir de cet export avec pandoc 3 et Typst 0.15.1 (PyMuPDF pour le contrôle). `filtre.lua` dimensionne les colonnes des tableaux et rend insécables les identifiants (EXIG-AMF-05, AMF-R-04); `gabarit.typ` porte la mise en page (format lettre, texte justifié avec césure française, couverture, table des matières, en-têtes de section, tableaux à en-tête répété) et redessine le calendrier du § 12, que l'export HTML ne contient pas. Le script refuse d'écrire le PDF si un mot de la source y manque.
+Depuis le 31 oct. 2026, les six PDF partagent une même mise en page : format lettre, texte justifié avec césure française (Libertinus Serif), titres et tableaux en Segoe UI, couverture avec fiche, table des matières, en-tête courant du chapitre, pied « Page X sur N ». La chaîne commune est dans `sources/commun/` : `extraire.py` convertit un PDF balisé en HTML structuré, `composer.py` passe ce HTML par pandoc 3 (`filtre.lua`) et Typst 0.15.1 (`gabarit.typ`). Chaque script refuse d'écrire son PDF si un mot de la source y manque; ceux qui partent d'un PDF contrôlent aussi la complétude de l'extraction.
+
+Sources de chaque livrable :
+
+- **Note AMF IA** : `sources/note-amf/note-amf-ia.html`, export HTML de sa source Claude Docs ([lien](https://claude.ai/artifact/RBLR169KURVcsLrP1NE6PS), accès réservé à l'auteur). Après une modification de la source, réexporter le HTML par-dessus ce fichier; si les dates du calendrier du § 12 changent, les reporter dans `calendrier.typ`.
+- **Veille, Revue, Cadre, Compendium** : leur PDF d'origine, lu dans git au commit `d28324a` (aucune source amont dans le dépôt). Le script ne lit jamais le PDF recomposé.
+- **NiveauMaturité** : sa source HTML au commit `4457a54`, avec les corrections du 29 oct. 2026 reportées par le script; texte contrôlé contre le PDF d'origine.
 
 ```bash
-python sources/note-amf/construire_pdf.py
+python sources/<document>/construire_pdf.py
 ```
 
-Après une modification de la source dans Claude Docs, réexporter le HTML par-dessus `note-amf-ia.html` avant de relancer le script; si les dates du calendrier changent, les reporter dans `calendrier()` de `gabarit.typ`.
+Limites de la recomposition :
+
+- Les renvois internes (« tableau 31 », « section 6.8 ») sont du texte, non des liens; les URL restent des liens.
+- Les schémas du Cadre (28, repris en vectoriel) et les figures du Compendium (118, en images à 200 dpi) gardent le style de l'original; le texte des figures du Compendium n'est plus sélectionnable.
+- Les pastilles de l'annexe A du Cadre deviennent du texte et ses cases à cocher disparaissent.
+- Dans le Compendium, l'ordre du texte de quelques cellules retouchées à la main (p. 736, 803, 905 et 940 de l'original; tableau 47.2) reste approximatif.
 
 ## Correspondance des échelles du corpus
 

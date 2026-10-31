@@ -17,10 +17,13 @@
     header: context {
       let p = here().page()
       if p <= 1 { return }
-      let hs = query(heading.where(level: 2))
-      let ici = hs.filter(h => h.location().page() == p)
-      let avant = hs.filter(h => h.location().page() < p)
-      let courant = if ici.len() > 0 { ici.first().body } else if avant.len() > 0 { avant.last().body }
+      // Chapitre en cours au haut de la page : celui qui s'ouvre dans le premier
+      // quart de la page, sinon le dernier ouvert avant elle. Rien sur une page de partie.
+      let partie = query(heading.where(level: 1)).any(h => h.location().page() == p)
+      let ici = query(heading.where(level: 2)).filter(h =>
+        h.location().page() == p and h.location().position().y < 200pt)
+      let avant = query(selector(heading.where(level: 2)).before(here()))
+      let courant = if partie { none } else if ici.len() > 0 { ici.first().body } else if avant.len() > 0 { avant.last().body }
       set text(font: sans, size: 7.5pt, fill: gris)
       grid(columns: (auto, 1fr), column-gutter: 12pt,
         text(weight: "semibold", fill: accent, titre-court),
