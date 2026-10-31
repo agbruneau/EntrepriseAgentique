@@ -5,7 +5,7 @@ Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déplo
 ## Structure du dépôt
 
 ```
-documents/          Les cinq livrables en PDF
+documents/          Les six livrables en PDF
 sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
 ```
 
@@ -19,6 +19,7 @@ Les documents dont le corpus dépend sans être versés ici sont listés à la s
 | [Veille technologique](documents/Veille%20Technologique.pdf) | État de l'art en entreprise : protocoles MCP, A2A et ANP, gouvernance, adoption, sécurité, sept couches implicites. | 152 | Faits gelés au 15 août 2026; reprise datée du 29 oct. 2026 en annexe |
 | [Revue de littérature](documents/Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, dont 189 sur arXiv) sur dix fronts; confronte trois énoncés de la veille. | 64 | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
 | [Cadre de référence](documents/Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 294 | 28 oct. 2026 |
+| [Note AMF IA](documents/Note%20AMF%20IA.pdf) | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v0.3) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 64 | 31 oct. 2026 |
 | [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 1000 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
 
 ## Statut et limites
@@ -81,7 +82,7 @@ L'ordre du tableau des livrables suit cet ordre de lecture.
 
 1. **NiveauMaturité** pour la vue d'ensemble, à lire avec son échelle propre.
 2. **Veille technologique** puis **Revue de littérature** pour l'état des connaissances.
-3. **Cadre de référence** pour les exigences applicables.
+3. **Cadre de référence** pour les exigences applicables (et **Note AMF IA** pour son profil d'application québécois).
 4. **Compendium** pour l'approfondissement.
 
 ## Auteur
