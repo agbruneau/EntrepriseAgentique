@@ -7,6 +7,7 @@ Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déplo
 ```
 documents/          Les six livrables en PDF
 sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
+sources/note-amf/   Export HTML de la source de la Note AMF IA et script de retouche de son PDF
 ```
 
 Les documents dont le corpus dépend sans être versés ici sont listés à la section [Documents absents du dépôt](#documents-absents-du-dépôt).
@@ -19,12 +20,13 @@ Les documents dont le corpus dépend sans être versés ici sont listés à la s
 | [Veille technologique](documents/Veille%20Technologique.pdf) | État de l'art en entreprise : protocoles MCP, A2A et ANP, gouvernance, adoption, sécurité, sept couches implicites. | 152 | Faits gelés au 15 août 2026; reprise datée du 29 oct. 2026 en annexe |
 | [Revue de littérature](documents/Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, dont 189 sur arXiv) sur dix fronts; confronte trois énoncés de la veille. | 64 | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
 | [Cadre de référence](documents/Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 294 | 28 oct. 2026 |
-| [Note AMF IA](documents/Note%20AMF%20IA.pdf) | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v0.3) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 64 | 31 oct. 2026 |
+| [Note AMF IA](documents/Note%20AMF%20IA.pdf) | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v1.0, version finale pour publication) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 72 | 31 oct. 2026 (v1.0) |
 | [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 1000 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
 
 ## Statut et limites
 
 - Le **Cadre de référence** (v1.1) est une version finale soumise à l'approbation du comité; il n'est pas encore approuvé.
+- La **Note AMF IA** (v1.0) est une version finale pour publication, non encore soumise au comité. Ses états de correspondance ont été revus par quatre relectures assistées par IA; une relecture par la conformité et l'audit interne reste un préalable à l'adoption de ses exigences EXIG-AMF (§ 13.2, point 1). Les reports qu'elle propose au Cadre, au Compendium et à la Veille (annexe D) ne sont pas appliqués à ces documents.
 - Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git). Ses renvois aux volumes I à III et ses liens de fichier visent des documents absents du dépôt (voir ci-dessous).
 - La **Veille** (§ 13) décrit une version antérieure du Compendium, en douze livres; une note datée sous le Tableau 16 le signale, et la structure en vigueur est celle du Compendium livré.
 - Les cinq PDF ont été corrigés le 29 oct. 2026 selon `PLAN.md`, par retouche directe faute de sources amont dans ce dépôt; `PLAN.md` et le contrôle `verifier.py` ont été retirés au commit `d47db0f` et restent dans l'historique git. Les sources doivent recevoir les mêmes corrections avant toute recompilation.
@@ -57,6 +59,14 @@ typst compile sources/annexes/veille_annexe.typ
 
 ```bash
 typst compile sources/annexes/revue_annexe.typ
+```
+
+## Source de la Note AMF IA
+
+La source de la Note AMF IA est un document Claude Docs ([lien](https://claude.ai/artifact/RBLR169KURVcsLrP1NE6PS), accès réservé à l'auteur). `sources/note-amf/note-amf-ia.html` en est l'export HTML pour la version 1.0; il sert à comparer le texte d'une version à l'autre. Le PDF se refait en deux temps : exporter le document en PDF (format lettre) depuis Claude Docs, puis retoucher l'export avec PyMuPDF. Le script met la date et la pagination en français, remonte sous son titre le tableau du § 11.3 et renseigne les métadonnées.
+
+```bash
+python sources/note-amf/finaliser_pdf.py export.pdf "documents/Note AMF IA.pdf"
 ```
 
 ## Correspondance des échelles du corpus
