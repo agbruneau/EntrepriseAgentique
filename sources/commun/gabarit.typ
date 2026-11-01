@@ -39,7 +39,7 @@
         align(right)[Page #counter(page).display() sur #counter(page).final().first()])
     },
   )
-  set document(author: "André-Guy Bruneau")
+  set document(author: "André-Guy Bruneau M.Sc. IT")
   set text(font: serif, size: 10.8pt, lang: "fr", region: "CA", hyphenate: true, fill: encre)
   set par(justify: true, leading: 0.62em, spacing: 0.95em, linebreaks: "optimized")
   set list(indent: 0.4em, body-indent: 0.55em, spacing: 0.75em,

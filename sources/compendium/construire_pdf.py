@@ -55,7 +55,7 @@ sys.path.insert(0, str(ICI.parent / 'commun'))
 import composer as composer_mod
 import extraire as extraire_mod
 import retraits
-from composer import ACTUALISATION, DOCUMENTS, NBSP, actualisation, chaine_typst, composer, date_fr, mots
+from composer import ACTUALISATION, AUTEUR, DOCUMENTS, NBSP, actualisation, chaine_typst, composer, date_fr, mots
 from extraire import ECARTES, controler_extraction, texte_controle, vers_html
 import pymupdf
 
@@ -411,7 +411,9 @@ def page_de_titre(blocs, doc):
     surtitre = ' · '.join(st)
     livres = [re.fullmatch(r'<p><strong>(Livre [IV]+ — [^<]+)</strong> (.+)</p>', x).groups() for x in h[5:10]]
     assert h[10].startswith('<p><em>'), h[10]
-    return dict(surtitre=surtitre, titre=strip(h[1]), sous_titre=strip(h[2]), auteur=strip(h[3]),
+    # auteur : forme canonique de composer (sans la virgule d'origine), contrôlée contre la p. 1
+    assert strip(h[3]).replace(',', '') == AUTEUR, h[3]
+    return dict(surtitre=surtitre, titre=strip(h[1]), sous_titre=strip(h[2]), auteur=AUTEUR,
                 edition=strip(h[4]), livres=livres, exergue=h[10])
 
 

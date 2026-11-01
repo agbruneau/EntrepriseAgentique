@@ -44,7 +44,7 @@ import atexit, collections, html, pathlib, re, shutil, subprocess, sys, tempfile
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
 import composer as C
-from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer, mots
+from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer, mots
 from extraire import MONO, Extracteur, cadre, controler_extraction, texte_controle, vers_html, zones_ecartees
 import pymupdf
 
@@ -354,6 +354,9 @@ def main():
     fiche_html, preambule, texte = corps(blocs, tableaux, figures)
     rangs = re.findall(r'<tr><th>(?:<strong>)?(.*?)(?:</strong>)?</th><td>(.*?)</td></tr>', fiche_html)
     assert len(rangs) == 10, rangs
+    # l'auteur porte son titre (forme commune à tous les livrables)
+    assert [b for a, b in rangs if 'Auteur' in a] == ['André-Guy Bruneau'], rangs
+    rangs = [(a, html.escape(AUTEUR) if 'Auteur' in a else b) for a, b in rangs]
     fiche = ('<div class="fiche"><table><tbody>' +
              ''.join(f'<tr><td>{a}</td><td>{b}</td></tr>' for a, b in rangs) +
              f'<tr><td>Actualisation</td><td>{ACTUALISATION}, annexe H (informative)</td></tr>'
@@ -375,7 +378,7 @@ def main():
   pied: [Version {version} · {date} · actualisation du {ACTUALISATION}])
 #show: regles
 #couverture(surtitre: {typo(p['surtitre'])}, titre: text(hyphenate: false, {typo(p['titre'])}),
-  sous-titre: text(hyphenate: false, {typo(p['sous_titre'])}), auteur: {chaine_typst(champs['Auteur'])}, date: [Version {version} · {date}],
+  sous-titre: text(hyphenate: false, {typo(p['sous_titre'])}), auteur: {chaine_typst(AUTEUR)}, date: [Version {version} · {date}],
   fiche: include "fiche.typ")
 #include "preambule.typ"
 #sommaire()

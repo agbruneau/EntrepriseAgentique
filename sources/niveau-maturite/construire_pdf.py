@@ -28,7 +28,7 @@ import pymupdf
 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
-from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer, mots, typographie
+from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer, mots, typographie
 from extraire import texte_controle
 
 args = sys.argv[1:]
@@ -223,12 +223,14 @@ def controler_completude(pdf, source):
 
 def main():
     ens, paliers = lire(source_corrigee())
+    # auteur affiché : forme titrée de composer, qui prolonge celle de la ligne de tête
+    assert AUTEUR.startswith(ens['auteur'] + ' '), (AUTEUR, ens['auteur'])
     texte_corps = corps(ens, paliers)
     if HTML:
         HTML.write_text(texte_corps, encoding='utf8')
     sous_titre = pymupdf.open(stream=git_show(f'documents/{SORTIE.name}', ORIGINE)).metadata['subject'].split(' — ')[0]
     fiche = ('<div class="fiche"><table><tbody>'
-             f'<tr><td>Auteur</td><td>{html.escape(ens["auteur"])}</td></tr>'
+             f'<tr><td>Auteur</td><td>{html.escape(AUTEUR)}</td></tr>'
              f'<tr><td>Version</td><td>{html.escape(ens["version"])} · {html.escape(ens["date"].lower())}</td></tr>'
              '<tr><td>Édition d’origine</td><td>Présentation de sept diapositives (16:9), '
              'recomposée au format lettre</td></tr>'
@@ -237,7 +239,7 @@ def main():
     annexe, refs_annexe = actualisation(ICI)
     figures = texte_figures(ens, paliers)
     corps_controle = ' '.join([texte_controle(texte_corps), figures])
-    couverture = ' '.join([ens['rubrique'], ens['titre'], ens['auteur'], ens['date'], 'Version', ens['version']])
+    couverture = ' '.join([ens['rubrique'], ens['titre'], AUTEUR, ens['date'], 'Version', ens['version']])
 
     with tempfile.TemporaryDirectory() as tmp:
         origine = pathlib.Path(tmp) / 'origine.pdf'
@@ -276,7 +278,7 @@ def main():
     text(font: sans, size: 12.5pt, weight: "semibold", fill: accent, it.body)
   }})
 #couverture(surtitre: [Échelle de maturité], titre: {t(ens['titre'])},
-  sous-titre: {t(sous_titre)}, auteur: {t(ens['auteur'])}, date: {t(ens['date'])},
+  sous-titre: {t(sous_titre)}, auteur: {t(AUTEUR)}, date: {t(ens['date'])},
   fiche: include "fiche.typ")
 #include "corps.typ"
 #pagebreak(weak: true)
@@ -285,7 +287,7 @@ def main():
 #include "references-actualisation.typ"]
 '''
         source = ' '.join([texte_controle(f) for f in (fiche, annexe, refs_annexe)] +
-                          [ens['titre'], sous_titre, ens['auteur'], ens['date'], corps_controle])
+                          [ens['titre'], sous_titre, AUTEUR, ens['date'], corps_controle])
         composer({'fiche': fiche, 'corps': texte_corps, 'actualisation': annexe,
                   'references-actualisation': refs_annexe}, main_typ, OUT, source, extras=[pile])
 

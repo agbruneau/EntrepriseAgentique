@@ -27,7 +27,7 @@ import atexit, html, pathlib, re, shutil, subprocess, sys, tempfile
 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
-from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer
+from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer
 from extraire import controler_extraction, extraire, texte_controle, vers_html, zones_ecartees
 import pymupdf
 
@@ -100,6 +100,9 @@ def main():
     print(f'extraction : {len(blocs)} blocs, écarts connus seulement ({sum(manque.values())} mots)')
 
     p = page_de_titre(SRC)
+    # l'auteur signe sous sa forme canonique (« André-Guy Bruneau, M.Sc. IT » à l'origine)
+    assert p['auteur'].startswith('André-Guy Bruneau'), p['auteur']
+    p['auteur'] = AUTEUR
     texte = corps(blocs, p)
     revision = p['revision'].removeprefix('Révision du ').strip()
     fiche = ('<div class="fiche"><table><tbody>'

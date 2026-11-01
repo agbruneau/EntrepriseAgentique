@@ -9,6 +9,11 @@ Un script de document appelle composer() avec :
   - extras : fichiers propres au document, copiés à côté (figures Typst, images…);
     les .typ sont importés dans chaque fragment ;
   - source_controle : le texte que le PDF doit contenir mot pour mot.
+
+Polices : les PDF du dépôt sont composés sans les polices système (Segoe UI, si présente,
+passerait devant Selawik et déplacerait la mise en page), avec TYPST_IGNORE_SYSTEM_FONTS=true
+et TYPST_FONT_PATHS vers un dossier contenant Selawik, Inter (✓ ✗), Noto Color Emoji (⚖) et
+GNU FreeFont (✎, 𝑁, 𝑀 de la Veille); Libertinus Serif et DejaVu Sans Mono sont dans Typst.
 """
 import collections, html, pathlib, re, shutil, subprocess, sys, tempfile, unicodedata
 import pymupdf
@@ -17,6 +22,8 @@ COMMUN = pathlib.Path(__file__).resolve().parent
 DOCUMENTS = COMMUN.parents[1] / 'documents'
 MOIS = 'janvier février mars avril mai juin juillet août septembre octobre novembre décembre'.split()
 NBSP = ' '
+# Forme du nom de l'auteur sur la couverture, dans la fiche et les métadonnées des PDF.
+AUTEUR = 'André-Guy Bruneau M.Sc. IT'
 
 
 def date_fr(a, m, j):

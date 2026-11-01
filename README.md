@@ -40,4 +40,4 @@ Le tableau des livrables suit cet ordre.
 
 ## Auteur
 
-André-Guy Bruneau M.Sc IT — agbruneau@gmail.com
+André-Guy Bruneau M.Sc. IT — agbruneau@gmail.com

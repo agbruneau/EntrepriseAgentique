@@ -36,7 +36,7 @@ import atexit, collections, html, pathlib, re, shutil, subprocess, sys, tempfile
 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
-from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer
+from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer
 from extraire import controler_extraction, extraire, texte_controle, vers_html, zones_ecartees
 import pymupdf
 
@@ -188,8 +188,9 @@ def main():
     print(f'extraction : {len(blocs)} blocs, écarts connus seulement ({sum(manque.values())} mots)')
     texte = legendes(texte)
     revision = p['revision'].removeprefix('Révision du ').strip()
+    # signature : la forme commune (AUTEUR) remplace celle de l'origine
     fiche = ('<div class="fiche"><table><tbody>'
-             f'<tr><td>Auteur</td><td>{html.escape(p["auteur"])} · {html.escape(p["courriel"])}</td></tr>'
+             f'<tr><td>Auteur</td><td>{html.escape(AUTEUR)} · {html.escape(p["courriel"])}</td></tr>'
              f'<tr><td>Faits gelés au</td><td>{html.escape(p["date"])}</td></tr>'
              f'<tr><td>Révision</td><td>{html.escape(revision)}</td></tr>'
              f'<tr><td>Actualisation</td><td>{ACTUALISATION}, en annexe</td></tr>'
@@ -206,7 +207,7 @@ def main():
 #show figure.where(kind: table): set figure.caption(position: top)
 #show figure.caption.where(position: top): it => block(sticky: true, it)
 #couverture(surtitre: [Veille technologique], titre: {typo(p['titre'])},
-  sous-titre: {typo(p['sous_titre'])}, auteur: {chaine_typst(p['auteur'])}, date: {chaine_typst(p['date'])},
+  sous-titre: {typo(p['sous_titre'])}, auteur: {chaine_typst(AUTEUR)}, date: {chaine_typst(p['date'])},
   fiche: include "fiche.typ")
 #sommaire()
 #include "corps.typ"

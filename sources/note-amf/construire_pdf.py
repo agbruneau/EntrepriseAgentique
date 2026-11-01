@@ -15,11 +15,11 @@ import html, pathlib, re, sys
 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
-from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer, date_fr, texte_html
+from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer, date_fr, texte_html
 
 SRC = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ICI / 'note-amf-ia.html'
 OUT = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else DOCUMENTS / 'Note AMF IA.pdf'
-AUTEUR = 'André-Guy Bruneau'  # la mention @u_… de l'export ne se résout pas hors de Claude Docs
+# AUTEUR vient de composer : la mention @u_… de l'export ne se résout pas hors de Claude Docs
 
 
 def decouper(s):
