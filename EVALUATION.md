@@ -213,6 +213,13 @@ Les notes de cette section sont indicatives; seule la grille de la section 2 fai
 
 Ce corpus démontre une maîtrise rare de la preuve dans un champ qui en manque : il dit à chaque pas ce qu'il sait, depuis quand, et jusqu'où. Sa valeur scientifique est aujourd'hui bornée moins par des erreurs, puisqu'aucune n'a été trouvée, que par ce qui lui manque : une validation humaine et empirique, des sources complètes et une forme lisible pour ses destinataires. Les corrections requises sont surtout éditoriales et procédurales. Faites, et assorties d'une validation empirique du Cadre, elles placeraient le corpus nettement au-dessus de 85.
 
+## Suivi des recommandations
+
+L'évaluation porte sur l'état du commit `70fd758`; ses constats ne sont pas réécrits.
+
+- **Recommandation 3, premier volet (31 oct. 2026).** Les traces de production du Compendium sont retirées de son texte (README, « Composition des PDF »). Les renvois aux volumes I à III restent.
+- **Recommandation 5, en partie (31 oct. 2026).** Une licence a été ajoutée : CC BY 4.0 pour les documents, MIT pour le code. Restent le fichier `CITATION.cff` et la classification « Usage interne ».
+
 ## Sources consultées pour les vérifications
 
 - [Blakes — L'AMF publie sa ligne directrice sur l'utilisation de l'intelligence artificielle](https://www.blakes.com/fr-ca/perspectives/l-amf-publie-sa-ligne-directrice-sur-l-utilisation-de-l-intelligence-artificielle-ce-que-les-insti/)

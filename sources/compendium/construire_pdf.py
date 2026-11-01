@@ -33,12 +33,16 @@ Particularités traitées ici :
     répétés, haut de page rattaché au mauvais bloc et lignes de cellule dans la colonne
     voisine; la sous-classe Extracteur ajoute les paragraphes balisés dans le tableau qui
     les suit et la bibliographie de l'annexe I (p. 941-1000), relue par sa géométrie;
-  - adresses : coupables à leurs traits d'union (U+200B), sans césure, contrôlées à part.
+  - adresses : coupables à leurs traits d'union (U+200B), sans césure, contrôlées à part;
+  - traces de production (plan de rédaction, décisions et garde-fous, portes, remontées,
+    lots de travail) : retirées du corps et de la fiche par retraits.py, sur le texte
+    extrait, avant composition.
 
 Contrôles laissés dans le code : complétude de l'extraction (écarts connus listés),
 figures (texte dans la zone rendue, zone sans mot étranger), colonnes de tableau, ordre
-du texte par page, structure du corps (livres, chapitres, annexes, légendes), contrôle
-mot à mot de composer(), adresses d'un seul tenant.
+du texte par page, structure du corps (livres, chapitres, annexes, légendes), retraits
+comptés et aucune trace de production restante, contrôle mot à mot de composer(),
+adresses d'un seul tenant.
 """
 import atexit, collections, dataclasses, html, pathlib, re, shutil, subprocess, sys, tempfile, time
 
@@ -46,6 +50,7 @@ ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
 import composer as composer_mod
 import extraire as extraire_mod
+import retraits
 from composer import DOCUMENTS, NBSP, chaine_typst, composer, date_fr, mots
 from extraire import ECARTES, controler_extraction, texte_controle, vers_html
 import pymupdf
@@ -607,6 +612,8 @@ def main():
 
     p = page_de_titre(blocs, doc)
     texte, statut = corps(blocs, p, doc.get_toc())
+    texte, statut, n = retraits.retirer_traces(texte, statut)
+    print(f'traces de production : {n} substitutions et motifs comptés, aucune trace restante')
     bilan = controler_corps(texte, len(figures))
     print('structure :', bilan)
     assert not bilan['figures_sans_legende'] and not bilan['legendes_egarees'], bilan

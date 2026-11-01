@@ -82,8 +82,10 @@ def controler(source, pdf, marges=(70, 60)):
     de ligne, retiré pour recoller le mot. Quand la coupure tombe sur un saut de page
     au milieu d'un tableau, l'en-tête répété s'intercale : le mot compte alors si son
     début (avant le trait conditionnel) et sa fin se trouvent tous deux dans le PDF.
-    Les mots se comparent hors traits d'union. marges : hauteurs (pt) du haut et du
-    bas de page écartées comme en-tête et pied.
+    Dans un tableau, l'ordre de lecture peut aussi placer après le trait conditionnel un
+    mot de la cellule voisine, que le recollage absorbe (« cin­ » + « onze ») : ce mot
+    compte alors pour lui-même. Les mots se comparent hors traits d'union. marges :
+    hauteurs (pt) du haut et du bas de page écartées comme en-tête et pied.
     """
     doc = pymupdf.open(pdf)
     haut, bas = marges
@@ -92,8 +94,9 @@ def controler(source, pdf, marges=(70, 60)):
     lu = mots(rendu.replace('­ ', ''))
     debuts = {m.group(1).lower() for m in re.finditer(r'(\w+)­', rendu)}
     manque = mots(source) - lu
+    absorbes = mots(' '.join(m.group(1) for m in re.finditer(r'\S*­ (\S+)', rendu)))
     for m in list(manque):
-        if any(m.startswith(d) and lu[m[len(d):]] for d in debuts):
+        if any(m.startswith(d) and lu[m[len(d):]] for d in debuts) or absorbes[m] >= manque[m]:
             del manque[m]
     if manque:
         print('Mots de la source absents du PDF :', dict(manque.most_common(30)))

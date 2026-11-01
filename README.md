@@ -9,6 +9,8 @@ documents/          Les six livrables en PDF
 sources/commun/     Chaîne de composition commune : extracteur de PDF balisé, gabarit Typst, filtre pandoc, contrôles
 sources/<document>/ Script de composition de chaque livrable (note-amf, revue, veille, cadre, compendium, niveau-maturite)
 sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
+EVALUATION.md       Évaluation académique du corpus (31 oct. 2026)
+LICENSE             Licence des documents (CC BY 4.0); sources/LICENSE : licence du code (MIT)
 ```
 
 Les documents dont le corpus dépend sans être versés ici sont listés à la section [Documents absents du dépôt](#documents-absents-du-dépôt).
@@ -22,13 +24,13 @@ Les documents dont le corpus dépend sans être versés ici sont listés à la s
 | [Revue de littérature](documents/Revue%20de%20litt%C3%A9rature.pdf) | Revue de la littérature académique (192 pièces, dont 189 sur arXiv) sur dix fronts; confronte trois énoncés de la veille. | 48 | Faits gelés au 15 août 2026; notices reprises le 29 oct. 2026 en annexe |
 | [Cadre de référence](documents/Cadre%20de%20R%C3%A9f%C3%A9rence%20-%20Interop%C3%A9rabilit%C3%A9%20et%20Orchestration%20en%20Entreprise%20Agentique.pdf) | Cadre normatif d'architecture d'entreprise (CRE-IA-2026-01, v1.1, soumis à l'approbation du comité) : standards, patrons d'orchestration, autonomie et supervision humaine, identité, observabilité, FinOps, conformité. | 277 | 28 oct. 2026 |
 | [Note AMF IA](documents/Note%20AMF%20IA.pdf) | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v1.0, version finale pour publication) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 39 | 31 oct. 2026 (v1.0) |
-| [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 660 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
+| [Compendium](documents/Compendium.pdf) | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032). | 652 | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026) |
 
 ## Statut et limites
 
 - Le **Cadre de référence** (v1.1) est une version finale soumise à l'approbation du comité; il n'est pas encore approuvé.
 - La **Note AMF IA** (v1.0) est une version finale pour publication, non encore soumise au comité. Ses états de correspondance ont été revus par quatre relectures assistées par IA; une relecture par la conformité et l'audit interne reste un préalable à l'adoption de ses exigences EXIG-AMF (§ 13.2, point 1). Les reports qu'elle propose au Cadre, au Compendium et à la Veille (annexe D) ne sont pas appliqués à ces documents.
-- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git). Ses renvois aux volumes I à III et ses liens de fichier visent des documents absents du dépôt (voir ci-dessous).
+- Le **Compendium** a été rédigé hors des portes de qualité, sans relecture adversariale. Ses dettes de vérification ont été instruites le 29 oct. 2026 (journal `VERIFICATIONS.md`, retiré du dépôt au commit `d47db0f` et consultable dans l'historique git). Les traces de sa production (plan de rédaction, décisions d'auteur, garde-fous, portes, remontées, lots de travail) ont été retirées du texte le 31 oct. 2026 (voir [Composition des PDF](#composition-des-pdf)). Ses renvois aux volumes I à III visent des documents absents du dépôt (voir ci-dessous).
 - La **Veille** (§ 13) décrit une version antérieure du Compendium, en douze livres; une note datée sous le Tableau 16 le signale, et la structure en vigueur est celle du Compendium livré.
 - Les cinq PDF ont été corrigés le 29 oct. 2026 selon `PLAN.md`, par retouche directe faute de sources amont dans ce dépôt; `PLAN.md` et le contrôle `verifier.py` ont été retirés au commit `d47db0f` et restent dans l'historique git. Ces corrections sont dans les PDF d'origine (commit `d28324a`), dont la recomposition du 31 oct. 2026 extrait le texte (voir [Composition des PDF](#composition-des-pdf)).
 - La **Veille** et la **Revue** ont été révisées le même jour, en après-midi : errata corrigés à leur place quand ils tenaient dans la ligne, puis une annexe « Reprise du 29 octobre 2026 » ajoutée à chacune (Veille : énoncés datés rouverts sur source primaire, onze errata, références [343] à [371]; Revue : 189 notices arXiv reprises, régimes de preuve recomptés, quatre errata). Le corps reste gelé au 15 août 2026; l'annexe fait foi pour le 29 octobre. Ces ajouts sont repris dans les PDF recomposés; les sources amont, absentes, ne les ont pas reçus.
@@ -46,7 +48,7 @@ Le corpus s'appuie sur des documents qui ne sont pas versés ici. Leur absence n
 | Vol. II — *L'autonomie encadrée* (24 ch.) et son socle coté (46 entrées) | Compendium (542 renvois); Veille § 8.4 et § 13 | Faits repris du socle invérifiables depuis ce dépôt. |
 | Vol. III — *L'entreprise agentique* et ses fiches F-xx et H-xx | Compendium (858 renvois, dont 123 fiches distinctes citées comme sources); Veille § 7.6 et § 13 | Énoncés appuyés sur une fiche invérifiables depuis ce dépôt. |
 | Démonstrateur Borealis-Go (Vol. I) | Veille § 4.12 | Retiré de son dépôt le 25 juill. 2026 (Veille § 13.2), rejouable dans le seul historique git de ce dépôt-là. |
-| Fichiers de travail : `PRD/PRD.md` (dont les décisions d'auteur D-n, § 15), `PRD/socle-consolide.md`, `PRD/TOC.md`, `PRD/gel-2026-07-27.md`, `PRD/gel-2026-07-28-volet-residuel.md`, `annexe-references.md` | Compendium : 9 liens de fichier (p. 152, 154, 279, 280, 353 et 940) et renvois aux décisions D-n | Liens morts. La teneur des décisions D-18 et D-21, qui fixent le périmètre du dépôt à cinq livrables, n'est pas consultable. |
+| Fichiers de travail : `PRD/PRD.md` (dont les décisions d'auteur D-n, § 15), `PRD/socle-consolide.md`, `PRD/TOC.md`, `PRD/gel-2026-07-27.md`, `PRD/gel-2026-07-28-volet-residuel.md`, `annexe-references.md` | Compendium d'origine (commit `d28324a`) : 9 liens de fichier (p. 152, 154, 279, 280, 353 et 940) et renvois aux décisions D-n, retirés de l'édition recomposée | La teneur des décisions D-18 et D-21, qui fixent le périmètre du dépôt à cinq livrables, n'est pas consultable. |
 
 Au 15 août 2026, la Veille (§ 13.8) décrit les volumes III et IV comme diffusés à leur seul auteur, faute de relecteur distinct; le Vol. IV est depuis versé ici comme Compendium (décision D-21). L'absence des volumes I à III peut donc être voulue.
 
@@ -70,6 +72,7 @@ Sources de chaque livrable :
 
 - **Note AMF IA** : `sources/note-amf/note-amf-ia.html`, export HTML de sa source Claude Docs ([lien](https://claude.ai/artifact/RBLR169KURVcsLrP1NE6PS), accès réservé à l'auteur). Après une modification de la source, réexporter le HTML par-dessus ce fichier; si les dates du calendrier du § 12 changent, les reporter dans `calendrier.typ`.
 - **Veille, Revue, Cadre, Compendium** : leur PDF d'origine, lu dans git au commit `d28324a` (aucune source amont dans le dépôt). Le script ne lit jamais le PDF recomposé.
+- **Compendium**, en plus : `retraits.py` retire du texte extrait les traces de production, avant composition. Des règles ôtent environ 440 renvois de pure forme (« (R-13 du Vol. III) », « (décision 15 du TOC) », « au sens de R-14 du Vol. III »). Ensuite, 879 substitutions comptées (`retraits.json`) réécrivent 732 phrases et en retirent 104. Le script s'arrête si une substitution ne trouve pas son nombre d'occurrences attendu, ou si une trace de la liste de contrôle subsiste.
 - **NiveauMaturité** : sa source HTML au commit `4457a54`, avec les corrections du 29 oct. 2026 reportées par le script; texte contrôlé contre le PDF d'origine.
 
 ```bash
@@ -82,6 +85,7 @@ Limites de la recomposition :
 - Les schémas du Cadre (28, repris en vectoriel) et les figures du Compendium (118, en images à 200 dpi) gardent le style de l'original; le texte des figures du Compendium n'est plus sélectionnable.
 - Les pastilles de l'annexe A du Cadre deviennent du texte et ses cases à cocher disparaissent.
 - Dans le Compendium, l'ordre du texte de quelques cellules retouchées à la main (p. 736, 803, 905 et 940 de l'original; tableau 47.2) reste approximatif.
+- Le retrait des traces du Compendium épargne ce qui qualifie une affirmation pour le lecteur : régimes [A]/[B]/[C], socle et relève, degrés d'absence, cotes F-xx, H-xx et S-xxx, renvois aux volumes I à III. Il ne touche pas les figures, dont le texte est en image. Les phrases réécrites l'ont été sans relecture humaine; l'édition d'origine reste au commit `d28324a`.
 
 ## Correspondance des échelles du corpus
 
@@ -108,6 +112,11 @@ L'ordre du tableau des livrables suit cet ordre de lecture.
 2. **Veille technologique** puis **Revue de littérature** pour l'état des connaissances.
 3. **Cadre de référence** pour les exigences applicables (et **Note AMF IA** pour son profil d'application québécois).
 4. **Compendium** pour l'approfondissement.
+
+## Licence
+
+- Documents (`documents/`, annexes, évaluation) : [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0). Réutilisation et adaptation libres, avec attribution à l'auteur.
+- Code de composition (`sources/`) : [licence MIT](sources/LICENSE).
 
 ## Auteur
 
