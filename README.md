@@ -2,6 +2,8 @@
 
 Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déploiement et la supervision d'agents d'IA fondés sur les grands modèles de langue en entreprise, avec un accent sur les services financiers réglementés au Canada.
 
+> **Dépôt fermé le 1er novembre 2026.** Le corpus est clos dans l'état de son [actualisation de novembre 2026](#actualisation-de-novembre-2026) (commit `8a6c6f9`). Aucune mise à jour, correction ni annexe n'y sera ajoutée, et les tickets et demandes de tirage n'y sont plus traités. Les PDF, leurs sources et la chaîne de composition restent consultables et réutilisables selon leurs [licences](#licence). La fermeture fige l'état du corpus sans rien trancher : ce qui y est dit ouvert, en attente ou non vérifié le reste. Le Cadre n'est pas approuvé par le comité, et les annexes de novembre ne sont pas relues par l'auteur.
+
 ## Structure du dépôt
 
 ```
