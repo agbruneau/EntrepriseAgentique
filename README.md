@@ -9,7 +9,6 @@ documents/          Les six livrables en PDF
 sources/commun/     Chaîne de composition commune : extracteur de PDF balisé, gabarit Typst, filtre pandoc, contrôles
 sources/<document>/ Script de composition de chaque livrable (note-amf, revue, veille, cadre, compendium, niveau-maturite)
 sources/annexes/    Sources Typst des annexes « Reprise du 29 octobre 2026 » (Veille et Revue)
-EVALUATION.md       Évaluation académique du corpus (31 oct. 2026)
 LICENSE             Licence des documents (CC BY 4.0); sources/LICENSE : licence du code (MIT)
 ```
 
@@ -115,7 +114,7 @@ L'ordre du tableau des livrables suit cet ordre de lecture.
 
 ## Licence
 
-- Documents (`documents/`, annexes, évaluation) : [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0). Réutilisation et adaptation libres, avec attribution à l'auteur.
+- Documents (`documents/`, annexes) : [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0). Réutilisation et adaptation libres, avec attribution à l'auteur.
 - Code de composition (`sources/`) : [licence MIT](sources/LICENSE).
 
 ## Auteur
