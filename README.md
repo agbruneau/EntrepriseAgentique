@@ -65,7 +65,9 @@ typst compile sources/annexes/revue_annexe.typ
 
 ## Composition des PDF
 
-Depuis le 31 oct. 2026, les six PDF partagent une même mise en page : format lettre, texte justifié avec césure française (Libertinus Serif), titres et tableaux en Segoe UI, couverture avec fiche, table des matières, en-tête courant du chapitre, pied « Page X sur N ». La chaîne commune est dans `sources/commun/` : `extraire.py` convertit un PDF balisé en HTML structuré, `composer.py` passe ce HTML par pandoc 3 (`filtre.lua`) et Typst 0.15.1 (`gabarit.typ`). Chaque script refuse d'écrire son PDF si un mot de la source y manque; ceux qui partent d'un PDF contrôlent aussi la complétude de l'extraction.
+Depuis le 31 oct. 2026, les six PDF partagent une même mise en page : format lettre, texte justifié avec césure française (Libertinus Serif), titres et tableaux en Segoe UI, couverture avec fiche, table des matières, en-tête courant du chapitre, pied « Page X sur N ». La chaîne commune est dans `sources/commun/` : `extraire.py` convertit un PDF balisé en HTML structuré, `composer.py` passe ce HTML par pandoc (`filtre.lua`) et Typst 0.15.1 (`gabarit.typ`). Chaque script refuse d'écrire son PDF si un mot de la source y manque; ceux qui partent d'un PDF contrôlent aussi la complétude de l'extraction.
+
+Outillage requis : Python 3 avec PyMuPDF, pandoc 3.9 et Typst 0.15.1. Un pandoc plus ancien ne convient pas : la 3.1 écrit `#blockquote`, que Typst ne connaît pas (NiveauMaturité échoue), et pagine autrement la Veille et la Note AMF. Sans Segoe UI (police de Windows), le gabarit se replie sur Selawik, substitut libre de Microsoft aux mêmes métriques (licence OFL), à fournir à Typst par `TYPST_FONT_PATHS`; Selawik n'a pas d'italique, les intertitres en italique sans empattement sortent alors en romain. Les six PDF de l'actualisation du 1er nov. 2026 ont été recomposés sous Linux, donc en Selawik.
 
 Sources de chaque livrable :
 

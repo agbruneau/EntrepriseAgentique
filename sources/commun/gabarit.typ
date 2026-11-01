@@ -8,7 +8,7 @@
 #let zebre = rgb("#f5f7fa")
 #let gris = rgb("#5b6573")
 #let serif = ("Libertinus Serif",)
-#let sans = ("Segoe UI",)
+#let sans = ("Segoe UI", "Selawik")
 
 #let note(titre-court: "", pied: [], body) = {
   set page(
@@ -55,7 +55,7 @@
   }
   show strong: set text(weight: "bold")
   // ⚠ en glyphe de texte, non en émoji couleur
-  show "⚠": set text(font: "Segoe UI Symbol", fill: accent)
+  show "⚠": set text(font: ("Segoe UI Symbol", "DejaVu Sans"), fill: accent)
 
   // Parties (niveau 1) : page neuve, bandeau.
   show heading.where(level: 1): it => {

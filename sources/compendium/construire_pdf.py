@@ -43,6 +43,10 @@ figures (texte dans la zone rendue, zone sans mot étranger), colonnes de tablea
 du texte par page, structure du corps (livres, chapitres, annexes, légendes), retraits
 comptés et aucune trace de production restante, contrôle mot à mot de composer(),
 adresses d'un seul tenant.
+
+Actualisation du 1er novembre 2026 : annexe N, rédigée en HTML dans ce dossier
+(actualisation-2026-11.html) et composée après l'annexe I, hors retraits.py; tableaux
+numérotés N.1, N.2…, références [AN-1]… Elle ne modifie pas le corps.
 """
 import atexit, collections, dataclasses, html, pathlib, re, shutil, subprocess, sys, tempfile, time
 
@@ -51,7 +55,7 @@ sys.path.insert(0, str(ICI.parent / 'commun'))
 import composer as composer_mod
 import extraire as extraire_mod
 import retraits
-from composer import DOCUMENTS, NBSP, chaine_typst, composer, date_fr, mots
+from composer import ACTUALISATION, DOCUMENTS, NBSP, actualisation, chaine_typst, composer, date_fr, mots
 from extraire import ECARTES, controler_extraction, texte_controle, vers_html
 import pymupdf
 
@@ -626,7 +630,9 @@ def main():
              f'<tr><td>Faits gelés au</td><td>{GEL}</td></tr>'
              f'<tr><td>Compilé le</td><td>{compile_le}</td></tr>'
              f'<tr><td>Statut</td><td>{statut[3:-4]}</td></tr>'
+             f'<tr><td>Actualisation</td><td>{ACTUALISATION}, annexe N</td></tr>'
              '</tbody></table></div>')
+    annexe, refs_annexe = actualisation(ICI)
     liminaire = ''.join(f'<p><strong>{html.escape(t)}</strong><br>{d}</p>' for t, d in p['livres'])
     liminaire += f'<blockquote>{p["exergue"]}</blockquote>'
     meta = doc.metadata
@@ -634,7 +640,7 @@ def main():
     main_typ = f'''#import "gabarit.typ": *
 #set document(title: {typo(meta['title'])}, description: {typo(meta['subject'])},
   keywords: ({', '.join(chaine_typst(k.strip()) for k in meta['keywords'].split(','))}))
-#show: note.with(titre-court: "Compendium", pied: [Gel au {GEL} · édition de {p['edition'].lower()}])
+#show: note.with(titre-court: "Compendium", pied: [Gel au {GEL} · édition de {p['edition'].lower()} · actualisation du {ACTUALISATION}])
 // numérotation d'origine (par chapitre) gardée dans les légendes : celle de Typst se tait
 #set figure(numbering: none)
 // légendes au-dessus des tableaux, sous les figures, comme dans l'édition d'origine
@@ -659,11 +665,15 @@ def main():
 }})
 #sommaire()
 #include "corps.typ"
+#include "actualisation.typ"
+#[#set par(justify: false, linebreaks: "simple")
+#include "references-actualisation.typ"]
 '''
     dossier = TMP / 'figures'
     dossier.mkdir()
     rendre_figures(doc, figures, dossier)
-    source = ' '.join(texte_controle(t) for t in (p['surtitre'], p['titre'], p['sous_titre'], fiche, liminaire, texte))
+    source = ' '.join(texte_controle(t) for t in (p['surtitre'], p['titre'], p['sous_titre'], fiche, liminaire, texte,
+                                                  annexe, refs_annexe))
     # adresses (URL, chemins) : Typst les coupe en fin de ligne n'importe où, sans trait
     # (« cloudsecuri|tyalliance ») ; contrôlées à part, d'un seul tenant, blancs ôtés
     source = source.replace(ZWSP, '')
@@ -671,7 +681,8 @@ def main():
     source = re.sub(URL, ' ', source)
     t1 = time.time()
     brouillon = TMP / OUT.name
-    composer({'fiche': fiche, 'liminaire': liminaire, 'corps': texte}, main_typ, brouillon, source,
+    composer({'fiche': fiche, 'liminaire': liminaire, 'corps': texte, 'actualisation': annexe,
+              'references-actualisation': refs_annexe}, main_typ, brouillon, source,
              extras=sorted(dossier.iterdir()))
     # hors en-têtes et pieds, comme composer.controler()
     rendu = re.sub(r'[\s\xad\u200b]+', '', ''.join(w[4] for pg in pymupdf.open(brouillon) for w in pg.get_text('words')

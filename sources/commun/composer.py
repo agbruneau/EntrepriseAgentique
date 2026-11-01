@@ -23,6 +23,22 @@ def date_fr(a, m, j):
     return f'{j}{"er" if j == 1 else ""} {MOIS[m - 1]} {a}'
 
 
+# Actualisation de novembre 2026 : chaque livrable reçoit une annexe datée, rédigée en HTML
+# dans son dossier (sources/<document>/actualisation-2026-11.html). Le corps n'est pas
+# touché; l'annexe fait foi pour la date qu'elle porte.
+ACTUALISATION = date_fr(2026, 11, 1)
+FICHIER_ACTUALISATION = 'actualisation-2026-11.html'
+
+
+def actualisation(dossier):
+    """(texte, références) de l'annexe d'actualisation du dossier : les références, à partir
+    de leur intertitre « Références de l’actualisation », vont à part pour être composées
+    en drapeau, comme celles du corps. Sans références, la seconde partie est vide."""
+    s = (pathlib.Path(dossier) / FICHIER_ACTUALISATION).read_text(encoding='utf8')
+    i = s.find('<h3>Références de l’actualisation</h3>')
+    return (s, '') if i < 0 else (s[:i], s[i:])
+
+
 def typographie(fragment):
     """Espaces insécables et apostrophe typographique, dans le texte seulement : ni dans
     les balises, ni dans <code> ou <pre>, dont le contenu reste littéral. Les adresses

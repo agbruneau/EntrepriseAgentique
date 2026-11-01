@@ -2,7 +2,7 @@
 
 Usage : python construire_pdf.py [source.pdf] [sortie.pdf] [--html extrait.html]
         (par défaut : l'édition d'origine, imprimée par Chrome, lue dans git au commit
-        ORIGINE, recomposée sous le même nom dans documents/; --html garde l'extraction)
+        ORIGINE, recomposée dans documents/Cadre de Référence.pdf; --html garde l'extraction)
 
 Aucune source amont n'est versée au dépôt : le PDF fait foi. sources/commun/extraire.py
 relit son balisage, sources/commun/composer.py le recompose avec le gabarit commun.
@@ -34,30 +34,36 @@ Particularités traitées ici :
 Contrôles : complétude de l'extraction (écarts connus listés), recadrage sans perte
 du texte des schémas, retouches du script sans perte, contrôle mot à mot de
 composer(), numéros des tableaux et des figures conformes aux listes d'origine.
+
+Actualisation du 1er novembre 2026 : annexe H, informative, rédigée en HTML dans ce dossier
+(actualisation-2026-11.html) et composée après l'annexe G; ses tableaux et ses références
+continuent les suites du document (tableau 70, référence 474). Elle ne modifie aucune exigence.
 """
 import atexit, collections, html, pathlib, re, shutil, subprocess, sys, tempfile
 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
 import composer as C
-from composer import DOCUMENTS, chaine_typst, composer, mots
+from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer, mots
 from extraire import MONO, Extracteur, cadre, controler_extraction, texte_controle, vers_html, zones_ecartees
 import pymupdf
 
 args = sys.argv[1:]
 HTML = pathlib.Path(args.pop(args.index('--html') + 1)) if '--html' in args else None
 args = [a for a in args if a != '--html']
-SORTIE = DOCUMENTS / 'Cadre de Référence - Interopérabilité et Orchestration en Entreprise Agentique.pdf'
+SORTIE = DOCUMENTS / 'Cadre de Référence.pdf'
 # Édition d'origine (Chrome, 28 oct. 2026) : le PDF recomposé ne doit pas servir de
-# source à son tour.
+# source à son tour. Elle porte, au commit ORIGINE, le nom long du document (renommé
+# le 31 oct. 2026).
 ORIGINE = 'd28324a'
+NOM_ORIGINE = 'Cadre de Référence - Interopérabilité et Orchestration en Entreprise Agentique.pdf'
 OUT = pathlib.Path(args[1]) if len(args) > 1 else SORTIE
 if args:
     SRC = pathlib.Path(args[0])
 else:
     SRC = pathlib.Path(tempfile.mkdtemp()) / 'origine.pdf'
     atexit.register(shutil.rmtree, SRC.parent, True)
-    SRC.write_bytes(subprocess.run(['git', 'show', f'{ORIGINE}:documents/{SORTIE.name}'], cwd=DOCUMENTS,
+    SRC.write_bytes(subprocess.run(['git', 'show', f'{ORIGINE}:documents/{NOM_ORIGINE}'], cwd=DOCUMENTS,
                                    capture_output=True, check=True).stdout)
 
 MARGES = (50, 50)          # en-tête courant à y ≈ 33-42, pied à y ≈ 750; texte entre 57 et 728
@@ -349,7 +355,10 @@ def main():
     rangs = re.findall(r'<tr><th>(?:<strong>)?(.*?)(?:</strong>)?</th><td>(.*?)</td></tr>', fiche_html)
     assert len(rangs) == 10, rangs
     fiche = ('<div class="fiche"><table><tbody>' +
-             ''.join(f'<tr><td>{a}</td><td>{b}</td></tr>' for a, b in rangs) + '</tbody></table></div>')
+             ''.join(f'<tr><td>{a}</td><td>{b}</td></tr>' for a, b in rangs) +
+             f'<tr><td>Actualisation</td><td>{ACTUALISATION}, annexe H (informative)</td></tr>'
+             '</tbody></table></div>')
+    annexe, refs_annexe = actualisation(ICI)
     champs = {html.unescape(a): html.unescape(re.sub(r'<[^>]+>', '', b)) for a, b in rangs}
     version, date = champs['Version et date'].split(' — ')
 
@@ -363,7 +372,7 @@ def main():
   description: "Cadre de référence d’architecture d’entreprise {champs['Identifiant normatif']}, version {version}, {date}.",
   keywords: ("IA agentique", "interopérabilité", "orchestration", "MCP", "A2A", "OAuth", "OpenTelemetry", "Loi 25", "gouvernance"))
 #show: note.with(titre-court: "{champs['Identifiant normatif']} · Cadre de référence",
-  pied: [Version {version} · {date}])
+  pied: [Version {version} · {date} · actualisation du {ACTUALISATION}])
 #show: regles
 #couverture(surtitre: {typo(p['surtitre'])}, titre: text(hyphenate: false, {typo(p['titre'])}),
   sous-titre: text(hyphenate: false, {typo(p['sous_titre'])}), auteur: {chaine_typst(champs['Auteur'])}, date: [Version {version} · {date}],
@@ -372,8 +381,12 @@ def main():
 #sommaire()
 #listes()
 #include "corps.typ"
+#include "actualisation.typ"
+#[#set par(justify: false, linebreaks: "simple")
+#include "references-actualisation.typ"]
 '''
-    source = ' '.join(texte_controle(t) for t in (p['surtitre'], p['titre'], p['sous_titre'], fiche, preambule, texte))
+    source = ' '.join(texte_controle(t) for t in (p['surtitre'], p['titre'], p['sous_titre'], fiche, preambule, texte,
+                                                  annexe, refs_annexe))
     source += ' ' + ' '.join(texte_schemas)
     if HTML:
         HTML.with_suffix('.schemas.txt').write_text('\n'.join(texte_schemas), encoding='utf8')
@@ -385,7 +398,8 @@ def main():
     perte -= mots('PA R T I E I V X A N N E X E S ' * 5)
     perte -= mots('Fiche du document')   # titre de la p. 2 : la fiche passe sur la couverture
     assert not perte, perte
-    composer({'fiche': fiche, 'preambule': preambule, 'corps': texte}, main_typ, OUT, source, extras=extras)
+    composer({'fiche': fiche, 'preambule': preambule, 'corps': texte, 'actualisation': annexe,
+              'references-actualisation': refs_annexe}, main_typ, OUT, source, extras=extras)
     verifier_numeros(OUT, tableaux, figures)
 
 

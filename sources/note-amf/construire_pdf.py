@@ -6,12 +6,16 @@ Usage : python construire_pdf.py [source.html] [sortie.pdf]
 Chaîne commune : sources/commun/composer.py. Le script retire de l'HTML la page de
 titre et la fiche signalétique pour les poser sur la couverture, et remplace le
 calendrier intégré (absent de l'export) par la figure de calendrier.typ.
+
+Actualisation du 1er novembre 2026 : annexe H, rédigée en HTML dans ce dossier
+(actualisation-2026-11.html), hors de l'export Claude Docs, composée après l'annexe G.
+Elle ne modifie pas la version 1.0.
 """
 import html, pathlib, re, sys
 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
-from composer import DOCUMENTS, chaine_typst, composer, date_fr, texte_html
+from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer, date_fr, texte_html
 
 SRC = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ICI / 'note-amf-ia.html'
 OUT = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else DOCUMENTS / 'Note AMF IA.pdf'
@@ -39,17 +43,25 @@ def main():
 #set document(title: {chaine_typst(p['titre'])},
   description: "Profil d'application québécois CRE-IA-2026-01-QC (version 1.0, {p['date']})",
   keywords: ("AMF", "intelligence artificielle", "agents", "CRE-IA-2026-01-QC"))
-#show: note.with(titre-court: "Note AMF IA", pied: [CRE-IA-2026-01-QC · version 1.0])
+#show: note.with(titre-court: "Note AMF IA", pied: [CRE-IA-2026-01-QC · version 1.0 · actualisation du {ACTUALISATION}])
 #couverture(surtitre: [Note d'instruction · CRE-IA-2026-01-QC], titre: {typo(p['titre'])},
   sous-titre: {typo(p['sous_titre'])}, auteur: {chaine_typst(AUTEUR)}, date: {chaine_typst(p['date'])},
   fiche: include "fiche.typ")
 #sommaire()
 #include "corps.typ"
+#include "actualisation.typ"
+#[#set par(justify: false, linebreaks: "simple")
+#include "references-actualisation.typ"]
 '''
     # l'en-tête de la fiche (« Rubrique », « Valeur ») n'est pas repris sur la couverture
+    # l'actualisation, hors de l'export, passe en dernière ligne de la fiche
+    p['fiche'] = p['fiche'].replace('</tbody>', f'<tr><td>Actualisation</td><td>{ACTUALISATION}, annexe H</td></tr></tbody>', 1)
+    assert 'Actualisation' in p['fiche']
     fiche = re.sub(r'<thead>.*?</thead>', '', p['fiche'], flags=re.S)
-    source = ' '.join(texte_html(t) for t in (p['titre'], p['sous_titre'], fiche, p['corps']))
-    composer({'fiche': p['fiche'], 'corps': p['corps']}, main_typ, OUT, source,
+    annexe, refs_annexe = actualisation(ICI)
+    source = ' '.join(texte_html(t) for t in (p['titre'], p['sous_titre'], fiche, p['corps'], annexe, refs_annexe))
+    composer({'fiche': p['fiche'], 'corps': p['corps'], 'actualisation': annexe,
+              'references-actualisation': refs_annexe}, main_typ, OUT, source,
              extras=[ICI / 'calendrier.typ'])
 
 

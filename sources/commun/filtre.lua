@@ -10,7 +10,27 @@ local stringify = pandoc.utils.stringify
 -- mis en boîte pour ne jamais se couper en fin de ligne. Un mot composé ordinaire
 -- (mi-mars, peut-être) n'a ni chiffre ni deux majuscules et reste sécable. Une
 -- adresse ou un chemin (contient « / ») n'est pas mis en boîte : il déborderait.
+local boites
+
 function Str(s)
+  -- Apostrophe en tête de mot (« MSR ’26 », « (NSDI ’20) ») : pandoc l'écrit « ' », que
+  -- Typst, en français, compose en guillemet ouvrant (« MSR “26 »). Elle passe en caractère
+  -- littéral, que les guillemets intelligents de Typst ne touchent pas.
+  local a, b = s.text:find("^[%(%[]?’")
+  if a then
+    local out = {}
+    if b > #"’" then table.insert(out, pandoc.Str(s.text:sub(1, b - #"’"))) end
+    table.insert(out, pandoc.RawInline("typst", "’"))
+    if b < #s.text then
+      local reste = pandoc.Str(s.text:sub(b + 1))
+      for _, x in ipairs(boites(reste) or { reste }) do table.insert(out, x) end
+    end
+    return out
+  end
+  return boites(s)
+end
+
+boites = function(s)
   local t = s.text
   if t:find("/") then return nil end
   local a, b = t:find("[%w][%w%.]*%-[%w%-%.]*%w")

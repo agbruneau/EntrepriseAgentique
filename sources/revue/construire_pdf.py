@@ -18,12 +18,16 @@ Particularités traitées ici :
   - légendes « Tableau N. – … » : la numérotation passe à Typst (même suite, contrôlée);
   - gras : celui de la police seulement. Le PDF balise en Strong des passages composés
     en romain (résumé, mentions des références); le rendu d'origine fait foi.
+
+Actualisation du 1er novembre 2026 : annexe datée, rédigée en HTML dans ce dossier
+(actualisation-2026-11.html), composée après l'annexe du 29 octobre; ses tableaux et ses
+références continuent les suites du document (tableau 12, référence 193).
 """
 import atexit, html, pathlib, re, shutil, subprocess, sys, tempfile
 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
-from composer import DOCUMENTS, chaine_typst, composer
+from composer import ACTUALISATION, DOCUMENTS, actualisation, chaine_typst, composer
 from extraire import controler_extraction, extraire, texte_controle, vers_html, zones_ecartees
 import pymupdf
 
@@ -102,13 +106,15 @@ def main():
              f'<tr><td>Auteur</td><td>{html.escape(p["auteur"])} · {html.escape(p["courriel"])}</td></tr>'
              f'<tr><td>Faits gelés au</td><td>{html.escape(p["date"])}</td></tr>'
              f'<tr><td>Révision</td><td>{html.escape(revision)}</td></tr>'
+             f'<tr><td>Actualisation</td><td>{ACTUALISATION}, en annexe</td></tr>'
              '</tbody></table></div>')
+    annexe, refs_annexe = actualisation(ICI)
     typo = lambda t: chaine_typst(t.replace("'", '’'))
     main_typ = f'''#import "gabarit.typ": *
 #set document(title: {chaine_typst(p['titre'])},
-  description: "{p['sous_titre']}. Faits gelés au {p['date']}; reprise datée et errata du 29 octobre 2026 en annexe.",
+  description: "{p['sous_titre']}. Faits gelés au {p['date']}; reprise datée et errata du 29 octobre 2026, actualisation du {ACTUALISATION} en annexe.",
   keywords: ("revue de littérature", "agents", "interopérabilité", "orchestration", "arXiv"))
-#show: note.with(titre-court: "Revue de littérature", pied: [Faits gelés au {p['date']} · révision du 29 octobre 2026])
+#show: note.with(titre-court: "Revue de littérature", pied: [Faits gelés au {p['date']} · actualisation du {ACTUALISATION}])
 // légendes au-dessus des tableaux, comme dans l'édition d'origine, et jamais seules
 // en bas de page
 #show figure.where(kind: table): set figure.caption(position: top)
@@ -118,9 +124,14 @@ def main():
   fiche: include "fiche.typ")
 #sommaire()
 #include "corps.typ"
+#pagebreak(weak: true)
+#include "actualisation.typ"
+#[#set par(justify: false, linebreaks: "simple")
+#include "references-actualisation.typ"]
 '''
-    source = ' '.join(texte_controle(t) for t in (p['titre'], p['sous_titre'], fiche, texte))
-    composer({'fiche': fiche, 'corps': texte}, main_typ, OUT, source)
+    source = ' '.join(texte_controle(t) for t in (p['titre'], p['sous_titre'], fiche, texte, annexe, refs_annexe))
+    composer({'fiche': fiche, 'corps': texte, 'actualisation': annexe, 'references-actualisation': refs_annexe},
+             main_typ, OUT, source)
 
 
 if __name__ == '__main__':
