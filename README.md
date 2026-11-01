@@ -1,8 +1,25 @@
 # Interopérabilité et Orchestration en Entreprise Agentique
 
-Corpus documentaire d'André-Guy Bruneau, M.Sc. IT, sur la conception, le déploiement et la supervision d'agents d'IA fondés sur les grands modèles de langue en entreprise, avec un accent sur les services financiers réglementés au Canada.
+## Résumé
 
-> **Dépôt documentaire finalisé — fermé le 1er novembre 2026.** Le travail est terminé. Le contenu des six PDF est figé à novembre 2026, dans l'état de leur [actualisation du 1er novembre 2026](#actualisation-de-novembre-2026). Les documents ne seront plus maintenus : aucune mise à jour, correction ni annexe ne s'y ajoutera, et les faits qu'ils rapportent ne seront pas actualisés après cette date. Lisez-les comme un état de la question daté. Les PDF, leurs sources et la chaîne de composition restent consultables et réutilisables selon leurs [licences](#licence). La finalisation fige l'état du corpus sans rien trancher : ce qui y est dit ouvert, en attente ou non vérifié le reste. Le Cadre n'est pas approuvé par le comité, et les annexes de novembre ne sont pas relues par l'auteur.
+Ce dépôt réunit **EntrepriseAgentique**, corpus documentaire d'André-Guy Bruneau, M.Sc. IT. Le corpus porte sur la conception, l'intégration, la gouvernance et la supervision d'agents d'intelligence artificielle fondés sur les grands modèles de langue en entreprise, plus particulièrement dans les services financiers réglementés au Canada.
+
+Il relève de l'ingénierie des systèmes, abordée sous l'angle de l'architecture d'entreprise et de l'interopérabilité des systèmes de systèmes. Il traite l'entreprise agentique comme un ensemble de systèmes hétérogènes, conçus et exploités indépendamment, qu'il faut faire interopérer, et en couvre l'architecture de référence, les exigences, le cycle de vie, la vérification et la conformité. L'orchestration y relève de l'intégration d'entreprise et de la gestion des processus d'affaires : coordination de traitements distribués, exécution durable, chorégraphie. L'agentique relève de l'intelligence artificielle, plus précisément des systèmes multi-agents; le corpus en étudie l'interopérabilité protocolaire, l'identité, la délégation et l'autonomie encadrée.
+
+Le corpus comprend six livrables :
+
+- une **échelle de maturité** de l'interopérabilité en six paliers (NiveauMaturité);
+- une **veille technologique** sur les protocoles, les normes et l'adoption en entreprise;
+- une **revue de littérature** académique de 192 pièces, répartie sur dix fronts;
+- un **cadre de référence** normatif d'architecture d'entreprise (CRE-IA-2026-01, 272 exigences);
+- une **note d'instruction** de la ligne directrice de l'Autorité des marchés financiers (AMF) sur l'utilisation de l'intelligence artificielle, qui en dérive un profil d'application québécois du cadre;
+- un **compendium** de synthèse en cinq livres et cinquante chapitres.
+
+Ces documents traitent de l'interopérabilité, de l'architecture, de la conformité réglementaire et normative, de la gouvernance et de l'autonomie encadrée des systèmes agentiques. Chaque livrable porte une annexe d'actualisation datée du 1er novembre 2026, qui rouvre sur source primaire les faits susceptibles d'avoir évolué depuis la rédaction; le contenu des documents est figé à cette date.
+
+Le dépôt contient aussi la chaîne de composition des PDF (scripts Python, filtre Lua pour pandoc, gabarit Typst). Elle recompose chaque livrable et vérifie que tout mot de la source se retrouve dans le PDF produit.
+
+> **Dépôt documentaire finalisé — fermé le 1er novembre 2026.** Le travail est terminé. Le contenu des six PDF est figé à novembre 2026, dans l'état de leur [actualisation du 1er novembre 2026](#actualisation-de-novembre-2026). Les documents ne seront plus maintenus : aucune mise à jour, correction ni annexe ne s'y ajoutera, et les faits qu'ils rapportent ne seront pas actualisés après cette date. Lisez-les comme un état de la question daté. Les PDF, leurs sources et la chaîne de composition restent consultables et réutilisables selon leurs [licences](#licence). La finalisation fige l'état du corpus sans rien trancher : ce qui y est dit ouvert, en attente ou non vérifié le reste. Le Cadre n'est pas approuvé par le comité.
 
 ## Structure du dépôt
 
@@ -38,7 +55,7 @@ Chaque livrable porte depuis le 1er novembre 2026 une annexe datée « Actualisa
 - La **Veille** (§ 13) décrit une version antérieure du Compendium, en douze livres; une note datée sous le Tableau 16 le signale, et la structure en vigueur est celle du Compendium livré.
 - Les cinq PDF ont été corrigés le 29 oct. 2026 selon `PLAN.md`, par retouche directe faute de sources amont dans ce dépôt; `PLAN.md` et le contrôle `verifier.py` ont été retirés au commit `d47db0f` et restent dans l'historique git. Ces corrections sont dans les PDF d'origine (commit `d28324a`), dont la recomposition du 31 oct. 2026 extrait le texte (voir [Composition des PDF](#composition-des-pdf)).
 - La **Veille** et la **Revue** ont été révisées le même jour, en après-midi : errata corrigés à leur place quand ils tenaient dans la ligne, puis une annexe « Reprise du 29 octobre 2026 » ajoutée à chacune (Veille : énoncés datés rouverts sur source primaire, onze errata, références [343] à [371]; Revue : 189 notices arXiv reprises, régimes de preuve recomptés, quatre errata). Le corps reste gelé au 15 août 2026; l'annexe fait foi pour le 29 octobre. Ces ajouts sont repris dans les PDF recomposés; les sources amont, absentes, ne les ont pas reçus.
-- Les six livrables ont reçu le 1er nov. 2026 une annexe « Actualisation de novembre 2026 », relevée par des agents LLM (Claude, Anthropic) et contre-vérifiée par échantillon, mais **non relue par l'auteur** (voir [Actualisation de novembre 2026](#actualisation-de-novembre-2026)). Le corps de chaque document n'est pas réécrit; chaque annexe fait foi pour le 1er novembre.
+- Les six livrables ont reçu le 1er nov. 2026 une annexe « Actualisation de novembre 2026 », relevée par des agents LLM (Claude, Anthropic) et contre-vérifiée par échantillon (voir [Actualisation de novembre 2026](#actualisation-de-novembre-2026)). Le corps de chaque document n'est pas réécrit; chaque annexe fait foi pour le 1er novembre.
 - Les échelles diffèrent d'un document à l'autre (voir ci-dessous). Un rang ne se cite pas d'une échelle à l'autre.
 - La typographie de la ponctuation haute n'est pas harmonisée : NiveauMaturité met une espace insécable avant `?`, le Cadre n'en met généralement pas, les autres documents varient.
 
