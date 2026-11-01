@@ -640,7 +640,7 @@ def main():
     main_typ = f'''#import "gabarit.typ": *
 #set document(title: {typo(meta['title'])}, description: {typo(meta['subject'])},
   keywords: ({', '.join(chaine_typst(k.strip()) for k in meta['keywords'].split(','))}))
-#show: note.with(titre-court: "Compendium", pied: [Gel au {GEL} · édition de {p['edition'].lower()} · actualisation du {ACTUALISATION}])
+#show: note.with(titre-court: "Compendium", pied: [Gel au {GEL} · actualisation du {ACTUALISATION}])
 // numérotation d'origine (par chapitre) gardée dans les légendes : celle de Typst se tait
 #set figure(numbering: none)
 // légendes au-dessus des tableaux, sous les figures, comme dans l'édition d'origine

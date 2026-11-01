@@ -49,7 +49,10 @@ def main():
   fiche: include "fiche.typ")
 #sommaire()
 #include "corps.typ"
-#include "actualisation.typ"
+// annexe H : tableaux numérotés H.1, H.2… dans leur légende (les tableaux du corps n'ont
+// pas de légende), sans la numérotation de Typst
+#[#set figure(numbering: none)
+#include "actualisation.typ"]
 #[#set par(justify: false, linebreaks: "simple")
 #include "references-actualisation.typ"]
 '''
