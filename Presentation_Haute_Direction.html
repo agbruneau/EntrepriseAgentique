@@ -278,6 +278,7 @@
     color: var(--text);
   }
   .title-bar h2 span { color: var(--o-400); }
+  .title-bar h2 .nobr { color: inherit; white-space: nowrap; }
   .title-bar .lead {
     margin: 0;
     flex: 0 0 46%;
@@ -1200,7 +1201,7 @@
               </p>
             </div>
             <div class="hero-thesis">
-              <b>Thèse directrice — L'« agent enveloppé » :</b> l'entreprise agentique est un problème d'<b>architecture d'entreprise</b>, d'intégration de systèmes hétérogènes et de gouvernance des processus d'affaires avant d'être un sujet de modèle. Le grand modèle de langue raisonne à l'intérieur d'un <b>squelette déterministe</b> qui authentifie, valide les contrats, journalise et compense.
+              <b>Thèse directrice — L'«&nbsp;agent enveloppé&nbsp;» :</b> l'entreprise agentique est un problème d'<b>architecture d'entreprise</b>, d'intégration de systèmes hétérogènes et de gouvernance des processus d'affaires avant d'être un sujet de modèle. Le grand modèle de langue raisonne à l'intérieur d'un <b>squelette déterministe</b> qui authentifie, valide les contrats, journalise et compense.
             </div>
           </div>
 
@@ -1314,7 +1315,7 @@
             <div class="card-tag"><span>Étalement agentique</span><span class="badge">Constat industriel</span></div>
             <h3>Pourquoi les pilotes échouent au passage à l'échelle</h3>
             <ul class="clean">
-              <li><b>Maillage sauvage N × M :</b> assistants SaaS, copilotes et « agents fantômes » branchés aux API sans catalogue ni contrat de données.</li>
+              <li><b>Maillage sauvage N × M :</b> assistants SaaS, copilotes et «&nbsp;agents fantômes&nbsp;» branchés aux API sans catalogue ni contrat de données.</li>
               <li><b>Député confus (<i>Confused Deputy</i>) :</b> des clés partagées laissent un prompt injecté agir avec les privilèges de l'institution.</li>
               <li><b>Illusion du tout-agentique :</b> confier à un LLM des flux qui relèvent d'un moteur de règles ou <code>BPMN</code> multiplie les coûts par <b>3 à 10×</b>.</li>
               <li><b>Absence de coupe-circuit :</b> impossible d'isoler un agent déviant ou de compenser ses écritures en moins de 15 minutes.</li>
@@ -1523,7 +1524,7 @@
 
       <div class="slide-body">
         <div class="title-bar">
-          <h2>Architecture de référence et patron de l'<span>« Agent enveloppé »</span></h2>
+          <h2>Architecture de référence et patron de <span class="nobr">l'<span>«&nbsp;Agent enveloppé&nbsp;»</span></span></h2>
           <p class="lead">Remplacer le maillage N × M non gouverné par une <b>topologie N + M</b> articulée autour de la <b>Passerelle d'agents</b>, du <b>Catalogue d'entreprise</b> et d'une enveloppe d'exécution déterministe.</p>
         </div>
 
@@ -1563,7 +1564,7 @@
 
           <div class="stack">
             <div class="card orange">
-              <div class="card-tag"><span>Le patron « Agent enveloppé »</span><span class="badge">Cœur du Cadre</span></div>
+              <div class="card-tag"><span>Le patron «&nbsp;Agent enveloppé&nbsp;»</span><span class="badge">Cœur du Cadre</span></div>
               <h3>Partage strict des rôles</h3>
               <ul class="clean">
                 <li><b>Enveloppe déterministe :</b> authentifie le mandat, applique les politiques (<code>OPA/Cedar</code>) et les plafonds, journalise hors de portée du LLM et compense.</li>
@@ -1775,7 +1776,7 @@
       <div class="slide-body">
         <div class="title-bar">
           <h2>Sécurité, identité déléguée et <span>coupe-circuit en ≤ 15 minutes</span></h2>
-          <p class="lead">Éliminer le risque du « député confus » et de l'injection indirecte en imposant une <b>chaîne de mandat cryptographique</b> et un <b>suivi de contamination</b> hors du modèle.</p>
+          <p class="lead">Éliminer le risque du «&nbsp;député confus&nbsp;» et de l'injection indirecte en imposant une <b>chaîne de mandat cryptographique</b> et un <b>suivi de contamination</b> hors du modèle.</p>
         </div>
 
         <div class="grid-2 flex-1">
