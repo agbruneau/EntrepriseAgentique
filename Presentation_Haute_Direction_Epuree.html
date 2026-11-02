@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<meta name="author" content="André-Guy Bruneau M.Sc. IT" />
+<meta name="description" content="Version épurée de la présentation à la haute direction — Interopérabilité et orchestration en entreprise agentique (corpus CRE-IA-2026-01 et CRE-IA-2026-01-QC, actualisé au 1er novembre 2026)." />
+<title>Entreprise agentique — Haute direction (épurée)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" />
+<style>
+  :root {
+    --page:   #f3f2ef;
+    --paper:  #ffffff;
+    --ink:    #16161a;
+    --ink-2:  #55555e;
+    --ink-3:  #8d8d96;
+    --rule:   #e4e3df;
+    --accent: #c2410c;
+    --accent-soft: #fbefe8;
+    --sans: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  /* Échelle : tout dérive de --base (1/54 de la largeur de scène) */
+  .stage {
+    --fs-xs: calc(var(--base) * 0.6);
+    --fs-sm: calc(var(--base) * 0.74);
+    --fs-md: calc(var(--base) * 0.92);
+    --fs-lg: calc(var(--base) * 1.2);
+    --fs-xl: calc(var(--base) * 1.7);
+    --fs-xxl: calc(var(--base) * 2.3);
+    --s-1: calc(var(--base) * 0.25);
+    --s-2: calc(var(--base) * 0.5);
+    --s-3: calc(var(--base) * 0.85);
+    --s-4: calc(var(--base) * 1.25);
+    --s-5: calc(var(--base) * 2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  /* ===================== SCÈNE 16:9 ===================== */
+  .viewport {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem 1rem 3.5rem;
+  }
+  .stage {
+    --w: min(calc(100vw - 2rem), calc((100vh - 4.5rem) * 16 / 9));
+    --base: calc(var(--w) / 54);
+    width: var(--w);
+    height: calc(var(--w) * 9 / 16);
+    font-size: var(--base);
+    position: relative;
+    background: var(--paper);
+    border-radius: calc(var(--base) * 0.3);
+    box-shadow: 0 0.6em 2.4em rgba(20, 20, 30, 0.10);
+    overflow: hidden;
+  }
+  .progress {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: calc(var(--base) * 0.12);
+    z-index: 5;
+  }
+  .progress > i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    transition: width 240ms ease;
+  }
+
+  /* ===================== DIAPOSITIVE ===================== */
+  .slide {
+    position: absolute;
+    inset: 0;
+    padding: var(--s-5) calc(var(--base) * 2.6) var(--s-4);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    gap: var(--s-4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease;
+  }
+  .slide.active { opacity: 1; pointer-events: auto; z-index: 2; }
+
+  .kicker {
+    margin: 0 0 var(--s-2);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1, h2 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    max-width: 80%;
+  }
+  h1 { font-size: var(--fs-xxl); max-width: 85%; }
+  h2 { font-size: var(--fs-xl); }
+  h1 em, h2 em { font-style: normal; color: var(--accent); }
+  .lead {
+    margin: var(--s-3) 0 0;
+    max-width: 62%;
+    font-size: var(--fs-md);
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--s-4);
+    min-height: 0;
+  }
+  .body.tight { gap: var(--s-3); }
+
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-4);
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+  }
+
+  /* Chiffres clés */
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr));
+    gap: var(--s-4);
+  }
+  .fig {
+    padding-top: var(--s-2);
+    border-top: 1px solid var(--ink);
+  }
+  .fig b {
+    display: block;
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .fig span {
+    display: block;
+    margin-top: var(--s-1);
+    font-size: var(--fs-sm);
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+
+  /* Message à retenir */
+  .note {
+    margin: 0;
+    padding-left: var(--s-3);
+    border-left: calc(var(--base) * 0.14) solid var(--accent);
+    font-size: var(--fs-md);
+    line-height: 1.4;
+    max-width: 82%;
+  }
+  .note.quiet {
+    border-left-color: var(--rule);
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+  }
+
+  /* Lignes séparées par des filets */
+  .rows { display: flex; flex-direction: column; }
+  .row {
+    display: grid;
+    grid-template-columns: var(--cols, 3em 11em 1fr 12em);
+    align-items: baseline;
+    gap: var(--s-3);
+    padding: var(--s-2) 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: var(--fs-sm);
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+  .row:first-child { border-top: 1px solid var(--rule); }
+  .row .n { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .row .t { color: var(--ink); font-weight: 700; }
+  .row .r { text-align: right; color: var(--ink-3); }
+  .row.hl .n, .row.hl .t { color: var(--accent); }
+  /* Taille réduite sur les enfants seulement : les colonnes en em restent alignées */
+  .row.head { color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; }
+  .row.head > * { font-size: var(--fs-xs); }
+  .row.head .t { color: var(--ink-3); font-weight: 500; white-space: nowrap; }
+
+  /* Colonnes */
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+    gap: var(--s-4);
+  }
+  .col h3 {
+    margin: 0 0 var(--s-1);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .col .tag {
+    display: block;
+    margin-bottom: var(--s-1);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .col p {
+    margin: 0;
+    font-size: var(--fs-sm);
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+  .col.hl h3, .col.hl .tag { color: var(--accent); }
+
+  /* Grille des dix décisions */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--s-4) var(--s-3);
+  }
+  .tile {
+    padding-top: var(--s-2);
+    border-top: 1px solid var(--rule);
+  }
+  .tile .n {
+    display: block;
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+  }
+  .tile b {
+    display: block;
+    margin-top: var(--s-1);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .tile.hl { border-top: 2px solid var(--accent); }
+  .tile.hl .n { color: var(--accent); }
+
+  /* Échelles en bandeau (N0–N4, P0–P3) */
+  .scale {
+    display: grid;
+    grid-template-columns: 4em repeat(var(--n, 5), minmax(0, 1fr));
+    gap: var(--s-1);
+    align-items: stretch;
+    font-size: var(--fs-sm);
+  }
+  .scale > span:first-child {
+    align-self: center;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .scale div {
+    padding: var(--s-1) var(--s-2);
+    background: #f6f5f2;
+    border-radius: calc(var(--base) * 0.2);
+    line-height: 1.3;
+    color: var(--ink-2);
+  }
+  .scale div b { display: block; color: var(--ink); }
+  .scale div.off { background: transparent; border: 1px dashed var(--rule); color: var(--ink-3); }
+  .scale div.off b { color: var(--accent); }
+
+  /* Diapo 5 : architecture */
+  .split {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--s-5);
+    align-items: center;
+  }
+  .split .note { max-width: none; }
+  .stackcol { display: flex; flex-direction: column; gap: var(--s-4); }
+
+  /* Diapo 10 : phases */
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--s-3);
+  }
+  .phase {
+    padding-top: var(--s-2);
+    border-top: 1px solid var(--rule);
+    font-size: var(--fs-sm);
+    line-height: 1.35;
+    color: var(--ink-2);
+  }
+  .phase .when { font-size: var(--fs-xs); color: var(--ink-3); }
+  .phase b { display: block; margin: var(--s-1) 0; font-size: var(--fs-md); color: var(--ink); }
+  .phase .j { display: block; margin-top: var(--s-1); color: var(--ink); font-weight: 500; }
+  .phase.now { border-top: 2px solid var(--accent); }
+  .phase.now .when { color: var(--accent); }
+
+  /* ===================== NAVIGATION ===================== */
+  .hud {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--ink-2);
+    z-index: 30;
+  }
+  .hud button {
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+    padding: 0 0.75rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.4rem;
+    color: var(--ink-2);
+    font: inherit;
+    cursor: pointer;
+  }
+  .hud button:hover { border-color: var(--rule); color: var(--ink); background: var(--paper); }
+  .hud button[aria-disabled="true"] { opacity: 0.35; cursor: default; }
+  .hud .count { min-width: 4rem; text-align: center; font-variant-numeric: tabular-nums; }
+
+  .toc {
+    width: min(34rem, 92vw);
+    max-height: 86vh;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    border-radius: 0.6rem;
+    box-shadow: 0 1rem 3rem rgba(20, 20, 30, 0.2);
+  }
+  .toc::backdrop { background: rgba(240, 239, 236, 0.85); }
+  .toc h2 { font-size: 1rem; max-width: none; margin-bottom: 0.75rem; }
+  .toc ol { margin: 0; padding: 0; list-style: none; }
+  .toc li button {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.45rem 0.5rem;
+    background: none;
+    border: none;
+    border-radius: 0.3rem;
+    font: inherit;
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+  }
+  .toc li button span { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .toc li button:hover, .toc li button[aria-current="step"] { background: var(--accent-soft); }
+  .toc p { margin: 0.75rem 0 0; font-size: 0.75rem; color: var(--ink-3); }
+
+  /* ===================== ÉCRANS ÉTROITS ===================== */
+  @media screen and (max-width: 780px) {
+    html, body { overflow: auto; height: auto; }
+    .viewport { position: static; display: block; padding: 0.5rem 0.5rem 3.5rem; }
+    .stage { --base: 20px; width: 100%; height: auto; overflow-wrap: anywhere; }
+    .slide { position: static; display: none; padding: 1.25rem 1rem; }
+    .slide.active { display: flex; flex-direction: column; }
+    h1, h2, .lead, .note { max-width: none; }
+    .figures, .cols, .tiles, .phases, .split { grid-template-columns: minmax(0, 1fr); }
+    .row, .scale { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; }
+    .row .r { text-align: left; }
+    .row.head { display: none; }
+    .fig b { white-space: normal; }
+    .foot { flex-direction: column; gap: 0.25rem; }
+    .hud { background: var(--page); }
+  }
+
+  /* ===================== IMPRESSION A4 PAYSAGE ===================== */
+  @media print {
+    @page { size: A4 landscape; margin: 6mm; }
+    html, body { height: auto; overflow: visible; background: #fff !important; }
+    .hud, .toc, .progress { display: none !important; }
+    .viewport { position: static; display: block; padding: 0; }
+    .stage {
+      --w: 285mm;
+      --base: calc(var(--w) / 56);
+      width: 100%;
+      height: auto;
+      box-shadow: none;
+      overflow: visible;
+    }
+    .slide {
+      position: relative;
+      inset: auto;
+      width: 285mm;
+      height: 160.3mm;
+      margin-top: 18.8mm;
+      opacity: 1 !important;
+      break-after: page;
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
+    .slide:last-child { break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<main class="viewport">
+  <div class="stage" id="stage">
+
+    <!-- 01 — COUVERTURE -->
+    <section class="slide active" data-title="Couverture">
+      <header>
+        <p class="kicker">Présentation à la haute direction · Novembre 2026</p>
+        <h1>Interopérabilité et orchestration en <em>entreprise agentique</em></h1>
+        <p class="lead">De l'expérimentation dispersée à l'autonomie gouvernée, auditable et conforme dans les services financiers réglementés au Canada.</p>
+      </header>
+      <div class="body">
+        <p class="note">Thèse : l'agent enveloppé. Le LLM raisonne à l'intérieur d'un squelette déterministe qui authentifie, valide les contrats, journalise et compense.</p>
+        <div class="figures">
+          <div class="fig"><b>1&nbsp;193&nbsp;p.</b><span>Six livrables coordonnés</span></div>
+          <div class="fig"><b>272&nbsp;+&nbsp;12</b><span>Exigences du Cadre et EXIG&#8209;AMF</span></div>
+          <div class="fig"><b>1er&nbsp;mai&nbsp;2027</b><span>Échéance BSIF E-23 et AMF</span></div>
+          <div class="fig"><b>N2</b><span>Plafond d'autonomie, classe de risque Élevée</span></div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>André-Guy Bruneau M.Sc. IT · Licence CC BY 4.0 · Corpus figé au 1er novembre 2026</span>
+        <span>01 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 02 — PARADOXE ADOPTION / ASSURANCE -->
+    <section class="slide" data-title="Paradoxe adoption / assurance">
+      <header>
+        <p class="kicker">Contexte et risques</p>
+        <h2>Paradoxe <em>adoption / assurance</em></h2>
+        <p class="lead">Le déploiement s'accélère; la gouvernance ne suit pas.</p>
+      </header>
+      <div class="body">
+        <div class="figures">
+          <div class="fig"><b>40&nbsp;%</b><span>Des apps d'entreprise, fin 2026 (moins de 5&nbsp;% en 2025)</span></div>
+          <div class="fig"><b>&gt;&nbsp;40&nbsp;%</b><span>Des projets annulés d'ici fin 2027</span></div>
+          <div class="fig"><b>13&nbsp;%</b><span>Bonne gouvernance (Gartner)</span></div>
+          <div class="fig"><b>91,8&nbsp;%</b><span>Des serveurs MCP audités sans OAuth</span></div>
+        </div>
+        <p class="note quiet">Juillet 2026, banc ExploitGym : environ 1&nbsp;200 agents, coordonnés hors protocole, sortent du bac à sable par un miroir interne. Il a manqué un contrôle qui intercepte l'action avant son exécution.</p>
+        <p class="note">Ne pas interdire les agents : imposer une infrastructure de médiation obligatoire avant le 1er&nbsp;mai&nbsp;2027.</p>
+      </div>
+      <footer class="foot">
+        <span>Sources : Gartner, Forrester, CSA, METR · Veille § 6–7 · Cadre § 2</span>
+        <span>02 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 03 — SIX PALIERS -->
+    <section class="slide" data-title="Échelle de maturité (6 paliers)">
+      <header>
+        <p class="kicker">Livrable 1 · NiveauMaturité</p>
+        <h2>Six paliers d'interopérabilité; le sixième <em>échange des intentions</em></h2>
+      </header>
+      <div class="body">
+        <div class="rows">
+          <div class="row hl"><span class="n">06</span><span class="t">Agentique</span><span>Intention déclarée, coordination entre agents</span><span class="r">MCP · A2A</span></div>
+          <div class="row"><span class="n">05</span><span class="t">Juridique</span><span>Preuve, souveraineté et conformité</span><span class="r">Loi 25 · E-23 · AMF</span></div>
+          <div class="row"><span class="n">04</span><span class="t">Politique</span><span>Autorité sur les données et les règles</span><span class="r">Data Contracts · OPA/Cedar</span></div>
+          <div class="row"><span class="n">03</span><span class="t">Chorégraphique</span><span>Processus, délais et compensation</span><span class="r">BPMN · Saga</span></div>
+          <div class="row"><span class="n">02</span><span class="t">Sémantique</span><span>Sens partagé des données métier</span><span class="r">BIAN · ACORD · ISO 20022</span></div>
+          <div class="row"><span class="n">01</span><span class="t">Technico-syntaxique</span><span>Transport et forme du message</span><span class="r">MQ · Kafka · gRPC</span></div>
+        </div>
+        <p class="note">Brancher un agent sur des paliers 1 à 5 fragiles ne corrige pas la dette d'architecture : cela l'automatise à grande vitesse.</p>
+      </div>
+      <footer class="foot">
+        <span>Échelle distincte des niveaux d'autonomie N0–N4 du Cadre</span>
+        <span>03 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 04 — PROTOCOLES ET SCIENCE -->
+    <section class="slide" data-title="Protocoles et littérature">
+      <header>
+        <p class="kicker">Livrables 2 et 3 · Veille et Revue de littérature</p>
+        <h2>Des protocoles consolidés, <em>trois verrous</em> ouverts</h2>
+        <p class="lead">MCP et A2A s'imposent de facto; aucun n'est une norme de jure.</p>
+      </header>
+      <div class="body">
+        <div class="cols">
+          <div class="col"><span class="tag">Agent → outil</span><h3>MCP 2026-07-28</h3><p>Deux versions par an; suite de conformité ni certifiante ni opposable.</p></div>
+          <div class="col"><span class="tag">Agent ↔ agent</span><h3>A2A 1.0.1</h3><p>v1.1.0-rc le 29 oct. 2026; aucune gouvernance inter-organisations native.</p></div>
+          <div class="col hl"><span class="tag">192 + 40 pièces</span><h3>Littérature</h3><p>74&nbsp;% sans signe de revue par les pairs; les défenses statiques tombent devant l'injection adaptative.</p></div>
+        </div>
+        <div class="rows" style="--cols: 13em 1fr 1fr;">
+          <div class="row head"><span class="t">Verrou</span><span>Constat</span><span>Réponse du Cadre</span></div>
+          <div class="row hl"><span class="t">Délégation &gt; 2 sauts</span><span>Aucun mécanisme normalisé</span><span>Plafond de 2 sauts, RFC 8693 à chaque saut</span></div>
+          <div class="row"><span class="t">Orchestration durable</span><span>Ni MCP ni A2A ne compensent</span><span>Moteur de flux durable et sagas</span></div>
+          <div class="row"><span class="t">Observabilité, post-quantique</span><span>OTel GenAI en Development; NIST IR 8547</span><span>OTel v1.41.0 épinglé; PQC à instruire</span></div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>Veille (430 réf.) · Revue (242 réf.)</span>
+        <span>04 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 05 — ARCHITECTURE -->
+    <section class="slide" data-title="Architecture et agent enveloppé">
+      <header>
+        <p class="kicker">Cadre CRE-IA-2026-01 · § 4–5</p>
+        <h2>Architecture de référence : <em>l'agent enveloppé</em></h2>
+        <p class="lead">Passer d'un maillage N × M à une topologie N + M autour d'un point de passage obligatoire.</p>
+      </header>
+      <div class="body">
+        <div class="split">
+          <div class="rows" style="--cols: 2.5em 11em 1fr;">
+            <div class="row"><span class="n">C1</span><span class="t">Canaux</span><span>Portails, clavardage, approbations humaines</span></div>
+            <div class="row"><span class="n">C2</span><span class="t">Orchestration</span><span>Moteur durable, sagas de compensation</span></div>
+            <div class="row"><span class="n">C3</span><span class="t">Agents</span><span>8 patrons autorisés, 2 sauts au plus</span></div>
+            <div class="row hl"><span class="n">C4</span><span class="t">Médiation</span><span>Passerelle d'agents et catalogue d'entreprise</span></div>
+            <div class="row"><span class="n">C5</span><span class="t">Outils et données</span><span>Serveurs MCP, paliers P0 à P3</span></div>
+            <div class="row"><span class="n">C6</span><span class="t">Systèmes existants</span><span>Exposés tels quels, sans réécriture</span></div>
+          </div>
+          <div class="stackcol">
+            <div class="col hl"><h3>Enveloppe déterministe</h3><p>Authentifie le mandat, applique les politiques, journalise hors de portée du LLM, compense.</p></div>
+            <div class="col"><h3>Noyau cognitif</h3><p>Comprend, synthétise, propose un plan et des appels d'outils typés.</p></div>
+            <p class="note quiet">Trois plans transversaux : identité et sécurité, observabilité et FinOps, gouvernance et registre.</p>
+          </div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>Règle centrale : tout appel vers un outil, une donnée ou un agent tiers traverse la C4</span>
+        <span>05 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 06 — DIX DÉCISIONS -->
+    <section class="slide" data-title="Les 10 décisions structurantes">
+      <header>
+        <p class="kicker">Livrable 4 · Cadre CRE-IA-2026-01 v1.1</p>
+        <h2><em>Dix décisions</em> opposables à tout projet agentique</h2>
+        <p class="lead">Les 272 exigences du Cadre ramenées à dix règles vérifiables dès la conception.</p>
+      </header>
+      <div class="body">
+        <div class="tiles">
+          <div class="tile"><span class="n">01</span><b>Protocoles ouverts épinglés</b></div>
+          <div class="tile hl"><span class="n">02</span><b>Passerelle et catalogue obligatoires</b></div>
+          <div class="tile"><span class="n">03</span><b>Simplicité d'abord, 2 sauts au plus</b></div>
+          <div class="tile hl"><span class="n">04</span><b>Autonomie N0–N4 bornée par le risque</b></div>
+          <div class="tile"><span class="n">05</span><b>Identité propre, jetons délégués</b></div>
+          <div class="tile"><span class="n">06</span><b>Présomption d'injection</b></div>
+          <div class="tile hl"><span class="n">07</span><b>Réversibilité, coupe-circuit en 15&nbsp;min</b></div>
+          <div class="tile"><span class="n">08</span><b>Coût par tâche réussie mesuré</b></div>
+          <div class="tile hl"><span class="n">09</span><b>Parrain nommé et homologation</b></div>
+          <div class="tile"><span class="n">10</span><b>Conformité intégrée</b></div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>Dérogation : décision motivée du Comité, 6 mois au plus, contrôles compensatoires</span>
+        <span>06 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 07 — AUTONOMIE -->
+    <section class="slide" data-title="Gouvernance de l'autonomie">
+      <header>
+        <p class="kicker">Cadre · § 8 et § 12.1</p>
+        <h2>L'autonomie est <em>un plafond</em>, jamais un objectif</h2>
+        <p class="lead">Elle est fixée par la classe de risque du cas d'usage et le palier de ses outils.</p>
+      </header>
+      <div class="body tight">
+        <div class="rows" style="--cols: 9em 15em 1fr;">
+          <div class="row head"><span class="t">Classe</span><span>Plafond</span><span>Supervision</span></div>
+          <div class="row hl"><span class="t">Élevée</span><span>N2 · N3 et N4 interdits</span><span>Approbation humaine de chaque P2/P3; signature hors bande sur P3</span></div>
+          <div class="row"><span class="t">Modérée</span><span>N3</span><span>P2 sous seuils, humain sur la boucle</span></div>
+          <div class="row"><span class="t">Faible</span><span>N3 · N4 sur décision du comité</span><span>P2 interne réversible dans un ODD</span></div>
+        </div>
+        <div class="scale" style="--n: 6;">
+          <span>Niveaux</span>
+          <div><b>N0</b>Déterministe</div>
+          <div><b>N1</b>Consultatif</div>
+          <div><b>N2</b>Exécution approuvée</div>
+          <div><b>N3</b>Autonomie bornée</div>
+          <div><b>N4</b>Autonomie étendue</div>
+          <div class="off"><b>NX</b>Interdit</div>
+        </div>
+        <div class="scale" style="--n: 4;">
+          <span>Outils</span>
+          <div><b>P0</b>Lecture publique</div>
+          <div><b>P1</b>Lecture interne</div>
+          <div><b>P2</b>Écriture réversible</div>
+          <div><b>P3</b>Action critique ou irréversible</div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>La cote de risque du modèle (EXIG-AMF-05) alimente la classe de l'agent</span>
+        <span>07 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 08 — SÉCURITÉ -->
+    <section class="slide" data-title="Sécurité et coupe-circuit">
+      <header>
+        <p class="kicker">Cadre § 7–10 · Compendium, livre II</p>
+        <h2>Le LLM ne décide ni de ses permissions <em>ni de sa journalisation</em></h2>
+      </header>
+      <div class="body">
+        <div class="cols" style="--n: 2; row-gap: var(--s-5);">
+          <div class="col"><span class="tag">SPIFFE · RFC 8693</span><h3>Identité et délégation</h3><p>Une identité par agent, aucun secret partagé; jeton à audience unique, 15 minutes au plus.</p></div>
+          <div class="col hl"><span class="tag">OWASP LLM01</span><h3>Présomption d'injection</h3><p>Tout contenu reçu est une donnée, jamais une instruction; après une lecture non fiable, l'agent perd ses capacités d'envoi.</p></div>
+          <div class="col"><span class="tag">Cible : 15 minutes</span><h3>Coupe-circuit</h3><p>Ciblé, par agent ou global; révocation exercée chaque trimestre, repli homologué.</p></div>
+          <div class="col"><span class="tag">NIST IR 8547</span><h3>Preuve</h3><p>Journal d'audit en ajout seul, chaîné et signé, hors de portée de l'agent.</p></div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>Pas de mise en production sans coupe-circuit opérationnel</span>
+        <span>08 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 09 — CONFORMITÉ AMF -->
+    <section class="slide" data-title="Conformité et profil AMF">
+      <header>
+        <p class="kicker">Livrable 5 · Note AMF IA (CRE-IA-2026-01-QC)</p>
+        <h2>1er mai 2027 : <em>E-23 du BSIF et ligne directrice IA de l'AMF</em></h2>
+        <p class="lead">Douze exigences EXIG-AMF comblent les écarts du Cadre face aux 41 attentes de l'AMF.</p>
+      </header>
+      <div class="body">
+        <div class="figures">
+          <div class="fig"><b>41</b><span>Attentes : 5 couvertes, 27 partielles, 9 non couvertes</span></div>
+          <div class="fig"><b>12</b><span>Exigences complémentaires EXIG-AMF</span></div>
+          <div class="fig"><b>2&nbsp;×&nbsp;/&nbsp;an</b><span>Reddition au Conseil, au minimum</span></div>
+          <div class="fig"><b>30&nbsp;avril</b><span>Constat formel de conformité, 2027</span></div>
+        </div>
+        <div class="cols">
+          <div class="col hl"><span class="tag">AMF-01 à 04</span><h3>Gouvernance au sommet</h3><p>Dirigeant imputable, reddition au Conseil, compétences, code d'éthique.</p></div>
+          <div class="col"><span class="tag">AMF-05 à 08</span><h3>Risque de modèle</h3><p>Cote par modèle, répertoire des SIA, registre des risques agentiques.</p></div>
+          <div class="col"><span class="tag">AMF-09 à 12</span><h3>Validation et client</h3><p>Revalidation, non-discrimination, divulgation et explication d'office.</p></div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>Loi 25 : décisions exclusivement automatisées; AMF : aussi les recommandées</span>
+        <span>09 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 10 — FEUILLE DE ROUTE -->
+    <section class="slide" data-title="Feuille de route 2026–2030">
+      <header>
+        <p class="kicker">Cadre § 15 · Note AMF IA § 12</p>
+        <h2>Feuille de route <em>2026–2030</em></h2>
+        <p class="lead">Aucune hausse d'autonomie sans jalon de passage vérifié.</p>
+      </header>
+      <div class="body tight">
+        <div class="phases">
+          <div class="phase now"><span class="when">Déc. 2026 – mars 2027</span><b>1 · Fondations</b>Autonomie N0–N1<span class="j">J1 : mi-mars 2027</span></div>
+          <div class="phase now"><span class="when">Mars – sept. 2027</span><b>2 · Plateforme et conformité</b>N2, premiers N3 bornés<span class="j">J-AMF et E-23 : 1er mai 2027</span></div>
+          <div class="phase"><span class="when">Oct. 2027 – juin 2028</span><b>3 · Industrialisation</b>N3 interdomaines<span class="j">J3 : juillet 2028</span></div>
+          <div class="phase"><span class="when">Juil. 2028 – déc. 2030</span><b>4 · Mise à l'échelle</b>N4 sur ODD certifié<span class="j">J5 : ISO/IEC 42001, déc. 2030</span></div>
+        </div>
+        <div class="rows" style="--cols: 9em 1fr;">
+          <div class="row head"><span class="t">90 premiers jours</span><span></span></div>
+          <div class="row"><span class="t">Sem. 1–2</span><span>Comité institué, dirigeant imputable désigné</span></div>
+          <div class="row"><span class="t">Sem. 3–6</span><span>Registre initial, fin des clés partagées, passerelle de modèles</span></div>
+          <div class="row"><span class="t">Sem. 7–10</span><span>Traces OTel, classes de risque, cotes provisoires des modèles</span></div>
+          <div class="row hl"><span class="t">Sem. 11–13</span><span>Coupe-circuit exercé, audit J1, première reddition au Conseil</span></div>
+        </div>
+      </div>
+      <footer class="foot">
+        <span>Point critique : 6 à 7 semaines entre J1 et le 1er mai 2027</span>
+        <span>10 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 11 — PILOTAGE -->
+    <section class="slide" data-title="Pilotage et achats">
+      <header>
+        <p class="kicker">Cadre § 10–15 · Note AMF IA § 9</p>
+        <h2>Piloter par la télémétrie, <em>pas par la déclaration</em></h2>
+        <p class="lead">Les indicateurs sont calculés depuis les passerelles et le registre, jamais déclarés par les projets.</p>
+      </header>
+      <div class="body">
+        <div class="figures">
+          <div class="fig"><b>100&nbsp;%&nbsp;/&nbsp;0</b><span>Agents inscrits / secrets partagés</span></div>
+          <div class="fig"><b>100&nbsp;%</b><span>Du trafic via les passerelles</span></div>
+          <div class="fig"><b>15&nbsp;min</b><span>Délai maximal de révocation en exercice</span></div>
+          <div class="fig"><b>&lt;&nbsp;1,0</b><span>Coût par tâche réussie, rapporté au processus sans agent</span></div>
+        </div>
+        <p class="note">Cinq critères éliminatoires pour tout fournisseur : interopérabilité MCP et A2A, identité et délégation, observabilité et audit, données et conformité, coûts FinOps.</p>
+      </div>
+      <footer class="foot">
+        <span>Coût par tâche au-dessus de la référence deux mois de suite : revue de valeur</span>
+        <span>11 / 12</span>
+      </footer>
+    </section>
+
+    <!-- 12 — RÉSOLUTIONS -->
+    <section class="slide" data-title="Quatre résolutions">
+      <header>
+        <p class="kicker">Décisions soumises au Conseil et au Comité exécutif</p>
+        <h2>Quatre résolutions <em>à adopter</em></h2>
+      </header>
+      <div class="body">
+        <div class="rows" style="--cols: 3em 1fr 9em;">
+          <div class="row"><span class="n">01</span><span class="t">Adopter le Cadre v1.1 et instruire le profil québécois</span><span class="r">Semaines 1–2</span></div>
+          <div class="row"><span class="n">02</span><span class="t">Désigner le dirigeant imputable et instituer le Comité</span><span class="r">Semaines 1–2</span></div>
+          <div class="row"><span class="n">03</span><span class="t">Interdire toute production hors registre; plafonner l'autonomie (N0–N1 en Fondations, N2 en classe Élevée)</span><span class="r">Immédiat</span></div>
+          <div class="row hl"><span class="n">04</span><span class="t">Lancer la phase 1 le 1er décembre 2026</span><span class="r">13 semaines</span></div>
+        </div>
+        <p class="note">Qui maîtrise ses contrats de données, ses processus et sa gouvernance de modèles fera de l'agentique un avantage durable; qui empile des agents sur une intégration fragile n'automatisera que ses incidents.</p>
+      </div>
+      <footer class="foot">
+        <span>CRE-IA-2026-01 v1.1 · CRE-IA-2026-01-QC v1.0 · Corpus complet : documents/</span>
+        <span>12 / 12</span>
+      </footer>
+    </section>
+
+    <div class="progress"><i id="progressBar"></i></div>
+  </div>
+</main>
+
+<div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+
+<nav class="hud" aria-label="Contrôles de présentation">
+  <button id="btnPrev" aria-label="Diapositive précédente">←</button>
+  <span class="count" id="count"></span>
+  <button id="btnNext" aria-label="Diapositive suivante">→</button>
+  <button id="btnToc" aria-haspopup="dialog">Sommaire</button>
+</nav>
+
+<dialog class="toc" id="toc" aria-labelledby="tocTitle">
+  <h2 id="tocTitle">Sommaire</h2>
+  <ol id="tocList"></ol>
+  <p>← → naviguer · 1–9, 0 accès direct · S sommaire · F plein écran · Maj+P PDF · Échap fermer</p>
+</dialog>
+
+<script>
+(() => {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('progressBar');
+  const count = document.getElementById('count');
+  const announcer = document.getElementById('announcer');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const toc = document.getElementById('toc');
+  const tocList = document.getElementById('tocList');
+  const pad = (n) => String(n).padStart(2, '0');
+  let current = 0;
+
+  const tocItems = slides.map((sl, idx) => {
+    const li = document.createElement('li');
+    const b = document.createElement('button');
+    b.innerHTML = `<span>${pad(idx + 1)}</span>${sl.dataset.title || ''}`;
+    b.addEventListener('click', () => { goTo(idx); toc.close(); });
+    li.appendChild(b);
+    tocList.appendChild(li);
+    return b;
+  });
+
+  function goTo(index, announce = true) {
+    current = Math.max(0, Math.min(total - 1, index));
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === current);
+      s.inert = i !== current;
+    });
+    tocItems.forEach((el, i) => {
+      if (i === current) el.setAttribute('aria-current', 'step');
+      else el.removeAttribute('aria-current');
+    });
+    bar.style.width = `${((current + 1) / total) * 100}%`;
+    count.textContent = `${pad(current + 1)} / ${total}`;
+    btnPrev.setAttribute('aria-disabled', String(current === 0));
+    btnNext.setAttribute('aria-disabled', String(current === total - 1));
+    if (announce) {
+      announcer.textContent = `Diapositive ${current + 1} sur ${total} : ${slides[current].dataset.title || ''}`;
+    }
+    history.replaceState(null, '', `#${current + 1}`);
+  }
+  const next = () => goTo(current + 1);
+  const prev = () => goTo(current - 1);
+  const openToc = () => { toc.showModal(); tocItems[current].focus(); };
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  };
+
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+  document.getElementById('btnToc').addEventListener('click', openToc);
+  toc.addEventListener('click', (e) => { if (e.target === toc) toc.close(); });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (toc.open) {
+      if (e.key === 's' || e.key === 'S') { e.preventDefault(); toc.close(); }
+      return;
+    }
+    // Entrée et Espace gardent leur rôle d'activation sur un bouton
+    if (e.target.closest?.('button') && (e.key === 'Enter' || e.key === ' ')) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'ArrowDown': case 'PageDown': case ' ': case 'Enter':
+        e.preventDefault(); next(); break;
+      case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+        e.preventDefault(); prev(); break;
+      case 'Home': e.preventDefault(); goTo(0); break;
+      case 'End': e.preventDefault(); goTo(total - 1); break;
+      case 's': case 'S': case '?': e.preventDefault(); openToc(); break;
+      case 'f': case 'F': e.preventDefault(); toggleFullscreen(); break;
+      case 'P':
+        // Maj+P seulement : une frappe accidentelle de « p » n'ouvre pas l'impression
+        if (e.shiftKey) { e.preventDefault(); window.print(); }
+        break;
+      default:
+        if (/^[1-9]$/.test(e.key)) goTo(parseInt(e.key, 10) - 1);
+        else if (e.key === '0' && total >= 10) goTo(9);
+    }
+  });
+
+  // Balayage tactile
+  let touchX = null;
+  stage.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 45) (dx < 0 ? next : prev)();
+    touchX = null;
+  }, { passive: true });
+
+  const h = parseInt(location.hash.slice(1), 10);
+  goTo(h >= 1 && h <= total ? h - 1 : 0, false);
+})();
+</script>
+</body>
+</html>
