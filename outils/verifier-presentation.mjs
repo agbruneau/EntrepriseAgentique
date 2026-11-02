@@ -1,4 +1,4 @@
-// Vérifie la mise en page de Presentation_Haute_Direction_Epuree.html dans Edge ou Chrome sans interface.
+// Vérifie la mise en page de Presentation.html dans Edge ou Chrome sans interface.
 //
 // Pour chaque diapositive : débordement horizontal, cartes qui débordent, blocs qui se
 // chevauchent (en-tête, blocs du corps, pied de page) et plus petite taille de texte.
@@ -23,7 +23,7 @@ const BLOCK = args.includes('block');
 const PDF = (args.find((a) => a.startsWith('pdf=')) || '').slice(4);
 const PORT = 9200 + Math.floor(Math.random() * 700);
 
-const page = pathToFileURL(fileURLToPath(new URL('../Presentation_Haute_Direction_Epuree.html', import.meta.url))).href;
+const page = pathToFileURL(fileURLToPath(new URL('../Presentation.html', import.meta.url))).href;
 const browser = [
   process.env.NAVIGATEUR,
   'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
