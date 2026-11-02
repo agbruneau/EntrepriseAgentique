@@ -374,6 +374,7 @@
   .toc::backdrop { background: rgba(0, 0, 0, 0.8); }
   .toc h2 { font-size: 1rem; max-width: none; margin-bottom: 0.75rem; }
   .toc ol { margin: 0; padding: 0; list-style: none; }
+  .toc h2 em { font-style: normal; color: var(--accent); }
   .toc li button {
     display: flex;
     gap: 0.75rem;
@@ -388,7 +389,8 @@
     text-align: left;
     cursor: pointer;
   }
-  .toc li button span { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .toc li button .n { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .toc li button small { display: block; margin-top: 0.1rem; font-size: 0.78rem; color: var(--ink-3); }
   .toc li button:hover, .toc li button[aria-current="step"] { background: var(--accent-soft); }
   .toc p { margin: 0.75rem 0 0; font-size: 0.75rem; color: var(--ink-3); }
 
@@ -452,7 +454,7 @@
   <div class="stage" id="stage">
 
     <!-- 01 — COUVERTURE -->
-    <section class="slide active" data-title="Couverture">
+    <section class="slide active" data-title="Couverture et thèse">
       <header>
         <p class="kicker">Présentation à la haute direction · Novembre 2026</p>
         <h1>Interopérabilité et orchestration en <em>entreprise agentique</em></h1>
@@ -497,7 +499,7 @@
     </section>
 
     <!-- 03 — SIX PALIERS -->
-    <section class="slide" data-title="Échelle de maturité (6 paliers)">
+    <section class="slide" data-title="Échelle de maturité en six paliers">
       <header>
         <p class="kicker">Livrable 1 · NiveauMaturité</p>
         <h2>Six paliers d'interopérabilité; le sixième <em>échange des intentions</em></h2>
@@ -520,7 +522,7 @@
     </section>
 
     <!-- 04 — PROTOCOLES ET SCIENCE -->
-    <section class="slide" data-title="Protocoles et littérature">
+    <section class="slide" data-title="Protocoles et verrous scientifiques">
       <header>
         <p class="kicker">Livrables 2 et 3 · Veille et Revue de littérature</p>
         <h2>Des protocoles consolidés, <em>trois verrous</em> ouverts</h2>
@@ -546,7 +548,7 @@
     </section>
 
     <!-- 05 — ARCHITECTURE -->
-    <section class="slide" data-title="Architecture et agent enveloppé">
+    <section class="slide" data-title="Architecture de référence et agent enveloppé">
       <header>
         <p class="kicker">Cadre CRE-IA-2026-01 · § 4–5</p>
         <h2>Architecture de référence : <em>l'agent enveloppé</em></h2>
@@ -576,7 +578,7 @@
     </section>
 
     <!-- 06 — DIX DÉCISIONS -->
-    <section class="slide" data-title="Les 10 décisions structurantes">
+    <section class="slide" data-title="Dix décisions structurantes">
       <header>
         <p class="kicker">Livrable 4 · Cadre CRE-IA-2026-01 v1.1</p>
         <h2><em>Dix décisions</em> opposables à tout projet agentique</h2>
@@ -618,7 +620,7 @@
     </section>
 
     <!-- 08 — AUTONOMIE -->
-    <section class="slide" data-title="Gouvernance de l'autonomie">
+    <section class="slide" data-title="Autonomie bornée par le risque">
       <header>
         <p class="kicker">Cadre · § 8 et § 12.1</p>
         <h2>L'autonomie est <em>un plafond</em>, jamais un objectif</h2>
@@ -655,7 +657,7 @@
     </section>
 
     <!-- 09 — CONFORMITÉ AMF -->
-    <section class="slide" data-title="Conformité et profil AMF">
+    <section class="slide" data-title="Conformité : E-23 et profil AMF">
       <header>
         <p class="kicker">Livrable 5 · Note AMF IA (CRE-IA-2026-01-QC)</p>
         <h2>1er mai 2027 : <em>E-23 du BSIF et ligne directrice IA de l'AMF</em></h2>
@@ -681,7 +683,7 @@
     </section>
 
     <!-- 10 — PILOTAGE -->
-    <section class="slide" data-title="Pilotage et achats">
+    <section class="slide" data-title="Pilotage, FinOps et achats">
       <header>
         <p class="kicker">Cadre § 10–15 · Note AMF IA § 9</p>
         <h2>Piloter par la télémétrie, <em>pas par la déclaration</em></h2>
@@ -716,7 +718,7 @@
 </nav>
 
 <dialog class="toc" id="toc" aria-labelledby="tocTitle">
-  <h2 id="tocTitle">Sommaire</h2>
+  <h2 id="tocTitle">Sommaire · <em id="tocCount"></em></h2>
   <ol id="tocList"></ol>
   <p>← → naviguer · 1–9, 0 accès direct · S sommaire · F plein écran · Maj+P PDF · Échap fermer</p>
 </dialog>
@@ -739,12 +741,24 @@
   const tocItems = slides.map((sl, idx) => {
     const li = document.createElement('li');
     const b = document.createElement('button');
-    b.innerHTML = `<span>${pad(idx + 1)}</span>${sl.dataset.title || ''}`;
+    // Le titre affiché est lu dans la diapositive : le sommaire suit le contenu
+    const titre = sl.querySelector('h1, h2')?.textContent.trim() || '';
+    const theme = sl.dataset.title || '';
+    b.innerHTML = `<span class="n">${pad(idx + 1)}</span><span class="t"></span>`;
+    const t = b.querySelector('.t');
+    t.append(theme);
+    if (titre && titre !== theme) {
+      const sub = document.createElement('small');
+      sub.textContent = titre;
+      t.append(sub);
+    }
     b.addEventListener('click', () => { goTo(idx); toc.close(); });
     li.appendChild(b);
     tocList.appendChild(li);
     return b;
   });
+
+  document.getElementById('tocCount').textContent = `${total} diapositives`;
 
   function goTo(index, announce = true) {
     current = Math.max(0, Math.min(total - 1, index));
