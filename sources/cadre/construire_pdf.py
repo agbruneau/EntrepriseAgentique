@@ -212,12 +212,18 @@ def recadrer(src, p, rect, dest, runs_rect):
     if runs_rect:
         r |= runs_rect
     # les tracés débordent parfois du rectangle de structure (figure 15) : on prend
-    # ceux qui le chevauchent, sauf un fond plus grand que la figure elle-même
-    coeur = r + (2, 2, -2, -2)
-    for it in src[p].get_drawings():
-        d = it['rect']
-        if d.intersects(coeur) and d.get_area() < 1.5 * r.get_area():
-            r |= d
+    # ceux qui le chevauchent, sauf un fond plus grand que la figure elle-même, puis,
+    # de proche en proche, ceux qui chevauchent le cadre agrandi (figure 3 : le chemin
+    # interdit, à gauche des couches, et son symbole d'interdiction)
+    while True:
+        avant = pymupdf.Rect(r)
+        coeur = r + (2, 2, -2, -2)
+        for it in src[p].get_drawings():
+            d = it['rect']
+            if d.intersects(coeur) and d.get_area() < 1.5 * r.get_area():
+                r |= d
+        if r == avant:
+            break
     r = (r + (-4, -4, 4, 4)) & src[p].rect
     tmp = pymupdf.open()
     tmp.insert_pdf(src, from_page=p, to_page=p)
