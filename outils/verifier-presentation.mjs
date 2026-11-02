@@ -1,7 +1,7 @@
-// Vérifie la mise en page de Presentation_Haute_Direction.html dans Edge ou Chrome sans interface.
+// Vérifie la mise en page de Presentation_Haute_Direction_Epuree.html dans Edge ou Chrome sans interface.
 //
 // Pour chaque diapositive : débordement horizontal, cartes qui débordent, blocs qui se
-// chevauchent (ou qui empiètent sur le pied de page) et plus petite taille de texte.
+// chevauchent (en-tête, blocs du corps, pied de page) et plus petite taille de texte.
 //
 // Usage : node outils/verifier-presentation.mjs [largeur] [hauteur] [options]
 //   options : print          mise en page d'impression (média print émulé)
@@ -23,7 +23,7 @@ const BLOCK = args.includes('block');
 const PDF = (args.find((a) => a.startsWith('pdf=')) || '').slice(4);
 const PORT = 9200 + Math.floor(Math.random() * 700);
 
-const page = pathToFileURL(fileURLToPath(new URL('../Presentation_Haute_Direction.html', import.meta.url))).href;
+const page = pathToFileURL(fileURLToPath(new URL('../Presentation_Haute_Direction_Epuree.html', import.meta.url))).href;
 const browser = [
   process.env.NAVIGATEUR,
   'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
@@ -71,17 +71,18 @@ console.log(`${W}×${H} · ${PRINT ? 'impression' : 'écran'} · polices web : $
 const probe = (i) => `(() => {
   const s = document.querySelectorAll('.slide')[${i}];
   const deep = (e) => Math.max(e.getBoundingClientRect().bottom, ...[...e.querySelectorAll('*')].map((c) => c.getBoundingClientRect().bottom));
+  const nom = (e) => e.className.split(' ')[0] || e.localName;
   const issues = [];
   if (s.scrollWidth > s.clientWidth + 1) issues.push('débordement horizontal ' + (s.scrollWidth - s.clientWidth) + ' px');
-  const blocks = [...s.querySelector('.slide-body').children, s.querySelector('.slide-foot')];
+  const blocks = [s.querySelector('header'), ...s.querySelector('.body').children, s.querySelector('.foot')];
   for (let k = 0; k < blocks.length - 1; k++) {
     const ov = deep(blocks[k]) - blocks[k + 1].getBoundingClientRect().top;
-    if (ov > 1) issues.push(blocks[k].className.split(' ')[0] + ' chevauche ' + blocks[k + 1].className.split(' ')[0] + ' de ' + Math.round(ov) + ' px');
+    if (ov > 1) issues.push(nom(blocks[k]) + ' chevauche ' + nom(blocks[k + 1]) + ' de ' + Math.round(ov) + ' px');
   }
   const out = deep(blocks[blocks.length - 1]) - s.getBoundingClientRect().bottom;
   if (out > 1) issues.push('pied de page hors diapositive de ' + Math.round(out) + ' px');
-  s.querySelectorAll('.card,.dec-box,.res-card,.phase-card,.kpi,.stat-box,.doc-tile,.tier-row,.arch-layer,.callout,.hero-main')
-    .forEach((b) => { if (b.scrollHeight > b.clientHeight + 1) issues.push(b.className.split(' ')[0] + ' déborde de ' + (b.scrollHeight - b.clientHeight) + ' px'); });
+  s.querySelectorAll('.col,.tile,.fig,.row,.note')
+    .forEach((b) => { if (b.scrollHeight > b.clientHeight + 1) issues.push(nom(b) + ' déborde de ' + (b.scrollHeight - b.clientHeight) + ' px'); });
   let min = Infinity;
   s.querySelectorAll('*').forEach((el) => {
     if ([...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) min = Math.min(min, parseFloat(getComputedStyle(el).fontSize));
@@ -90,8 +91,10 @@ const probe = (i) => `(() => {
 })()`;
 
 let failures = 0;
-for (let i = 0; i < 12; i++) {
-  if (!PRINT) { await ev(`document.querySelectorAll('.dot')[${i}].click()`); await sleep(450); }
+const total = await ev(`document.querySelectorAll('.slide').length`);
+for (let i = 0; i < total; i++) {
+  // navigation par les boutons du sommaire (goTo de la présentation)
+  if (!PRINT) { await ev(`document.querySelectorAll('#tocList button')[${i}].click()`); await sleep(450); }
   const { min, issues } = await ev(probe(i));
   if (issues.length) failures++;
   console.log(`${String(i + 1).padStart(2, '0')}  texte min ${min} px  ${issues.join(' · ') || 'OK'}`);
