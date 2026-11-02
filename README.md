@@ -15,7 +15,7 @@ Le corpus traite de la conception, intégration, gouvernance et supervision d'ag
 
 ## Livrables
 
-Chaque livrable porte depuis le 1er novembre 2026 une annexe datée « Actualisation de novembre 2026 » (voir [Actualisation de novembre 2026](#actualisation-de-novembre-2026)). Le corps de chaque document reste gelé à sa date.
+Chaque livrable porte depuis le 1er novembre 2026 une annexe datée « Actualisation de novembre 2026 », placée en fin de document (colonne Date). Le corps de chaque document reste gelé à sa date; l'annexe fait foi pour la date qu'elle porte.
 
 | Document                                                                | Nature                                                                                                                                                                                                                                                                                                                                                                                             | Pages | Date                                                                                                               |
 | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
@@ -44,9 +44,16 @@ Le tableau des livrables suit cet ordre.
 3. **Cadre de référence** pour les exigences applicables, puis **Note AMF IA**, qui en dérive le profil d'application québécois.
 4. **Compendium** pour l'approfondissement. Son corps, gelé au 27 juillet 2026, est le plus ancien du corpus : le lire avec son annexe N, qui en revalide les échéances et présente les reports proposés par la Note AMF IA.
 
+## Structure du dépôt
+
+- `documents/` : les six livrables en PDF, seuls fichiers de référence.
+- `sources/` : chaîne de recomposition des PDF (Python, pandoc 3, Typst 0.15.1) et annexes d'actualisation en HTML, un dossier par livrable, plus `commun/` (chaîne partagée) et `annexes/` (annexes Typst de la reprise du 29 octobre 2026, Veille et Revue); `python sources/<livrable>/construire_pdf.py` recompose un livrable et contrôle que tout le texte source se retrouve dans le PDF. Polices requises : voir l'en-tête de `sources/commun/composer.py`.
+- `outils/verifier-presentation.mjs` : vérification de la mise en page de la présentation.
+- `Presentation.html` : la présentation, page autonome (figure intégrée, polices Google Fonts).
+
 ## Licence
 
-- Documents (`documents/`, annexes) : [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0). Réutilisation et adaptation libres, avec attribution à l'auteur.
+- Documents (`documents/`, annexes, `Presentation.html`) : [Creative Commons Attribution 4.0 International](LICENSE) (CC BY 4.0). Réutilisation et adaptation libres, avec attribution à l'auteur.
 - Code de composition (`sources/`) : [licence MIT](sources/LICENSE).
 
 ## Auteur
