@@ -24,6 +24,15 @@ Chaque livrable porte depuis le 1er novembre 2026 une annexe datée « Actualisa
 | [Note AMF IA](<documents/Note%20AMF%20IA.pdf>)                           | Note d'instruction et profil d'application québécois du cadre (CRE-IA-2026-01-QC, v1.0, version finale pour publication) : ligne directrice de l'AMF sur l'utilisation de l'IA instruite attente par attente (41 attentes), correspondance avec les 272 exigences du cadre, 12 exigences EXIG-AMF, articulation avec la gestion du risque de modèle et recalage du jalon J-AMF au 1er mai 2027. | 44    | 31 oct. 2026 (v1.0); actualisation du 1er nov. 2026 (annexe H)                                                     |
 | [Compendium](documents/Compendium.pdf)                                   | Somme en cinq livres et cinquante chapitres : Coopérer, Faire confiance, Encadrer, Appliquer/exploiter, Livrer et clore (horizon 2024-2032).                                                                                                                                                                                                                                                      | 663   | Gel au 27 juill. 2026, compilé le 24 oct. 2026 (édition de nov. 2026); actualisation du 1er nov. 2026 (annexe N) |
 
+## Présentation
+
+Synthèse en onze diapositives pour la haute direction, publiée sur GitHub Pages : **[agbruneau.github.io/EntrepriseAgentique/Presentation.html](https://agbruneau.github.io/EntrepriseAgentique/Presentation.html)** (source : [Presentation.html](Presentation.html)).
+
+- Diapos 1 à 10 : thèse, paradoxe adoption / assurance, échelle de maturité, protocoles, architecture de référence, dix décisions, vue d'ensemble du Cadre (§ 5.1, figure 3), autonomie, conformité AMF, pilotage.
+- Diapo 11 (annexe) : les six livrables en PDF, chacun ouvert dans un nouvel onglet pour lecture dans le navigateur.
+- Navigation : flèches, 1 à 9 et 0 pour un accès direct, S pour le sommaire, F pour le plein écran, Maj+P pour le PDF A4 paysage.
+- Vérification de la mise en page (Edge ou Chrome sans interface) : `node outils/verifier-presentation.mjs [largeur] [hauteur] [print]`.
+
 ## Ordre de lecture suggéré
 
 Le tableau des livrables suit cet ordre.
