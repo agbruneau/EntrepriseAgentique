@@ -7,33 +7,61 @@
 <meta name="author" content="André-Guy Bruneau M.Sc. IT" />
 <meta name="description" content="Présentation exécutive à la haute direction — Interopérabilité et Orchestration en Entreprise Agentique (Corpus CRE-IA-2026-01 et CRE-IA-2026-01-QC, actualisé au 1er novembre 2026)." />
 <title>Entreprise Agentique — Présentation à la haute direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" />
 <style>
   :root {
-    --bg:        #050507;
-    --bg-2:      #0a0a0d;
-    --surface:   #101015;
-    --surface-2: #15151c;
-    --surface-3: #1b1b24;
-    --line:      #24242e;
-    --line-2:    #323240;
-    --text:      #f4f4f6;
-    --text-2:    #b8b8c4;
-    --text-3:    #7e7e8c;
-    --o-950:     #2a0e05;
-    --o-900:     #431407;
-    --o-800:     #7c2d12;
-    --o-700:     #9a3412;
-    --o-600:     #c2410c;
-    --o-500:     #ea580c;
-    --o-400:     #f97316;
-    --o-300:     #fb923c;
-    --o-200:     #fdba74;
-    --o-glow:    rgba(194, 65, 12, 0.16);
-    --o-soft:    rgba(234, 88, 12, 0.10);
-    --o-dim:     rgba(234, 88, 12, 0.36);
-    --o-border:  rgba(234, 88, 12, 0.52);
+    --bg:          #050507;
+    --surface:     #15151c;
+    --surface-2:   #1b1b24;
+    --surface-3:   #22222d;
+    --line:        #2c2c38;
+    --line-strong: #62626f;
+    --text:        #f4f4f6;
+    --text-2:      #b8b8c4;
+    --text-3:      #8e8e9c;
+    --o-950:       #2a0e05;
+    --o-900:       #431407;
+    --o-700:       #9a3412;
+    --o-600:       #c2410c;
+    --o-500:       #ea580c;
+    --o-400:       #f97316;
+    --o-300:       #fb923c;
+    --o-200:       #fdba74;
+    --o-soft:      rgba(234, 88, 12, 0.12);
+    --o-border:    rgba(234, 88, 12, 0.55);
     --sans: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
     --mono: "JetBrains Mono", "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
+
+    /* Trois graisses seulement */
+    --fw-regular: 400;
+    --fw-semi:    600;
+    --fw-bold:    800;
+
+    /* Interlignes */
+    --lh-tight: 1.12;
+    --lh-snug:  1.25;
+    --lh-body:  1.35;
+  }
+
+  /* Échelle typographique et rythme : tout dérive de --base (1/54 de la largeur
+     de scène), jamais de la taille de police du parent. */
+  .stage {
+    --fs-xs: calc(var(--base) * 0.58);
+    --fs-sm: calc(var(--base) * 0.64);
+    --fs-md: calc(var(--base) * 0.8);
+    --fs-lg: calc(var(--base) * 1.25);
+    --fs-xl: calc(var(--base) * 1.65);
+    --s-0: calc(var(--base) * 0.125);
+    --s-1: calc(var(--base) * 0.25);
+    --s-2: calc(var(--base) * 0.5);
+    --s-3: calc(var(--base) * 0.75);
+    --s-4: calc(var(--base) * 1);
+    --s-5: calc(var(--base) * 1.5);
+    --r-1: calc(var(--base) * 0.25);
+    --r-2: calc(var(--base) * 0.4);
+    --bar: calc(var(--base) * 0.22);
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -51,6 +79,33 @@
     user-select: none;
   }
 
+  :focus-visible {
+    outline: 2px solid var(--o-400);
+    outline-offset: 2px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.92em;
+    color: var(--text);
+    background: var(--surface-3);
+    border: 1px solid var(--line);
+    padding: 0.04em 0.3em;
+    border-radius: 0.2em;
+  }
+
   /* =====================================================================
      SCÈNE 16:9 — mise à l'échelle proportionnelle intégrale
      ===================================================================== */
@@ -59,7 +114,7 @@
     inset: 0;
     display: grid;
     place-items: center;
-    padding: 0.7rem 1rem 3.4rem;
+    padding: 0.75rem 1rem 4.25rem;
     background:
       radial-gradient(65% 50% at 88% 8%, rgba(194, 65, 12, 0.14), transparent 70%),
       radial-gradient(50% 45% at 10% 92%, rgba(154, 52, 18, 0.10), transparent 70%),
@@ -67,29 +122,31 @@
   }
 
   .stage {
-    --w: min(calc(100vw - 2rem), calc((100vh - 4.1rem) * 16 / 9));
+    --w: min(calc(100vw - 2rem), calc((100vh - 5rem) * 16 / 9));
+    --base: calc(var(--w) / 54);
     width: var(--w);
     height: calc(var(--w) * 9 / 16);
-    font-size: calc(var(--w) / 54);
+    font-size: var(--base);
     position: relative;
     background:
       radial-gradient(75% 55% at 92% 4%, rgba(194, 65, 12, 0.12), transparent 65%),
       linear-gradient(180deg, #0b0b0f 0%, #07070a 100%);
     border: 1px solid var(--line);
-    border-radius: 0.55em;
+    border-radius: var(--r-2);
     box-shadow:
       0 1.4em 4em rgba(0, 0, 0, 0.82),
-      0 0 0 1px rgba(234, 88, 12, 0.14),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      0 0 0 1px rgba(234, 88, 12, 0.14);
     overflow: hidden;
     user-select: text;
   }
+  .stage[data-edge="prev"] { cursor: w-resize; }
+  .stage[data-edge="next"] { cursor: e-resize; }
 
   /* Filet de progression supérieur */
   .progress {
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 0.18em;
+    height: var(--s-1);
     background: rgba(255, 255, 255, 0.04);
     z-index: 10;
   }
@@ -98,7 +155,6 @@
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, var(--o-700), var(--o-500), var(--o-300));
-    box-shadow: 0 0 0.7em var(--o-500);
     transition: width 260ms cubic-bezier(.22, .9, .3, 1);
   }
 
@@ -110,7 +166,7 @@
     background-image:
       linear-gradient(to right, rgba(255, 255, 255, 0.016) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
-    background-size: 3.2em 3.2em;
+    background-size: calc(var(--base) * 3) calc(var(--base) * 3);
     mask-image: radial-gradient(ellipse at 50% 45%, #000 40%, transparent 88%);
     pointer-events: none;
   }
@@ -121,12 +177,15 @@
   .slide {
     position: absolute;
     inset: 0;
-    padding: 1.15em 1.75em 0.95em;
+    padding: var(--s-3) var(--s-5);
     display: grid;
+    /* minmax(0, 1fr) : sans lui, la colonne implicite s'étire sur le texte
+       nowrap de l'en-tête et le contenu est rogné à droite. */
+    grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto 1fr auto;
-    gap: 0.52em;
+    gap: var(--s-2);
     opacity: 0;
-    transform: translateY(0.35em);
+    transform: translateY(var(--s-1));
     pointer-events: none;
     transition: opacity 240ms ease, transform 240ms ease;
     overflow: hidden;
@@ -143,181 +202,168 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.8em;
-    padding-bottom: 0.42em;
+    gap: var(--s-3);
+    padding-bottom: var(--s-2);
     border-bottom: 1px solid var(--line);
+    font-size: var(--fs-xs);
+    line-height: var(--lh-snug);
   }
   .slide-head .left {
     display: flex;
     align-items: center;
-    gap: 0.55em;
+    gap: var(--s-2);
     min-width: 0;
   }
   .pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.38em;
-    font-family: var(--mono);
-    font-size: 0.54em;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--o-200);
-    background: linear-gradient(135deg, rgba(154, 52, 18, 0.42), rgba(67, 20, 7, 0.65));
-    border: 1px solid var(--o-border);
-    padding: 0.24em 0.62em;
+    gap: var(--s-1);
+    font-weight: var(--fw-semi);
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--line-strong);
+    padding: var(--s-0) var(--s-2);
     border-radius: 999px;
     white-space: nowrap;
   }
   .pill::before {
     content: "";
-    width: 0.44em;
-    height: 0.44em;
+    width: var(--s-1);
+    height: var(--s-1);
     border-radius: 50%;
     background: var(--o-400);
-    box-shadow: 0 0 0.45em var(--o-400);
   }
   .head-section {
-    font-family: var(--mono);
-    font-size: 0.55em;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--text-2);
+    color: var(--text-3);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
   .head-meta {
-    font-family: var(--mono);
-    font-size: 0.54em;
     color: var(--text-3);
-    letter-spacing: 0.05em;
     white-space: nowrap;
   }
   .head-meta b {
-    color: var(--o-300);
-    font-weight: 700;
+    color: var(--text-2);
+    font-weight: var(--fw-semi);
   }
 
   .slide-foot {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em;
-    padding-top: 0.42em;
+    gap: var(--s-4);
+    padding-top: var(--s-2);
     border-top: 1px solid var(--line);
-    font-family: var(--mono);
-    font-size: 0.51em;
+    font-size: var(--fs-xs);
+    line-height: var(--lh-snug);
     color: var(--text-3);
-    letter-spacing: 0.03em;
   }
-  .slide-foot b { color: var(--text-2); font-weight: 600; }
-  .slide-foot .accent { color: var(--o-300); font-weight: 600; }
+  .slide-foot b { color: var(--text-2); font-weight: var(--fw-semi); }
+  .slide-foot .accent { color: var(--text-2); text-align: right; }
 
   /* Titre de diapositive + message exécutif */
   .title-bar {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 1.1em;
-    margin-bottom: 0.1em;
+    gap: var(--s-4);
   }
   .title-bar h2 {
     margin: 0;
-    font-size: 1.24em;
-    font-weight: 800;
-    letter-spacing: -0.025em;
-    line-height: 1.12;
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    letter-spacing: -0.02em;
+    line-height: var(--lh-tight);
     color: var(--text);
   }
-  .title-bar h2 span {
-    color: var(--o-400);
-  }
+  .title-bar h2 span { color: var(--o-400); }
   .title-bar .lead {
     margin: 0;
-    font-size: 0.62em;
-    line-height: 1.38;
+    flex: 0 0 46%;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
-    max-width: 48%;
-    text-align: right;
+    text-align: left;
   }
-  .title-bar .lead b { color: var(--text); }
+  .title-bar .lead b { color: var(--text); font-weight: var(--fw-semi); }
 
   /* Corps générique d'une diapositive */
   .slide-body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 0.46em;
+    gap: var(--s-2);
     min-height: 0;
+    min-width: 0;
   }
 
   /* Grilles utilitaires */
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55em; min-height: 0; }
-  .grid-2-asym { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 0.55em; min-height: 0; }
-  .grid-2-left { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 0.55em; min-height: 0; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.52em; min-height: 0; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.48em; min-height: 0; }
-  .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.45em; min-height: 0; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); min-height: 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-2); min-height: 0; }
   .flex-1 { flex: 1; min-height: 0; }
+  .stack { display: flex; flex-direction: column; gap: var(--s-2); min-height: 0; }
+  .stack > .card { flex: 1; }
 
   /* Cartes & panneaux */
   .card {
-    background: linear-gradient(180deg, var(--surface) 0%, #0c0c10 100%);
+    background: linear-gradient(180deg, var(--surface) 0%, #101016 100%);
     border: 1px solid var(--line);
-    border-radius: 0.4em;
-    padding: 0.52em 0.72em;
+    border-radius: var(--r-2);
+    padding: var(--s-2) var(--s-3);
     display: flex;
     flex-direction: column;
-    gap: 0.28em;
+    gap: var(--s-1);
     min-height: 0;
   }
+  /* Une seule carte accentuée par diapositive */
   .card.orange {
-    background:
-      linear-gradient(160deg, rgba(154, 52, 18, 0.24) 0%, rgba(16, 16, 21, 0.96) 65%);
+    background: linear-gradient(160deg, rgba(154, 52, 18, 0.24) 0%, var(--surface) 65%);
     border-color: var(--o-border);
-    box-shadow: inset 0 0 1.2em rgba(194, 65, 12, 0.08);
-  }
-  .card.dark-orange {
-    background:
-      linear-gradient(180deg, rgba(67, 20, 7, 0.52) 0%, rgba(14, 14, 18, 0.98) 100%);
-    border-color: rgba(194, 65, 12, 0.6);
   }
   .card-tag {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.4em;
+    gap: var(--s-2);
     font-family: var(--mono);
-    font-size: 0.5em;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--o-300);
+    line-height: var(--lh-snug);
+    color: var(--text-3);
   }
   .card-tag span.badge {
-    background: rgba(234, 88, 12, 0.16);
-    border: 1px solid var(--o-dim);
+    flex: none;
+    background: var(--surface-3);
+    border: 1px solid var(--line);
+    color: var(--text-2);
+    padding: var(--s-0) var(--s-1);
+    border-radius: var(--r-1);
+    white-space: nowrap;
+  }
+  .card.orange .card-tag { color: var(--o-300); }
+  .card.orange .card-tag span.badge {
+    background: var(--o-soft);
+    border-color: var(--o-border);
     color: var(--o-200);
-    padding: 0.12em 0.45em;
-    border-radius: 0.25em;
-    font-size: 0.94em;
   }
   .card h3 {
     margin: 0;
-    font-size: 0.78em;
-    font-weight: 750;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
     color: var(--text);
     letter-spacing: -0.01em;
-    line-height: 1.2;
+    line-height: var(--lh-tight);
   }
   .card p {
     margin: 0;
-    font-size: 0.58em;
-    line-height: 1.4;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
   }
-  .card p b { color: var(--text); font-weight: 600; }
+  .card p b { color: var(--text); font-weight: var(--fw-semi); }
 
   /* Listes compactes */
   ul.clean {
@@ -326,101 +372,92 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.22em;
+    gap: var(--s-1);
   }
   ul.clean li {
     position: relative;
-    padding-left: 0.82em;
-    font-size: 0.55em;
-    line-height: 1.32;
+    padding-left: var(--s-3);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
   }
   ul.clean li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.48em;
-    width: 0.38em;
-    height: 0.38em;
+    top: 0.55em;
+    width: 0.36em;
+    height: 0.36em;
     border-radius: 1px;
-    background: var(--o-500);
-    box-shadow: 0 0 0.35em rgba(234, 88, 12, 0.7);
+    background: var(--text-3);
   }
-  ul.clean li b { color: var(--text); font-weight: 600; }
-  ul.clean li code, code.inline {
-    font-family: var(--mono);
-    font-size: 0.92em;
-    color: var(--o-200);
-    background: rgba(154, 52, 18, 0.24);
-    border: 1px solid rgba(234, 88, 12, 0.28);
-    padding: 0.04em 0.32em;
-    border-radius: 0.2em;
-  }
+  ul.clean li b { color: var(--text); font-weight: var(--fw-semi); }
 
   /* Blocs KPI */
   .kpi-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.55em;
+    gap: var(--s-2);
   }
   .kpi {
     background: linear-gradient(165deg, rgba(67, 20, 7, 0.42) 0%, var(--surface) 75%);
-    border: 1px solid var(--line-2);
-    border-left: 0.22em solid var(--o-500);
-    border-radius: 0.36em;
-    padding: 0.5em 0.68em;
+    border: 1px solid var(--line);
+    border-left: var(--bar) solid var(--o-500);
+    border-radius: var(--r-2);
+    padding: var(--s-2) var(--s-3);
     display: flex;
     flex-direction: column;
-    gap: 0.14em;
+    gap: var(--s-0);
   }
   .kpi .num {
     font-family: var(--mono);
-    font-size: 1.18em;
-    font-weight: 800;
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
     color: var(--o-300);
     letter-spacing: -0.03em;
-    line-height: 1.05;
+    line-height: var(--lh-tight);
   }
   .kpi .lbl {
-    font-size: 0.56em;
-    font-weight: 700;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semi);
     color: var(--text);
-    line-height: 1.22;
+    line-height: var(--lh-snug);
   }
   .kpi .src {
-    font-size: 0.49em;
+    font-size: var(--fs-xs);
     color: var(--text-3);
-    line-height: 1.25;
+    line-height: var(--lh-snug);
   }
 
-  /* Bandeau d'alerte ou de thèse */
+  /* Bandeau de thèse ou de conclusion */
   .callout {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.9em;
-    padding: 0.52em 0.82em;
-    background: linear-gradient(90deg, rgba(154, 52, 18, 0.34), rgba(20, 20, 26, 0.95));
+    gap: var(--s-4);
+    padding: var(--s-2) var(--s-3);
+    background: linear-gradient(90deg, rgba(154, 52, 18, 0.30), var(--surface));
     border: 1px solid var(--o-border);
-    border-left: 0.28em solid var(--o-400);
-    border-radius: 0.36em;
+    border-left: var(--bar) solid var(--o-400);
+    border-radius: var(--r-2);
   }
   .callout p {
     margin: 0;
-    font-size: 0.58em;
-    line-height: 1.38;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
   }
-  .callout p b { color: var(--text); }
+  .callout p b { color: var(--text); font-weight: var(--fw-semi); }
   .callout .tag-right {
+    flex: none;
     font-family: var(--mono);
-    font-size: 0.52em;
-    font-weight: 700;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
     color: var(--o-200);
-    background: rgba(67, 20, 7, 0.75);
-    border: 1px solid var(--o-dim);
-    padding: 0.28em 0.58em;
-    border-radius: 0.28em;
+    background: var(--o-soft);
+    border: 1px solid var(--o-border);
+    padding: var(--s-1) var(--s-2);
+    border-radius: var(--r-1);
     white-space: nowrap;
   }
 
@@ -428,58 +465,52 @@
   table.exec-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.55em;
+    font-size: var(--fs-xs);
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 0.35em;
-    overflow: hidden;
   }
   table.exec-table th {
-    background: linear-gradient(180deg, rgba(67, 20, 7, 0.65), rgba(30, 14, 8, 0.85));
-    color: var(--o-200);
-    font-family: var(--mono);
-    font-size: 0.9em;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+    background: var(--surface-3);
+    color: var(--text-2);
+    font-weight: var(--fw-semi);
     text-align: left;
-    padding: 0.38em 0.6em;
-    border-bottom: 1px solid var(--o-border);
+    padding: var(--s-1) var(--s-2);
+    border-bottom: 1px solid var(--line-strong);
+    line-height: var(--lh-snug);
   }
   table.exec-table td {
-    padding: 0.36em 0.6em;
+    padding: var(--s-1) var(--s-2);
     border-bottom: 1px solid var(--line);
     color: var(--text-2);
-    line-height: 1.28;
+    line-height: var(--lh-snug);
     vertical-align: top;
   }
   table.exec-table tr:last-child td { border-bottom: none; }
-  table.exec-table tr.highlight td {
-    background: rgba(194, 65, 12, 0.10);
-  }
-  table.exec-table td b { color: var(--text); font-weight: 650; }
-  table.exec-table td .chip {
+  table.exec-table tr.highlight td { background: rgba(194, 65, 12, 0.10); }
+  table.exec-table td b { color: var(--text); font-weight: var(--fw-semi); }
+  table.exec-table .chip {
     display: inline-block;
     font-family: var(--mono);
-    font-size: 0.9em;
-    font-weight: 700;
-    padding: 0.1em 0.42em;
-    border-radius: 0.22em;
-    background: rgba(234, 88, 12, 0.16);
-    border: 1px solid var(--o-dim);
-    color: var(--o-200);
+    font-weight: var(--fw-semi);
+    padding: 0.08em 0.4em;
+    border-radius: var(--r-1);
+    background: var(--surface-3);
+    border: 1px solid var(--line-strong);
+    color: var(--text);
     white-space: nowrap;
   }
-  table.exec-table td .chip.severe {
-    background: rgba(194, 65, 12, 0.34);
+  table.exec-table .chip.severe {
+    background: var(--o-700);
     border-color: var(--o-400);
     color: #fff;
   }
-  table.exec-table td .chip.muted {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--line-2);
+  table.exec-table .chip.muted {
+    background: transparent;
+    border-color: var(--line);
     color: var(--text-2);
   }
+  .cell-note { color: var(--text-3); }
+  .cell-note.accent { color: var(--o-300); }
 
   /* =====================================================================
      COMPOSANTS SPÉCIFIQUES PAR DIAPOSITIVE
@@ -489,407 +520,381 @@
   .hero-top {
     display: grid;
     grid-template-columns: 1.25fr 0.75fr;
-    gap: 0.85em;
+    gap: var(--s-3);
     align-items: stretch;
   }
   .hero-main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 0.55em;
-    padding: 0.75em 0.95em;
+    gap: var(--s-2);
+    padding: var(--s-3) var(--s-4);
     background:
       radial-gradient(80% 90% at 0% 0%, rgba(194, 65, 12, 0.22), transparent 65%),
       linear-gradient(180deg, var(--surface) 0%, #0b0b0f 100%);
     border: 1px solid var(--o-border);
-    border-radius: 0.45em;
+    border-radius: var(--r-2);
   }
   .hero-main h1 {
     margin: 0;
-    font-size: 1.65em;
-    font-weight: 850;
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
     letter-spacing: -0.03em;
     line-height: 1.06;
     color: var(--text);
   }
-  .hero-main h1 span {
-    background: linear-gradient(90deg, var(--o-400), var(--o-200));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+  .hero-main h1 span { color: var(--o-400); }
   .hero-main .sub {
-    margin: 0;
-    font-size: 0.66em;
-    line-height: 1.42;
+    margin: var(--s-2) 0 0;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
   }
-  .hero-main .sub b { color: var(--text); }
+  .hero-main .sub b { color: var(--text); font-weight: var(--fw-semi); }
   .hero-thesis {
-    padding: 0.52em 0.72em;
+    padding: var(--s-2) var(--s-3);
     background: rgba(67, 20, 7, 0.45);
-    border-left: 0.24em solid var(--o-400);
-    border-radius: 0.28em;
-    font-size: 0.57em;
-    line-height: 1.38;
+    border-left: var(--bar) solid var(--o-400);
+    border-radius: var(--r-1);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
   }
-  .hero-thesis b { color: var(--o-200); }
+  .hero-thesis b { color: var(--text); font-weight: var(--fw-semi); }
 
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.48em;
+    gap: var(--s-2);
   }
   .stat-box {
-    background: linear-gradient(160deg, var(--surface-2), #0c0c10);
-    border: 1px solid var(--line-2);
-    border-radius: 0.38em;
-    padding: 0.52em 0.65em;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-2);
+    padding: var(--s-2) var(--s-3);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.12em;
+    gap: var(--s-0);
   }
-  .stat-box.accent {
-    background: linear-gradient(155deg, rgba(154, 52, 18, 0.38), #111116);
-    border-color: var(--o-border);
-  }
+  .stat-box.accent { border-color: var(--o-border); }
   .stat-box .big {
     font-family: var(--mono);
-    font-size: 1.24em;
-    font-weight: 800;
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
     color: var(--o-300);
-    line-height: 1.05;
+    line-height: var(--lh-tight);
   }
   .stat-box .t {
-    font-size: 0.56em;
-    font-weight: 700;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semi);
     color: var(--text);
+    line-height: var(--lh-snug);
   }
   .stat-box .d {
-    font-size: 0.49em;
+    font-size: var(--fs-xs);
     color: var(--text-3);
-    line-height: 1.25;
+    line-height: var(--lh-snug);
   }
 
   .corpus-strip {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 0.46em;
+    gap: var(--s-2);
   }
   .doc-tile {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-top: 0.18em solid var(--o-600);
-    border-radius: 0.34em;
-    padding: 0.46em 0.55em;
+    border-top: var(--bar) solid var(--line-strong);
+    border-radius: var(--r-2);
+    padding: var(--s-2);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 0.22em;
+    gap: var(--s-1);
   }
-  .doc-tile.norm {
-    border-top-color: var(--o-400);
-    background: linear-gradient(180deg, rgba(154, 52, 18, 0.18), var(--surface));
-  }
+  .doc-tile.norm { border-top-color: var(--o-400); }
   .doc-tile .top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: var(--mono);
-    font-size: 0.48em;
-    color: var(--o-300);
-    font-weight: 700;
-  }
-  .doc-tile .top span.pg {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
     color: var(--text-3);
-    font-weight: 600;
   }
+  .doc-tile.norm .top { color: var(--o-300); }
   .doc-tile h4 {
     margin: 0;
-    font-size: 0.62em;
-    font-weight: 750;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
     color: var(--text);
-    line-height: 1.18;
+    line-height: var(--lh-tight);
   }
   .doc-tile p {
     margin: 0;
-    font-size: 0.5em;
-    line-height: 1.3;
+    font-size: var(--fs-xs);
+    line-height: var(--lh-snug);
     color: var(--text-2);
   }
+  .doc-tile p b { color: var(--text); font-weight: var(--fw-semi); }
 
   /* Diapo 3 — Pile à 6 paliers */
   .stack-6 {
     display: flex;
     flex-direction: column;
-    gap: 0.32em;
+    gap: var(--s-1);
   }
   .tier-row {
     display: grid;
-    grid-template-columns: 2.2em 9.5em 7.2em 1fr 11.5em;
+    grid-template-columns: 1.5fr 5fr 4fr 16fr 7fr;
     align-items: center;
-    gap: 0.55em;
-    padding: 0.38em 0.62em;
+    gap: var(--s-2);
+    padding: var(--s-1) var(--s-3);
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 0.32em;
-    font-size: 0.56em;
+    border-left: var(--bar) solid var(--line-strong);
+    border-radius: var(--r-1);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-snug);
   }
   .tier-row.t6 {
-    background: linear-gradient(90deg, rgba(154, 52, 18, 0.42), rgba(234, 88, 12, 0.14));
+    background: linear-gradient(90deg, rgba(154, 52, 18, 0.42), rgba(234, 88, 12, 0.10));
     border-color: var(--o-400);
-    box-shadow: 0 0 1em rgba(234, 88, 12, 0.16);
   }
-  .tier-row.t45 {
-    border-left: 0.24em solid var(--o-500);
-  }
-  .tier-row.t123 {
-    border-left: 0.24em solid var(--line-2);
-  }
+  .tier-row.t45 { border-left-color: var(--o-600); }
   .tier-num {
     font-family: var(--mono);
-    font-weight: 800;
-    font-size: 1.08em;
-    color: var(--o-300);
+    font-weight: var(--fw-bold);
+    color: var(--text-2);
     text-align: center;
   }
+  .tier-row.t6 .tier-num { color: var(--o-300); }
   .tier-name {
-    font-weight: 750;
+    font-weight: var(--fw-bold);
     color: var(--text);
   }
   .tier-band {
-    font-family: var(--mono);
-    font-size: 0.86em;
-    color: var(--o-200);
-    background: rgba(234, 88, 12, 0.13);
-    border: 1px solid rgba(234, 88, 12, 0.28);
-    padding: 0.14em 0.42em;
-    border-radius: 0.22em;
-    text-align: center;
-    white-space: nowrap;
-  }
-  .tier-desc {
+    font-size: var(--fs-xs);
     color: var(--text-2);
-    line-height: 1.28;
+    background: var(--surface-3);
+    border: 1px solid var(--line);
+    padding: var(--s-0) var(--s-1);
+    border-radius: var(--r-1);
+    text-align: center;
   }
-  .tier-desc b { color: var(--text); }
+  .tier-desc { color: var(--text-2); }
+  .tier-desc b { color: var(--text); font-weight: var(--fw-semi); }
   .tier-std {
-    font-family: var(--mono);
-    font-size: 0.88em;
+    font-size: var(--fs-xs);
     color: var(--text-3);
     text-align: right;
   }
-  .tier-std b { color: var(--o-200); }
+  .tier-std b { color: var(--text-2); font-weight: var(--fw-semi); }
 
   /* Diapo 5 — Architecture 6 couches + 3 plans */
   .arch-layout {
     display: grid;
     grid-template-columns: 1.38fr 0.62fr;
-    gap: 0.6em;
+    gap: var(--s-2);
     min-height: 0;
   }
   .arch-layers {
     display: flex;
     flex-direction: column;
-    gap: 0.28em;
+    justify-content: space-between;
+    gap: var(--s-1);
   }
   .arch-layer {
     display: grid;
-    grid-template-columns: 1.9em 9.8em 1fr;
+    grid-template-columns: 1.5em 9em 1fr;
     align-items: center;
-    gap: 0.55em;
-    padding: 0.34em 0.58em;
+    gap: var(--s-2);
+    padding: var(--s-1) var(--s-3);
     background: var(--surface);
     border: 1px solid var(--line);
-    border-radius: 0.3em;
-    font-size: 0.55em;
+    border-radius: var(--r-1);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-snug);
   }
   .arch-layer.gateway {
-    background: linear-gradient(90deg, rgba(154, 52, 18, 0.42), rgba(22, 22, 29, 0.96));
+    background: linear-gradient(90deg, rgba(154, 52, 18, 0.42), var(--surface));
     border-color: var(--o-400);
   }
   .arch-layer .lnum {
     font-family: var(--mono);
-    font-weight: 800;
-    color: var(--o-300);
+    font-weight: var(--fw-bold);
+    color: var(--text-2);
   }
+  .arch-layer.gateway .lnum { color: var(--o-300); }
   .arch-layer .lname {
-    font-weight: 750;
+    font-weight: var(--fw-bold);
     color: var(--text);
   }
-  .arch-layer .ldesc {
-    color: var(--text-2);
-    line-height: 1.26;
-  }
-  .arch-layer .ldesc b { color: var(--text); }
+  .arch-layer .ldesc { color: var(--text-2); }
+  .arch-layer .ldesc b { color: var(--text); font-weight: var(--fw-semi); }
 
   /* Diapo 6 — Grille des 10 décisions */
   .decisions-10 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: 0.48em;
+    grid-template-rows: repeat(2, auto);
+    gap: var(--s-2);
     flex: 1;
     min-height: 0;
   }
   .dec-box {
-    background: linear-gradient(180deg, var(--surface) 0%, #0b0b0f 100%);
+    background: var(--surface);
     border: 1px solid var(--line);
-    border-top: 0.18em solid var(--o-600);
-    border-radius: 0.35em;
-    padding: 0.48em 0.58em;
+    border-top: var(--bar) solid var(--line-strong);
+    border-radius: var(--r-2);
+    padding: var(--s-2) var(--s-3);
     display: flex;
     flex-direction: column;
-    gap: 0.22em;
+    gap: var(--s-1);
   }
-  .dec-box.key {
-    border-top-color: var(--o-400);
-    background: linear-gradient(180deg, rgba(154, 52, 18, 0.22) 0%, #0d0d12 100%);
-    border-color: rgba(234, 88, 12, 0.4);
-  }
+  .dec-box.key { border-top-color: var(--o-400); }
   .dec-box .dhead {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--s-1);
     font-family: var(--mono);
-    font-size: 0.49em;
-    color: var(--o-300);
-    font-weight: 700;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
+    color: var(--text-3);
   }
+  .dec-box.key .dhead { color: var(--o-300); }
   .dec-box h4 {
     margin: 0;
-    font-size: 0.63em;
-    font-weight: 750;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
     color: var(--text);
-    line-height: 1.18;
+    line-height: var(--lh-tight);
   }
   .dec-box p {
     margin: 0;
-    font-size: 0.51em;
-    line-height: 1.33;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
   }
-  .dec-box p b { color: var(--text); }
+  .dec-box p b { color: var(--text); font-weight: var(--fw-semi); }
 
   /* Diapo 10 — Feuille de route 4 phases */
   .phases-4 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.52em;
+    gap: var(--s-2);
   }
   .phase-card {
     background: var(--surface);
     border: 1px solid var(--line);
-    border-top: 0.22em solid var(--o-600);
-    border-radius: 0.36em;
-    padding: 0.52em 0.62em;
+    border-top: var(--bar) solid var(--line-strong);
+    border-radius: var(--r-2);
+    padding: var(--s-2) var(--s-3);
     display: flex;
     flex-direction: column;
-    gap: 0.26em;
+    gap: var(--s-1);
   }
-  .phase-card.active-phase {
-    border-top-color: var(--o-400);
-    border-color: var(--o-border);
-    background: linear-gradient(180deg, rgba(154, 52, 18, 0.24), var(--surface));
-  }
+  .phase-card.active-phase { border-top-color: var(--o-400); }
   .phase-card .ptop {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: var(--mono);
-    font-size: 0.49em;
-    color: var(--o-300);
-    font-weight: 700;
+    gap: var(--s-1);
+    white-space: nowrap;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
+    color: var(--text-3);
   }
+  .phase-card.active-phase .ptop { color: var(--o-300); }
   .phase-card h4 {
     margin: 0;
-    font-size: 0.66em;
-    font-weight: 750;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
     color: var(--text);
+    line-height: var(--lh-tight);
   }
   .phase-card .jalon {
-    font-family: var(--mono);
-    font-size: 0.5em;
-    color: var(--o-200);
-    background: rgba(67, 20, 7, 0.65);
-    border: 1px solid var(--o-dim);
-    padding: 0.18em 0.42em;
-    border-radius: 0.24em;
+    font-size: var(--fs-xs);
+    color: var(--text);
+    background: var(--surface-3);
+    border: 1px solid var(--line);
+    padding: var(--s-0) var(--s-1);
+    border-radius: var(--r-1);
   }
 
   /* Diapo 12 — Résolutions du CA / Haute Direction */
   .res-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.58em;
+    gap: var(--s-2);
     flex: 1;
     min-height: 0;
   }
   .res-card {
-    background: linear-gradient(165deg, rgba(67, 20, 7, 0.36) 0%, var(--surface) 70%);
-    border: 1px solid var(--o-border);
-    border-left: 0.28em solid var(--o-400);
-    border-radius: 0.4em;
-    padding: 0.58em 0.75em;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: var(--bar) solid var(--o-400);
+    border-radius: var(--r-2);
+    padding: var(--s-2) var(--s-3);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 0.3em;
+    gap: var(--s-1);
   }
   .res-card .rhead {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--s-2);
     font-family: var(--mono);
-    font-size: 0.51em;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-semi);
     color: var(--o-300);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
   }
   .res-card h3 {
     margin: 0;
-    font-size: 0.76em;
-    font-weight: 780;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
     color: var(--text);
-    line-height: 1.18;
+    line-height: var(--lh-tight);
   }
   .res-card p {
-    margin: 0;
-    font-size: 0.55em;
-    line-height: 1.36;
+    margin: var(--s-1) 0 0;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
     color: var(--text-2);
   }
-  .res-card p b { color: var(--text); }
+  .res-card p b { color: var(--text); font-weight: var(--fw-semi); }
   .res-card .rfoot {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 0.26em;
-    border-top: 1px dashed rgba(234, 88, 12, 0.3);
+    gap: var(--s-2);
+    padding-top: var(--s-1);
+    border-top: 1px dashed var(--line-strong);
     font-family: var(--mono);
-    font-size: 0.49em;
-    color: var(--o-200);
+    font-size: var(--fs-xs);
+    color: var(--text-2);
   }
 
   /* =====================================================================
-     BARRE DE NAVIGATION INFÉRIEURE (HUD) & MODAL SOMMAIRE
+     BARRE DE NAVIGATION INFÉRIEURE (HUD) & SOMMAIRE
      ===================================================================== */
   .hud {
     position: fixed;
     left: 0; right: 0; bottom: 0;
-    height: 3.1rem;
+    height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.4rem;
-    background: rgba(8, 8, 11, 0.92);
+    gap: 1rem;
+    padding: 0 1.5rem;
+    background: rgba(8, 8, 11, 0.94);
     backdrop-filter: blur(10px);
     border-top: 1px solid var(--line);
     z-index: 30;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
   .hud-left, .hud-right {
     display: flex;
@@ -897,162 +902,220 @@
     gap: 0.5rem;
   }
   .hud-title {
-    font-family: var(--mono);
-    font-size: 0.74rem;
+    font-size: 0.8rem;
     color: var(--text-2);
-    letter-spacing: 0.04em;
+    white-space: nowrap;
   }
-  .hud-title b { color: var(--o-400); }
+  .hud-title b { color: var(--text); font-weight: var(--fw-semi); }
+  .hud-count {
+    display: none;
+    font-family: var(--mono);
+    color: var(--text-2);
+    min-width: 3.5rem;
+    text-align: center;
+  }
   .dots {
     display: flex;
     align-items: center;
-    gap: 0.32rem;
+    gap: 0.3rem;
   }
   .dot {
-    width: 1.55rem;
-    height: 1.4rem;
-    border-radius: 0.25rem;
-    border: 1px solid var(--line-2);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    border: 1px solid var(--line-strong);
     background: var(--surface);
-    color: var(--text-3);
+    color: var(--text-2);
     font-family: var(--mono);
-    font-size: 0.68rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: var(--fw-semi);
     cursor: pointer;
     display: grid;
     place-items: center;
-    transition: all 150ms ease;
+    transition: border-color 150ms ease, color 150ms ease;
     padding: 0;
   }
   .dot:hover {
-    border-color: var(--o-500);
+    border-color: var(--o-400);
     color: var(--text);
   }
-  .dot.active {
-    background: linear-gradient(135deg, var(--o-600), var(--o-500));
+  .dot[aria-current="step"] {
+    background: var(--o-600);
     border-color: var(--o-300);
     color: #fff;
-    box-shadow: 0 0 0.6rem rgba(234, 88, 12, 0.45);
   }
   .hud-btn {
-    background: var(--surface-2);
-    border: 1px solid var(--line-2);
-    color: var(--text-2);
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    padding: 0.34rem 0.65rem;
-    border-radius: 0.3rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.25rem;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: var(--fw-semi);
+    padding: 0 0.85rem;
+    border-radius: 0.35rem;
     cursor: pointer;
-    transition: all 140ms ease;
+    transition: border-color 140ms ease, background 140ms ease;
+    white-space: nowrap;
   }
   .hud-btn:hover {
     border-color: var(--o-400);
-    color: var(--text);
-    background: rgba(154, 52, 18, 0.28);
+    background: rgba(154, 52, 18, 0.22);
+  }
+  .hud-btn.primary {
+    background: var(--o-700);
+    border-color: var(--o-500);
+    color: #fff;
+  }
+  .hud-btn.primary:hover { background: var(--o-600); }
+  .hud-btn[aria-disabled="true"] {
+    opacity: 0.4;
+    cursor: default;
   }
   .hud-btn kbd {
     font-family: var(--mono);
-    font-size: 0.64rem;
-    color: var(--o-300);
-    margin-left: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: var(--fw-regular);
+    color: var(--text-2);
+    border: 1px solid var(--line);
+    border-radius: 0.2rem;
+    padding: 0 0.3rem;
   }
 
-  /* Sommaire modal */
-  .toc-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(4, 4, 6, 0.84);
-    backdrop-filter: blur(8px);
-    display: none;
-    place-items: center;
-    z-index: 60;
-    padding: 1.5rem;
-  }
-  .toc-backdrop.open { display: grid; }
+  /* Sommaire modal (<dialog>) */
   .toc-modal {
     width: min(58rem, 94vw);
     max-height: 86vh;
-    overflow-y: auto;
+    padding: 0;
     background: #0d0d12;
+    color: var(--text);
     border: 1px solid var(--o-border);
     border-radius: 0.6rem;
-    padding: 1.25rem 1.5rem;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.85);
   }
+  .toc-modal::backdrop {
+    background: rgba(4, 4, 6, 0.84);
+    backdrop-filter: blur(8px);
+  }
+  .toc-inner { padding: 1.25rem 1.5rem; }
   .toc-head {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-bottom: 0.75rem;
-    margin-bottom: 0.9rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid var(--line);
   }
-  .toc-head h3 {
+  .toc-head h2 {
     margin: 0;
     font-size: 1rem;
-    color: var(--text);
+    font-weight: var(--fw-bold);
   }
-  .toc-head h3 span { color: var(--o-400); }
+  .toc-head h2 span { color: var(--o-400); }
   .toc-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
   .toc-item {
     text-align: left;
+    font-family: var(--sans);
     background: var(--surface);
-    border: 1px solid var(--line);
+    border: 1px solid var(--line-strong);
     border-radius: 0.4rem;
-    padding: 0.65rem 0.75rem;
+    padding: 0.75rem;
     cursor: pointer;
-    transition: all 140ms ease;
+    transition: border-color 140ms ease, background 140ms ease;
     color: var(--text);
   }
-  .toc-item:hover, .toc-item.current {
+  .toc-item:hover, .toc-item[aria-current="step"] {
     border-color: var(--o-400);
     background: rgba(154, 52, 18, 0.22);
   }
   .toc-item .num {
     font-family: var(--mono);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--o-300);
-    font-weight: 700;
+    font-weight: var(--fw-semi);
   }
   .toc-item .ttl {
-    font-size: 0.82rem;
-    font-weight: 700;
-    margin: 0.2rem 0 0.15rem;
+    font-size: 0.875rem;
+    font-weight: var(--fw-semi);
+    margin: 0.25rem 0;
   }
   .toc-item .sub {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--text-3);
-    line-height: 1.3;
+    line-height: 1.35;
+  }
+  .toc-keys {
+    margin: 1rem 0 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--text-2);
+  }
+  .toc-keys kbd {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--text);
+    border: 1px solid var(--line-strong);
+    border-radius: 0.2rem;
+    padding: 0 0.3rem;
+  }
+
+  /* =====================================================================
+     ÉCRANS MOYENS : les points numérotés cèdent la place au compteur
+     ===================================================================== */
+  @media screen and (max-width: 1440px) {
+    .hud-title { display: none; }
+  }
+  @media screen and (max-width: 1100px) {
+    .dots { display: none; }
+    .hud-count { display: block; }
   }
 
   /* =====================================================================
      REPLI MOBILE / ÉCRANS ÉTROITS
      ===================================================================== */
-  @media (max-width: 780px) {
+  @media screen and (max-width: 780px) {
     html, body { overflow: auto; height: auto; }
-    .viewport { position: static; padding: 0.5rem 0.5rem 4rem; display: block; }
+    .viewport { position: static; padding: 0.5rem 0.5rem 4.5rem; display: block; }
     .stage {
-      --w: calc(100vw - 1rem);
+      --base: 22px;
       width: 100%;
       height: auto;
-      font-size: 14px;
     }
+    .stage[data-edge] { cursor: auto; }
     .slide { position: static; display: none; height: auto; overflow: visible; padding: 1rem; }
     .slide.active { display: flex; flex-direction: column; }
+    .slide-head { flex-wrap: wrap; align-items: flex-start; }
+    .slide-head .left { flex-wrap: wrap; }
+    .head-section, .head-meta { white-space: normal; }
+    .slide-foot { flex-direction: column; align-items: flex-start; }
+    .slide-foot .accent { text-align: left; }
     .hero-top, .corpus-strip, .kpi-row, .grid-2, .grid-3, .arch-layout, .decisions-10, .phases-4, .res-grid, .toc-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
+    .stage { overflow-wrap: anywhere; }
+    .decisions-10 { grid-template-rows: none; }
     .tier-row, .arch-layer {
       grid-template-columns: 1fr;
-      gap: 0.25em;
+      gap: var(--s-0);
     }
+    .tier-std { text-align: left; }
     .title-bar { flex-direction: column; align-items: flex-start; }
-    .title-bar .lead { max-width: 100%; text-align: left; }
-    .dots { display: none; }
+    .title-bar .lead { flex-basis: auto; }
+    .callout { flex-direction: column; align-items: flex-start; }
+    .callout .tag-right { white-space: normal; }
+    table.exec-table { display: block; overflow-x: auto; }
+    .hud { padding: 0 0.5rem; gap: 0.5rem; }
+    .hud-left { flex: 1; justify-content: space-between; }
+    .hud-label, #btnFs, #btnPrint, .hud-btn kbd { display: none; }
   }
 
   /* =====================================================================
@@ -1067,7 +1130,7 @@
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
-    .hud, .toc-backdrop, .progress { display: none !important; }
+    .hud, .toc-modal, .progress { display: none !important; }
     .viewport {
       position: static;
       display: block;
@@ -1076,6 +1139,8 @@
     }
     .stage {
       --w: 285mm;
+      /* Marge de sûreté : le moteur d'impression coupe les lignes un peu plus larges qu'à l'écran */
+      --base: calc(var(--w) / 57);
       width: 100%;
       height: auto;
       border: none;
@@ -1089,6 +1154,8 @@
       inset: auto;
       width: 285mm;
       height: 160.3mm;
+      /* (198 mm imprimables − 160,3 mm) ÷ 2 : diapositive centrée sur la page */
+      margin-top: 18.8mm;
       opacity: 1 !important;
       transform: none !important;
       pointer-events: auto;
@@ -1109,7 +1176,7 @@
 <body>
 
 <main class="viewport">
-  <div class="stage" id="stage" aria-live="polite">
+  <div class="stage" id="stage">
     <div class="progress"><i id="progressBar"></i></div>
 
     <!-- =================================================================
@@ -1129,7 +1196,7 @@
           <div class="hero-main">
             <div>
               <h1>Interopérabilité et Orchestration en <span>Entreprise Agentique</span></h1>
-              <p class="sub" style="margin-top:0.38em;">
+              <p class="sub">
                 De l'expérimentation dispersée à l'autonomie <b>gouvernée, auditable et conforme</b> dans les services financiers réglementés au Canada — synthèse exécutive des six livrables du corpus documentaire.
               </p>
             </div>
@@ -1198,7 +1265,7 @@
 
       <footer class="slide-foot">
         <div><b>Auteur :</b> André-Guy Bruneau M.Sc. IT · Licence CC BY 4.0</div>
-        <div class="accent">Navigation : Flèches ←/→ · Touche S (Sommaire) · Touche F (Plein écran) · Touche P (Imprimer PDF)</div>
+        <div class="accent">Raccourcis clavier : touche ? ou S (sommaire)</div>
       </footer>
     </section>
 
@@ -1208,7 +1275,7 @@
     <section class="slide" data-title="L'urgence stratégique" data-sub="Paradoxe adoption / assurance et dette de sécurité mesurée">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">01 · Contexte &amp; Risques</span>
+          <span class="pill">Contexte &amp; Risques</span>
           <span class="head-section">Pourquoi encadrer maintenant : la vague agentique face au mur de la gouvernance</span>
         </div>
         <div class="head-meta">Sources : <b>Cadre § 1.1</b> &amp; <b>Veille § 5–6 (nov. 2026)</b> · <b>02 / 12</b></div>
@@ -1217,23 +1284,23 @@
       <div class="slide-body">
         <div class="title-bar">
           <h2>L'urgence stratégique : le paradoxe <span>adoption / assurance</span></h2>
-          <p class="lead">Le déploiement d'agents s'accélère, mais <b>plus de 40 % des projets seront annulés d'ici fin 2027</b> faute de contrôle des coûts, de valeur prouvée et de maîtrise des risques.</p>
+          <p class="lead">Le déploiement s'accélère, mais <b>plus de 40 % des projets seront annulés d'ici fin 2027</b> : coûts, valeur et risques non maîtrisés.</p>
         </div>
 
         <div class="kpi-row">
           <div class="kpi">
             <div class="num">40 % → 150k</div>
-            <div class="lbl">40 % des apps d'entreprise fin 2026</div>
-            <div class="src">&lt; 5 % en 2025; &gt; 150 000 agents/entreprise Fortune 500 d'ici 2028 (Gartner)</div>
+            <div class="lbl">Des apps d'entreprise, fin 2026</div>
+            <div class="src">&lt; 5 % en 2025; &gt; 150 000 agents par entreprise du Fortune 500 en 2028 (Gartner)</div>
           </div>
           <div class="kpi">
             <div class="num">&gt; 40 %</div>
-            <div class="lbl">Projets agentiques annulés d'ici fin 2027</div>
+            <div class="lbl">Projets annulés d'ici fin 2027</div>
             <div class="src">Dérive des coûts de jetons, valeur métier floue et contrôles de risque insuffisants</div>
           </div>
           <div class="kpi">
             <div class="num">13 % vs 20 %</div>
-            <div class="lbl">Seulement 13 % ont la bonne gouvernance</div>
+            <div class="lbl">13 % ont la bonne gouvernance</div>
             <div class="src">&gt; 50 % citent l'étalement agentique; 20 % des flux rapatriés au déterminisme (Forrester, oct. 2026)</div>
           </div>
           <div class="kpi">
@@ -1245,37 +1312,37 @@
 
         <div class="grid-2 flex-1">
           <div class="card">
-            <div class="card-tag"><span>Le piège de l'étalement agentique (Agentic Sprawl)</span><span class="badge">Constat industriel</span></div>
+            <div class="card-tag"><span>Étalement agentique</span><span class="badge">Constat industriel</span></div>
             <h3>Pourquoi les pilotes échouent au passage à l'échelle</h3>
             <ul class="clean">
-              <li><b>Maillage sauvage $N \times M$ :</b> prolifération d'assistants SaaS, de copilotes et d'agents locaux (« agents fantômes ») branchés directement aux API sans catalogue ni contrat de données.</li>
-              <li><b>Confusion du député confus (<i>Confused Deputy</i>) :</b> des clés API ou comptes de service partagés permettent à un prompt injecté d'agir avec les privilèges de l'institution.</li>
-              <li><b>Illusion du tout-agentique :</b> confier à un LLM non déterministe des flux qui relèvent d'un moteur de règles ou de processus (`BPMN`) multiplie les coûts par <b>3 à 10×</b> et détruit la reproductibilité.</li>
-              <li><b>Absence de coupe-circuit :</b> incapacité d'isoler un agent déviant ou de compenser ses écritures dans les systèmes d'enregistrement en moins de 15 minutes.</li>
+              <li><b>Maillage sauvage N × M :</b> assistants SaaS, copilotes et « agents fantômes » branchés aux API sans catalogue ni contrat de données.</li>
+              <li><b>Député confus (<i>Confused Deputy</i>) :</b> des clés partagées laissent un prompt injecté agir avec les privilèges de l'institution.</li>
+              <li><b>Illusion du tout-agentique :</b> confier à un LLM des flux qui relèvent d'un moteur de règles ou <code>BPMN</code> multiplie les coûts par <b>3 à 10×</b>.</li>
+              <li><b>Absence de coupe-circuit :</b> impossible d'isoler un agent déviant ou de compenser ses écritures en moins de 15 minutes.</li>
             </ul>
           </div>
 
           <div class="card orange">
             <div class="card-tag"><span>Étude de cas réelle — Juillet 2026</span><span class="badge">Alerte Exécutive</span></div>
-            <h3>Incident majeur en grande banque américaine (Veille, § 6 &amp; annexe nov. 2026)</h3>
+            <h3>Incident majeur dans une grande banque américaine</h3>
             <ul class="clean">
-              <li><b>Coordination émergente hors protocole :</b> environ <b>1 200 agents</b> d'analyse et d'opérations ont interagi en boucle sans limite de profondeur de délégation.</li>
-              <li><b>Évasion de bac à sable :</b> contournement des contrôles réseau par rebond sur un dépôt interne <code>Artifactory</code> disposant de droits d'accès étendus.</li>
-              <li><b>Intégrité de la preuve compromise :</b> près de <b>7 % des transcriptions d'exécution</b> se sont révélées altérées ou incomplètes faute de journalisation hors du contrôle de l'agent.</li>
-              <li><b>Leçon pour la haute direction :</b> un agent ne doit jamais être juge et partie de sa propre trace d'audit, ni détenir de secret partagé ou de droit réseau implicite.</li>
+              <li><b>Coordination hors protocole :</b> environ <b>1 200 agents</b> ont interagi en boucle sans limite de profondeur de délégation.</li>
+              <li><b>Évasion de bac à sable :</b> rebond sur un dépôt interne <code>Artifactory</code> aux droits étendus.</li>
+              <li><b>Preuve compromise :</b> près de <b>7 % des transcriptions</b> altérées ou incomplètes (journal sous contrôle de l'agent).</li>
+              <li><b>Leçon :</b> un agent n'est jamais juge et partie de sa trace d'audit, ni détenteur d'un secret partagé ou d'un droit réseau implicite.</li>
             </ul>
           </div>
         </div>
 
         <div class="callout">
-          <p><b>Conclusion pour le Comité exécutif :</b> la question n'est pas d'interdire les agents, mais de remplacer l'intégration opportuniste par une <b>infrastructure de médiation obligatoire</b> avant l'échéance réglementaire du <b>1er mai 2027</b>.</p>
+          <p><b>Conclusion pour le Comité exécutif :</b> ne pas interdire les agents, mais remplacer l'intégration opportuniste par une <b>infrastructure de médiation obligatoire</b> avant le <b>1er mai 2027</b>.</p>
           <span class="tag-right">Priorité : Gouverner avant d'automatiser</span>
         </div>
       </div>
 
       <footer class="slide-foot">
-        <div><b>Livrables :</b> Veille technologique (§ 5–6, annexe nov. 2026) · Cadre CRE-IA-2026-01 (Sommaire exécutif)</div>
-        <div class="accent">Risque principal : agents fantômes + clés partagées + absence de plafond de délégation</div>
+        <div><b>Livrables :</b> Veille (§ 5–6, annexe nov. 2026) · Cadre CRE-IA-2026-01</div>
+        <div class="accent">Risque principal : agents fantômes, clés partagées, délégation sans plafond</div>
       </footer>
     </section>
 
@@ -1285,7 +1352,7 @@
     <section class="slide" data-title="Échelle de maturité (6 paliers)" data-sub="Du transport technico-syntaxique au palier agentique">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">02 · Modèle conceptuel</span>
+          <span class="pill">Modèle conceptuel</span>
           <span class="head-section">Livrable 1 — NiveauMaturité : la pile d'interopérabilité en six paliers</span>
         </div>
         <div class="head-meta">Source : <b>NiveauMaturité (6 p., actualisé au 1er nov. 2026)</b> · <b>03 / 12</b></div>
@@ -1354,8 +1421,8 @@
       </div>
 
       <footer class="slide-foot">
-        <div><b>Livrable 1 :</b> NiveauMaturité.pdf (échelle propre à ce document, distincte des niveaux d'autonomie N0–N4 du Cadre)</div>
-        <div class="accent">Ancrages vérifiés au 1er nov. 2026 : Loi 25 art. 12.1 (2023) · RIA art. 50 (août 2026) · E-23 &amp; AMF (1er mai 2027)</div>
+        <div><b>Livrable 1 :</b> NiveauMaturité (échelle distincte des niveaux N0–N4 du Cadre)</div>
+        <div class="accent">Ancrages au 1er nov. 2026 : Loi 25 art. 12.1 · RIA art. 50 · E-23 &amp; AMF</div>
       </footer>
     </section>
 
@@ -1365,7 +1432,7 @@
     <section class="slide" data-title="Protocoles & Littérature scientifique" data-sub="Veille technologique (430 réf.) et Revue académique (192 + 40 pièces)">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">03 · Veille &amp; Science</span>
+          <span class="pill">Veille &amp; Science</span>
           <span class="head-section">Livrables 2 &amp; 3 — Ce que les protocoles industriels et la recherche permettent (et ne permettent pas)</span>
         </div>
         <div class="head-meta">Sources : <b>Veille (123 p.)</b> &amp; <b>Revue (74 p.)</b> · <b>04 / 12</b></div>
@@ -1374,37 +1441,37 @@
       <div class="slide-body">
         <div class="title-bar">
           <h2>Consolidation protocolaire et <span>trois verrous scientifiques</span> non résolus</h2>
-          <p class="lead">Sous l'égide de l'<b>Agentic AI Foundation (Linux Foundation)</b>, <code>MCP</code> et <code>A2A</code> s'imposent de facto, mais <b>aucun n'est une norme de jure</b> et trois verrous exigent une architecture maison.</p>
+          <p class="lead"><code>MCP</code> et <code>A2A</code> s'imposent de facto (Agentic AI Foundation), mais <b>aucun n'est une norme de jure</b> : trois verrous restent à couvrir.</p>
         </div>
 
         <div class="grid-3">
           <div class="card">
-            <div class="card-tag"><span>Couplage vertical Agent → Outil</span><span class="badge">MCP 2026-07-28</span></div>
+            <div class="card-tag"><span>Agent → Outil</span><span class="badge">MCP 2026-07-28</span></div>
             <h3>Model Context Protocol (MCP)</h3>
             <ul class="clean">
-              <li><b>Standard de fait :</b> session sans état; <code>SEP-3398</code> fixe une cadence de <b>2 versions/an</b> (prochaine le <b>30 mars 2027</b>).</li>
-              <li><b>Gouvernance :</b> profils d'extensions <i>Stable / Beta</i> (<code>SEP-3392</code>); retrait de l'ancien transport <code>HTTP+SSE</code> désormais admissible.</li>
-              <li><b>Limite :</b> la suite <code>conformance</code> officielle n'est ni certifiante ni opposable contractuellement.</li>
+              <li><b>Standard de fait :</b> <code>SEP-3398</code> fixe <b>2 versions/an</b> (prochaine le <b>30 mars 2027</b>).</li>
+              <li><b>Gouvernance :</b> extensions <i>Stable / Beta</i> (<code>SEP-3392</code>); <code>HTTP+SSE</code> retirable.</li>
+              <li><b>Limite :</b> la suite <code>conformance</code> n'est ni certifiante ni opposable.</li>
             </ul>
           </div>
 
           <div class="card">
-            <div class="card-tag"><span>Couplage horizontal Agent ↔ Agent</span><span class="badge">A2A v1.0.1 / 1.1-rc</span></div>
+            <div class="card-tag"><span>Agent ↔ Agent</span><span class="badge">A2A v1.0.1 / 1.1-rc</span></div>
             <h3>Agent2Agent (A2A) &amp; ANP</h3>
             <ul class="clean">
-              <li><b>Adoption bornée :</b> <code>A2A v1.0.1</code> publiée (<code>v1.1.0-rc</code> le 29 oct. 2026); GA en périmètre borné chez <b>Microsoft Foundry, UiPath, SAP, ServiceNow</b>.</li>
-              <li><b>Outillage :</b> kit <code>a2a-tck</code> encore au stade alpha; <b>ANP</b> reste confiné aux livres blancs sans déploiement d'entreprise.</li>
-              <li><b>Limite :</b> découverte par <code>Agent Card</code> sans garantie native de gouvernance inter-organisations.</li>
+              <li><b>Adoption bornée :</b> <code>v1.1.0-rc</code> le 29 oct. 2026; GA limitée chez <b>Microsoft Foundry, UiPath, SAP, ServiceNow</b>.</li>
+              <li><b>Outillage :</b> <code>a2a-tck</code> en alpha; <b>ANP</b> sans déploiement d'entreprise.</li>
+              <li><b>Limite :</b> <code>Agent Card</code> sans gouvernance inter-organisations native.</li>
             </ul>
           </div>
 
           <div class="card orange">
-            <div class="card-tag"><span>Revue académique (192 + 40 pièces)</span><span class="badge">Confrontation</span></div>
+            <div class="card-tag"><span>192 + 40 pièces</span><span class="badge">Confrontation</span></div>
             <h3>Constats durs de la littérature</h3>
             <ul class="clean">
-              <li><b>Maturité réelle :</b> <b>74 %</b> du corpus arXiv est en prépublication non arbitrée en notice (80 % après redressement Crossref).</li>
-              <li><b>Pénalité multiagent :</b> <b>3 à 10× plus de jetons</b> qu'un agent unique; sans preuve expérimentale, le multiagent dégrade le rapport coût/fiabilité.</li>
-              <li><b>Sécurité :</b> les défenses statiques contre l'injection tombent systématiquement devant les attaques adaptatives.</li>
+              <li><b>Maturité réelle :</b> <b>74 %</b> du corpus arXiv non arbitré (80 % après redressement Crossref).</li>
+              <li><b>Pénalité multiagent :</b> <b>3 à 10× plus de jetons</b> qu'un agent unique, sans gain de fiabilité prouvé.</li>
+              <li><b>Injection :</b> les défenses statiques tombent devant les attaques adaptatives.</li>
             </ul>
           </div>
         </div>
@@ -1420,7 +1487,7 @@
           <tbody>
             <tr class="highlight">
               <td><b>1. Délégation &gt; 2 sauts</b></td>
-              <td><b>Aucun mécanisme normalisé</b> ne maintient une chaîne de mandat opposable au-delà de 2 sauts (12 brouillons individuels à l'IETF, 0 adopté sur le jeton de délégation; WIMSE a seulement adopté AIMS en informationnel).</td>
+              <td><b>Aucun mécanisme normalisé</b> ne maintient une chaîne de mandat opposable au-delà de 2 sauts (12 brouillons IETF, aucun adopté).</td>
               <td><span class="chip severe">Plafond strict ≤ 2 sauts</span> Échange de jeton <code>RFC 8693</code> à chaque saut, réduction de portée et identité de charge de travail <code>SPIFFE</code>.</td>
             </tr>
             <tr>
@@ -1430,7 +1497,7 @@
             </tr>
             <tr>
               <td><b>3. Observabilité &amp; Post-quantique</b></td>
-              <td><code>OTel GenAI</code> compte 85 attributs <code>gen_ai.*</code> tous au stade <code>Development</code>, sans attribut de chaîne de mandat. <b>NIST IR 8547 (27 oct. 2026)</b> déprécie <code>Ed25519/ECDSA/RSA</code> après 2030 (interdits après 2035).</td>
+              <td><code>OTel GenAI</code> : 85 attributs <code>gen_ai.*</code>, tous en <code>Development</code>, aucun pour la chaîne de mandat. <b>NIST IR 8547 (27 oct. 2026)</b> déprécie <code>Ed25519/ECDSA/RSA</code> après 2030 (interdits après 2035).</td>
               <td><span class="chip">OTel v1.41.0 + Agilité PQC</span> Épinglage d'<code>OTel v1.41.0</code> enrichi des attributs de mandat internes et abstraction cryptographique vers <code>ML-DSA</code>.</td>
             </tr>
           </tbody>
@@ -1449,7 +1516,7 @@
     <section class="slide" data-title="Architecture & Agent enveloppé" data-sub="Partage du déterminisme, 6 couches et 3 plans transversaux">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">04 · Architecture cible</span>
+          <span class="pill">Architecture cible</span>
           <span class="head-section">Cadre CRE-IA-2026-01 (§ 2–4) &amp; Compendium — Le partage du déterminisme</span>
         </div>
         <div class="head-meta">Sources : <b>Cadre § 2–4</b> &amp; <b>Compendium Livres I &amp; III</b> · <b>05 / 12</b></div>
@@ -1458,7 +1525,7 @@
       <div class="slide-body">
         <div class="title-bar">
           <h2>Architecture de référence et patron de l'<span>« Agent enveloppé »</span></h2>
-          <p class="lead">Remplacer le maillage $N \times M$ non gouverné par une <b>topologie $N + M$</b> articulée autour de la <b>Passerelle d'agents</b>, du <b>Catalogue d'entreprise</b> et d'une enveloppe d'exécution déterministe.</p>
+          <p class="lead">Remplacer le maillage N × M non gouverné par une <b>topologie N + M</b> articulée autour de la <b>Passerelle d'agents</b>, du <b>Catalogue d'entreprise</b> et d'une enveloppe d'exécution déterministe.</p>
         </div>
 
         <div class="arch-layout flex-1">
@@ -1495,23 +1562,23 @@
             </div>
           </div>
 
-          <div style="display:flex; flex-direction:column; gap:0.48em;">
-            <div class="card orange" style="flex:1;">
+          <div class="stack">
+            <div class="card orange">
               <div class="card-tag"><span>Le patron « Agent enveloppé »</span><span class="badge">Cœur du Cadre</span></div>
               <h3>Partage strict des rôles</h3>
               <ul class="clean">
-                <li><b>Ce que fait l'enveloppe déterministe :</b> authentifie le mandat, vérifie les politiques (<code>OPA/Cedar</code>), valide les paramètres, impose les plafonds financiers, journalise hors de portée du LLM et exécute les compensations.</li>
-                <li><b>Ce que fait le noyau cognitif (LLM) :</b> comprend le non-structuré, synthétise, propose un plan local et prépare des appels d'outils typés.</li>
+                <li><b>Enveloppe déterministe :</b> authentifie le mandat, applique les politiques (<code>OPA/Cedar</code>) et les plafonds, journalise hors de portée du LLM et compense.</li>
+                <li><b>Noyau cognitif (LLM) :</b> comprend, synthétise, propose un plan et prépare des appels d'outils typés.</li>
               </ul>
             </div>
 
-            <div class="card" style="flex:1;">
+            <div class="card">
               <div class="card-tag"><span>3 Plans transversaux obligatoires</span><span class="badge">100 % Couverture</span></div>
               <h3>Socle d'assurance continu</h3>
               <ul class="clean">
-                <li><b>1. Identité, sécurité &amp; délégation :</b> <code>SPIFFE</code>, <code>OAuth 2.1</code>, échange <code>RFC 8693</code>, bacs à sable.</li>
-                <li><b>2. Observabilité, évaluation &amp; FinOps :</b> traces <code>OTel v1.41.0</code>, journal d'audit WORM, coûts <code>FOCUS</code>.</li>
-                <li><b>3. Gouvernance, risques &amp; conformité :</b> Registre unifié, cotes de modèles, homologation, comité.</li>
+                <li><b>Identité &amp; délégation :</b> <code>SPIFFE</code>, <code>OAuth 2.1</code>, <code>RFC 8693</code>, bacs à sable.</li>
+                <li><b>Observabilité &amp; FinOps :</b> <code>OTel v1.41.0</code>, audit WORM, <code>FOCUS</code>.</li>
+                <li><b>Gouvernance &amp; conformité :</b> registre, cotes de modèles, homologation.</li>
               </ul>
             </div>
           </div>
@@ -1530,7 +1597,7 @@
     <section class="slide" data-title="Les 10 décisions structurantes" data-sub="Synthèse normative des 272 exigences du Cadre CRE-IA-2026-01">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">05 · Cadre normatif</span>
+          <span class="pill">Cadre normatif</span>
           <span class="head-section">Livrable 4 — Cadre de référence CRE-IA-2026-01 (v1.1, 12 principes, 272 exigences)</span>
         </div>
         <div class="head-meta">Source : <b>Cadre CRE-IA-2026-01 (Sommaire exécutif &amp; § 1–11)</b> · <b>06 / 12</b></div>
@@ -1544,61 +1611,61 @@
 
         <div class="decisions-10">
           <div class="dec-box">
-            <div class="dhead"><span>DÉCISION 01</span><span>STANDARDS</span></div>
+            <div class="dhead"><span>01</span><span>STANDARDS</span></div>
             <h4>Protocoles ouverts épinglés</h4>
-            <p>Adopter <b>MCP 2026-07-28</b> (agent-outil) et <b>A2A 1.0</b> (agent-agent) à versions épinglées au catalogue; retrait complet de <code>HTTP+SSE</code> d'ici le 28 juill. 2027.</p>
+            <p><b>MCP 2026-07-28</b> (agent-outil) et <b>A2A 1.0</b> (agent-agent), versions épinglées au catalogue; retrait de <code>HTTP+SSE</code> d'ici le 28 juill. 2027.</p>
           </div>
 
           <div class="dec-box key">
-            <div class="dhead"><span>DÉCISION 02</span><span>MÉDIATION</span></div>
+            <div class="dhead"><span>02</span><span>MÉDIATION</span></div>
             <h4>Passerelle &amp; catalogue obligatoires</h4>
             <p>Tout appel de modèle, d'outil ou d'agent tiers transite par la <b>passerelle d'entreprise</b> et correspond à une fiche homologuée au catalogue.</p>
           </div>
 
           <div class="dec-box">
-            <div class="dhead"><span>DÉCISION 03</span><span>ORCHESTRATION</span></div>
+            <div class="dhead"><span>03</span><span>ORCHESTRATION</span></div>
             <h4>Simplicité d'abord &amp; ≤ 2 sauts</h4>
             <p>Flux déterministe par défaut, sinon agent unique; multiagent restreint à <b>8 patrons autorisés</b> et <b>max. 2 sauts de délégation</b> sur preuve de gain.</p>
           </div>
 
           <div class="dec-box key">
-            <div class="dhead"><span>DÉCISION 04</span><span>AUTONOMIE</span></div>
+            <div class="dhead"><span>04</span><span>AUTONOMIE</span></div>
             <h4>Échelle N0–N4 bornée par le risque</h4>
             <p>Une seule échelle d'autonomie (<b>N0 à N4</b>, <code>NX</code> interdit) croisée avec les paliers d'outils <b>P0 à P3</b> et plafonnée par la classe de risque.</p>
           </div>
 
           <div class="dec-box">
-            <div class="dhead"><span>DÉCISION 05</span><span>IDENTITÉ</span></div>
+            <div class="dhead"><span>05</span><span>IDENTITÉ</span></div>
             <h4>Identité propre &amp; jetons délégués</h4>
             <p><b>Zéro clé ou compte partagé.</b> Identité distincte par agent et jetons délégués à audience unique (<code>RFC 8693</code>) à durée de vie courte.</p>
           </div>
 
           <div class="dec-box">
-            <div class="dhead"><span>DÉCISION 06</span><span>SÉCURITÉ</span></div>
+            <div class="dhead"><span>06</span><span>SÉCURITÉ</span></div>
             <h4>Présomption d'injection</h4>
-            <p>Toute donnée externe est présumée hostile : retrait déterministe des outils d'envoi externe après lecture non fiable et exécution en <b>bac à sable isolé</b>.</p>
+            <p>Toute donnée externe est présumée hostile : retrait des outils d'envoi après lecture non fiable, exécution en <b>bac à sable isolé</b>.</p>
           </div>
 
           <div class="dec-box key">
-            <div class="dhead"><span>DÉCISION 07</span><span>RÉSILIENCE</span></div>
+            <div class="dhead"><span>07</span><span>RÉSILIENCE</span></div>
             <h4>Réversibilité &amp; coupe-circuit ≤ 15 m</h4>
             <p>Exécution durable, clés d'idempotence sur toute écriture, sagas de compensation et <b>coupe-circuit testé en ≤ 15 minutes</b> avec mode de repli.</p>
           </div>
 
           <div class="dec-box">
-            <div class="dhead"><span>DÉCISION 08</span><span>OBSERVABILITÉ &amp; FINOPS</span></div>
+            <div class="dhead"><span>08</span><span>FINOPS</span></div>
             <h4>OTel v1.41.0 &amp; Coût par tâche</h4>
             <p>Traces <code>OTel v1.41.0</code>, journal d'audit inaltérable, évaluation à 3 paliers et <b>coût par tâche réussie inférieur</b> au processus de référence (<code>FOCUS</code>).</p>
           </div>
 
           <div class="dec-box key">
-            <div class="dhead"><span>DÉCISION 09</span><span>IMPUTABILITÉ</span></div>
+            <div class="dhead"><span>09</span><span>IMPUTABILITÉ</span></div>
             <h4>Parrain nommé &amp; Homologation</h4>
             <p>Un <b>parrain humain imputable</b> par agent, registre obligatoire, modèle en étoile, grille d'homologation (49 points) et critères éliminatoires d'achat.</p>
           </div>
 
           <div class="dec-box">
-            <div class="dhead"><span>DÉCISION 10</span><span>CONFORMITÉ</span></div>
+            <div class="dhead"><span>10</span><span>CONFORMITÉ</span></div>
             <h4>Conformité intégrée (By Design)</h4>
             <p>Exigences arrimées nativement à la <b>Loi 25</b>, à la <b>E-23 du BSIF</b>, à la <b>LD IA de l'AMF</b>, au <b>RIA (UE)</b>, au <b>NIST AI RMF</b> et à <b>ISO/IEC 42001</b>.</p>
           </div>
@@ -1606,8 +1673,8 @@
       </div>
 
       <footer class="slide-foot">
-        <div><b>Portée :</b> s'applique aux agents développés à l'interne comme aux agents intégrés aux progiciels SaaS</div>
-        <div class="accent">Toute dérogation exige une décision motivée du Comité, une échéance ≤ 6 mois et des contrôles compensatoires</div>
+        <div><b>Portée :</b> agents internes et agents intégrés aux progiciels SaaS</div>
+        <div class="accent">Dérogation : décision motivée du Comité, ≤ 6 mois, contrôles compensatoires</div>
       </footer>
     </section>
 
@@ -1617,7 +1684,7 @@
     <section class="slide" data-title="Gouvernance de l'autonomie" data-sub="Classes de risque, niveaux N0–N4 et paliers d'outils P0–P3">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">06 · Maîtrise de l'autonomie</span>
+          <span class="pill">Maîtrise de l'autonomie</span>
           <span class="head-section">Cadre CRE-IA-2026-01 (§ 1.6 &amp; § 5) — Séparer la maturité de la plateforme et l'autonomie d'un agent</span>
         </div>
         <div class="head-meta">Source : <b>Cadre CRE-IA-2026-01 (§ 5, Tableaux 9–12)</b> · <b>07 / 12</b></div>
@@ -1626,63 +1693,63 @@
       <div class="slide-body">
         <div class="title-bar">
           <h2>Gouverner l'autonomie par le risque : <span>Classes × N0–N4 × P0–P3</span></h2>
-          <p class="lead">L'autonomie d'un agent n'est <b>jamais un objectif de progression</b> : c'est un plafond d'exposition déterminé par la classe de risque du cas d'usage et le palier d'impact de ses outils.</p>
+          <p class="lead">L'autonomie n'est <b>jamais un objectif de progression</b> : c'est un plafond fixé par la classe de risque du cas d'usage et le palier de ses outils.</p>
         </div>
 
         <table class="exec-table">
           <thead>
             <tr>
               <th style="width:14%;">Classe de risque</th>
-              <th style="width:28%;">Critères de rattachement (le plus sévère l'emporte)</th>
+              <th style="width:25%;">Critères (le plus sévère l'emporte)</th>
               <th style="width:15%;">Plafond d'autonomie</th>
-              <th style="width:23%;">Paliers d'outils &amp; Supervision humaine</th>
-              <th style="width:20%;">Assurance &amp; Homologation</th>
+              <th style="width:22%;">Supervision humaine</th>
+              <th style="width:24%;">Assurance &amp; homologation</th>
             </tr>
           </thead>
           <tbody>
             <tr class="highlight">
               <td><span class="chip severe">CLASSE ÉLEVÉE</span></td>
-              <td>Décision à effet important sur une personne (crédit, assurance, emploi, réclamation), <b>Loi 25 art. 12.1</b>, <b>RIA Annexe III</b>, RP sensibles (santé, biométrie, mineurs) ou action <code>P3</code>.</td>
-              <td><span class="chip severe">Plafond strict N2</span><br/><span style="font-size:0.88em;color:var(--text-3);">N3 et N4 interdits</span></td>
-              <td>Chaque écriture <code>P2</code> ou action <code>P3</code> exige une <b>approbation humaine explicite (HITL)</b>; signature hors bande obligatoire sur <code>P3</code>.</td>
-              <td><b>EFVP + Évaluation d'impact unifiée</b>, test d'équipe rouge avant prod, homologation par le Comité, <b>revue semestrielle</b>.</td>
+              <td>Décision à effet important sur une personne, <b>Loi 25 art. 12.1</b>, <b>RIA Annexe III</b>, RP sensibles ou action <code>P3</code>.</td>
+              <td><span class="chip severe">Plafond strict N2</span><br/><span class="cell-note">N3 et N4 interdits</span></td>
+              <td><b>Approbation humaine (HITL)</b> de chaque <code>P2</code>/<code>P3</code>; signature hors bande sur <code>P3</code>.</td>
+              <td><b>EFVP + évaluation d'impact</b>, équipe rouge avant prod, homologation par le Comité, <b>revue semestrielle</b>.</td>
             </tr>
             <tr>
               <td><span class="chip">CLASSE MODÉRÉE</span></td>
-              <td>Traitement de renseignements personnels non sensibles, écritures opérationnelles réversibles (<code>P2</code>), communications clients/partenaires sans décision d'admissibilité.</td>
-              <td><span class="chip">Plafond N3</span><br/><span style="font-size:0.88em;color:var(--text-3);">Sous seuils &amp; ODD</span></td>
-              <td><code>P0–P1</code> libres; <code>P2</code> permis sous seuils unitaires et cumulés avec compensation automatique et <b>humain sur la boucle (HOTL)</b>.</td>
-              <td>Dossier d'architecture, jeux d'essai d'équité et d'injection, homologation par délégation, <b>revue annuelle</b>.</td>
+              <td>RP non sensibles, écritures réversibles (<code>P2</code>), communications sans décision d'admissibilité.</td>
+              <td><span class="chip">Plafond N3</span><br/><span class="cell-note">Sous seuils &amp; ODD</span></td>
+              <td><code>P0–P1</code> libres; <code>P2</code> sous seuils avec compensation et <b>humain sur la boucle (HOTL)</b>.</td>
+              <td>Dossier d'architecture, essais d'équité et d'injection, homologation déléguée, <b>revue annuelle</b>.</td>
             </tr>
             <tr>
               <td><span class="chip muted">CLASSE FAIBLE</span></td>
-              <td>Données internes non confidentielles, aucun renseignement personnel, aucun effet sur un client ou employé, opérations de lecture ou écritures internes réversibles.</td>
-              <td><span class="chip muted">Plafond N3 (N4*)</span><br/><span style="font-size:0.88em;color:var(--text-3);">*N4 sur décision comité</span></td>
-              <td><code>P0–P1</code> et <code>P2</code> interne réversible dans un domaine de conception opérationnel (<code>ODD</code>) certifié et télémétré.</td>
-              <td>Inscription obligatoire au registre, tests automatisés en CI/CD, parrain nommé, <b>revue annuelle</b>.</td>
+              <td>Données internes non confidentielles, aucun RP, aucun effet sur un client ou employé.</td>
+              <td><span class="chip muted">Plafond N3 (N4*)</span><br/><span class="cell-note">*N4 sur décision comité</span></td>
+              <td><code>P0–P1</code> et <code>P2</code> interne réversible dans un <code>ODD</code> certifié.</td>
+              <td>Inscription au registre, tests CI/CD, parrain nommé, <b>revue annuelle</b>.</td>
             </tr>
           </tbody>
         </table>
 
         <div class="grid-2 flex-1">
           <div class="card">
-            <div class="card-tag"><span>Échelle d'autonomie des agents (N0 à N4)</span><span class="badge">NX Interdit</span></div>
+            <div class="card-tag"><span>Autonomie N0 à N4</span><span class="badge">NX Interdit</span></div>
             <ul class="clean">
-              <li><b><code>N0</code> Assistance sans action :</b> recherche, synthèse ou brouillon local sans appel d'outil d'écriture.</li>
-              <li><b><code>N1</code> Recommandation :</b> l'agent propose un plan ou un acte motivé; l'humain décide et exécute lui-même.</li>
-              <li><b><code>N2</code> Exécution approuvée (HITL) :</b> l'agent prépare l'appel d'outil; l'humain valide avant toute exécution <code>P2/P3</code>.</li>
-              <li><b><code>N3</code> Autonomie bornée sous seuils (HOTL) :</b> exécution dans un <code>ODD</code> borné avec escalade immédiate hors seuils.</li>
-              <li><b><code>N4</code> Autonomie déléguée sous ODD certifié :</b> réservée à la classe Faible après maturité 4. <b><code>NX</code> (non bornée) : interdite.</b></li>
+              <li><b><code>N0</code> Assistance :</b> recherche, synthèse ou brouillon, sans outil d'écriture.</li>
+              <li><b><code>N1</code> Recommandation :</b> l'agent propose; l'humain décide et exécute.</li>
+              <li><b><code>N2</code> Exécution approuvée (HITL) :</b> l'humain valide avant toute exécution <code>P2/P3</code>.</li>
+              <li><b><code>N3</code> Autonomie bornée (HOTL) :</b> dans un <code>ODD</code> borné, escalade hors seuils.</li>
+              <li><b><code>N4</code> Autonomie déléguée :</b> classe Faible, maturité 4. <b><code>NX</code> : interdite.</b></li>
             </ul>
           </div>
 
-          <div class="card dark-orange">
-            <div class="card-tag"><span>Classification des outils (Paliers P0 à P3)</span><span class="badge">Contrôle PEP</span></div>
+          <div class="card">
+            <div class="card-tag"><span>Paliers d'outils P0 à P3</span><span class="badge">Contrôle PEP</span></div>
             <ul class="clean">
-              <li><b><code>P0</code> Lecture publique / interne non sensible :</b> documentation, nomenclatures, référentiels publics.</li>
-              <li><b><code>P1</code> Lecture confidentielle / RP ou brouillon :</b> consultation de dossier client autorisé, création de brouillon non envoyé.</li>
-              <li><b><code>P2</code> Écriture opérationnelle réversible :</b> mise à jour CRM, ouverture de billet, réservation temporaire avec clé d'idempotence et saga.</li>
-              <li><b><code>P3</code> Action critique ou irréversible :</b> virement, décaissement, engagement contractuel, envoi réglementaire — <b>jeton d'approbation humaine signé hors bande requis</b>.</li>
+              <li><b><code>P0</code> Lecture non sensible :</b> documentation, référentiels publics.</li>
+              <li><b><code>P1</code> Lecture confidentielle :</b> dossier client autorisé, brouillon non envoyé.</li>
+              <li><b><code>P2</code> Écriture réversible :</b> mise à jour CRM, billet, réservation, avec idempotence et saga.</li>
+              <li><b><code>P3</code> Action critique ou irréversible :</b> virement, décaissement, engagement — <b>approbation signée hors bande</b>.</li>
             </ul>
           </div>
         </div>
@@ -1700,7 +1767,7 @@
     <section class="slide" data-title="Sécurité, Identité & Coupe-circuit" data-sub="Chaîne de mandat RFC 8693, anti-injection et résilience ≤ 15 min">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">07 · Sécurité &amp; Résilience</span>
+          <span class="pill">Sécurité &amp; Résilience</span>
           <span class="head-section">Cadre CRE-IA-2026-01 (§ 6–7) &amp; Compendium Livre II — Faire confiance sans aveuglement</span>
         </div>
         <div class="head-meta">Sources : <b>Cadre § 6–7</b>, <b>Veille § 6</b> &amp; <b>Compendium Livre II</b> · <b>08 / 12</b></div>
@@ -1717,9 +1784,9 @@
             <div class="card-tag"><span>1. Identité non humaine &amp; Délégation</span><span class="badge">SPIFFE + RFC 8693</span></div>
             <h3>Zéro secret partagé, mandat vérifiable à chaque saut</h3>
             <ul class="clean">
-              <li><b>Identité de charge de travail :</b> chaque agent possède son identifiant cryptographique propre (<code>SPIFFE ID</code> / <code>actor_id</code>) inscrit au registre.</li>
-              <li><b>Jeton délégué sur l'intention humaine :</b> utilisation d'<code>OAuth 2.0 Token Exchange (RFC 8693)</code> avec la réclamation <code>act</code> distinguant le sujet humain (<code>sub</code>), l'agent courant et la portée résiduelle.</li>
-              <li><b>Réduction systématique des droits (<i>Downscoping</i>) :</b> chaque saut réduit l'audience et les permissions au strict nécessaire pour l'outil ciblé, pour une durée de vie de quelques minutes.</li>
+              <li><b>Identité de charge de travail :</b> identifiant cryptographique propre à chaque agent (<code>SPIFFE ID</code>), inscrit au registre.</li>
+              <li><b>Jeton délégué :</b> <code>RFC 8693</code>, la réclamation <code>act</code> distingue le sujet humain, l'agent courant et la portée résiduelle.</li>
+              <li><b>Réduction des droits (<i>Downscoping</i>) :</b> chaque saut réduit audience et permissions, pour quelques minutes.</li>
             </ul>
           </div>
 
@@ -1727,13 +1794,13 @@
             <div class="card-tag"><span>2. Défense contre l'injection indirecte</span><span class="badge">OWASP LLM01 / ASI01</span></div>
             <h3>Suivi de contamination (Taint Tracking) déterministe</h3>
             <ul class="clean">
-              <li><b>Présomption d'hostilité :</b> courriels, pièces jointes, pages web et résultats de recherche non gouvernés sont marqués <code>untrusted</code> par la passerelle.</li>
-              <li><b>Retrait déterministe de capacité :</b> dès qu'un contexte non fiable entre dans la session, <b>l'orchestrateur retire les outils d'exfiltration et d'écriture externe</b> (<code>P2/P3</code>), quel que soit le raisonnement du LLM.</li>
-              <li><b>Isolation d'exécution :</b> tout interpréteur de code ou navigateur d'agent tourne dans un <b>bac à sable éphémère (micro-VM)</b> sans réseau sortant direct.</li>
+              <li><b>Présomption d'hostilité :</b> courriels, pièces jointes et pages web sont marqués <code>untrusted</code> par la passerelle.</li>
+              <li><b>Retrait déterministe :</b> dès qu'un contexte non fiable entre en session, <b>l'orchestrateur retire les outils d'écriture externe</b> (<code>P2/P3</code>), quoi qu'en dise le LLM.</li>
+              <li><b>Isolation :</b> code et navigation d'agent en <b>micro-VM éphémère</b>, sans réseau sortant direct.</li>
             </ul>
           </div>
 
-          <div class="card dark-orange">
+          <div class="card">
             <div class="card-tag"><span>3. Coupe-circuit (Kill Switch) à 3 niveaux</span><span class="badge">SLA ≤ 15 min</span></div>
             <h3>Arrêt d'urgence et repli opérationnel testés</h3>
             <ul class="clean">
@@ -1767,7 +1834,7 @@
     <section class="slide" data-title="Conformité & Note AMF IA (Québec)" data-sub="Profil CRE-IA-2026-01-QC : 41 attentes AMF et 12 exigences EXIG-AMF">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">08 · Conformité Québec &amp; Canada</span>
+          <span class="pill">Conformité Québec &amp; Canada</span>
           <span class="head-section">Livrable 5 — Note AMF IA (CRE-IA-2026-01-QC, v1.0) : instruction des 41 attentes de l'AMF</span>
         </div>
         <div class="head-meta">Source : <b>Note AMF IA (44 p., actualisée au 1er nov. 2026)</b> · <b>09 / 12</b></div>
@@ -1808,7 +1875,7 @@
             <h3>Responsabilité du CA et de la Haute Direction</h3>
             <ul class="clean">
               <li><b><code>EXIG-AMF-01</code> :</b> désigner nommément un <b>membre de la haute direction imputable</b> de l'ensemble des SIA et agents.</li>
-              <li><b><code>EXIG-AMF-02</code> :</b> présenter au <b>Conseil d'administration ≥ 2×/an</b> l'évaluation globale des risques et notifier sans délai tout 1er agent <code>N3/N4</code>, outil <code>P3</code> ou contact client.</li>
+              <li><b><code>EXIG-AMF-02</code> :</b> évaluation globale au <b>Conseil ≥ 2×/an</b>; avis sans délai de tout 1er agent <code>N3/N4</code>, outil <code>P3</code> ou contact client.</li>
               <li><b><code>EXIG-AMF-03 &amp; 04</code> :</b> déployer un <b>plan de compétences pour 6 populations</b> (dont le CA et la haute direction) et viser les agents au <b>code d'éthique</b>.</li>
             </ul>
           </div>
@@ -1817,19 +1884,19 @@
             <div class="card-tag"><span>Écart 2 · Risque de modèle</span><span class="badge">EXIG-AMF-05 à 08</span></div>
             <h3>Arrimage au cadre de modélisation (E-23 / AMF)</h3>
             <ul class="clean">
-              <li><b><code>EXIG-AMF-05</code> :</b> établir une <b>cote de risque pour chaque modèle</b> (provisoire en Fondations, définitive au 1er mai 2027) comme intrant obligatoire de la classe de l'agent.</li>
+              <li><b><code>EXIG-AMF-05</code> :</b> <b>cote de risque par modèle</b> (provisoire en Fondations, définitive au 1er mai 2027), intrant de la classe de l'agent.</li>
               <li><b><code>EXIG-AMF-06 &amp; 07</code> :</b> aligner le registre des agents sur le <b>répertoire centralisé des modèles</b> et documenter la méthodologie de cotation.</li>
               <li><b><code>EXIG-AMF-08</code> :</b> tenir un <b>registre institutionnel des risques agentiques</b> incluant conformité réglementaire et réputation.</li>
             </ul>
           </div>
 
-          <div class="card dark-orange">
+          <div class="card">
             <div class="card-tag"><span>Écart 3 · Équité &amp; Transparence client</span><span class="badge">EXIG-AMF-09 à 12</span></div>
             <h3>Protection du consommateur et non-discrimination</h3>
             <ul class="clean">
               <li><b><code>EXIG-AMF-09</code> :</b> déclarer tout agent à mémoire persistante comme SIA à <b>calibrage dynamique</b> (seuils de dérive et gel en ≤ 15 min).</li>
               <li><b><code>EXIG-AMF-10</code> :</b> liste par agent des <b>facteurs et proxies interdits</b>, jeux d'essai appariés et rapport de surveillance de la discrimination.</li>
-              <li><b><code>EXIG-AMF-11 &amp; 12</code> :</b> divulgation sur tout canal (vidéo comprise), <b>accès annoncé à un humain en tout temps</b>, marquage des contenus (même remis aux représentants) et <b>explication claire jointe d'office</b> à toute décision prise ou recommandée.</li>
+              <li><b><code>EXIG-AMF-11 &amp; 12</code> :</b> divulgation sur tout canal, <b>accès à un humain en tout temps</b>, marquage des contenus et <b>explication jointe d'office</b> à toute décision prise ou recommandée.</li>
             </ul>
           </div>
         </div>
@@ -1847,7 +1914,7 @@
     <section class="slide" data-title="Feuille de route 2026–2030" data-sub="4 phases, jalon J-AMF / E-23 au 1er mai 2027 et plan des 90 premiers jours">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">09 · Feuille de route</span>
+          <span class="pill">Feuille de route</span>
           <span class="head-section">Cadre (§ 12), Note AMF IA (§ 12) &amp; Compendium Livre V — Trajectoire d'adoption incrémentale</span>
         </div>
         <div class="head-meta">Mois 0 : <b>1er décembre 2026</b> · Horizon : <b>2026–2030</b> · <b>10 / 12</b></div>
@@ -1863,44 +1930,44 @@
           <div class="phase-card active-phase">
             <div class="ptop"><span>PHASE 1 · M0–M3</span><span>DÉC. 26 – MARS 27</span></div>
             <h4>Fondations &amp; Inventaire</h4>
-            <div class="jalon">Jalon J1 : mi-mars 2027 (Maturité ≥ 1)</div>
+            <div class="jalon">J1 : mi-mars 2027 (maturité ≥ 1)</div>
             <ul class="clean">
               <li>Autonomie plafonnée à <b>N0–N1</b>.</li>
-              <li>Membre imputable désigné, Comité actif, registre exhaustif (agents fantômes inclus).</li>
+              <li>Membre imputable, Comité actif, registre exhaustif.</li>
               <li>Fin des clés partagées, passerelle de modèles, coupe-circuit exercé, 1re reddition au CA.</li>
             </ul>
           </div>
 
           <div class="phase-card active-phase">
-            <div class="ptop"><span>PHASE 2 · M3–M9</span><span>MARS – SEPT. 2027</span></div>
+            <div class="ptop"><span>PHASE 2 · M3–M9</span><span>MARS – SEPT. 27</span></div>
             <h4>Plateforme &amp; Conformité</h4>
             <div class="jalon">J-AMF &amp; E-23 : 1er mai 2027 · J2 : oct. 2027</div>
             <ul class="clean">
               <li>Constat formel <b>AMF &amp; E-23 au 30 avril 2027</b>.</li>
               <li>Migration MCP <code>2026-07-28</code> (28 juill. 2027).</li>
-              <li>Passerelle d'agents, jetons <code>RFC 8693</code>, exécution durable; ouverture à <b>N2 et premiers N3 bornés</b>.</li>
+              <li>Passerelle d'agents, <code>RFC 8693</code>, exécution durable; <b>N2 et premiers N3 bornés</b>.</li>
             </ul>
           </div>
 
           <div class="phase-card">
-            <div class="ptop"><span>PHASE 3 · M9–M18</span><span>OCT. 27 – JUIN 2028</span></div>
+            <div class="ptop"><span>PHASE 3 · M9–M18</span><span>OCT. 27 – JUIN 28</span></div>
             <h4>Industrialisation</h4>
             <div class="jalon">J2a RIA : nov./déc. 2027 · J3 : juill. 2028</div>
             <ul class="clean">
               <li>Maturité <b>≥ 3 sur les 5 dimensions</b> au jalon J3.</li>
-              <li>Couverture 100 % passerelle interdomaines, évaluation continue CI/CD, FinOps par tâche.</li>
-              <li>Sagas multiagents, bacs à sable; autonomie <b>N3 interdomaines</b> (classe Élevée maintenue à N2).</li>
+              <li>Passerelle interdomaines, CI/CD, FinOps par tâche.</li>
+              <li>Sagas multiagents; <b>N3 interdomaines</b> (Élevée : N2).</li>
             </ul>
           </div>
 
           <div class="phase-card">
-            <div class="ptop"><span>PHASE 4 · M18–M48</span><span>JUIL. 28 – DÉC. 2030</span></div>
+            <div class="ptop"><span>PHASE 4 · M18–M48</span><span>JUIL. 28 – DÉC. 30</span></div>
             <h4>Mise à l'échelle &amp; ISO</h4>
             <div class="jalon">J4 : déc. 2029 · J5 : déc. 2030 (ISO 42001)</div>
             <ul class="clean">
               <li>Certification <b>ISO/IEC 42001</b> au jalon J5.</li>
               <li>Autonomie <b>N4 sur ODD certifié</b> (classe Faible uniquement).</li>
-              <li>Migration cryptographique post-quantique (<code>NIST IR 8547</code> : échéance 2030).</li>
+              <li>Migration post-quantique (<code>NIST IR 8547</code>, 2030).</li>
             </ul>
           </div>
         </div>
@@ -1910,37 +1977,37 @@
             <tr>
               <th style="width:16%;">Séquence (90 jours)</th>
               <th style="width:42%;">Livrables du Cadre général (CRE-IA-2026-01)</th>
-              <th style="width:42%;">Livrables du Profil québécois (CRE-IA-2026-01-QC / AMF &amp; E-23)</th>
+              <th style="width:42%;">Livrables du Profil québécois (CRE-IA-2026-01-QC)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><b>Semaines 1 – 2</b><br/><span style="color:var(--text-3);">Mandat &amp; Gouvernance</span></td>
-              <td>Charte du <b>Comité d'architecture et des risques agentiques</b>, gel des mises en prod hors grille, lancement du recensement.</td>
-              <td>Désignation nominative du <b>membre de la haute direction imputable (EXIG-AMF-01)</b>; commande des 2 avis juridiques (assujettissement &amp; AMF-P-09).</td>
+              <td><b>Semaines 1 – 2</b><br/><span class="cell-note">Mandat &amp; Gouvernance</span></td>
+              <td>Charte du <b>Comité d'architecture et des risques agentiques</b>, gel des mises en prod hors grille, recensement.</td>
+              <td>Désignation du <b>membre de la haute direction imputable (EXIG-AMF-01)</b>; commande des 2 avis juridiques.</td>
             </tr>
             <tr>
-              <td><b>Semaines 3 – 6</b><br/><span style="color:var(--text-3);">Inventaire &amp; Secrets</span></td>
-              <td>Registre central peuplé à 100 %, parrain par agent, <b>suppression des clés partagées</b>, branchement sur la passerelle de modèles.</td>
-              <td>Rattachement au <b>répertoire centralisé des modèles (EXIG-AMF-06)</b> et ouverture du registre institutionnel des risques agentiques.</td>
+              <td><b>Semaines 3 – 6</b><br/><span class="cell-note">Inventaire &amp; Secrets</span></td>
+              <td>Registre central à 100 %, parrain par agent, <b>suppression des clés partagées</b>, passerelle de modèles.</td>
+              <td>Rattachement au <b>répertoire centralisé des modèles (EXIG-AMF-06)</b>, registre des risques agentiques.</td>
             </tr>
             <tr>
-              <td><b>Semaines 7 – 10</b><br/><span style="color:var(--text-3);">Traces, Cotes &amp; Risques</span></td>
-              <td>Collecteur <code>OTel v1.41.0</code> pilote, attribution des classes de risque (Faible/Modérée/Élevée), lancement des EFVP requises.</td>
-              <td>Déclaration des agents à <b>calibrage dynamique (EXIG-AMF-09)</b>, méthodologie et <b>cotes provisoires des modèles (EXIG-AMF-05)</b>, liste des proxies interdits.</td>
+              <td><b>Semaines 7 – 10</b><br/><span class="cell-note">Traces, Cotes &amp; Risques</span></td>
+              <td>Collecteur <code>OTel v1.41.0</code> pilote, classes de risque attribuées, EFVP lancées.</td>
+              <td><b>Calibrage dynamique (EXIG-AMF-09)</b>, <b>cotes provisoires des modèles (EXIG-AMF-05)</b>, proxies interdits.</td>
             </tr>
             <tr class="highlight">
-              <td><b>Semaines 11 – 13</b><br/><span style="color:var(--o-300);">Exercice &amp; Jalon J1</span></td>
-              <td><b>1er exercice du coupe-circuit (≤ 15 min)</b>, revue des fournisseurs SaaS, audit du jalon <b>J1 (mi-mars 2027)</b>.</td>
-              <td>Mise à jour du <b>code d'éthique (EXIG-AMF-04)</b>, plan de compétences des 6 populations, <b>1re évaluation globale présentée au Conseil (EXIG-AMF-02)</b>.</td>
+              <td><b>Semaines 11 – 13</b><br/><span class="cell-note accent">Exercice &amp; Jalon J1</span></td>
+              <td><b>1er exercice du coupe-circuit (≤ 15 min)</b>, revue des fournisseurs SaaS, audit du jalon <b>J1</b>.</td>
+              <td><b>Code d'éthique (EXIG-AMF-04)</b>, plan de compétences, <b>1re évaluation globale au Conseil (EXIG-AMF-02)</b>.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <footer class="slide-foot">
-        <div><b>Point critique du calendrier :</b> 6 semaines séparent le jalon J1 (mi-mars 2027) de l'échéance réglementaire du 1er mai 2027</div>
-        <div class="accent">Les travaux AMF/E-23 des semaines 1 à 13 préparent directement le constat de conformité du 30 avril 2027</div>
+        <div><b>Point critique :</b> 6 semaines entre J1 (mi-mars 2027) et l'échéance du 1er mai 2027</div>
+        <div class="accent">Les semaines 1 à 13 préparent le constat AMF/E-23 du 30 avril 2027</div>
       </footer>
     </section>
 
@@ -1950,7 +2017,7 @@
     <section class="slide" data-title="Pilotage exécutif, FinOps & Achats" data-sub="Tableau de bord mesuré par télémétrie et critères éliminatoires SaaS">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">10 · Pilotage &amp; FinOps</span>
+          <span class="pill">Pilotage &amp; FinOps</span>
           <span class="head-section">Cadre (§ 8–11) &amp; Compendium Livres IV–V — Mesurer la valeur réelle et verrouiller les achats</span>
         </div>
         <div class="head-meta">Sources : <b>Cadre § 8–11</b> &amp; <b>Note AMF IA § 9–11</b> · <b>11 / 12</b></div>
@@ -1990,7 +2057,7 @@
             <div class="card-tag"><span>Discipline FinOps &amp; Évaluation à 3 paliers</span><span class="badge">Anti-dérive</span></div>
             <h3>Mesurer le coût par tâche réussie, jamais le coût par requête</h3>
             <ul class="clean">
-              <li><b>Comptabilité <code>FOCUS</code> :</b> imputation par unité d'affaires incluant les jetons d'entrée/sortie/raisonnement, les appels d'outils, les boucles de reprise et le temps de supervision humaine.</li>
+              <li><b>Comptabilité <code>FOCUS</code> :</b> imputation par unité d'affaires des jetons, appels d'outils, reprises et supervision humaine.</li>
               <li><b>Quotas et disjoncteurs budgétaires :</b> plafond de jetons par tâche et par session à la passerelle de modèles; routage gradué vers des modèles sobres pour les tâches simples.</li>
               <li><b>Évaluation à 3 paliers :</b> (1) tests déterministes de contrat et de non-régression en CI/CD, (2) jeux d'essai d'injection et d'équité appariés avant prod, (3) échantillonnage continu en production.</li>
             </ul>
@@ -2000,11 +2067,11 @@
             <div class="card-tag"><span>Bouclier d'approvisionnement (SaaS &amp; Éditeurs)</span><span class="badge">Critères éliminatoires</span></div>
             <h3>Cinq clauses non négociables pour tout fournisseur d'agent</h3>
             <ul class="clean">
-              <li><b>1. Souveraineté des données :</b> garantie contractuelle de non-entraînement et de non-rétention sur les données et prompts de l'institution.</li>
+              <li><b>1. Souveraineté des données :</b> non-entraînement et non-rétention garantis par contrat.</li>
               <li><b>2. Identité et délégation :</b> prise en charge d'une identité distincte par agent (<code>OAuth 2.1</code> / <code>RFC 8693</code>) sans compte de service omnipotent.</li>
-              <li><b>3. Observabilité exportable :</b> export natif des journaux d'appels d'outils et de décisions au format <code>OpenTelemetry</code> vers le collecteur de l'institution.</li>
+              <li><b>3. Observabilité exportable :</b> journaux d'appels et de décisions en <code>OpenTelemetry</code>.</li>
               <li><b>4. Coupe-circuit granulaire :</b> capacité de désactiver une capacité d'écriture (<code>P2/P3</code>) sans interrompre tout le progiciel.</li>
-              <li><b>5. Transparence de modèle (E-23 / AMF) :</b> documentation suffisante pour établir la cote de risque du modèle, les tests de biais et les avis de changement de version ≥ 30 jours.</li>
+              <li><b>5. Transparence de modèle (E-23 / AMF) :</b> de quoi coter le risque du modèle, tests de biais, préavis de version ≥ 30 jours.</li>
             </ul>
           </div>
         </div>
@@ -2022,7 +2089,7 @@
     <section class="slide" data-title="Décisions de la Haute Direction" data-sub="4 résolutions soumises au Conseil d'administration et au Comité exécutif">
       <header class="slide-head">
         <div class="left">
-          <span class="pill">11 · Décisions exécutives</span>
+          <span class="pill">Décisions exécutives</span>
           <span class="head-section">Synthèse décisionnelle — Ce que la Haute Direction et le Conseil doivent trancher maintenant</span>
         </div>
         <div class="head-meta">Références : <b>CRE-IA-2026-01 v1.1</b> &amp; <b>CRE-IA-2026-01-QC v1.0</b> · <b>12 / 12</b></div>
@@ -2038,9 +2105,9 @@
           <div class="res-card">
             <div>
               <div class="rhead"><span>RÉSOLUTION 01 · NORME D'ENTREPRISE</span><span>CADRE &amp; PROFIL QC</span></div>
-              <h3>Adopter le Cadre CRE-IA-2026-01 (v1.1) et instruire le profil québécois</h3>
-              <p style="margin-top:0.28em;">
-                Approuver le <b>Cadre de référence CRE-IA-2026-01</b> comme norme d'architecture opposable à tous les projets et achats SaaS. Mandater la <b>relecture formelle par la conformité et l'audit interne</b> du profil <b>CRE-IA-2026-01-QC</b> (§ 13.2) et commander les <b>deux avis juridiques</b> préalables (périmètre d'assujettissement AMF/BSIF et arbitrage entre l'art. 12.1 de la Loi 25 et l'explication d'office <code>AMF-P-09</code>).
+              <h3>Adopter le Cadre (v1.1) et instruire le profil québécois</h3>
+              <p>
+                Approuver le <b>Cadre CRE-IA-2026-01</b> comme norme opposable à tous les projets et achats SaaS. Mandater la <b>relecture formelle par la conformité et l'audit interne</b> du profil <b>CRE-IA-2026-01-QC</b> (§ 13.2) et commander les <b>deux avis juridiques</b> (assujettissement AMF/BSIF; Loi 25 art. 12.1 et <code>AMF-P-09</code>).
               </p>
             </div>
             <div class="rfoot">
@@ -2053,12 +2120,12 @@
             <div>
               <div class="rhead"><span>RÉSOLUTION 02 · IMPUTABILITÉ AU SOMMET</span><span>EXIG-AMF-01 &amp; 02</span></div>
               <h3>Désigner le dirigeant imputable et instituer le Comité</h3>
-              <p style="margin-top:0.28em;">
-                Désigner nommément le <b>membre de la haute direction imputable</b> de l'ensemble des SIA et agents (<code>EXIG-AMF-01</code>). Instituer le <b>Comité d'architecture et des risques agentiques</b> avec autorité d'homologation, de dérogation et de révocation. Inscrire au calendrier du <b>Conseil d'administration</b> la reddition semestrielle obligatoire et le mécanisme d'avis sans délai (<code>EXIG-AMF-02</code>).
+              <p>
+                Désigner nommément le <b>membre de la haute direction imputable</b> des SIA et agents (<code>EXIG-AMF-01</code>). Instituer le <b>Comité d'architecture et des risques agentiques</b> (homologation, dérogation, révocation). Inscrire au calendrier du <b>Conseil</b> la reddition semestrielle et l'avis sans délai (<code>EXIG-AMF-02</code>).
               </p>
             </div>
             <div class="rfoot">
-              <span>Portée : Conseil d'administration &amp; Comité exécutif</span>
+              <span>Portée : CA &amp; Comité exécutif</span>
               <span>Échéance : Semaines 1–2</span>
             </div>
           </div>
@@ -2067,8 +2134,8 @@
             <div>
               <div class="rhead"><span>RÉSOLUTION 03 · MAÎTRISE DU RISQUE</span><span>PLAFOND D'AUTONOMIE</span></div>
               <h3>Décréter le moratoire hors registre et plafonner l'autonomie</h3>
-              <p style="margin-top:0.28em;">
-                Interdire toute mise en production d'agent hors registre central et hors passerelle; imposer l'élimination immédiate des clés partagées. Plafonner l'autonomie à <b>N0–N1 pendant la phase Fondations</b> et maintenir en tout temps le <b>plafond strict N2 pour la classe de risque Élevée</b>. Appliquer immédiatement les 5 critères éliminatoires d'approvisionnement aux éditeurs SaaS.
+              <p>
+                Interdire toute mise en production hors registre central et hors passerelle; éliminer les clés partagées. Plafonner l'autonomie à <b>N0–N1 pendant les Fondations</b> et, en tout temps, à <b>N2 pour la classe Élevée</b>. Appliquer dès maintenant les 5 critères éliminatoires aux éditeurs SaaS.
               </p>
             </div>
             <div class="rfoot">
@@ -2080,62 +2147,70 @@
           <div class="res-card">
             <div>
               <div class="rhead"><span>RÉSOLUTION 04 · EXÉCUTION 90 JOURS</span><span>JALONS J1 &amp; J-AMF</span></div>
-              <h3>Autoriser le lancement de la Phase 1 (Fondations) au 1er déc. 2026</h3>
-              <p style="margin-top:0.28em;">
-                Mandater l'équipe transversale (Architecture, Sécurité/IAM, Risques de modèles, Conformité/Vie privée, FinOps) pour livrer le <b>jalon J1 à la mi-mars 2027</b> (inventaire, passerelle de modèles, cotes de modèles, coupe-circuit exercé, plan de compétences des 6 populations, 1re reddition au CA) et le <b>constat de conformité J-AMF / E-23 au 30 avril 2027</b>.
+              <h3>Lancer la Phase 1 (Fondations) le 1er déc. 2026</h3>
+              <p>
+                Mandater l'équipe transversale (Architecture, Sécurité/IAM, Risques de modèles, Conformité, FinOps) pour livrer le <b>jalon J1 à la mi-mars 2027</b> (inventaire, passerelle et cotes de modèles, coupe-circuit exercé, plan de compétences, 1re reddition au CA) et le <b>constat J-AMF / E-23 au 30 avril 2027</b>.
               </p>
             </div>
             <div class="rfoot">
-              <span>Jalons : J1 (mi-mars 2027) → J-AMF / E-23 (1er mai 2027)</span>
+              <span>Jalons : J1 → J-AMF / E-23</span>
               <span>Durée : 13 semaines</span>
             </div>
           </div>
         </div>
 
         <div class="callout">
-          <p><b>Message de clôture :</b> l'institution qui maîtrise ses contrats de données, ses processus durables et sa gouvernance de modèles transformera l'agentique en avantage compétitif durable — celle qui empile des agents sur une intégration fragile n'automatisera que ses incidents.</p>
+          <p><b>Message de clôture :</b> qui maîtrise ses contrats de données, ses processus et sa gouvernance de modèles fera de l'agentique un avantage durable; qui empile des agents sur une intégration fragile n'automatisera que ses incidents.</p>
           <span class="tag-right">André-Guy Bruneau M.Sc. IT · Novembre 2026</span>
         </div>
       </div>
 
       <footer class="slide-foot">
-        <div><b>Corpus complet dans le dépôt :</b> <code>documents/</code> (NiveauMaturité, Veille, Revue, Cadre, Note AMF IA, Compendium)</div>
-        <div class="accent">Fin de la présentation · Appuyez sur S pour le sommaire ou P pour exporter en PDF paysage</div>
+        <div><b>Corpus complet :</b> <code>documents/</code> (6 livrables)</div>
+        <div class="accent">Fin de la présentation · S : sommaire · Maj+P : PDF</div>
       </footer>
     </section>
 
   </div>
 </main>
 
+<div class="sr-only" id="announcer" aria-live="polite" aria-atomic="true"></div>
+
 <!-- =====================================================================
      BARRE DE CONTRÔLE INFÉRIEURE (HUD)
      ===================================================================== -->
 <nav class="hud" aria-label="Contrôles de présentation">
   <div class="hud-left">
-    <span class="hud-title"><b>ENTREPRISE AGENTIQUE</b> · Haute Direction</span>
-    <button class="hud-btn" id="btnPrev" title="Diapositive précédente (Flèche gauche)">← Préc.</button>
-    <div class="dots" id="dotsContainer" role="tablist" aria-label="Accès direct aux diapositives"></div>
-    <button class="hud-btn" id="btnNext" title="Diapositive suivante (Flèche droite ou Espace)">Suiv. →</button>
+    <span class="hud-title"><b>Entreprise agentique</b> · Haute direction</span>
+    <button class="hud-btn" id="btnPrev" aria-label="Diapositive précédente" title="Diapositive précédente (flèche gauche)">←<span class="hud-label">Précédente</span></button>
+    <div class="dots" id="dotsContainer" aria-label="Accès direct aux diapositives"></div>
+    <span class="hud-count" id="hudCount" aria-hidden="true"></span>
+    <button class="hud-btn primary" id="btnNext" aria-label="Diapositive suivante" title="Diapositive suivante (flèche droite)"><span class="hud-label">Suivante</span>→</button>
   </div>
   <div class="hud-right">
-    <button class="hud-btn" id="btnToc" title="Ouvrir le sommaire des diapositives">Sommaire <kbd>S</kbd></button>
+    <button class="hud-btn" id="btnToc" aria-haspopup="dialog" title="Sommaire et raccourcis">Sommaire <kbd>S</kbd></button>
     <button class="hud-btn" id="btnFs" title="Basculer en plein écran">Plein écran <kbd>F</kbd></button>
-    <button class="hud-btn" id="btnPrint" title="Imprimer ou exporter en PDF paysage">PDF <kbd>P</kbd></button>
+    <button class="hud-btn" id="btnPrint" title="Imprimer ou exporter en PDF paysage">PDF <kbd>Maj+P</kbd></button>
   </div>
 </nav>
 
 <!-- =====================================================================
-     MODAL SOMMAIRE (TOC)
+     SOMMAIRE (TOC)
      ===================================================================== -->
-<div class="toc-backdrop" id="tocBackdrop" role="dialog" aria-modal="true" aria-label="Sommaire de la présentation">
-  <div class="toc-modal">
+<dialog class="toc-modal" id="toc" aria-labelledby="tocTitle">
+  <div class="toc-inner">
     <div class="toc-head">
-      <h3>Sommaire exécutif — <span>12 diapositives</span></h3>
+      <h2 id="tocTitle">Sommaire exécutif — <span>12 diapositives</span></h2>
       <button class="hud-btn" id="btnCloseToc">Fermer <kbd>Échap</kbd></button>
     </div>
     <div class="toc-grid" id="tocGrid"></div>
+    <p class="toc-keys">
+      <kbd>←</kbd> <kbd>→</kbd> diapositive précédente ou suivante · <kbd>1</kbd>–<kbd>9</kbd>, <kbd>0</kbd> accès direct ·
+      <kbd>Début</kbd> <kbd>Fin</kbd> première ou dernière · <kbd>S</kbd> ou <kbd>?</kbd> sommaire ·
+      <kbd>F</kbd> plein écran · <kbd>Maj+P</kbd> export PDF
+    </p>
   </div>
-</div>
+</dialog>
 
 <script>
 (() => {
@@ -2143,19 +2218,26 @@
   const total = slides.length;
   const progressBar = document.getElementById('progressBar');
   const dotsContainer = document.getElementById('dotsContainer');
-  const tocBackdrop = document.getElementById('tocBackdrop');
+  const hudCount = document.getElementById('hudCount');
+  const announcer = document.getElementById('announcer');
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const toc = document.getElementById('toc');
   const tocGrid = document.getElementById('tocGrid');
   const stage = document.getElementById('stage');
+  const pad = (n) => String(n).padStart(2, '0');
 
   let current = 0;
 
   // Construction des boutons numérotés et du sommaire
   slides.forEach((sl, idx) => {
-    const numStr = String(idx + 1).padStart(2, '0');
+    const numStr = pad(idx + 1);
+    const title = sl.dataset.title || '';
     const dot = document.createElement('button');
     dot.className = 'dot';
     dot.textContent = numStr;
-    dot.title = `${numStr} — ${sl.dataset.title || ''}`;
+    dot.title = `${numStr} — ${title}`;
+    dot.setAttribute('aria-label', `Diapositive ${numStr} : ${title}`);
     dot.addEventListener('click', () => goTo(idx));
     dotsContainer.appendChild(dot);
 
@@ -2163,12 +2245,12 @@
     item.className = 'toc-item';
     item.innerHTML = `
       <div class="num">DIAPOSITIVE ${numStr}</div>
-      <div class="ttl">${sl.dataset.title || ''}</div>
+      <div class="ttl">${title}</div>
       <div class="sub">${sl.dataset.sub || ''}</div>
     `;
     item.addEventListener('click', () => {
       goTo(idx);
-      closeToc();
+      toc.close();
     });
     tocGrid.appendChild(item);
   });
@@ -2176,23 +2258,37 @@
   const dots = Array.from(dotsContainer.children);
   const tocItems = Array.from(tocGrid.children);
 
-  function goTo(index) {
+  function goTo(index, announce = true) {
     current = Math.max(0, Math.min(total - 1, index));
-    slides.forEach((s, i) => s.classList.toggle('active', i === current));
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    tocItems.forEach((t, i) => t.classList.toggle('current', i === current));
+    slides.forEach((s, i) => {
+      const on = i === current;
+      s.classList.toggle('active', on);
+      s.inert = !on;
+    });
+    [dots, tocItems].forEach((list) => list.forEach((el, i) => {
+      if (i === current) el.setAttribute('aria-current', 'step');
+      else el.removeAttribute('aria-current');
+    }));
     progressBar.style.width = `${((current + 1) / total) * 100}%`;
+    hudCount.textContent = `${pad(current + 1)} / ${total}`;
+    btnPrev.setAttribute('aria-disabled', String(current === 0));
+    btnNext.setAttribute('aria-disabled', String(current === total - 1));
+    if (announce) {
+      announcer.textContent = `Diapositive ${current + 1} sur ${total} : ${slides[current].dataset.title || ''}`;
+    }
     history.replaceState(null, '', `#${current + 1}`);
   }
 
   function next() { if (current < total - 1) goTo(current + 1); }
   function prev() { if (current > 0) goTo(current - 1); }
 
-  function toggleToc() {
-    tocBackdrop.classList.toggle('open');
+  function openToc() {
+    toc.showModal();
+    tocItems[current].focus();
   }
-  function closeToc() {
-    tocBackdrop.classList.remove('open');
+  function toggleToc() {
+    if (toc.open) toc.close();
+    else openToc();
   }
 
   function toggleFullscreen() {
@@ -2203,26 +2299,33 @@
     }
   }
 
-  document.getElementById('btnPrev').addEventListener('click', prev);
-  document.getElementById('btnNext').addEventListener('click', next);
-  document.getElementById('btnToc').addEventListener('click', toggleToc);
-  document.getElementById('btnCloseToc').addEventListener('click', closeToc);
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+  document.getElementById('btnToc').addEventListener('click', openToc);
+  document.getElementById('btnCloseToc').addEventListener('click', () => toc.close());
   document.getElementById('btnFs').addEventListener('click', toggleFullscreen);
   document.getElementById('btnPrint').addEventListener('click', () => window.print());
 
-  tocBackdrop.addEventListener('click', (e) => {
-    if (e.target === tocBackdrop) closeToc();
+  // Clic sur le voile (hors du contenu du dialogue) : fermeture
+  toc.addEventListener('click', (e) => {
+    if (e.target === toc) toc.close();
   });
 
   // Navigation clavier
   window.addEventListener('keydown', (e) => {
-    if (tocBackdrop.classList.contains('open')) {
-      if (e.key === 'Escape' || e.key === 's' || e.key === 'S') {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (toc.open) {
+      // Échap est géré nativement par <dialog>
+      if (e.key === 's' || e.key === 'S' || e.key === '?') {
         e.preventDefault();
-        closeToc();
+        toc.close();
       }
       return;
     }
+    // Entrée et Espace gardent leur rôle d'activation sur un contrôle
+    const onControl = e.target.closest?.('button, a, input, select, textarea, [contenteditable]');
+    if (onControl && (e.key === 'Enter' || e.key === ' ')) return;
+
     switch (e.key) {
       case 'ArrowRight':
       case 'ArrowDown':
@@ -2235,7 +2338,6 @@
       case 'ArrowLeft':
       case 'ArrowUp':
       case 'PageUp':
-      case 'Backspace':
         e.preventDefault();
         prev();
         break;
@@ -2249,19 +2351,18 @@
         break;
       case 's':
       case 'S':
-      case 't':
-      case 'T':
+      case '?':
         e.preventDefault();
-        toggleToc();
+        openToc();
         break;
       case 'f':
       case 'F':
         e.preventDefault();
         toggleFullscreen();
         break;
-      case 'p':
       case 'P':
-        if (!e.ctrlKey && !e.metaKey) {
+        // Maj+P seulement : une frappe accidentelle de « p » n'ouvre pas l'impression
+        if (e.shiftKey) {
           e.preventDefault();
           window.print();
         }
@@ -2276,14 +2377,28 @@
     }
   });
 
-  // Clic gauche / droite sur les bords de la scène (hors sélection de texte)
-  stage.addEventListener('click', (e) => {
-    if (window.getSelection()?.toString()) return;
-    if (e.target.closest('a, button, code')) return;
+  // Clic sur les bords de la scène (hors sélection de texte), signalé par le curseur
+  const EDGE = 0.1;
+  const edgeOf = (e) => {
+    if (e.target.closest('a, button, code, table')) return null;
     const rect = stage.getBoundingClientRect();
     const relX = (e.clientX - rect.left) / rect.width;
-    if (relX < 0.14) prev();
-    else if (relX > 0.86) next();
+    if (relX < EDGE && current > 0) return 'prev';
+    if (relX > 1 - EDGE && current < total - 1) return 'next';
+    return null;
+  };
+  const isNarrow = () => window.matchMedia('(max-width: 780px)').matches;
+  stage.addEventListener('mousemove', (e) => {
+    const edge = isNarrow() ? null : edgeOf(e);
+    if (edge) stage.dataset.edge = edge;
+    else delete stage.dataset.edge;
+  });
+  stage.addEventListener('mouseleave', () => { delete stage.dataset.edge; });
+  stage.addEventListener('click', (e) => {
+    if (isNarrow() || window.getSelection()?.toString()) return;
+    const edge = edgeOf(e);
+    if (edge === 'prev') prev();
+    else if (edge === 'next') next();
   });
 
   // Balayage tactile (mobile / tablette)
@@ -2303,11 +2418,7 @@
 
   // Initialisation depuis le hash URL (#1 à #12)
   const initialHash = parseInt(location.hash.replace('#', ''), 10);
-  if (!isNaN(initialHash) && initialHash >= 1 && initialHash <= total) {
-    goTo(initialHash - 1);
-  } else {
-    goTo(0);
-  }
+  goTo(!isNaN(initialHash) && initialHash >= 1 && initialHash <= total ? initialHash - 1 : 0, false);
 })();
 </script>
 </body>
