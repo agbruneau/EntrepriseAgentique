@@ -1,5 +1,7 @@
 # Interopérabilité et Orchestration en Entreprise Agentique
 
+**Présentation en ligne : [agbruneau.github.io/EntrepriseAgentique/Presentation.html](https://agbruneau.github.io/EntrepriseAgentique/Presentation.html)**
+
 ## Résumé
 
 Le corpus traite de la conception, intégration, gouvernance et supervision d'agents d'intelligence artificielle fondés sur les grands modèles de langue en contexte d'entreprise, plus particulièrement au sein des services financiers réglementés au Canada. Il s'inscrit dans le champ de l'ingénierie des systèmes, envisagée sous l'angle de l'architecture d'entreprise et de l'interopérabilité. L'entreprise agentique y est appréhendée comme un ensemble de systèmes hétérogènes et distribués, conçus et exploités de manière indépendante, qu'il convient de faire interopérer. Le corpus en examine l'architecture de référence, les exigences, le cycle de vie, la vérification et la conformité. L'orchestration y est rattachée à l'intégration d'entreprise et à la gestion des processus d'affaires : coordination de traitements distribués, exécution durable et chorégraphie. L'agentique ressortit quant à elle à l'intelligence artificielle, et plus précisément aux systèmes multiagents. Le corpus en approfondit l'interopérabilité protocolaire, l'identité, la délégation et l'autonomie encadrée, le tout documenté dans six livrables :
