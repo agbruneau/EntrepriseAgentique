@@ -31,6 +31,9 @@ Particularités traitées ici :
 Actualisation du 1er novembre 2026 : annexe datée, rédigée en HTML dans ce dossier
 (actualisation-2026-11.html), composée après l'annexe du 29 octobre; ses tableaux et ses
 références continuent les suites du document (tableau 27, référence 372).
+
+Relecture du 3 novembre 2026 : ses corrections du corps sont faites à leur place par
+corrections.py, sur le corps extrait, et consignées au tableau 31 de l'annexe.
 """
 import atexit, collections, html, pathlib, re, shutil, subprocess, sys, tempfile
 
@@ -38,6 +41,7 @@ ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
 from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer
 from extraire import controler_extraction, extraire, texte_controle, vers_html, zones_ecartees
+from corrections import corriger
 import pymupdf
 
 args = sys.argv[1:]
@@ -186,7 +190,9 @@ def main():
     inutiles = {m: n for m, n in tolere.items() if manque[m] < n}
     assert not inutiles, f'écarts tolérés qui ne se produisent pas : {inutiles}'
     print(f'extraction : {len(blocs)} blocs, écarts connus seulement ({sum(manque.values())} mots)')
-    texte = legendes(texte)
+    # relecture du 3 novembre 2026 : corrections faites à leur place (corrections.py), après
+    # le contrôle d'extraction, qui porte sur le texte d'origine
+    texte = legendes(corriger(texte))
     revision = p['revision'].removeprefix('Révision du ').strip()
     # signature : la forme commune (AUTEUR) remplace celle de l'origine
     fiche = ('<div class="fiche"><table><tbody>'
