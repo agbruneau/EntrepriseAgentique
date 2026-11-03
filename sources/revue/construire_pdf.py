@@ -22,6 +22,10 @@ Particularités traitées ici :
 Actualisation du 1er novembre 2026 : annexe datée, rédigée en HTML dans ce dossier
 (actualisation-2026-11.html), composée après l'annexe du 29 octobre; ses tableaux et ses
 références continuent les suites du document (tableau 12, référence 193).
+
+Relecture du 3 novembre 2026 : ses corrections du corps sont faites à leur place par
+corrections.py, sur le corps extrait, et consignées au tableau 18 de l'annexe; les DOI du
+tableau 14 y reçoivent des points de coupure (couper_doi).
 """
 import atexit, html, pathlib, re, shutil, subprocess, sys, tempfile
 
@@ -29,6 +33,7 @@ ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
 from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer
 from extraire import controler_extraction, extraire, texte_controle, vers_html, zones_ecartees
+from corrections import corriger
 import pymupdf
 
 args = sys.argv[1:]
@@ -79,11 +84,24 @@ def corps(blocs, p):
     fin = next(i for i, b in enumerate(h) if i > debut and b.startswith('<h2>'))
     h[debut:fin] = [h[debut].split('\n', 1)[0], '<div lang="en">', *h[debut:fin], '</div>']
     h[debut + 2] = h[debut + 2].split('\n', 1)[1]
-    s = '\n'.join(h)
+    # relecture du 3 novembre 2026 : corrections faites à leur place (corrections.py)
+    s = corriger('\n'.join(h))
     # légendes : « Tableau N. – » laisse la place à la numérotation de Typst
     nums = [int(n) for n in re.findall(r'<caption>Tableau\xa0(\d+)\.\xa0– ', s)]
     assert nums == list(range(1, len(nums) + 1)) and s.count('<caption>') == len(nums), nums
     return re.sub(r'<caption>Tableau\xa0\d+\.\xa0– ', '<caption>', s)
+
+
+def couper_doi(annexe):
+    """Tableau 14 : un DOI long, sans point de coupure, débordait sur la colonne des dates.
+    Une espace sans chasse après chaque « / », « . » et « - » lui permet de passer à la
+    ligne; le contrôle de complétude n'y voit qu'une coupure de mot de plus."""
+    debut = annexe.index('<caption>Les trente-six pièces sans attestation en notice')
+    fin = annexe.index('</table>', debut)
+    t = re.sub(r'<code>10\.[^<]+</code>', lambda m: re.sub(r'(?<=[/.\-])', '​', m.group(0)[6:-7]).join(('<code>', '</code>')),
+               annexe[debut:fin])
+    assert t.count('​') > 100, 'tableau 14 : DOI introuvables'
+    return annexe[:debut] + t + annexe[fin:]
 
 
 def main():
@@ -112,6 +130,7 @@ def main():
              f'<tr><td>Actualisation</td><td>{ACTUALISATION}, en annexe</td></tr>'
              '</tbody></table></div>')
     annexe, refs_annexe = actualisation(ICI)
+    annexe = couper_doi(annexe)
     typo = lambda t: chaine_typst(t.replace("'", '’'))
     main_typ = f'''#import "gabarit.typ": *
 #set document(title: {chaine_typst(p['titre'])},
