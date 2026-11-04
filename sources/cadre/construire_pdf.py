@@ -850,12 +850,15 @@ def section_h6():
         'leur police, cases, traits et flèches redessinés) pour les figures 1 à 7, 9 à 19, 21 à 23, 25, 26 et 28; '
         'les mentions « figure non modifiable » du tableau 73 renvoient à l’état antérieur à ces corrections.</p>\n'
         f'<p>Le tableau 73 liste les {len(retenus)} correctifs, dans l’ordre du document; les numéros de '
-        'constats renvoient au rapport de la revue (tranche-numéro). Le tableau 74 liste les '
-        f'{len(ecartes)} constats démontrés faux à la vérification, avec leur preuve : ils n’appellent aucun '
-        'correctif. Tout autre constat de la revue est corrigé (tableau 73), y compris ceux qu’une étape a '
-        'd’abord laissés et qu’une étape ultérieure ou un arbitrage a corrigés.</p>\n'
+        'constats renvoient au rapport de la revue (tranche-numéro). Tout constat de la revue y figure, y compris '
+        'ceux qu’une étape a d’abord laissés et qu’une étape ultérieure, une précision ou un arbitrage a corrigés; '
+        'un constat dont la prémisse était fausse y figure avec le correctif du défaut réel qu’il signalait. '
+        'Une seule mesure demandée n’a pu être prise : le symbole distinct pour « contredite » au tableau 69 '
+        'suppose un verdict par référence que les ébauches n’ont pas conservé (seuls les totaux du tableau 67 '
+        'subsistent); la légende du tableau 69 le dit.</p>\n'
         + tableau(73, 'Correctifs de la revue contradictoire du 3 novembre 2026, appliqués dans la version 1.2', retenus)
-        + tableau(74, 'Constats de la revue du 3 novembre 2026 démontrés faux, sans correctif', ecartes))
+        + (tableau(74, 'Constats de la revue du 3 novembre 2026 démontrés faux, sans correctif', ecartes)
+           if ecartes else ''))
 
 
 def verifier_numeros(pdf, tableaux, figures):

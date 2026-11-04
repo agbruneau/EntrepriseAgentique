@@ -39,10 +39,14 @@ SUIVI = {
     '5.41': 'corrigé par l’arbitrage A-26 : exigibilité par capacité et forme minimale de A.1',
     '5.39': 'corrigé dans les cinq dimensions existantes (critères de supervision et de réversibilité), sans '
             'sixième dimension',
+    'audit_28, note finale': 'H.3, report 7, corrigé en « 287 lignes dans la version 1.1 » (module 06_t6); le '
+                             'décompte de 272 que le constat avançait omettait les 15 EXIG-A2A',
+    '07-13': 'EXIG-A2A-03 : jku et kid tirés du catalogue, refus d’une carte de version inférieure, JWKS publié pour '
+             'les clients externes (module 02_t2)',
     '12-13': 'corrigé par la confirmation du mandant (EXIG-AUT-15), l’envoi externe restant P3 selon A-27',
 }
 
-FAUX = {'06-18', '07-13', '08-15', '09-18', '09-27', '10-41', '18-24', '21-29', 'audit_28, note finale'}
+FAUX = set()
 
 
 def transformer(s):
