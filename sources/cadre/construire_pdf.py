@@ -38,6 +38,11 @@ composer(), numéros des tableaux et des figures conformes aux listes d'origine.
 Actualisation du 1er novembre 2026 : annexe H, informative, rédigée en HTML dans ce dossier
 (actualisation-2026-11.html) et composée après l'annexe G; ses tableaux et ses références
 continuent les suites du document (tableau 70, référence 474). Elle ne modifie aucune exigence.
+
+Revue contradictoire du 3 novembre 2026 : ses correctifs du corps sont faits à leur place
+par corrections.py, sur le corps recomposé (corps()), et consignés à l'annexe H (section
+« Revue contradictoire du 3 novembre 2026 »). Les mots qu'un correctif retire sont
+soustraits du contrôle « sans perte »; le contrôle de composer() porte sur le texte corrigé.
 """
 import atexit, collections, html, pathlib, re, shutil, subprocess, sys, tempfile
 
@@ -46,6 +51,7 @@ sys.path.insert(0, str(ICI.parent / 'commun'))
 import composer as C
 from composer import ACTUALISATION, AUTEUR, DOCUMENTS, actualisation, chaine_typst, composer, mots
 from extraire import MONO, Extracteur, cadre, controler_extraction, texte_controle, vers_html, zones_ecartees
+from corrections import corriger
 import pymupdf
 
 args = sys.argv[1:]
@@ -73,6 +79,12 @@ PARTIES = ('Fondements', 'Architecture, interopérabilité et orchestration', 'C
            'Gouvernance, conformité et mise en œuvre', 'Outils d’application')
 LARGEUR = 468              # justification du gabarit (pt)
 EXIG = re.compile(r'EXIG-[A-Z0-9]{3}-\d{2}')
+RETIRES = []               # textes d'origine remplacés par corrections.py
+FICHE_12 = {'Version et date': '1.2 — 3 novembre 2026',
+            'État des sources': 'Faits, versions et dates vérifiés aux 27 et 28 octobre 2026 contre des sources '
+                                'primaires ou, à défaut, secondaires reconnues (annexe F); faits repris par la '
+                                'revue contradictoire du 3 novembre 2026 vérifiés à cette date (annexe H, '
+                                'section H.6)'}
 
 # Écarts connus du contrôle de complétude (les en-têtes de tableau répétés, absorbés par
 # l'extracteur, en sont soustraits) : « André » (p. 1 et 2) est composé de deux spans
@@ -312,6 +324,10 @@ def corps(blocs, tableaux, figures):
     # références : en drapeau (longues URL)
     i = s.index('<h2>G Références</h2>') + len('<h2>G Références</h2>')
     s = s[:i] + '\n<div id="references">\n' + s[i:] + '\n</div>'
+    # revue contradictoire du 3 novembre 2026 : correctifs faits à leur place
+    s, RETIRES[:] = corriger(s)
+    if HTML:
+        HTML.with_suffix('.corps.html').write_text(s, encoding='utf8')
     debut = s.index('<h2>Méthode et avertissements</h2>')
     fin = s.index('<h2>', debut + 1)
     return fiche, s[:fin], s[fin:]
@@ -363,11 +379,16 @@ def main():
     # l'auteur porte son titre (forme commune à tous les livrables)
     assert [b for a, b in rangs if 'Auteur' in a] == ['André-Guy Bruneau'], rangs
     rangs = [(a, html.escape(AUTEUR) if 'Auteur' in a else b) for a, b in rangs]
+    # révision 1.2 (revue contradictoire du 3 novembre 2026) : la fiche porte la version
+    # courante; les valeurs d'origine remplacées sont soustraites du contrôle sans perte
+    for champ, valeur in FICHE_12.items():
+        rangs = [(a, (RETIRES.append(b), valeur)[1] if re.sub(r'<[^>]+>', '', a) == champ else b) for a, b in rangs]
     fiche = ('<div class="fiche"><table><tbody>' +
              ''.join(f'<tr><td>{a}</td><td>{b}</td></tr>' for a, b in rangs) +
              f'<tr><td>Actualisation</td><td>{ACTUALISATION}, annexe H (informative)</td></tr>'
              '</tbody></table></div>')
     annexe, refs_annexe = actualisation(ICI)
+    annexe += section_h6()
     champs = {html.unescape(a): html.unescape(re.sub(r'<[^>]+>', '', b)) for a, b in rangs}
     version, date = champs['Version et date'].split(' — ')
 
@@ -406,10 +427,43 @@ def main():
     # libellés de partie réécrits (« PA R T I E I V », « A N N E X E S »)
     perte -= mots('PA R T I E I V X A N N E X E S ' * 5)
     perte -= mots('Fiche du document')   # titre de la p. 2 : la fiche passe sur la couverture
+    perte -= mots(texte_controle(' '.join(RETIRES)))   # mots retirés par les correctifs (corrections.py)
     assert not perte, perte
     composer({'fiche': fiche, 'preambule': preambule, 'corps': texte, 'actualisation': annexe,
               'references-actualisation': refs_annexe}, main_typ, OUT, source, extras=extras)
     verifier_numeros(OUT, tableaux, figures)
+
+
+def section_h6():
+    """Annexe H, section H.6 : registre des correctifs de la revue du 3 novembre 2026,
+    tiré du JOURNAL de chaque module de correctifs (corrections.py)."""
+    from corrections import journal
+    e = html.escape
+    lignes = list(journal())
+    retenus = [l for l in lignes if not l[1].lower().startswith('non retenu')]
+    ecartes = [l for l in lignes if l[1].lower().startswith('non retenu')]
+    def rangee(l):
+        loc, nature, constats = l[0], l[1], l[2] if len(l) > 2 else []
+        return f'<tr><td>{e(loc)}</td><td>{e(nature)}</td><td>{e(", ".join(constats))}</td></tr>'
+    def tableau(n, titre, ls):
+        return (f'<table>\n<caption>Tableau {n} — {titre}</caption>\n'
+                '<thead><tr><th>Où</th><th>Correctif</th><th>Constats</th></tr></thead>\n<tbody>\n'
+                + '\n'.join(rangee(l) for l in ls) + '\n</tbody>\n</table>\n')
+    return (
+        '\n<h3>H.6 Revue contradictoire du 3 novembre 2026 : correctifs appliqués</h3>\n'
+        '<p>Contrairement aux sections H.1 à H.5, cette section consigne des modifications du corps. '
+        'Le 3 novembre 2026, une revue contradictoire a audité les 283 pages de la version 1.1 en 29 tranches '
+        'de douze pages qui se recouvrent, consolidé environ 860 constats en 623 défauts (14 bloquants, 216 '
+        'majeurs, 393 mineurs), vérifié 83 faits externes à leur source primaire et retenu 34 arbitrages '
+        'transversaux. Ses correctifs sont faits à leur place dans la version 1.2; l’historique des versions '
+        'les résume. Les identifiants existants sont conservés; neuf exigences sont ajoutées (296 au total). '
+        'Le texte des figures, recadré de l’édition d’origine, n’a pas été modifié : là où une figure diffère '
+        'du texte corrigé, le texte et la légende font foi.</p>\n'
+        f'<p>Le tableau 73 liste les {len(retenus)} correctifs, dans l’ordre du document; les numéros de '
+        'constats renvoient au rapport de la revue (tranche-numéro). Le tableau 74 liste les '
+        f'{len(ecartes)} constats non retenus à l’implémentation, avec leur raison.</p>\n'
+        + tableau(73, 'Correctifs de la revue contradictoire du 3 novembre 2026, appliqués dans la version 1.2', retenus)
+        + tableau(74, 'Constats de la revue du 3 novembre 2026 non retenus à l’implémentation', ecartes))
 
 
 def verifier_numeros(pdf, tableaux, figures):
