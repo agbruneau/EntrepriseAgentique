@@ -51,7 +51,7 @@ Le tableau des livrables suit cet ordre.
 - `outils/verifier-presentation.mjs` : vérification de la mise en page de la présentation.
 - `Presentation.html` : la présentation, page autonome (figure intégrée, polices Google Fonts).
 
-Les revues contradictoires du 3 novembre 2026 ont été retirées du dépôt le 4 novembre 2026 : rapports (`REVIEW_PLAN.md` et `DEEP_REVIEW_COMPENDIUM.md` pour le Compendium, `REVIEW_PLAN_CADRE.md` et `DEEP_REVIEW_CADRE_REFERENCE.md` pour le Cadre) et fichiers de travail (`.agents/teamwork/`, `.review_chunks_cadre/`, `documents/scratch/`, `documents/DOCUMENT_TEXT_MAP.md`). Le registre H.6 du Cadre et la référence AN-28 du Compendium y renvoient encore; ils restent dans l'historique git, p. ex. `git checkout 95d8a21 -- DEEP_REVIEW_CADRE_REFERENCE.md`.
+Les revues contradictoires du 3 novembre 2026 ont été retirées du dépôt le 4 novembre 2026 : rapports (`REVIEW_PLAN.md` et `DEEP_REVIEW_COMPENDIUM.md` pour le Compendium, `REVIEW_PLAN_CADRE.md` et `DEEP_REVIEW_CADRE_REFERENCE.md` pour le Cadre) et fichiers de travail (`.agents/teamwork/`, `.review_chunks_cadre/`, `documents/scratch/`, `documents/DOCUMENT_TEXT_MAP.md`). Le registre H.6 du Cadre y renvoie encore; ils restent dans l'historique git, p. ex. `git checkout 95d8a21 -- DEEP_REVIEW_CADRE_REFERENCE.md`.
 
 ## Licence
 
