@@ -49,6 +49,7 @@ Le tableau des livrables suit cet ordre.
 - `documents/` : les six livrables en PDF, seuls fichiers de référence.
 - `sources/` : chaîne de recomposition des PDF (Python, pandoc 3, Typst 0.15.1) et annexes d'actualisation en HTML, un dossier par livrable, plus `commun/` (chaîne partagée) et `annexes/` (annexes Typst de la reprise du 29 octobre 2026, Veille et Revue); `python sources/<livrable>/construire_pdf.py` recompose un livrable et contrôle que tout le texte source se retrouve dans le PDF. Polices requises : voir l'en-tête de `sources/commun/composer.py`.
 - `outils/verifier-presentation.mjs` : vérification de la mise en page de la présentation.
+- Racine : rapports des revues contradictoires du 3 novembre 2026, `REVIEW_PLAN.md` et `DEEP_REVIEW_COMPENDIUM.md` (Compendium), `REVIEW_PLAN_CADRE.md` et `DEEP_REVIEW_CADRE_REFERENCE.md` (Cadre). Leurs fichiers de travail (`.agents/teamwork/`, `.review_chunks_cadre/`, `documents/scratch/`, `documents/DOCUMENT_TEXT_MAP.md`), auxquels renvoient les rapports et le registre H.6 du Cadre, ont été retirés le 4 novembre 2026; ils restent dans l'historique git : `git checkout 95d8a21 -- .review_chunks_cadre`.
 - `Presentation.html` : la présentation, page autonome (figure intégrée, polices Google Fonts).
 
 ## Licence

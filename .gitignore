@@ -2,3 +2,9 @@
 sources/**/*.pdf
 __pycache__/
 
+# Répertoires de travail des revues (retirés le 4 novembre 2026, conservés dans l'historique)
+.agents/
+.review_chunks_*/
+documents/scratch/
+documents/DOCUMENT_TEXT_MAP.md
+
