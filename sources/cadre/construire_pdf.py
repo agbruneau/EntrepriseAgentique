@@ -267,7 +267,10 @@ LIBELLES.update({
          ('rond', (328.6, 196.95), 2.6, ROUGE),
          ('rond', (361.2, 196.95), 2.6, ROUGE),
          ('attente d’approbation (INPUT_REQUIRED)', 'attente d’approbation : deux événements, lien de span', 'g',
-          {'l': 150})],
+          {'l': 150}),
+         # 4.27, A-01 : l'écriture finale est un outil MCP, avec son span MCP CLIENT
+         ('', 'MCP CLIENT', 'g', {'comme': 'MCP CLIENT', 'dx': 25.5, 'dy': 39.9}),
+         ('ca.entreprise.cost_center', 'ca.ent.cost_center', 'g')],
     # 4.48, A-34 : cinq dimensions de l'EXIG-ORC-26 (rangée « Étapes » ajoutée), état tenu par la
     # passerelle de modèles, alerte au responsable technique
     23: [('copier', (388.0, 189.4, 499.3, 198.3), (0, -32.8)),
@@ -805,9 +808,29 @@ def section_h6():
     tiré du JOURNAL de chaque module de correctifs (corrections.py)."""
     from corrections import journal
     e = html.escape
+    from corrections import modules
+    suivi_m = dict(modules()).get('99_w_suivi')
+    SUIVI, FAUX = (suivi_m.SUIVI, suivi_m.FAUX) if suivi_m else ({}, set())
     lignes = list(journal())
-    retenus = [l for l in lignes if not l[1].lower().startswith('non retenu')]
-    ecartes = [l for l in lignes if l[1].lower().startswith('non retenu')]
+    non = lambda l: l[1].lower().startswith('non retenu')
+    ids = lambda l: [c for c in (l[2] if len(l) > 2 else []) if not c.startswith('A-') and c != 'lissage']
+    retenus, ecartes = [], []
+    for i, l in enumerate(lignes):
+        if not non(l):
+            retenus.append(l)
+            continue
+        # un constat laissé « non retenu » à une étape, puis corrigé par un module ultérieur ou par
+        # un arbitrage, passe au tableau 73 avec l'endroit de sa correction; seul un constat
+        # démontré faux reste au tableau 74
+        plus_tard = {c for x in lignes[i + 1:] if not non(x) for c in ids(x)}
+        cs = ids(l)
+        if cs and not any(c in FAUX for c in cs) and all(c in plus_tard or c in SUIVI for c in cs):
+            ou = sorted({SUIVI[c] for c in cs if c in SUIVI})
+            retenus.append((l[0], 'Corrigé à une étape ultérieure : ' + ('; '.join(ou) if ou else 'voir les lignes '
+                            'suivantes du tableau') + '. Motif de l’étape initiale : ' + l[1], l[2]))
+        else:
+            assert any(c in FAUX for c in cs), f'constat non retenu sans correctif ni preuve de fausseté : {l}'
+            ecartes.append(l)
     def rangee(l):
         loc, nature, constats = l[0], l[1], l[2] if len(l) > 2 else []
         return f'<tr><td>{e(loc)}</td><td>{e(nature)}</td><td>{e(", ".join(constats))}</td></tr>'
@@ -828,9 +851,11 @@ def section_h6():
         'les mentions « figure non modifiable » du tableau 73 renvoient à l’état antérieur à ces corrections.</p>\n'
         f'<p>Le tableau 73 liste les {len(retenus)} correctifs, dans l’ordre du document; les numéros de '
         'constats renvoient au rapport de la revue (tranche-numéro). Le tableau 74 liste les '
-        f'{len(ecartes)} constats non retenus à l’implémentation, avec leur raison.</p>\n'
+        f'{len(ecartes)} constats démontrés faux à la vérification, avec leur preuve : ils n’appellent aucun '
+        'correctif. Tout autre constat de la revue est corrigé (tableau 73), y compris ceux qu’une étape a '
+        'd’abord laissés et qu’une étape ultérieure ou un arbitrage a corrigés.</p>\n'
         + tableau(73, 'Correctifs de la revue contradictoire du 3 novembre 2026, appliqués dans la version 1.2', retenus)
-        + tableau(74, 'Constats de la revue du 3 novembre 2026 non retenus à l’implémentation', ecartes))
+        + tableau(74, 'Constats de la revue du 3 novembre 2026 démontrés faux, sans correctif', ecartes))
 
 
 def verifier_numeros(pdf, tableaux, figures):

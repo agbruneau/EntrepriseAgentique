@@ -20,12 +20,19 @@ ICI = pathlib.Path(__file__).resolve().parent
 DOSSIER = ICI / 'correctifs'
 
 
+_CACHE = []
+
+
 def modules():
-    for f in sorted(DOSSIER.glob('[0-9][0-9]_*.py')):
-        spec = importlib.util.spec_from_file_location(f.stem, f)
-        m = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(m)
-        yield f.stem, m
+    """Modules de correctifs, chargés une fois : les JOURNAL que remplissent les transformer
+    restent visibles de journal() après corriger()."""
+    if not _CACHE:
+        for f in sorted(DOSSIER.glob('[0-9][0-9]_*.py')):
+            spec = importlib.util.spec_from_file_location(f.stem, f)
+            m = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(m)
+            _CACHE.append((f.stem, m))
+    yield from _CACHE
 
 
 def corriger(s, strict=True):
