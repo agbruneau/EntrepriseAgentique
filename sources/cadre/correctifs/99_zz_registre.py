@@ -11,7 +11,8 @@ CORRECTIONS = []
 JOURNAL = []
 
 BLOC = re.compile(r'<div id="exig-[^"]+">\s*<p><strong><code>(EXIG-[A-Z0-9]{3}-\d{2})</code> · '
-                  r'((?:NE )?(?:DOIT|DEVRAIT|PEUT)(?: PAS)?)</strong></p>\s*<p><strong>(.*?)</strong></p>', re.S)
+                  r'((?:NE )?(?:DOIT|DEVRAIT|PEUT)(?: PAS)?(?: · (?:NE )?(?:DOIT|DEVRAIT|PEUT)(?: PAS)?)*)'
+                  r'</strong></p>\s*<p><strong>(.*?)</strong></p>', re.S)
 
 
 def transformer(s):
