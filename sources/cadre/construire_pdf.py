@@ -80,6 +80,37 @@ PARTIES = ('Fondements', 'Architecture, interopérabilité et orchestration', 'C
 LARGEUR = 468              # justification du gabarit (pt)
 EXIG = re.compile(r'EXIG-[A-Z0-9]{3}-\d{2}')
 RETIRES = []               # textes d'origine remplacés par corrections.py
+# Libellés des schémas corrigés par la revue du 3 novembre 2026 : {figure : [(span d'origine,
+# libellé corrigé, 'c' centré | 'g' aligné à gauche)]}. Les écarts de structure (flèches,
+# branches, ordre des étapes) restent corrigés par la légende (annexe H, section H.6).
+LIBELLES = {
+    1: [('audit inaltérable', 'audit chaîné et ancré', 'c'),
+        ('évaluation 3 paliers', 'évaluation en 3 étages', 'c'),
+        ('Risques et conformité (chapitres 12 et 13)', 'Risques, conformité et approvisionnement (chapitres 12 et 13)', 'c'),
+        ('Loi 25 · BSIF · RIA · NIST AI RMF · ISO/IEC 42001 · contrats',
+         'Loi 25 · BSIF E-23 · RIA · NIST AI RMF · ISO/IEC 42001 · contrats', 'c')],
+    2: [('4 + 5 = 9 contrats réutilisables, une politique', '4 + 5 = 9 contrats réutilisables, un point d’application', 'c')],
+    3: [('• Journal d’audit inaltérable', '• Journal d’audit chaîné et ancré', 'g'),
+        ('• Évaluation continue (3 paliers)', '• Évaluation continue (3 étages)', 'g')],
+    4: [('Validation et provenance de la source · isolation par locataire et par serveur MCP · expiration · '
+         'instantanés restaurables',
+         'Validation et provenance de la source · isolation par mandant ou par locataire (tableau 13) · expiration · '
+         'instantanés restaurables', 'g'),
+        ('Interdits : état conservé en mémoire de processus · transcriptions brutes comme mémoire longue · '
+         'magasin partagé entre serveurs non isolés',
+         'Interdits : état qui n’existe qu’en mémoire de processus · transcriptions brutes comme mémoire longue · '
+         'magasin partagé entre serveurs non isolés', 'g')],
+    13: [('Débiter le client', 'Préautoriser le paiement', 'c'), ('non reprenable', 'compensable (P2)', 'c')],
+    22: [('Palier 3', 'Étage E3', 'c'), ('Palier 2 — Trajectoires', 'Étage E2 — Trajectoires', 'c'),
+         ('Palier 1 — Contrats déterministes', 'Étage E1 — Contrats déterministes', 'c'),
+         ('50 à 200 scénarios, cas adverses', '50 scénarios au moins, cas adverses', 'c'),
+         ('Tout changement de modèle, d’invite, d’outil ou de version de protocole relance les paliers 1 et 2.',
+          'Tout changement de modèle, d’invite, d’outil ou de version de protocole relance les étages E1 et E2.', 'c')],
+    25: [('bornés, un niveau', 'bornés, du niveau', 'c'), ('sous la cible', 'inférieur au visé', 'c'),
+         ('POINTS DE CONTRÔLE', 'JALONS DU CYCLE DE VIE', 'g')],
+    28: [('Pass. d’agents (P0, P1 puis P2)', 'Pass. d’agents (P0 à P3)', 'g'),
+         ('Art. 12.1, validation E-23', 'Art. 12.1, inventaire E-23', 'g')],
+}
 FICHE_12 = {'Version et date': '1.2 — 3 novembre 2026',
             'État des sources': 'Faits, versions et dates vérifiés aux 27 et 28 octobre 2026 contre des sources '
                                 'primaires ou, à défaut, secondaires reconnues (annexe F); faits repris par la '
@@ -217,9 +248,53 @@ class Cadre(Extracteur):
         return res
 
 
-def recadrer(src, p, rect, dest, runs_rect):
+def police_plex(nom):
+    """Fichier d'IBM Plex Sans pour un span des schémas, cherché dans TYPST_FONT_PATHS."""
+    import os
+    fichier = {'IBMPlexSans-Regular': 'IBMPlexSans-Regular.ttf', 'IBMPlexSans-SemiBold': 'IBMPlexSans-SemiBold.ttf'}[nom]
+    for d in os.environ.get('TYPST_FONT_PATHS', '').split(os.pathsep):
+        for f in pathlib.Path(d).rglob(fichier) if d else ():
+            return str(f)
+    sys.exit(f'police {fichier} introuvable dans TYPST_FONT_PATHS (libellés corrigés des schémas)')
+
+
+def editer_libelles(pg, r, editions):
+    """Remplace dans le schéma des libellés d'une ligne (revue du 3 novembre 2026) : le span
+    d'origine est caviardé (texte seul, tracés gardés) puis réécrit dans sa police, sur la
+    même ligne de base, centré sur l'ancien ou aligné à sa gauche, réduit au besoin pour ne
+    pas dépasser la largeur permise."""
+    poses = []
+    spans = [s for b in pg.get_text('dict', clip=r)['blocks'] for l in b.get('lines', []) for s in l['spans']]
+    for ancien, nouveau, aligne in editions:
+        trouves = [s for s in spans if s['text'].strip() == ancien]
+        assert len(trouves) == 1, f'libellé de schéma trouvé {len(trouves)} fois : {ancien}'
+        s = trouves[0]
+        b = pymupdf.Rect(s['bbox'])
+        marge = s['size'] * 0.2
+        pg.add_redact_annot(pymupdf.Rect(b.x0, b.y0 + marge, b.x1, b.y1 - marge), fill=False)
+        poses.append((s, nouveau, aligne))
+    pg.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_NONE, graphics=pymupdf.PDF_REDACT_LINE_ART_NONE)
+    for i, (s, nouveau, aligne) in enumerate(poses):
+        fichier = police_plex(s['font'])
+        police = pymupdf.Font(fontfile=fichier)
+        b = pymupdf.Rect(s['bbox'])
+        largeur_max = b.width * (1.45 if aligne == 'c' else 1.6)
+        taille = s['size']
+        l = police.text_length(nouveau, fontsize=taille)
+        if l > largeur_max:
+            taille *= largeur_max / l
+            l = largeur_max
+        x = (b.x0 + b.x1) / 2 - l / 2 if aligne == 'c' else b.x0
+        c = s['color']
+        couleur = ((c >> 16 & 255) / 255, (c >> 8 & 255) / 255, (c & 255) / 255)
+        nom = f'plex{i}'
+        pg.insert_font(fontname=nom, fontfile=fichier)
+        pg.insert_text((x, s['origin'][1]), nouveau, fontname=nom, fontsize=taille, color=couleur)
+
+
+def recadrer(src, p, rect, dest, runs_rect, editions=()):
     """Schéma de la page p, recadré (texte et tracés hors cadre retirés), réduit au
-    besoin à la justification du gabarit."""
+    besoin à la justification du gabarit; editions : libellés corrigés (LIBELLES)."""
     r = pymupdf.Rect(rect)
     if runs_rect:
         r |= runs_rect
@@ -240,6 +315,8 @@ def recadrer(src, p, rect, dest, runs_rect):
     tmp = pymupdf.open()
     tmp.insert_pdf(src, from_page=p, to_page=p)
     pg = tmp[0]
+    if editions:
+        editer_libelles(pg, r, editions)
     W, H = pg.rect.width, pg.rect.height
     for z in ((0, 0, W, r.y0), (0, r.y1, W, H), (0, r.y0, r.x0, r.y1), (r.x1, r.y0, W, r.y1)):
         pg.add_redact_annot(pymupdf.Rect(z))
@@ -348,14 +425,19 @@ def main():
     for k, (cle, p, r) in enumerate(e.schemas, 1):
         runs = [x.bbox for x in e.runs_de(cle) if x.page == p]
         f = travail / f'schema-{k:02}.pdf'
-        texte_schemas.append(recadrer(src, p, r, f, pymupdf.Rect(cadre(runs)) if runs else None))
+        texte_schemas.append(recadrer(src, p, r, f, pymupdf.Rect(cadre(runs)) if runs else None,
+                                      LIBELLES.get(k, ())))
         extras.append(f)
     schemas_mots = mots(' '.join(texte_schemas))
     figures_mots = collections.Counter()
     for cle, _, _ in e.schemas:
         figures_mots += mots(' '.join(x.texte for x in e.runs_de(cle)))
-    # le recadrage garde tout le texte balisé du schéma
-    perdu = figures_mots - schemas_mots
+    # le recadrage garde tout le texte balisé du schéma, hors libellés corrigés, dont les
+    # nouveaux doivent figurer dans le schéma
+    perdu = figures_mots - schemas_mots - mots(' '.join(a for ed in LIBELLES.values() for a, _, _ in ed))
+    absents = mots(' '.join(n for ed in LIBELLES.values() for _, n, _ in ed)) - schemas_mots
+    if absents:
+        sys.exit(f'libellés corrigés absents des schémas : {dict(absents)}')
     if perdu:
         sys.exit(f'recadrage des schémas incomplet : {dict(perdu)}')
 
