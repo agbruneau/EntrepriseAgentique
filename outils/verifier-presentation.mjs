@@ -1,7 +1,9 @@
 // Vérifie la mise en page de Presentation.html dans Edge ou Chrome sans interface.
 //
 // Pour chaque diapositive : débordement horizontal, cartes qui débordent, blocs qui se
-// chevauchent (en-tête, blocs du corps, pied de page) et plus petite taille de texte.
+// chevauchent (en-tête, blocs du corps, pied de page), pied de page masqué par les
+// contrôles, défilement interne (interdit au-delà de 1024 px de large, signalé en deçà)
+// et plus petite taille de texte.
 //
 // Usage : node outils/verifier-presentation.mjs [largeur] [hauteur] [options]
 //   options : print          mise en page d'impression (média print émulé)
@@ -10,7 +12,7 @@
 //   Navigateur : variable d'environnement NAVIGATEUR, sinon Edge puis Chrome aux emplacements usuels.
 //
 // Code de sortie : 0 si tout est conforme, 1 sinon.
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { existsSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -39,7 +41,22 @@ const proc = spawn(browser, [
   `--user-data-dir=${mkdtempSync(join(tmpdir(), 'verif-pres-'))}`, 'about:blank',
 ]);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const quit = (code) => { try { proc.kill(); } catch {} process.exit(code); };
+// Fermeture du navigateur par le protocole (Browser.close) : sous Windows, le lanceur d'Edge
+// passe la main à un processus détaché que kill() n'atteint pas. taskkill /T reste en repli.
+const quit = async (code) => {
+  try {
+    const { webSocketDebuggerUrl } = await (await fetch(`http://127.0.0.1:${PORT}/json/version`)).json();
+    const b = new WebSocket(webSocketDebuggerUrl);
+    await new Promise((r, j) => { b.onopen = r; b.onerror = j; });
+    b.send(JSON.stringify({ id: 1, method: 'Browser.close' }));
+    await sleep(500);
+  } catch {}
+  try {
+    if (process.platform === 'win32') spawnSync('taskkill', ['/pid', String(proc.pid), '/T', '/F'], { stdio: 'ignore' });
+    else proc.kill();
+  } catch {}
+  process.exit(code);
+};
 setTimeout(() => { console.error('Délai dépassé'); quit(2); }, 100000);
 
 let tabs;
@@ -79,15 +96,40 @@ const probe = (i) => `(() => {
     const ov = deep(blocks[k]) - blocks[k + 1].getBoundingClientRect().top;
     if (ov > 1) issues.push(nom(blocks[k]) + ' chevauche ' + nom(blocks[k + 1]) + ' de ' + Math.round(ov) + ' px');
   }
-  const out = deep(blocks[blocks.length - 1]) - s.getBoundingClientRect().bottom;
+  // défilement interne : interdit sur grand écran, permis (et signalé) à 1024 px et moins
+  const notes = [];
+  const surplus = s.scrollHeight - s.clientHeight;
+  if (surplus > 1) {
+    if (${W} > 1024 || ${PRINT}) issues.push('défilement interne de ' + surplus + ' px');
+    else notes.push('défile de ' + surplus + ' px (permis)');
+  }
+  const fond = s.getBoundingClientRect().top + Math.max(s.clientHeight, s.scrollHeight);
+  const out = deep(blocks[blocks.length - 1]) - fond;
   if (out > 1) issues.push('pied de page hors diapositive de ' + Math.round(out) + ' px');
+  // contrôles flottants : ils ne doivent masquer aucun texte du pied de page, mesuré là où
+  // il se lit (en bas du défilement quand la diapositive défile)
+  const hud = document.querySelector('.hud');
+  if (hud && getComputedStyle(hud).display !== 'none') {
+    s.scrollTop = s.scrollHeight;
+    const h = hud.getBoundingClientRect();
+    [...s.querySelector('.foot').children].forEach((c) => {
+      const r = c.getBoundingClientRect();
+      if (r.right > h.left + 1 && r.left < h.right - 1 && r.bottom > h.top + 1 && r.top < h.bottom - 1)
+        issues.push('pied de page sous les contrôles (' + c.textContent.trim().slice(0, 24) + '…)');
+    });
+    s.scrollTop = 0;
+  }
   s.querySelectorAll('.col,.tile,.fig,.row,.note')
-    .forEach((b) => { if (b.scrollHeight > b.clientHeight + 1) issues.push(nom(b) + ' déborde de ' + (b.scrollHeight - b.clientHeight) + ' px'); });
+    .forEach((b) => {
+      if (b.scrollHeight > b.clientHeight + 1) issues.push(nom(b) + ' déborde de ' + (b.scrollHeight - b.clientHeight) + ' px');
+      // texte insécable plus large que sa carte (masqué par overflow: hidden)
+      if (b.scrollWidth > b.clientWidth + 1) issues.push(nom(b) + ' déborde en largeur de ' + (b.scrollWidth - b.clientWidth) + ' px (' + b.textContent.trim().slice(0, 16) + '…)');
+    });
   let min = Infinity;
   s.querySelectorAll('*').forEach((el) => {
     if ([...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())) min = Math.min(min, parseFloat(getComputedStyle(el).fontSize));
   });
-  return { min: min.toFixed(1), issues };
+  return { min: min.toFixed(1), issues, notes };
 })()`;
 
 let failures = 0;
@@ -95,9 +137,9 @@ const total = await ev(`document.querySelectorAll('.slide').length`);
 for (let i = 0; i < total; i++) {
   // navigation par les boutons du sommaire (goTo de la présentation)
   if (!PRINT) { await ev(`document.querySelectorAll('#tocList button')[${i}].click()`); await sleep(450); }
-  const { min, issues } = await ev(probe(i));
+  const { min, issues, notes } = await ev(probe(i));
   if (issues.length) failures++;
-  console.log(`${String(i + 1).padStart(2, '0')}  texte min ${min} px  ${issues.join(' · ') || 'OK'}`);
+  console.log(`${String(i + 1).padStart(2, '0')}  texte min ${min} px  ${issues.join(' · ') || 'OK'}${notes.length ? ' · ' + notes.join(' · ') : ''}`);
 }
 
 if (PDF) {

@@ -32,8 +32,8 @@ Synthèse en onze diapositives pour la haute direction, publiée sur GitHub Page
 
 - Diapos 1 à 10 : thèse, paradoxe adoption / assurance, échelle de maturité, protocoles, architecture de référence, dix décisions, vue d'ensemble du Cadre (§ 5.1, figure 3), autonomie, conformité AMF, pilotage.
 - Diapo 11 (annexe) : les six livrables en PDF, chacun ouvert dans un nouvel onglet pour lecture dans le navigateur.
-- Navigation : flèches, 1 à 9 et 0 pour un accès direct, S pour le sommaire, F pour le plein écran, Maj+P pour le PDF A4 paysage.
-- Vérification de la mise en page (Edge ou Chrome sans interface) : `node outils/verifier-presentation.mjs [largeur] [hauteur] [print]`.
+- Navigation : flèches, Page préc. / Page suiv., Espace, Début et Fin; 1 à 9 et 0 pour un accès direct; G (ou S) pour le menu d'accès rapide, aussi ouvert au survol du bouton en bas à droite; F pour le plein écran; Maj+P pour le PDF A4 paysage, en thème sombre. L'adresse suit la diapositive (`#1` à `#11`). Un clic sur la figure de la diapo 7 l'agrandit en plein écran (Échap ou clic pour fermer).
+- Vérification de la mise en page (Edge ou Chrome sans interface) : `node outils/verifier-presentation.mjs [largeur] [hauteur] [print] [block]`. Vérification de l'intégrité éditoriale (texte, structure sémantique, figure) par rapport à une révision : `python outils/verifier-integrite.py [révision]`.
 
 ## Ordre de lecture suggéré
 
@@ -48,8 +48,8 @@ Le tableau des livrables suit cet ordre.
 
 - `documents/` : les six livrables en PDF, seuls fichiers de référence.
 - `sources/` : chaîne de recomposition des PDF (Python, pandoc 3, Typst 0.15.1) et annexes d'actualisation en HTML, un dossier par livrable, plus `commun/` (chaîne partagée) et `annexes/` (annexes Typst de la reprise du 29 octobre 2026, Veille et Revue); `python sources/<livrable>/construire_pdf.py` recompose un livrable et contrôle que tout le texte source se retrouve dans le PDF. Polices requises : voir l'en-tête de `sources/commun/composer.py`.
-- `outils/verifier-presentation.mjs` : vérification de la mise en page de la présentation.
-- `Presentation.html` : la présentation, page autonome (figure intégrée, polices Google Fonts).
+- `outils/verifier-presentation.mjs` : vérification de la mise en page de la présentation; `outils/verifier-integrite.py` : contrôle que son texte et sa figure sont inchangés.
+- `Presentation.html` : la présentation, page autonome (figure intégrée, polices Google Fonts Inter, Instrument Serif et JetBrains Mono).
 
 Les revues contradictoires du 3 novembre 2026 ont été retirées du dépôt le 4 novembre 2026 : rapports (`REVIEW_PLAN.md` et `DEEP_REVIEW_COMPENDIUM.md` pour le Compendium, `REVIEW_PLAN_CADRE.md` et `DEEP_REVIEW_CADRE_REFERENCE.md` pour le Cadre) et fichiers de travail (`.agents/teamwork/`, `.review_chunks_cadre/`, `documents/scratch/`, `documents/DOCUMENT_TEXT_MAP.md`). Le registre H.6 du Cadre y renvoie encore; ils restent dans l'historique git, p. ex. `git checkout 95d8a21 -- DEEP_REVIEW_CADRE_REFERENCE.md`.
 
