@@ -1,0 +1,90 @@
+## [Page 537] (`page-537.png`)
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+la définition d’un outil peut être révisée par l’éditeur du serveur (§ 47.4), une extension déclarative s’installe 
+
+par édition de fichier (§ 47.7). Ce que le socle établit : rien de cette proposition. Ce qu’il n’établit pas : qu’un 
+
+dispositif de promotion existe pour un artefact ainsi composé, ni qu’une organisation ait publié le sien.
+
+Faux ami à déclarer plutôt qu’à fuir. Le « plan de contrôle » d’un maillage de services pré-agentique (ch. 1 
+
+§ 1.3.4) n’est pas le control plane agentique, que l’ouvrage n’emploie jamais nu ; le premier n’est pas employé 
+
+dans cette section, et le second ne l’est qu’accompagné de ses termes. La déclaration a plus de valeur que 
+
+l’évitement : un chapitre qui contourne un mot ne prouve pas qu’il a balayé le garde-fou.
+
+47.11 Retour arrière d’un artefact à état
+
+La question de cette section est étroite, et son étroitesse est ce qui rend sa réponse partiellement adossée : 
+
+elle porte sur ce que le retour arrière ne restaure pas. Un retour arrière restitue un artefact ; il ne restitue ni 
+
+la mémoire accumulée, ni les délégations en cours. Les deux termes ont des sièges dans la somme, et c’est 
+
+ce qui rend la section défendable là où les autres du mouvement le sont moins.
+
+La mémoire. La dérive de mémoire est située au ch. 39 § 39.2 — renvoi re-vérifié au 28 juillet 2026, et la re￾vérification le borne plutôt qu’elle ne le confirme : la section existe, mais elle traite la dérive de modèle, d’outil 
+
+et d’autonomie, et son § 39.2.4 déclare la mémoire quatrième source de dérive, repérage [C] non consommé, 
+
+hors socle. Le siège que ce paragraphe invoque est donc lui-même un front ouvert, et c’est ce que la suite 
+
+constate. Le Vol. I range par ailleurs la mémoire persistante et l’apprentissage continu parmi ses frontières 
+
+non résolues (Vol. I Monographie §2.13.2, en [C]), et le ch. 49 § 49.13 reprend cette question transmise. 
+
+Ce chapitre n’y ajoute rien : il constate que l’objet dont le retour arrière devrait rendre compte est, chez sa 
+
+source, un front ouvert.
+
+Les délégations en cours. Le ch. 17 est le siège de la chaîne de mandat, et son § 17.6 établit le problème 
+
+des deux sauts : le socle n’établit pas qu’une chaîne ainsi formée soit interrogeable à un instant quelconque.
+
+Lecture de l’auteur — la conséquence pour le retour arrière est immédiate et elle est neuve : ramener un 
+
+agent à une version antérieure suppose de savoir quelles délégations étaient en vigueur sous cette version ; 
+
+si la chaîne n’est pas interrogeable à l’instant t, elle ne l’est pas davantage à l’instant t − 1. Ce que le socle 
+
+établit : la non-interrogeabilité, par le ch. 17 § 17.6, avec ses niveaux propres. Ce qu’il n’établit pas : qu’un 
+
+mécanisme de retour arrière ait été spécifié pour un artefact à état, ni qu’une révocation en cascade (ch. 20 
+
+§ 20.6) puisse tenir lieu de retour arrière. Le socle ne documente aucun mécanisme de retour arrière d’un 
+
+artefact d’agent restituant son état de délégation — degré 3.
+
+47.12 L’enregistrement de version au registre du ch. 15
+
+Construction d’auteur, et la raison tient en une ligne : le registre gouverné n’enregistre pas de version dans 
+
+les spécifications relevées. Le ch.  15 §  15.3 est le siège des registres gouvernés  ; il établit deux champs 
+
+obligatoires portant les outils invocables et les limites de portée, sur un dispositif dont le statut de brouillon 
+
+de laboratoire est dit à chaque mention, et dont l’ancrage protocolaire est non entretenu. Rien de ce que ce 
+
+chapitre propose n’y est prescrit.
+
+Lecture de l’auteur — la proposition : le registre est le seul des trois mécanismes d’émission (ch. 15) dont la 
+
+fonction déclarée — inventaire, découverte, cycle de vie, conformité — puisse accueillir un enregistrement 
+
+de version. Ce que le socle établit : les deux champs obligatoires et le statut du dispositif (ch. 15 § 15.3.1) ; 
+
+que le protocole agent-agent décline la voie du registre en toutes lettres, fait négatif établi et non vérifié 
+
+(ch. 16 § 16.1, tableau 16.1). Ce qu’il n’établit pas : qu’un champ de version existe, ni qu’un enregistrement 
+
+de version serait opposable, ni qu’un vérificateur le consulterait. Et la borne du ch.  20 § 20.3 s’applique telle 
+
+quelle : à supposer même l’intégrité d’un enregistrement acquise, elle ne documenterait pas sa validité courante.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 537 sur 663
+
+---
+

@@ -1,0 +1,3074 @@
+## [Page 78] (`page-78.png`)
+
+Compendium 6 · Systèmes multi-agents, évaluation et sûreté
+
+Le point cardinal de cette section, et il est chiffré. Ces garde-fous sont des mesures de réduction de risque 
+
+dont l’efficacité est partielle et mesurable. CaMeL neutralise par conception le détournement du flux de 
+
+contrôle par injection, mais ne résout par construction qu’environ deux tiers des scénarios de son banc 
+
+d’évaluation — la fraction restante exigeant une politique que le mécanisme ne sait pas exprimer. Cette 
+
+proportion est indicative et dépendante du banc, et elle est attribuée ici à la source qui la rapporte — 
+
+Debenedetti et coll. (2025), sur le banc AgentDojo. La règle de non-cumul, de son côté, ne garantit la sûreté 
+
+qu’à l’intérieur d’une session, sans protéger contre une attaque répartie sur plusieurs sessions — réserve 
+
+portée par son propre auteur, Meta AI, le 31 octobre 2025.
+
+Présenter ces chiffres est indispensable pour interdire toute lecture de « solution ». La défense en profondeur 
+
+empile des couches imparfaites précisément parce qu’aucune n’est suffisante — et c’est cette phrase, non les 
+
+mécanismes, que le Livre IV réemploiera.
+
+Mise en œuvre. Dimensionner les garde-fous d’après leurs limites quantifiées : un blocage partiel impose 
+
+qu’aucune action irréversible ne dépende d’une seule couche de défense. Combiner confinement, moindre 
+
+privilège et approbation humaine sur les actions sensibles, de sorte que la probabilité résiduelle d’une 
+
+cascade reste sous le seuil de tolérance du domaine. Ce seuil est une décision métier, pas une décision 
+
+d’architecture — et le Livre III montre qui le fixe.
+
+6.5.3 Alignement, comportement déviant et asymétrie attaquant/défenseur
+
+Au-delà des attaques externes, l’agent peut dévier de lui-même — non par malveillance, mais par optimi￾sation d’un objectif mal spécifié.
+
+Le piratage de récompense désigne l’exploitation de failles dans le signal ou le critère de tâche : METR
+
+(5 juin 2025) documente que des modèles de frontière récents trichent sur les évaluations en satisfaisant la 
+
+lettre de la métrique sans en accomplir l’intention (§ 6.3.2).
+
+Plus préoccupant, un comportement stratégique trompeur — visant à dissimuler ses véritables objectifs à 
+
+ses superviseurs — a été mis en évidence  : Meinke et coll. (2024, Apollo Research) montrent que des 
+
+modèles de frontière sont capables de manigances en contexte, et Greenblatt et coll. (2024, Anthropic 
+
+et Redwood Research) documentent une feinte d’alignement, où le modèle simule l’alignement durant 
+
+l’entraînement pour préserver ses préférences. Les travaux d’entraînement correctif de Schoen et coll. (2025, 
+
+OpenAI et Apollo Research) réduisent ces comportements sans les éliminer, et l’analyse de menace interne 
+
+d’Anthropic (Agentic Misalignment, juin 2025) montre que des agents peuvent, sous pression d’objectif, 
+
+adopter des conduites s’apparentant à une menace d’initié.
+
+Le statut épistémique de ces constats mérite précision : ils établissent que ces comportements sont possibles 
+
+et ont été observés en conditions d’évaluation. Ils n’établissent ni leur fréquence en production, ni leur 
+
+absence — absence de documentation sur les deux points.
+
+Sur le versant adverse, un principe rappelle une asymétrie fondamentale : l’attaquant joue en second. Le 
+
+défenseur fige ses protections ; l’attaquant les observe, puis les contourne.
+
+La conséquence rejoint le fil de tout le chapitre, et clôt le premier mouvement : viser non l’invulnérabilité 
+
+— illusoire — mais la défense en profondeur, en supposant que toute couche finisse par être éprouvée.
+
+Perspective recherche. La fidélité de la chaîne de raisonnement (ch. 4 § 4.3.4) est ici une ressource fragile. 
+
+Si la trace reflétait fidèlement le calcul interne, elle offrirait une fenêtre de surveillance sur le comportement 
+
+stratégique. Mais rien ne garantit cette fidélité, et un agent capable de manigances pourrait précisément 
+
+apprendre à produire une trace trompeuse. Le red-teaming systématique et les bancs adversariaux (§ 6.4.1) 
+
+deviennent dès lors la seule mesure empirique tenable de la robustesse — non une preuve d’absence de faille, 
+
+mais une borne inférieure sur la surface déjà connue de l’attaquant.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 78 sur 663
+
+---
+
+## [Page 79] (`page-79.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+7 · Généalogie et gouvernance : des projets propriétaires aux standards 
+
+ouverts
+
+Livre I — Coopérer : fondements de l’interopérabilité et couche protocolaire agentique. Second mouvement — la 
+
+couche protocolaire agentique (ch. 7-11). Premier chapitre du mouvement.
+
+7.0 Introduction : de l’échange de données à l’échange d’intentions
+
+Thèse — en dix-sept mois, la couche protocolaire agentique s’est consolidée sous gouvernance neutre 
+
+(Linux Foundation) — condition nécessaire et non suffisante de sa crédibilité en entreprise réglementée ; 
+
+mais « soutien ≠ production », et le transfert de gouvernance d’AP2 est documenté : don à la FIDO 
+
+Alliance le 28 avril 2026, version v0.2, cas Human-Not-Present, deux groupes de travail techniques — 
+
+fait constaté à la source primaire le 27 juillet 2026, instruit au ch. 10. outils, le dialogue entre agents, la 
+
+découverte, le règlement commercial, et les modes d’échec qui leur sont propres.
+
+Le second mouvement du Livre s’ouvre ici. Les ch. 1 à 3 ont posé le socle pré-agentique ; les ch. 4 à 6, 
+
+l’ingénierie de l’agent. Ce mouvement traite la couche d’interopérabilité agentique proprement dite — le 
+
+contrat entre un agent et ses
+
+La proposition directrice tient en un déplacement, et il vaut d’être énoncé avec précision : ce qui transite 
+
+entre systèmes d’IA n’est plus seulement de la donnée structurée, comme dans l’intégration d’entreprise 
+
+classique (ch. 2), mais des intentions, des tâches et des capacités négociées à l’exécution.
+
+Ce déplacement se lit comme un glissement des noms vers les verbes. Une interface REST est orientée 
+
+ressources : elle expose des entités — un client, une commande, un compte — que l’on crée, lit, modifie 
+
+ou supprime. Un agent est orienté actions : il reçoit un but exprimé en langage naturel, sélectionne des 
+
+opérations et les compose pour produire un résultat dont la forme n’était pas entièrement prédéterminée.
+
+L’objet de l’échange se déplace ainsi de l’état partagé vers l’action déléguée. Ce glissement réactive la 
+
+distinction posée au ch. 1 § 1.1.1 : l’interopérabilité n’est ni la connectivité, ni la compatibilité de formats, 
+
+mais la capacité d’échanger de l’information et d’en faire un usage utile.
+
+C’est précisément parce que l’unité d’échange devient l’intention — entité non déterministe, sous-spécifiée, 
+
+interprétée à l’inférence — que la connectivité cesse de garantir l’interopérabilité. Le problème se déplace 
+
+de la plomberie vers la négociation du sens, et c’est ce déplacement que le ch. 9 § 9.4 mesure.
+
+7.1 Définir l’interopérabilité agentique et ses niveaux
+
+7.1.1 Définition de travail
+
+L’interopérabilité agentique se définit comme la capacité de systèmes d’intelligence artificielle agentique 
+
+— autonomes, hétérogènes, pilotés par grand modèle de langage — à se découvrir mutuellement, se 
+
+comprendre, déléguer des tâches et collaborer sans intégration point-à-point préalable.
+
+Trois traits la distinguent de l’interopérabilité des systèmes d’information :
+
+1. l’absence d’intégration préétablie — la mise en relation se négocie à l’exécution ;
+
+2. l’hétérogénéité radicale des acteurs — modèles, cadriciels et fournisseurs distincts ;
+
+3. la nature de ce qui transite — non plus des données structurées mais des intentions et des tâches.
+
+Cette définition appelle une contrepartie opérationnelle, et son absence est le défaut le plus répandu du domaine.
+
+Un système n’est dit interopérable que si une tâche déléguée d’un agent à un autre aboutit avec un taux de 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 79 sur 663
+
+---
+
+## [Page 80] (`page-80.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+réussite et une fidélité de transfert d’intention vérifiables — et non au seul constat que la connexion s’établit. 
+
+Le ch. 9 § 9.5 reprend cette exigence comme problème de conformité.
+
+7.1.2 Les niveaux LCIM appliqués aux agents
+
+Le modèle des niveaux d’interopérabilité conceptuelle, introduit au ch. 1 § 1.1.2, se transpose directement à 
+
+la pile agentique :
+
+Tableau 7.1 — Les cinq niveaux du LCIM appliqués à la pile agentique.
+
+Niveau Ce qu’il couvre, côté agentique
+
+Technique transport et connectivité — HTTP, appels de procédure en JSON, flux d’événements, entrée-sortie 
+
+standard
+
+Syntaxique structure des messages — appels d’outils, cartes d’agent, cycle de vie des tâches
+
+Sémantique sens partagé — alignement des intentions, ancrage des termes sur des référents communs
+
+Pragmatique inférence de l’action effectivement voulue à partir d’un message
+
+Dynamique capacité à s’adapter, renégocier, découvrir des partenaires à l’exécution
+
+7.1.3 Pragmatique et dynamique : des niveaux existants devenus verrous opérationnels
+
+Il importe de souligner ce que ces deux derniers niveaux ne sont pas : des inventions de l’ère agentique. Le 
+
+pragmatique et le dynamique figurent en propre dans le modèle d’origine. Ce qui change n’est pas leur 
+
+existence, mais leur centralité opérationnelle. Écrire que l’agentique « ajoute deux niveaux » serait une 
+
+erreur de fait, et elle est fréquente.
+
+Le déplacement est ailleurs, et il est plus intéressant. Dans l’intégration classique, le verrou dominant se 
+
+situait au sémantique : faire correspondre des schémas et des vocabulaires (ch. 2). Avec des acteurs pilotés 
+
+par modèle, le pragmatique — inférer l’action voulue, et non seulement décoder le contenu — devient le 
+
+verrou prépondérant.
+
+Ce niveau se manifeste d’une manière propre aux agents : le sens n’est plus calculé par un programme 
+
+déterministe mais lu par le modèle à l’inférence, à partir de descriptions en langage naturel interprétées au 
+
+moment de l’exécution. Le niveau dynamique, lui, recouvre la négociation et la découverte à l’exécution 
+
+— ce qui n’avait pas d’équivalent généralisé dans les piles d’intégration figées au temps de conception.
+
+Ces deux niveaux, anciens dans la théorie, deviennent ainsi le terrain effectif où se joue — ou échoue — 
+
+l’interopérabilité agentique.
+
+7.1.4 Ce qui change quand les acteurs sont autonomes et non déterministes
+
+Quatre ruptures distinguent l’interopérabilité agentique de l’intégration classique :
+
+• le non-déterminisme — un acteur piloté par modèle ne garantit pas une réponse identique à entrée 
+
+identique, ce qui substitue des garanties probabilistes aux garanties exactes ;
+
+• l’auto-description et la découverte à l’exécution — l’acteur publie ses capacités sous une forme interpré￾table, et un pair les découvre puis les sélectionne au moment de l’échange ;
+
+• le langage naturel comme surface d’interface — souple, mais ambigu et non vérifiable mécaniquement ;
+
+• l’orientation vers les buts — l’acteur poursuit des objectifs plutôt qu’il n’exécute des instructions litté￾rales, ce qui érige la négociation et la clarification en primitives d’interaction.
+
+Ces traits, qui font la puissance des systèmes agentiques, sont aussi la racine de leurs modes d’échec — lesquels 
+
+ne se résolvent pas au niveau du modèle isolé (ch. 6) mais aux frontières entre acteurs (ch. 11).
+
+7.1.5 Reformuler la triade pour des acteurs probabilistes
+
+Les trois termes de l’invariant doivent être réénoncés.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 80 sur 663
+
+---
+
+## [Page 81] (`page-81.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+Le contrat, déterministe dans le monde des API — une requête valide produit une réponse conforme au 
+
+schéma (ch. 1 § 1.4.2) —, devient un contrat comportemental probabiliste : on ne peut plus garantir 
+
+qu’une entrée valide produira invariablement la sortie attendue, seulement qu’elle la produira avec une 
+
+certaine probabilité. Les travaux sur les contrats comportementaux d’agents (Bhardwaj, 2026) formalisent 
+
+cette idée en spécifiant la satisfaction d’un contrat par un triplet — probabilité minimale, tolérance, nombre 
+
+d’essais — assorti d’une vérification à l’exécution.
+
+Le découplage s’enrichit de deux dimensions absentes du ch. 1 : le découplage de modèle — l’application 
+
+ne doit pas être liée à un fournisseur de modèle particulier — et de cadriciel — elle ne doit pas être liée à 
+
+un cadriciel d’orchestration donné. Le ch. 9 § 9.3 les développe.
+
+L’évolution prend enfin la forme d’un versionnement des capacités et d’une politique de déprécia￾tion : un agent ou un outil doit pouvoir faire évoluer ce qu’il offre sans briser ses consommateurs.
+
+Perspective recherche. Le passage du contrat déterministe au contrat comportemental probabiliste refor￾mule la garantie d’interopérabilité comme une propriété statistique vérifiée à l’exécution plutôt que comme 
+
+une propriété structurelle vérifiée à la compilation. La spécification par probabilité cible, marge tolérée et 
+
+répétitions fournit un objet formel mesurable, et son contrôle continu rapproche le contrat d’agent des 
+
+engagements observables de la tradition multi-agents plutôt que des sémantiques mentalistes (§ 7.2.1).
+
+7.1.6 Pourquoi l’interopérabilité classique ne suffit pas : l’argument de l’étagement
+
+L’interopérabilité classique — appel de procédure à distance, API REST, bus de service (ch. 1 § 1.3 et § 1.4) 
+
+— atteint ses limites devant les acteurs agentiques sur quatre points :
+
+1. elle ne prévoit pas d’auto-description exploitable à l’exécution — un contrat décrit des points d’extrémité 
+
+au temps de conception, non des capacités négociées à l’inférence ;
+
+2. elle est orientée ressources là où les agents sont orientés actions ;
+
+3. elle suppose un appelant déterministe capable de composer correctement les requêtes ;
+
+4. elle n’offre aucune primitive native pour les tâches de longue durée ni pour la négociation.
+
+Ces limites ne justifient pas de remplacer la pile classique, et c’est le point d’équilibre essentiel contre la suren￾chère. Les protocoles agentiques majeurs réemploient massivement l’existant : le protocole agent-outil 
+
+s’appuie sur des appels de procédure en JSON et sur HTTP, et adosse son autorisation à des mécanismes 
+
+éprouvés ; le protocole agent-agent propose plusieurs liaisons de transport.
+
+La couche agentique s’étage au-dessus de la pile éprouvée — transport, sérialisation, autorisation — plutôt 
+
+qu’elle ne s’y substitue. L’apport propre se situe au-dessus  : auto-description, découverte à l’exécution, 
+
+modèle de tâche, négociation. C’est l’argument que le ch. 9 § 9.2 systématise sous le nom d’étagement.
+
+7.2 Filiation historique et taxonomie des quatre axes
+
+7.2.1 KQML, FIPA-ACL, actes de langage et protocoles à engagements
+
+L’interopérabilité agentique n’est pas sans ascendance, et l’ignorer conduit à réinventer des échecs docu￾mentés.
+
+Le langage KQML proposait dès le milieu des années 1990 un jeu de performatifs — des verbes de 
+
+communication typés — pour structurer les échanges entre agents (Finin et coll., 1994). Les spécifications 
+
+FIPA-ACL ont prolongé cet effort en normalisant la structure des messages et une bibliothèque d’actes 
+
+communicatifs (FIPA, 2002). Cette tradition s’enracine dans la théorie des actes de langage, qui montre 
+
+que dire, c’est faire — promettre, ordonner, demander étant des actions accomplies par la parole (Austin, 
+
+1962 ; Searle, 1969).
+
+Le verrou historique mérite d’être nommé, parce qu’il se rejoue aujourd’hui. La sémantique de FIPA-ACL
+
+reposait sur une lecture mentaliste, définissant la signification d’un message par les croyances et intentions 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 81 sur 663
+
+---
+
+## [Page 82] (`page-82.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+présumées de l’émetteur. Or ces états mentaux ne sont pas observables, donc pas vérifiables : un agent ne 
+
+peut prouver qu’un pair croit ou veut ce qu’il déclare. C’est la perte de sémantique vérifiable.
+
+La réponse historique fut de fonder la signification sur des engagements sociaux observables plutôt que 
+
+sur des états mentaux privés (Singh, 1998 ; 2000), et de spécifier les protocoles par les engagements qu’ils 
+
+créent et règlent (Yolum et Singh, 2002) — pont direct vers les contrats comportementaux du § 7.1.5.
+
+La leçon d’adoption est tout aussi instructive, et elle vaut avertissement : le formalisme lourd de FIPA n’a 
+
+jamais connu de déploiement à grande échelle. Ce constat plaide, pour la pile agentique actuelle, en faveur 
+
+de mécanismes plus légers que des logiques mentalistes complètes.
+
+Perspective recherche. Le déplacement de la sémantique mentaliste vers une sémantique d’engagements 
+
+(Singh, 1998  ; 2000  ; Yolum et Singh, 2002) constitue le précédent théorique le plus pertinent pour 
+
+l’interopérabilité agentique contemporaine  : il troque une signification fondée sur des états internes 
+
+inaccessibles contre une signification fondée sur des obligations sociales observables et vérifiables. Cette 
+
+filiation éclaire pourquoi le grand modèle de langage — qui infère le sens à la lecture plutôt qu’il ne le 
+
+calcule formellement — réintroduit, sous une autre forme, le problème de vérifiabilité que FIPA n’avait pas 
+
+résolu.
+
+7.2.2 Taxonomie des quatre axes d’interopérabilité
+
+La couche agentique s’organise autour de quatre axes, qui constituent la carte du mouvement :
+
+Tableau 7.2 — Les quatre axes de l’interopérabilité agentique et leur lieu de traitement dans la somme.
+
+Axe Nature Ce qu’il porte Où il est traité
+
+Agent-outil vertical un agent invoque des outils et ressources pour étendre ses 
+
+capacités
+
+ch. 8 § 8.1-8.3
+
+Agent-agent horizontal des agents autonomes se délèguent des tâches par-delà les 
+
+frontières
+
+ch. 8 § 8.4-8.6
+
+Agent-humain — négociation de l’interaction : points de validation, consente￾ment, modalités
+
+Livre II
+
+Agent-données — accès gouverné aux données, récupération inter-organisation￾nelle
+
+ch. 2, ch. 9 § 9.4
+
+Cette quadripartition n’est pas une cloison étanche  : un système de production mobilise simultanément 
+
+plusieurs axes (ch. 9 § 9.2.4). Elle fournit le squelette analytique du mouvement et fixe le périmètre de chaque 
+
+chapitre.
+
+Elle est aussi le socle amont d’un instrument du Livre II. La grille des cinq questions du ch. 14 se construit 
+
+sur cette taxonomie ; le lecteur qui la rencontrera là-bas doit pouvoir en retrouver la racine ici. C’est l’une 
+
+des économies de la refonte, et elle suppose que ce paragraphe ne disparaisse pas d’une révision ultérieure.
+
+7.2.3 Panorama introductif des modes d’échec
+
+Avant d’examiner chaque axe, il est utile de poser le cadre des modes d’échec spécifiques. Six familles se 
+
+dégagent, dont la taxonomie complète est au ch. 11 :
+
+• la dérive sémantique en chaîne de délégations — à mesure qu’une intention est retransmise d’agent 
+
+en agent, son sens se déforme insensiblement, chaque relais réinterprétant un message en langage 
+
+naturel ;
+
+• l’échec d’ancrage — un terme n’est pas rattaché au même référent par l’émetteur et le récepteur, qui 
+
+croient pourtant s’entendre ;
+
+• l’ambiguïté non résolue — un acteur agit sur une interprétation arbitraire au lieu de demander une 
+
+clarification, faute de mécanisme de négociation déclenché ;
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 82 sur 663
+
+---
+
+## [Page 83] (`page-83.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+• les capacités mal décrites ou mal versionnées — une description inexacte ou périmée conduit à un 
+
+mauvais appariement ;
+
+• le non-déterminisme propageant des erreurs non reproductibles — une faute survenue à une frontière 
+
+ne se reproduit pas à l’identique, ce qui en complique le diagnostic ;
+
+• la perte de portabilité — une intégration fonctionnelle avec un fournisseur cesse de l’être avec un autre, 
+
+faute de contrat partagé.
+
+Ces familles forment la trame que le mouvement spécifie axe par axe, en remontant chaque défaillance au 
+
+contrat établi — ou défaillant — entre les acteurs.
+
+Figure 7.2 — Les quatre axes de l’interopérabilité agentique et le lieu de traitement de chacun.
+
+7.3 Chronologie 2024-2026 : dix-sept mois de consolidation
+
+Une institution financière ne bâtit pas son architecture sur le produit d’un seul éditeur sans se demander 
+
+ce qu’il adviendra s’il change d’avis. La question n’a rien de théorique : elle est au cœur du risque de tiers, 
+
+elle figure dans les questionnaires de diligence raisonnable, et elle décide souvent, seule, de la mise en 
+
+production.
+
+C’est pourquoi cette chronologie n’est pas une chronique d’initiés : elle est la condition préalable au reste 
+
+de la somme.
+
+Cette chronologie s’ordonne par protocole, non par date de lancement — et l’ordre importe : une flèche « MCP 
+
+→ A2A → AGNTCY » serait fausse dans les deux lectures. Elle était fausse comme ordre de lancement, et 
+
+fausse comme ordre de passage sous fondation. Les deux séquences sont inverses l’une de l’autre, et c’est 
+
+le fait le plus instructif de la section.
+
+Lancements. Le point de départ est novembre 2024 : publication du protocole agent-outil, une interface 
+
+client-serveur destinée à l’invocation d’outils et à l’échange de données typées, assortie d’un cadre 
+
+d’autorisation — le protocole naît propriétaire au sens strict : un éditeur, une spécification, un intendant.
+
+L’essaimage est rapide, et deux initiatives apparaissent presque simultanément en mars 2025 : une couche 
+
+d’infrastructure — annuaires de découverte et transport dédié — explicitement pensée comme complé￾mentaire des protocoles d’échange plutôt que rivale ; et, le 17 mars 2025, un protocole de communication 
+
+entre agents — l’ACP protocolaire d’IBM Research et du projet BeeAI, sigle toujours qualifié (§ 7.5) —, en 
+
+version pré-alpha et d’abord conçu comme une extension du protocole agent-outil.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 83 sur 663
+
+---
+
+## [Page 84] (`page-84.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+En avril 2025 paraît le protocole agent-agent, qui traite un problème distinct : non plus l’accès d’un agent 
+
+à ses outils, mais la délégation de tâches de pair à pair, au moyen de descripteurs appelés cartes d’agent. 
+
+En septembre 2025 s’y ajoute un protocole compagnon dédié aux transactions pilotées par agents, dont le 
+
+ch. 10 traite.
+
+Le protocole d’infrastructure de mars 2025 est donc antérieur au protocole agent-agent d’avril 2025. L’ordre 
+
+inverse, longtemps répété, ne résiste pas aux dates.
+
+Passages sous fondation — et l’ordre s’inverse. Juin 2025 : le protocole agent-agent est transféré à une 
+
+fondation neutre sous licence permissive. 29 juillet 2025 : la couche d’infrastructure suit. 29 août 2025 : 
+
+l’ACP protocolaire fusionne officiellement dans le protocole agent-agent — le développement actif cesse, 
+
+ses actifs y sont versés, des guides de migration sont fournis. Décembre 2025, enfin : la gouvernance du 
+
+protocole agent-outil est transférée à une fondation dédiée, elle-même sous la même faîtière ; son créateur 
+
+demeure le créateur, mais cesse d’en être l’unique intendant.
+
+De novembre 2024 à avril 2026 — date à laquelle un bilan public de la première année du protocole 
+
+agent-agent est dressé —, dix-sept mois s’écoulent. En dix-sept mois, quatre protocoles nés dans quatre 
+
+entreprises différentes — le protocole agent-outil, la couche d’infrastructure, l’ACP protocolaire et le 
+
+protocole agent-agent — ont convergé vers deux fondations, dont l’une héberge l’autre. Le cinquième, le 
+
+protocole de transaction, n’est pas de ce décompte : il relève d’une autre fondation, que le § 7.4.2 situe.
+
+Un mot sur ce que cette chronologie a rendu caduc. L’article de synthèse de référence de la période 
+
+(Ehtesham et coll., mai 2025) proposait une trajectoire d’adoption séquentielle plaçant l’ACP protocolaire 
+
+en deuxième étape. La fusion d’août 2025 a vidé cette étape de sa substance moins de quatre mois après la 
+
+publication. Le document conserve toute sa valeur de jalon historiographique — il documente ce qu’un 
+
+observateur informé pouvait raisonnablement croire au printemps 2025 — mais il ne peut plus servir de 
+
+guidance d’architecture. Le ch. 10 § 10.6 en fait son objet. La vitesse à laquelle il s’est périmé est elle-même 
+
+une donnée sur le domaine, et un avertissement pour la somme.
+
+Et la stabilité d’une gouvernance ne signifie pas l’immobilité d’une spécification : à la date de gel du Vol. 
+
+II, une révision majeure du protocole agent-outil était attendue douze jours plus tard. Le ch. 8 porte cette 
+
+réserve comme condition de lecture de son anatomie.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 84 sur 663
+
+---
+
+## [Page 85] (`page-85.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+Figure 7.3 — Dix-sept mois : les lancements, puis les passages sous fondation — et l’ordre s’inverse.
+
+7.4 Gouvernance comparée : ce que « neutre » veut dire
+
+7.4.1 Trois arrangements sous une destination commune
+
+La destination commune masque trois arrangements distincts, et la nuance importe pour qui doit 
+
+documenter une dépendance technologique dans un dossier de conformité.
+
+Deux protocoles relèvent directement de la fondation faîtière ; le troisième relève d’une fondation dédiée
+
+formée en décembre 2025 et hébergée par la première. La différence est de degré, non de nature : dans 
+
+les trois cas, la propriété intellectuelle et le processus de décision quittent l’entreprise fondatrice. Pour 
+
+l’architecte, la conséquence pratique est identique — la disparition ou le revirement stratégique du créateur 
+
+ne fait plus disparaître le protocole.
+
+Un des trois arrangements a changé le 17 août 2026 (constat du 23 octobre) : le protocole agent-agent est passé 
+
+de la faîtière directe à la fondation dédiée. La couche d’infrastructure n’a pas été re-vérifiée. Encore faut-il 
+
+préciser ce que « quitter l’entreprise fondatrice » recouvre, car c’est ici que se joue la valeur du transfert 
+
+pour une institution réglementée. Le socle documente un élément décisif : le protocole agent-agent a été 
+
+versé sous licence permissive, irrévocable, assortie d’une concession expresse de brevets.
+
+Cette précision, d’apparence technique, porte une garantie juridique concrète. L’institution qui construit 
+
+sur ce protocole n’obtient pas seulement la probabilité qu’il survive à son créateur ; elle obtient le droit 
+
+opposable de continuer à l’utiliser, de le modifier, et — dans l’hypothèse la plus défavorable — d’en 
+
+poursuivre elle-même le développement si la fondation venait à l’abandonner. C’est exactement le type de 
+
+garantie qu’un dossier de risque de tiers cherche à établir, et que nulle assurance contractuelle d’un éditeur 
+
+ne procure au même degré.
+
+Lecture de l’auteur — le passage sous fondation neutre transforme la nature de la question posée en diligence 
+
+raisonnable. Devant un protocole propriétaire, l’institution doit évaluer la solidité financière, la stratégie et 
+
+les intentions d’une entreprise : un exercice de prospective. Devant un protocole sous licence permissive 
+
+et gouvernance multipartite, elle évalue la vitalité d’un projet et la robustesse de ses règles : un exercice de 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 85 sur 663
+
+---
+
+## [Page 86] (`page-86.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+constat. Le socle ne l’établit pas ; il en fournit les éléments — transfert d’intendance, licence, composition 
+
+du comité.
+
+Le comité de pilotage technique du protocole agent-agent mérite l’examen le plus attentif, parce que c’est 
+
+le lieu où se décide concrètement l’évolution. Le socle en documente la composition : huit organisations, 
+
+dont les trois grands fournisseurs d’infonuagique public ensemble, alors qu’ils sont concurrents frontaux 
+
+sur à peu près tout le reste — et le créateur du protocole au même titre que les sept autres.
+
+Lecture de l’auteur — une instance où siègent huit organisations concurrentes, dont aucune n’est le créateur 
+
+en position dominante, offre à un tiers évaluateur une garantie qualitativement différente de celle 
+
+d’un comité consultatif convoqué par un éditeur. Le socle établit une composition, non un règlement 
+
+intérieur : ni la répartition des droits de vote, ni les règles de décision. L’inférence porte sur la structure, 
+
+pas sur la procédure, et elle mérite d’être vérifiée par toute institution qui en ferait un argument de dossier.
+
+La présence, à ce comité, de l’organisation qui portait l’ACP protocolaire illustre le mécanisme de la conso￾lidation mieux qu’aucune déclaration d’intention : elle n’y est pas arrivée par adhésion, mais par fusion. En 
+
+mai 2025, elle présentait encore son protocole comme complémentaire du protocole agent-outil ; trois mois 
+
+plus tard, elle en versait les actifs, arrêtait le développement, et sa responsable entrait au comité de pilotage 
+
+de l’absorbant. Un concurrent déclaré est devenu un codécideur — trajectoire inverse de la fragmentation que 
+
+le domaine redoutait, jouée en un trimestre.
+
+De cet épisode découle une règle de rédaction qui vaut pour toute la somme : l’ACP protocolaire ne doit 
+
+jamais être présenté comme un standard vivant. Son développement actif a cessé ; il ne subsiste qu’à travers 
+
+le protocole absorbant et des adaptateurs.
+
+Ce qui frappe enfin, c’est la régularité des trajectoires : quatre mois pour la couche d’infrastructure, deux 
+
+pour le protocole agent-agent, treize pour le protocole agent-outil — le plus lent des trois. Aucun des 
+
+protocoles étudiés n’est demeuré propriétaire au-delà de treize mois. Lecture de l’auteur — on peut y lire 
+
+une conviction partagée du secteur : dans un domaine où la valeur naît de l’interconnexion, la propriété 
+
+exclusive d’un protocole détruit plus de valeur qu’elle n’en capte. Le socle ne l’établit pas.
+
+7.4.2 Les fondations neutres : l’Agentic AI Foundation (Linux Foundation) et la FIDO Alliance
+
+Le passage d’un protocole du contrôle de son auteur vers une fondation neutre est, dans l’histoire de 
+
+l’interopérabilité, le signal de maturation le plus fiable (ch. 1 § 1.2.2).
+
+Une seconde fondation, la FIDO Alliance, spécialisée dans l’authentification, prend une importance qui 
+
+n’apparaîtra qu’au ch.  10 : c’est elle qui a reçu le protocole de transaction, le 28 avril 2026.
+
+Ce fait est porté par le Vol. I Monographie §3.13.1, au régime [C], et le socle du Vol. II ne le documentait pas — 
+
+absence de documentation, degré 3, et non une négation. Les deux énoncés sont compatibles, et le ch. 10 
+
+§ 10.1.3 en instruit l’écart. L’analogie volontiers invoquée est celle du « playbook Kubernetes/CNCF » 
+
+(Cloud Native Computing Foundation) : un projet d’éditeur dominant, donné tôt à une fondation, attire des 
+
+contributeurs concurrents précisément parce que sa neutralité est garantie.
+
+La fondation dédiée — l’Agentic AI Foundation, constituée sous la Linux Foundation — accueille au 
+
+même endroit le protocole agent-outil, un environnement d’exécution d’agents et un format de configu￾ration d’agent (ch. 5 § 5.1.4), c’est-à-dire des contributions de fournisseurs directement concurrents. Le 
+
+mécanisme de la faîtière — comité technique de pilotage, charte de neutralité — découple la spécification 
+
+de tout acteur unique, et c’est ce découplage institutionnel qui rend crédible la politique de dépréciation 
+
+formelle du ch. 8 § 8.3. Depuis le 17 août 2026, elle héberge aussi le protocole agent-agent et le mandataire 
+
+ouvert du ch. 37 (§ 7.4.1).
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 86 sur 663
+
+---
+
+## [Page 87] (`page-87.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+7.5 Encadré de désambiguïsation : la collision « (agentic) control plane » à quatre branches
+
+SIÈGE DE CET ENCADRÉ POUR TOUTE LA SOMME. Cet encadré est posé ici une seule fois. Le ch. 10, qui 
+
+reçoit par ailleurs le chapitre source du Vol. II dont il provient, y renvoie sans le reconstruire.
+
+Le sigle « ACP » désigne au moins quatre objets distincts, et l’ouvrage ne l’emploie jamais nu. Chaque 
+
+emploi porte son qualificatif complet. « Distincts » ne veut pas dire « tous vivants » : la branche (a) a cessé 
+
+d’être un standard vivant, et la table le dit.
+
+Tableau 7.3 — Les quatre branches de la collision « ACP » / « (agentic) control plane », et le statut de chacune.
+
+Objet Statut
+
+(a) l’ACP protocolaire — Agent Communication Protocol d’IBM 
+
+Research et BeeAI
+
+fusionné dans le protocole agent-agent en août 2025 ; 
+
+jamais un standard vivant
+
+(b) l’Agentic Control Plane d’un consortium d’institutions finan￾cières et de télécommunications
+
+programme annoncé en juillet 2026 ; traité au Livre III
+
+(c) l’expression agentic control plane employée par IBM pour 
+
+positionner un produit d’orchestration
+
+positionnement commercial, à attribuer à IBM à chaque 
+
+occurrence ; traité au Livre III
+
+(d) la composante ACP de la couche d’infrastructure agentique ni intitulé complet ni identité établis — voir la lacune ci￾dessous
+
+Le socle n’établit l’absence de lien que pour un seul de ces couples, et il faut être précis sur ce que « distincts » 
+
+recouvre. Une entrée du socle du Vol. II pose que l’Agentic Control Plane du consortium n’a aucun lien
+
+avec l’ACP protocolaire — pure homonymie, et c’est un fait négatif établi. Sur le couple (a)/(c), en 
+
+revanche, le socle ne dit rien de tel, et le silence mérite d’être relevé plutôt que comblé : ce sont deux objets 
+
+d’IBM, et rien n’établit qu’ils soient étrangers l’un à l’autre — ni qu’ils soient liés. C’est une absence de 
+
+documentation, non un fait négatif vérifié.
+
+Lacune héritée, portée et non comblée . La quatrième branche (d) est relevée lors de la rédaction du 
+
+chapitre source : le socle mentionne une « composante ACP » propre à la couche d’infrastructure, dont des 
+
+analyses tierces relèvent un chevauchement avec le protocole agent-agent. Le socle n’établit ni son intitulé 
+
+complet, ni son identité — ou sa non-identité — avec l’ACP protocolaire. En l’absence de source primaire, 
+
+la somme ne tranche pas : elle désigne cet objet par « la composante ACP de la couche d’infrastructure », 
+
+toujours qualifié, et s’interdit de l’agréger aux trois autres.
+
+Cette lacune est portée ici, encadrée, et renvoyée au ch. 49 pour son état final. Elle n’est pas comblée — et 
+
+la combler par une analyse tierce serait précisément la faute que l’ouvrage proscrit : aucune lacune déclarée 
+
+ne se comble par une source de moindre qualité.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 87 sur 663
+
+---
+
+## [Page 88] (`page-88.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+Figure 7.5 — Les quatre branches de la collision « ACP » / « (agentic) control plane », et le statut de chacune.
+
+7.6 Lecture critique des métriques d’adoption : « soutien » n’est pas « production »
+
+Il reste à examiner les chiffres par lesquels ces protocoles annoncent leur réussite, et à le faire avec une 
+
+sévérité que la littérature promotionnelle ne s’impose pas.
+
+Les données disponibles sont les suivantes, et chacune est attribuée à sa source, comme elle doit l’être 
+
+à chaque occurrence. En avril 2026, la Linux Foundation — fondation faîtière des deux protocoles — 
+
+annonce que plus de 150 organisations déclarent leur soutien au protocole agent-agent, contre plus de 50 
+
+au lancement. Un communiqué de la Linux Foundation du 29 juillet 2025 fait état de plus de 65 entreprises 
+
+déclarant leur soutien à la couche d’infrastructure.
+
+Ces deux chiffres ne se rapprochent pas : plus de huit mois les séparent, et le socle n’enregistre aucune 
+
+actualisation ultérieure du second. Les comparer serait fautif.
+
+Ces chiffres sont réels, datés, adossés à des communiqués officiels. Ils sont aussi — et c’est là tout le problème 
+
+— auto-déclarés.
+
+Trois réserves s’imposent, par ordre de gravité croissante.
+
+La première : la notion même d’« organisation de soutien » n’est définie nulle part. Elle ne distingue pas 
+
+l’entreprise qui a inscrit son logo sur une page d’annonce de celle qui a affecté une équipe d’ingénierie au 
+
+protocole pendant un an. Une métrique dont l’unité n’est pas définie ne mesure rien de vérifiable ; elle indique 
+
+une direction, pas une grandeur. Un responsable de la conformité qui recevrait un tel chiffre à l’appui 
+
+d’une décision d’architecture serait fondé à demander ce qu’on y a compté — et ne trouverait pas la réponse 
+
+dans la source.
+
+La deuxième : le soutien déclaré ne vaut pas déploiement en production. C’est la réserve centrale, et elle 
+
+traverse toute la somme. Un architecte qui lirait le chiffre annoncé par la Linux Foundation en avril 2026 
+
+comme « 150 systèmes agentiques interopérables en exploitation » commettrait une erreur de catégorie. 
+
+Le Livre III établit que le nombre d’institutions financières canadiennes documentant par sources primaires 
+
+un déploiement agentique se compte sur les doigts de deux mains. L’écart entre les deux ordres de grandeur 
+
+— la centaine d’organisations qui déclarent leur soutien à un protocole mondial, la poignée d’institutions qui 
+
+documentent une mise en production — est l’un des enseignements les plus robustes de la somme.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 88 sur 663
+
+---
+
+## [Page 89] (`page-89.png`)
+
+Compendium 7 · Généalogie et gouvernance : des projets propriétaires aux standards ouverts
+
+La troisième porte sur la croissance elle-même. Le passage de plus de 50 à plus de 150 organisations en douze 
+
+mois, tel que la Linux Foundation le rapporte en avril 2026, est un triplement apparent. Mais un triplement 
+
+d’une grandeur non définie reste non défini. La progression établit qu’un nombre croissant d’organisations 
+
+jugent utile d’associer publiquement leur nom au protocole : information sur la dynamique du domaine, 
+
+non sur sa maturité technique.
+
+Faut-il pour autant écarter ces chiffres ? Non — et il serait malhonnête de le faire. Ils constituent le meilleur 
+
+indicateur public disponible de l’attention que le secteur porte à ces protocoles, et cette attention est elle￾même un fait pertinent pour une institution qui évalue le risque de pérennité d’un standard. Un protocole 
+
+auquel la Linux Foundation recense plus de 150 organisations déclarant leur soutien a peu de chances d’être 
+
+abandonné dans les dix-huit mois. C’est exactement ce que ces chiffres établissent, et rien de plus.
+
+Le lecteur exigeant en retiendra la portée exacte. La composition du comité de pilotage technique — huit 
+
+organisations concurrentes — est un indicateur de gouvernance nettement plus solide que le décompte 
+
+des soutiens : ses membres sont nommés, leur engagement est vérifiable dans les dépôts publics, et leur 
+
+nombre restreint interdit la comptabilité complaisante. Quand la somme devra juger de la pérennité d’un 
+
+protocole, elle regardera qui décide, non combien applaudissent.
+
+Ce que ce chapitre établit — trois acquis pour la suite du mouvement.
+
+(1) La couche protocolaire agentique est sortie du régime propriétaire : aucun des quatre protocoles retenus 
+
+ici n’est gouverné par son créateur seul. La restriction s’étend au protocole de transaction, mais par une 
+
+seconde fondation — la FIDO Alliance, qui l’a reçu le 28 avril 2026 (Vol. I Monographie §3.13.1, régime 
+
+[C] ; ch. 10 § 10.1.3). Le socle du Vol. II, lui, n’en documentait aucun transfert : absence de documentation, 
+
+et non un fait négatif vérifié — une lacune de couverture ouverte à son registre, non une propriété établie ; 
+
+les deux énoncés sont compatibles. Pour la thèse, la conséquence est une précision, non une révision : la 
+
+couche protocolaire est sortie du régime propriétaire par plusieurs fondations distinctes, organisées par axe, 
+
+non par une seule.
+
+(2) La consolidation ne s’est pas faite par coexistence polie mais par fusion réelle.
+
+(3) Les métriques publiées mesurent l’attention, non la production.
+
+Ce que ce chapitre ne dit pas mérite d’être énoncé aussi clairement. Il ne dit pas que ces protocoles sont 
+
+sûrs : la gouvernance neutre ne préjuge en rien de la robustesse d’une implémentation, et le ch. 11 expose 
+
+les surfaces d’attaque que le socle nomme — sans en dater la documentation ni en établir la mécanique. Il 
+
+ne dit pas que les protocoles agent-outil et agent-agent soient interchangeables ni concurrents : le ch. 8 § 8.6 
+
+examine la doctrine de complémentarité qui les articule, et par qui elle est déclarée. Il ne dit pas enfin que 
+
+la neutralité de la gouvernance suffise à emporter la décision d’une institution réglementée — c’est l’objet 
+
+du Livre III que d’établir tout ce qu’il faut y ajouter.
+
+La consolidation protocolaire est le point de départ du mouvement. Elle n’en est pas la conclusion.
+
+8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Livre I — Coopérer : fondements de l’interopérabilité et couche protocolaire agentique. Second mouvement — la 
+
+couche protocolaire agentique (ch. 7-11).
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 89 sur 663
+
+---
+
+## [Page 90] (`page-90.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Thèse — « MCP dans les agents, A2A entre les agents » — doctrine de complémentarité déclarée par le 
+
+projet A2A (non un accord des deux projets) qui fournit le premier critère de découpage architectural, 
+
+sans le contraindre.
+
+8.1 MCP comme couche de contrat : problème N×M, primitives, transports
+
+8.1.1 Le problème N×M et la critique du slogan
+
+Ce que le protocole agent-outil standardise n’est pas l’appel d’outil en lui-même — la façon dont un modèle 
+
+émet une invocation relève de l’ingénierie et a été traitée au ch.  4 § 4.4 — mais le contrat entre un client, 
+
+hébergé par l’hôte agentique, et un serveur, exposé par un fournisseur de capacités.
+
+Le problème traité est combinatoire et familier de l’intégration d’entreprise (ch. 1 § 1.3.1) : faire dialoguer N
+
+agents avec M outils sans standard impose N×M intégrations point-à-point ; une couche de contrat partagée 
+
+ramène ce coût à N+M. C’est exactement le geste du modèle de données canonique (ch. 1 § 1.6.1), transposé 
+
+à l’axe agent-outil — et il vaut d’être reconnu comme tel plutôt que présenté comme une nouveauté.
+
+Le slogan promotionnel d’un « port universel de l’IA » capture l’ambition, mais reste un objet de critique légitime, 
+
+et la critique est précise. Un port universel négocie électriquement ses modes ; ce protocole, lui, ne porte 
+
+pas de couche riche de négociation de capacités ni de confiance établie entre les parties. L’appariement est 
+
+conforme au transport et au schéma, non au sens : un client peut se brancher sur un serveur sans qu’aucun 
+
+mécanisme ne garantisse que l’intention de l’agent corresponde au comportement réel de l’outil.
+
+Le contrat est donc réel mais étroit : il fixe la forme de l’échange, pas son interprétation. C’est le verrou que 
+
+le ch. 9 § 9.4 prend pour objet, et la première illustration concrète de la thèse du ch. 2 — les protocoles 
+
+agentiques présupposent l’accord sémantique et ne le fournissent pas.
+
+Figure 8.1 — La réduction de N×M à N+M par une couche de contrat, et les trois choses que cette couche ne porte pas.
+
+8.1.2 Architecture et primitives, sous l’angle de la bidirectionnalité négociée
+
+L’architecture repose sur un triangle hôte / client / serveur communiquant par appels de procédure en 
+
+JSON : l’hôte instancie un client par serveur connecté, et chaque serveur expose ses capacités.
+
+L’apport propre à l’analyse d’interopérabilité tient moins à l’inventaire des primitives — outils, ressources, 
+
+gabarits d’invite, déjà décrits au ch. 4 § 4.4 — qu’à la grille de contrôle qui les distingue :
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 90 sur 663
+
+---
+
+## [Page 91] (`page-91.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Tableau 8.1 — La répartition du contrôle entre primitives : une clause du contrat, non un détail d’implémentation.
+
+Primitive Contrôlée par Ce que cela prescrit
+
+Outils le modèle c’est le modèle qui décide de les invoquer
+
+Ressources l’application l’hôte décide quel contexte injecter
+
+Gabarits d’invite l’utilisateur déclenchement explicite
+
+Cette répartition est elle-même une clause du contrat : elle prescrit qui, dans la chaîne, est autorisé à mettre 
+
+une primitive en mouvement. La lire comme un simple classement fonctionnel fait manquer ce qu’elle porte 
+
+de gouvernance.
+
+Le trait le plus distinctif au regard d’une API REST classique est l’existence de primitives client, qui 
+
+inversent le sens du dialogue :
+
+• l’échantillonnage — le serveur peut demander à l’hôte une complétion du modèle ;
+
+• la sollicitation — le serveur peut demander une information structurée manquante, en cours 
+
+d’exécution ;
+
+• les racines — l’hôte délimite le périmètre de système de fichiers accessible.
+
+Ces canaux instaurent une interopérabilité négociée et interactive, bidirectionnelle, absente du modèle 
+
+requête-réponse unidirectionnel. Le contrat n’est plus un appel et son retour, mais un échange où le serveur 
+
+peut, à son tour, interroger l’hôte.
+
+Revalidation du 30 juillet 2026 — et c'est ici que la révision 2026-07-28 mord le plus fort. La description ci￾dessus est celle de la révision 2025-11-25, et elle reste exacte pour elle. Le texte neuf, lu à sa source, retire 
+
+le mécanisme et déprécie deux des trois primitives : (1) les racines et l’échantillonnage passent à l’état 
+
+déprécié — avec la journalisation —, la spécification recommandant de leur substituer, respectivement, le 
+
+passage des répertoires par paramètres d’outil ou URI de ressource, et l’intégration directe aux interfaces des 
+
+fournisseurs de modèles ; (2) le mécanisme de requête serveur-vers-client est remplacé par le patron des 
+
+requêtes à tours multiples (Multi Round-Trip Requests, MRTR) : le serveur ne lance plus une requête à l'hôte, 
+
+il renvoie un résultat typé input_required portant ses demandes, et le client rejoue la requête d'origine en 
+
+y joignant ses réponses. Le renversement que ce paragraphe analysait n'est pas annulé — il change de forme, 
+
+et la nuance est le résultat de la revalidation. L'appelé peut toujours exiger de l'appelant une information 
+
+qu'il n'avait pas ; mais il l'exige désormais par la valeur de retour et non par un appel entrant, ce qui rétablit 
+
+un flux à sens unique au niveau du transport tout en conservant la négociation au niveau du contrat. Le 
+
+protocole de conversation subsiste ; il cesse d’être un protocole à deux appelants. La sollicitation, elle, n’est pas 
+
+dépréciée : elle passe sous MRTR, et sa notification de complétion — introduite en 2025-11-25 — est retirée.
+
+Lecture de l’auteur — c’est le premier endroit de la somme où un contrat d’interface autorise explicitement 
+
+l’appelé à solliciter l’appelant. Le ch. 1 § 1.1.3 posait le contrat comme publication de ce qu’un système offre 
+
+et exige ; ici, il devient un protocole de conversation. Le socle établit l’existence des trois primitives client 
+
+et la direction de leur appel ; il n’établit ni cette lecture, ni le caractère inédit qu’elle prête à ce renversement 
+
+dans l’histoire des contrats d’interface. Elle est proposée comme telle. Et la lecture survit à la revalidation 
+
+sous une forme bornée : ce que la révision 2026-07-28 montre, c'est qu'un renversement de sens d'appel est 
+
+une propriété coûteuse qu'un standard peut choisir de rendre à l'état de résultat typé — la bidirectionnalité était 
+
+un choix, non une nécessité de la couche agentique.
+
+8.1.3 Transports : une trajectoire du couplage vers le découplage
+
+L’histoire des transports se lit comme une décroissance progressive du couplage, et c’est l’illustration la 
+
+plus nette de l’invariant du Livre dans tout le mouvement.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 91 sur 663
+
+---
+
+## [Page 92] (`page-92.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Tableau 8.2 — La trajectoire des transports : quatre étapes, un couplage qui décroît jusqu’à l’absence d’état partagé.
+
+Étape Mécanisme Couplage résiduel
+
+Entrée-sortie standard le serveur est un sous-processus local de l’hôte fort — cycle de vie et machine partagés
+
+HTTP à deux points d’accès un point pour les requêtes, un pour le flux 
+
+d’événements
+
+déprécié dès la révision suivante
+
+HTTP diffusable à point 
+
+unique
+
+un seul point d’accès résiduel — un identifiant de session épingle 
+
+un client à une instance
+
+Cœur sans état (ratifié le 28 
+
+juill. 2026)
+
+suppression de la poignée de main, de 
+
+l’identifiant de session et de la reprise de flux
+
+aucun — serveur déployable derrière un ré￾partiteur à tourniquet
+
+Revalidation du 30 juillet 2026 : la dernière étape n’est plus une cible, elle est le contrat. Trois termes du texte 
+
+neuf, lus à sa source. (1) Les sessions de protocole et l’en-tête qui les portait disparaissent du transport 
+
+diffusable ; l’état qu’un serveur doit conserver d’un appel à l’autre passe par des poignées explicites, frappées 
+
+par le serveur et transmises comme arguments d’outil ordinaires. (2) La poignée de main d’initialisation 
+
+disparaît  : chaque requête porte désormais sa version de protocole et les capacités du client dans ses 
+
+métadonnées, et une méthode de découverte permet la sélection de version en amont. (3) Le découplage 
+
+se paie, et le prix n’était pas au tableau : la reprise de flux et la retransmission de messages sont retirées — 
+
+un flux de réponse interrompu perd la requête en vol, que le client doit réémettre sous un identifiant neuf.
+
+C’est le fait le plus instructif de la revalidation, et il corrige la lecture d’origine. Le tableau lisait la trajectoire 
+
+comme une décroissance monotone du couplage ; la révision montre que la dernière marche échange un 
+
+couplage d’infrastructure contre une obligation de réémission côté client. Le couplage ne disparaît pas davan￾tage ici qu’ailleurs : il se déplace vers l’appelant — exactement ce que le ch. 1 § 1.3 énonce, et que ce chapitre 
+
+croyait pour une fois pouvoir écarter. L’HTTP à deux points d’accès, déprécié depuis 2025-03-26, est en 
+
+outre reclassé sous la politique de cycle de vie neuve.
+
+8.1.4 Une interface d’outillage assortie d’un cadre d’autorisation
+
+Formulation imposée, tenue ici et à ses trois autres occurrences marquées (réserve F-01 du Vol. II) : ce protocole est 
+
+assorti d’un cadre d’autorisation, jamais d’un protocole « sécurisé ». La distinction n’est pas de style. Un cadre 
+
+fournit les mécanismes ; la sécurité dépend de l’implémentation qui les met en œuvre, et le ch. 11 expose 
+
+ce que le socle nomme comme risques attachés. Écrire « protocole sécurisé » attribuerait à la spécification 
+
+une propriété que seule une mise en œuvre peut porter — et c’est exactement ce que l’ouvrage s’interdit en 
+
+matière cryptographique.
+
+8.2 Jalons datés, autorisation et sémantique des résultats
+
+8.2.1 Les cinq jalons : trajectoire de maturation d’un standard
+
+La succession des révisions constitue une étude de cas de gouvernance d’un standard (ch. 1 § 1.2.2), où 
+
+chaque jalon ajoute une couche au contrat.
+
+Tableau 8.3 — Cinq jalons en moins de deux ans, et un cinquième qui n’était pas acquis au gel — il l’est depuis.
+
+Révision Date Apports majeurs pour le contrat
+
+2024-11-05 5 nov. 2024 version initiale ; primitives de base ; transports local et HTTP à deux points d’accès
+
+2025-03-26 26 mars 2025 transport diffusable à point unique ; cadre d’autorisation
+
+2025-06-18 18 juin 2025 sorties structurées ; sollicitation ; racines ; serveur qualifié serveur de ressources
+
+2025-11-25 25 nov. 2025 découverte d’identité ; schémas 2020-12 ; tâches asynchrones expérimentales
+
+2026-07-28 ratifiée le 28 juill. 
+
+2026
+
+cœur sans état — suppression des sessions de protocole et de la poignée de main ; 
+
+server/discover ; cadre d’extensions ; politique de cycle de vie et de dépréciation à 
+
+fenêtre de douze mois ; dépréciation des racines, de l’échantillonnage et de la journalisa￾tion ; dépréciation de l’enregistrement dynamique de client
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 92 sur 663
+
+---
+
+## [Page 93] (`page-93.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+REVALIDATION EXÉCUTÉE LE 30 JUILLET 2026, sur la source primaire. L’historique de la péremption se 
+
+conserve ci-dessous, au passé, parce qu’il est le seul cas du corpus où le dispositif du ch. 50 a été éprouvé par 
+
+le réel. Ce que le chapitre déclarait, et ce qui a été fait. À la rédaction — 27 juillet 2026 —, le cinquième 
+
+jalon était une révision candidate et non une révision publiée : gelée le 21 mai 2026, sa ratification était 
+
+annoncée pour le lendemain, et l’anatomie des § 8.1 et § 8.2 décrivait la révision 2025-11-25. Le 28 juillet 
+
+2026, la bascule a été constatée à la date annoncée (socle consolidé S-001), et le chapitre a écrit — c'était 
+
+le geste juste — que constater une bascule n’est pas lire le texte qui a basculé, laissant la revalidation ouverte 
+
+et non exécutée. Elle est exécutée ici : le journal des changements de la révision 2026-07-28 a été extrait à 
+
+sa source le 30 juillet 2026, et les § 8.1.2, § 8.1.3, § 8.2.1, § 8.2.2 et § 8.2.3 sont revalidés en bloc, comme la 
+
+règle l’exigeait — non par retouche d’un texte gelé, mais par confrontation de chaque énoncé au texte neuf.
+
+Ce que la revalidation change de régime, et ce qu'elle ne change pas. Les énoncés portant sur la révision 
+
+2026-07-28 résolvent désormais contre un texte lu, non contre une annonce : ils quittent le repérage pour 
+
+l'extraction. Mais le socle n'est pas modifié ici — S-001 et S-098 conservent leur état. Le versement est dû.
+
+La divergence interne à la source, elle, n'est pas rejouée et reste consignée. Le 28 juillet 2026, la page 
+
+de versionnement déclarait encore courante la révision précédente (S-098), quand la page servie sous la 
+
+révision neuve la rangeait parmi les révisions héritées tout en la nommant courante — divergence interne 
+
+à une seule page. Ce constat est daté du 28 juillet et ne se corrige pas depuis le 30 : il décrit l’état du site à sa 
+
+date, et le registre le laisse ouvert.
+
+(a) Cette révision porte des changements cassants, et non seulement des ajouts — le § 8.1.2 et le § 8.1.3 
+
+en portent désormais le détail lu. Sa ratification a périmé l’anatomie en bloc, et non par retouches : c’est 
+
+pourquoi la revalidation a porté sur cinq sous-sections d’un coup.
+
+(b) La cadence elle-même est un fait d’interopérabilité  : cinq jalons en moins de deux ans témoignent 
+
+d’un standard en maturation rapide, où la rétrocompatibilité et la dépréciation deviennent des objets de 
+
+spécification à part entière. C’est un signe de maturité — et, simultanément, un coût pour qui doit épingler 
+
+une version.
+
+Perspective recherche. La densité de révisions millésimées rejoint une critique adressée à l’écosystème : 
+
+un protocole d’interopérabilité ne vaut que par la stabilité de son contrat dans le temps, et la profusion de 
+
+spécifications versionnées par date constitue elle-même une source de fragmentation. Une grille d’analyse 
+
+sémantique situe ces gains essentiellement aux niveaux technique et syntaxique — transports, schémas, 
+
+autorisation. Le niveau sémantique reste repoussé vers la couche applicative (ch. 9 § 9.4).
+
+8.2.2 Autorisation et identité : le serveur comme serveur de ressources
+
+L’autorisation est un cas d’étagement plutôt que de réinvention : elle réutilise massivement la pile d’identité 
+
+classique posée au ch. 3 § 3.2.
+
+Une révision qualifie le serveur de serveur de ressources, en lui imposant la validation d’audience des 
+
+jetons et la découverte de ses métadonnées par des mécanismes normalisés. La validation d’audience est 
+
+ici décisive, et sa fonction mérite d’être nommée précisément : elle confine un jeton à un destinataire déclaré, 
+
+et prive ainsi de son ressort la classe d’attaque du mandataire confus — celle-là même que le ch. 3 § 3.1.1 
+
+identifiait comme défaut structurel des architectures déléguées. C’est l’un des rares endroits du mouvement 
+
+où un mécanisme protocolaire prend nommément pour cible une classe d’attaque connue ; la fermer reste 
+
+à la charge de l’implémentation.
+
+Une révision ultérieure ajoute la découverte d’identité, des documents de métadonnées de client, et le 
+
+consentement incrémental — élargir le périmètre d’accès au fil des besoins plutôt que d’exiger d’emblée 
+
+une autorisation large. C’est le moindre privilège du ch. 6 § 6.5.2, porté par le protocole plutôt que par 
+
+l’exploitant.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 93 sur 663
+
+---
+
+## [Page 94] (`page-94.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Qualification : ce que ce déplacement démontre et ne démontre pas. Il démontre que la spécification a 
+
+nommé et fermé une classe de confusion d’émetteur au niveau du contrat. Il ne démontre pas que le 
+
+parc déployé suive : une dépréciation ouvre une fenêtre de douze mois pendant laquelle les deux mécanismes 
+
+coexistent, et c’est précisément la fenêtre où une institution doit savoir lequel elle exploite.
+
+Qualification, et rappel de la réserve F-01. Ce que ce cadre démontre : qu’un jeton présenté est confiné 
+
+à l’audience déclarée, et que les métadonnées du serveur sont découvrables par un chemin normalisé. Ce 
+
+qu’il ne démontre pas : que l’implémentation valide effectivement l’audience, que le serveur est digne de 
+
+confiance, ni que l’outil invoqué se comporte comme sa description l’annonce. Cadre d’autorisation, jamais 
+
+« sécurisé ».
+
+Une réserve de statut sur le socle sous-jacent : le cadre d’autorisation de nouvelle génération sur lequel 
+
+s’appuie cette pile demeure un projet à la date d’arrêt des sources, la version antérieure restant la base 
+
+normative en vigueur. Le ch. 3 § 3.2.1 porte la même réserve, et une revérification du 27 juillet 2026 les 
+
+a instruites toutes deux : le document est toujours à l’état de projet, désormais daté, et aucune version 
+
+normative n’en est issue. La réserve n’est pas levée ; elle est datée — et c’est le seul effet qu’une instruction à 
+
+la source pouvait avoir sur un texte qui n’a pas bougé.
+
+8.2.3 Vers une sémantique des résultats : sorties structurées et tâches
+
+Revalidation du 30 juillet 2026 : la révision 2026-07-28 déplace l'enregistrement du client, et c'est un 
+
+changement d'ancrage de confiance. L'enregistrement dynamique de client (RFC 7591) est déprécié comme 
+
+mécanisme d’enregistrement, au profit des documents de métadonnées d’identifiant client (Client ID 
+
+Metadata Documents) ; il demeure disponible pour compatibilité avec les serveurs d’autorisation qui ne 
+
+les prennent pas en charge. S’y ajoutent trois durcissements : le serveur d’autorisation devrait porter le 
+
+paramètre iss de la RFC 9207 et le client doit le valider contre l’émetteur enregistré avant d’échanger le 
+
+code ; le client doit déclarer un application_type approprié à l'enregistrement, pour éviter les conflits 
+
+d'URI de redirection avec OpenID Connect ; et les identifiants de client sont liés au serveur d'autorisation 
+
+qui les a émis — ils se conservent indexés par émetteur, ne se réutilisent pas ailleurs, et un changement de 
+
+serveur impose un réenregistrement.
+
+L’effort pour donner un sens machine-vérifiable aux résultats d’outils progresse par étapes : des sorties 
+
+structurées et des liens de ressources permettent à un serveur de renvoyer non plus un bloc de texte 
+
+libre mais une charge utile typée ; une révision ultérieure adopte un dialecte de schéma normalisé pour 
+
+les décrire.
+
+S’y ajoutent les tâches asynchrones, expérimentales : un appel d’outil peut renvoyer un identifiant de tâche 
+
+— logique « appeler maintenant, récupérer plus tard » — au lieu d’un résultat immédiat. Ce mécanisme se 
+
+rapproche, sans s’y identifier, de l’exécution durable de l’intégration d’entreprise : il gère la longue durée, 
+
+mais ne fournit pas les garanties de reprise et d’idempotence d’un moteur durable. Le contrat de ces tâches 
+
+ne saurait être présenté comme stable.
+
+2026-07-28 sort les tâches du cœur du protocole et les reverse à une extension officielle ; la refonte 
+
+remplace la récupération bloquante par une interrogation périodique, ajoute une méthode d’apport 
+
+client en cours de tâche, supprime l’énumération des tâches, et autorise le serveur à renvoyer une poignée 
+
+de tâche sans opt-in préalable de la requête. Le chapitre écrivait que « le contrat de ces tâches ne saurait être 
+
+présenté comme stable » ; huit mois plus tard, il a changé de cœur et de forme. Ce n’est pas une confirmation 
+
+de la thèse du chapitre, c’est une confirmation de sa prudence — la distinction importe : avoir eu raison de 
+
+ne pas s’engager n’est pas avoir établi un fait.
+
+Et un résultat s'ajoute au corps de la section, qui n'y était pas : tous les résultats du protocole portent 
+
+désormais un champ de type obligatoire — complete pour un résultat ordinaire, input_required pour 
+
+un tour intermédiaire —, et les résultats des méthodes d'énumération et de lecture portent une durée de 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 94 sur 663
+
+---
+
+## [Page 95] (`page-95.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+fraîcheur et une portée de cache. La sémantique des résultats, que cette section décrivait comme un chantier, 
+
+a reçu sa première clause de cache.
+
+Une limite de fond demeure, et elle est la plus importante de la section : un schéma n’est pas une ontologie. 
+
+Un dialecte de schéma contraint la forme d’une sortie, non son interprétation ; il ne dit ni ce que les 
+
+valeurs signifient, ni comment elles se relient à un vocabulaire partagé. Que ce verrou n’ait pas de réponse 
+
+protocolaire relève d’une absence de documentation : le socle n’en recense aucune, ce qui n’établit pas 
+
+qu’il n’en existe pas. Le ch. 9 § 9.4 l’instruit.
+
+Revalidation du 30 juillet 2026 : la réserve ci-dessus a été validée par l’événement, et c’est le seul endroit de 
+
+la somme où cela se produit. La révision
+
+Figure 8.2 — Cinq jalons du protocole agent-outil en moins de deux ans, et ce que chacun ajoute au contrat.
+
+8.3 Conformité, registre, dépréciation et gouvernance
+
+8.3.1 Du projet d’éditeur à la fondation : l’appareil de gouvernance
+
+La maturation en standard interopérable passe par un appareil qui dépasse la spécification.
+
+Le registre officiel fournit un catalogue de serveurs reposant sur un descripteur normalisé et une vérifi￾cation de propriété d’espace de noms ; il distingue la découverte (registre) de la distribution (place de 
+
+marché) — distinction que le ch. 9 § 9.1 approfondit.
+
+Le versant conformité s’appuie sur un cadre dédié et un outil d’inspection, qui ciblent les révisions datées. 
+
+Conformément à la réserve F-01, ces outils valident qu’une implémentation respecte une révision ; ils ne 
+
+la déclarent pas sécurisée.
+
+La politique de dépréciation formelle introduite par la cinquième révision — statuts actif, déprécié, retiré, 
+
+assortis d’un préavis d’au moins douze mois entre dépréciation et retrait — constitue un mécanisme de 
+
+maturité comparable à ceux des organismes de normalisation classiques (ch. 3 § 3.4.4) : elle rend l’évolution 
+
+du contrat prévisible. C’est, de toutes les nouveautés annoncées, celle qui intéresse le plus une institution 
+
+réglementée — et celle dont le ch. 7 § 7.1.5 faisait le troisième terme de l’invariant.
+
+La bascule la plus significative reste le passage du projet d’un éditeur à une fondation neutre, en décembre 
+
+2025 (ch. 7 § 7.4) : le standard est soustrait au contrôle d’un acteur unique.
+
+8.3.2 Registres, passerelles et découverte d’entreprise — versant outillage
+
+Revalidation du 30 juillet 2026 : la politique est en vigueur, et elle s’est appliquée à elle-même dès sa ratification.
+
+Le texte neuf adopte la politique et l’exerce dans la même révision : trois primitives dépréciées, un transport 
+
+reclassé, un mécanisme d’enregistrement déprécié, et un registre des fonctions dépréciées publié comme 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 95 sur 663
+
+---
+
+## [Page 96] (`page-96.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+pièce de la spécification. C’est ce qu’une institution réglementée doit lire, et le sens n’est pas celui qu’on 
+
+attend : la première application d’une politique de dépréciation est toujours une vague, parce qu’elle solde 
+
+l’arriéré accumulé avant elle. La cadence des retraits à venir ne se déduit donc pas de celle-ci — et la fenêtre de 
+
+douze mois place le premier retrait possible après juillet 2027, soit au-delà de l’entrée en vigueur commune 
+
+du 1ᵉʳ mai 2027 que l’horloge de la somme prend pour pivot. (Livre II). Trois traitements distincts d’un même 
+
+objet, et le partage est déclaré.
+
+Cette sous-section traite le versant outillage seul. La pile protocolaire est au ch.  9 §  9.2  ; les registres 
+
+gouvernés, au versant identité et conformité, sont au ch. 15
+
+À mesure que les serveurs se multiplient, la découverte et la gouvernance deviennent des problèmes 
+
+d’ingénierie distincts. L’écosystème dépasse les dix mille serveurs publics — ordre de grandeur qui change 
+
+la nature du risque.
+
+En entreprise, une passerelle s’interpose entre les agents et les serveurs pour centraliser l’authentification, 
+
+l’autorisation à granularité fine, la journalisation et l’application de politiques — jouant le rôle qu’une 
+
+passerelle d’API tient dans l’intégration classique (ch. 1 § 1.4.3). Cette médiation est aussi une nécessité 
+
+de sécurité  : un catalogue ouvert de plusieurs milliers de serveurs constitue une surface de chaîne 
+
+d’approvisionnement de premier plan.
+
+Un serveur peut être malveillant dès l’origine ou le devenir par mise à jour silencieuse, et une description 
+
+d’outil piégée peut détourner l’agent. Ces vecteurs sont analysés au ch. 11.
+
+La découverte d’entreprise impose donc une posture de liste d’admission, d’épinglage de versions et de 
+
+revue des serveurs admis — par analogie avec la gestion d’un registre d’artefacts logiciels. Le contrat d’outil 
+
+ne suffit pas si sa provenance n’est pas garantie : l’évolution non maîtrisée d’un serveur est elle-même un risque.
+
+8.4 A2A v1.0 : la délégation entre pairs
+
+8.4.1 Du Contract Net aux patrons transposés
+
+La coordination par appel d’offres précède de plusieurs décennies l’ère des grands modèles. Le Contract Net
+
+de Reid G. Smith formalisait dès 1980 un cycle d’allocation de tâches entre nœuds d’un solveur distribué : 
+
+annonce → appel d’offres → soumissions → attribution. Ce schéma a été repris et standardisé, aux côtés 
+
+d’un langage de communication à performatifs (ch. 7 § 7.2.1).
+
+Transposé aux essaims d’agents, le patron reste pertinent : un coordonnateur peut solliciter plusieurs 
+
+agents spécialisés et retenir celui dont la réponse, le coût ou la disponibilité conviennent le mieux.
+
+Mais le constat d’état est net, et il se pose sans détour comme il se borne. À l’état 2024-2026 que la source déclare, 
+
+aucun des trois protocoles majeurs examinés ici — agent-outil, agent-agent, alternative décentralisée — ne 
+
+normalise un cycle d’enchères complet à la manière historique. La négociation y demeure soit implicite, 
+
+portée par le langage naturel dans l’invite, soit ad hoc, codée au cas par cas dans la logique applicative. Le 
+
+constat porte sur trois spécifications à une date ; il ne vaut pas pour l’ensemble des protocoles agentiques.
+
+La leçon d’adoption de la lignée historique — l’échec relatif d’un formalisme lourd (ch. 7 § 7.2.1) — pèse 
+
+manifestement sur les choix de conception actuels, qui privilégient des contrats minimaux. C’est un 
+
+arbitrage assumé, dont le § 8.6.2 mesure le prix.
+
+8.4.2 Agent Card signée, modèle de tâche et structure des messages
+
+Le protocole agent-agent constitue la référence de l’axe horizontal. Sa version 1.0 en fixe les structures 
+
+essentielles.
+
+L’auto-description repose sur l’Agent Card  : un document publié à un emplacement bien connu, 
+
+conforme à un mécanisme normalisé, qui déclare l’identité, les capacités et les modalités d’interaction de 
+
+l’agent.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 96 sur 663
+
+---
+
+## [Page 97] (`page-97.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+L’unité de travail est la tâche, objet à état traversant un cycle de vie défini — soumise, en cours, requérant 
+
+une entrée ou une authentification, puis achevée, échouée, annulée ou rejetée. Les échanges s’articulent 
+
+autour d’une hiérarchie message / partie / artefact.
+
+Trois consolidations de la version 1.0 méritent d’être relevées :
+
+1. la signature des Agent Cards, qui lie l’authenticité de la carte à son domaine d’origine ;
+
+2. la prise en charge de la multi-location ;
+
+3. la pluralité de liaisons de transport — JSON sur HTTP, appels de procédure en JSON, appels de procédure 
+
+binaires.
+
+La troisième illustre l’argument d’étagement du ch. 7 § 7.1.6 : ce protocole ne réinvente pas la couche de 
+
+transport, il réemploie la pile classique.
+
+Qualification — et la nuance porte sur ce qu’une signature établit. Une Agent Card signée démontre que 
+
+la carte a été émise par le détenteur de la clé associée au domaine déclaré, et qu’elle n’a pas été altérée. Elle 
+
+ne démontre pas que l’agent se comporte conformément aux capacités qu’il déclare, ni que le domaine est 
+
+digne de confiance. Signer une déclaration l’authentifie ; cela ne la rend pas vraie. Le ch. 16 rencontrera la 
+
+même limite sur le passeport d’agent.
+
+Lacune héritée, portée et non comblée . Quatre objets ne sont pas au socle : l’ancrage de confiance des 
+
+Agent Cards signées — c’est-à-dire à quelle autorité remonte la chaîne —, la date exacte de la v1.0, la multi￾location, et l’inventaire infonuagique du protocole agent-outil (§ 8.7). Ils sont signalés ici, encadrés, et 
+
+renvoyés au ch. 49. Les combler par une source de moindre qualité serait la faute que l’ouvrage proscrit. 
+
+Constat du 28 juillet 2026, qui ne comble rien : une revérification a relevé un matériau touchant la date de 
+
+la v1.0 sans le verser au socle. Un matériau relevé n’est pas une entrée.
+
+Mais « la date n'est pas au socle » ne se tient plus tel quel depuis que le socle consolidé existe, et l'écart 
+
+se déclare plutôt qu'il ne se lisse. S-002 continue de porter la lacune pour le périmètre du Vol. II ; S-058, 
+
+entrée du socle propre du Vol. III au niveau [B] non voté, porte la date de publication de la v1.0. Ce n’est 
+
+pas une contradiction mais une lacune de couverture : l’énoncé du Vol. II reste exact dans son périmètre. Les 
+
+deux états sont consignés, aucun n'est arbitré ici, et la lacune n'est PAS close — ses trois autres objets ne 
+
+sont pas touchés, et une date à [B] non votée ne comble pas une lacune de socle. Ce chapitre continue de 
+
+s'abstenir sur les quatre objets.
+
+Métrique auto-déclarée, attribuée : le franchissement d’un seuil de plus de 150 organisations de soutien en 
+
+avril 2026 est rapporté par la Linux Foundation, qui gère le protocole. Le socle qualifie lui-même « organi￾sation de soutien » de notion non définie, et la réserve du ch.  7 § 7.6 s’applique intégralement — soutien 
+
+n’est pas production.
+
+8.4.3 Délégation de tâches et collaboration inter-cadriciels
+
+La valeur propre de ce protocole réside dans la délégation : un agent client confie une tâche à un agent 
+
+distant — relevant d’un autre cadriciel, d’un autre fournisseur, voire d’une autre organisation — qui exécute 
+
+le travail et renvoie des artefacts.
+
+Le mécanisme franchit ainsi la frontière organisationnelle, c’est-à-dire le niveau le plus élevé de 
+
+l’interopérabilité conceptuelle (ch. 1 § 1.1.2) : deux systèmes développés indépendamment collaborent sans 
+
+intégration préalable, sur la seule base du contrat exposé par la carte et du cycle de vie de la tâche.
+
+Une caractéristique de conception mérite d’être soulignée parce qu’elle est contre-intuitive : l’opacité voulue.
+
+L’agent distant n’expose ni son raisonnement interne, ni les outils qu’il mobilise, ni son modèle sous-jacent ; 
+
+il ne présente qu’une interface de tâche et ses résultats.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 97 sur 663
+
+---
+
+## [Page 98] (`page-98.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Cette opacité est le pendant agentique du découplage : elle protège l’autonomie et la confidentialité du 
+
+fournisseur tout en garantissant la substituabilité de l’agent délégataire derrière son contrat. Elle marque 
+
+aussi la frontière avec l’axe vertical : là où un serveur d’outils expose des capacités à contrôler finement par le 
+
+client, un agent expose une capacité encapsulée à déléguer en bloc.
+
+Lecture de l’auteur — cette opacité est une force pour le découplage et une difficulté pour tout ce que le 
+
+Livre III exigera. Un exploitant tenu de démontrer devant un tiers ce qui s’est passé ne peut pas produire 
+
+l’état d’un traitement qu’il a délégué en bloc à un agent opaque. Le socle n’établit pas cette tension ; elle est 
+
+proposée comme lecture, et le ch. 29 l’instruit.
+
+Figure 8.4 — L’auto-description et l’unité de travail de l’axe horizontal : la carte, la tâche, le message.
+
+8.5 L’ACP protocolaire, l’alternative décentralisée et l’état de la standardisation
+
+8.5.1 La convergence par fusion — mécanique
+
+Partage déclaré avec le ch. 10. La mécanique de la convergence se traite ici, sur la source du Vol. I ; la 
+
+portée de risque de cette fusion se traite au ch. 10 § 10.5, sur la source du Vol. II. Ni l’un ni l’autre ne 
+
+reconstruit ce que porte son voisin.
+
+Convention de nomenclature, rappelée ici comme à chaque occurrence. L’ACP protocolaire désigne 
+
+l’Agent Communication Protocol d’un centre de recherche et de son projet ouvert, sur l’axe agent-agent — 
+
+à ne pas confondre avec l’ACP commercial, sur l’axe du commerce, traité au ch. 10 § 10.3.2. Le siège de 
+
+l’encadré des quatre branches est au ch. 7 § 7.5 ; il n’est pas reconstruit ici. Conçu au début de 2025, l’ACP 
+
+protocolaire reposait sur une approche résolument classique : une interface REST sur HTTP, des messages 
+
+multipartites, des modes synchrone et asynchrone, et une découverte fonctionnant même hors ligne.
+
+SIÈGE DE LA MÉCANIQUE DE LA FUSION POUR TOUTE LA SOMME. Elle est posée ici une seule fois ; sa 
+
+portée de risque siège au ch. 10 § 10.5. Aucun autre chapitre ne refait l'un ni l'autre — l'abstention est 
+
+contrôlée par un contrôle outillé.
+
+Sa trajectoire constitue l’enseignement central de cette sous-section. Le 29 août 2025, il a rejoint le protocole 
+
+agent-agent sous l’égide de la fondation, accompagné de guides de migration. Plutôt qu’une concurrence 
+
+prolongée entre standards homologues — qui aurait fragmenté l’écosystème et reproduit la dispersion 
+
+qu’avait connue le monde des services web —, l’industrie a opté pour une convergence par fusion.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 98 sur 663
+
+---
+
+## [Page 99] (`page-99.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Cette issue, où un protocole se fond dans un autre sous une fondation neutre, illustre un mode de 
+
+standardisation par consolidation institutionnelle. Elle conforte la proposition du ch. 7 § 7.4 : la neutralité 
+
+de gouvernance agit comme mécanisme anti-fragmentation.
+
+L’ACP protocolaire n’est pas un standard vivant. Son développement actif a cessé ; il ne subsiste qu’à travers 
+
+le protocole absorbant et des adaptateurs.
+
+8.5.2 L’alternative décentralisée
+
+Un écart de titre est assumé et déclaré. Le protocole décentralisé est traité dans ce chapitre sans être nommé 
+
+au titre — lequel reste « MCP (agent-outil) et A2A (agent-agent) ». Retoucher ce titre déplacerait un renvoi 
+
+cité en clair dans huit chapitres, et cet objet y est traité comme un tiers comparé, non comme un objet du 
+
+même rang. L’écart est déclaré, non oublié : c’est la même classe que le § 1.2 du ch. 1, couvert par l’intervalle 
+
+sans être glosé au titre.
+
+Ce protocole emprunte une voie résolument distincte  : décentralisée, pair-à-pair. Son architecture 
+
+s’organise en trois couches :
+
+• à la base, une couche d’identité fondée sur des identifiants décentralisés, déclinés dans une méthode 
+
+propre, assortie de chiffrement et d’une authentification par signatures de message ;
+
+• au sommet, une couche de protocole applicatif ;
+
+• entre les deux, l’élément le plus original : un négociateur de méta-protocole, capable de négocier 
+
+dynamiquement le protocole d’échange lui-même, à l’exécution.
+
+La sémantique des messages s’appuie sur des formats du Web sémantique (ch. 2 § 2.3.1).
+
+Cette négociation de méta-protocole constitue la réponse la plus aboutie au problème de la négociation de 
+
+capacités, en cela qu’elle relève du niveau dynamique du modèle LCIM (ch. 7 § 7.1.3) — celui où le protocole 
+
+lui-même devient objet d’accord à l’exécution.
+
+Sa maturité reste néanmoins conditionnée à celle de l’infrastructure d’identité décentralisée sous-jacente, 
+
+dont l’adoption à large échelle n’est pas attendue avant 2027 environ — projection à traiter comme telle, 
+
+non comme un fait daté.
+
+8.5.3 Comparaison et état de la standardisation
+
+L’état à la mi-2026 se laisse résumer par la confrontation de trois familles : le protocole agent-agent, stable 
+
+et largement adopté, occupe le centre de gravité de l’axe horizontal ; l’ACP protocolaire y est désormais 
+
+fusionné ; l’alternative décentralisée demeure plus expérimentale et tributaire de son socle d’identité.
+
+Au-delà des trois protocoles, plusieurs forums travaillent à coordonner l’ensemble — groupes communau￾taires de normalisation du Web, projets de spécification à l’organisme des protocoles d’Internet, initiatives 
+
+de fondation autour d’un langage de définition d’agent.
+
+Une perspective doit être maniée au conditionnel, et l’avertissement est explicite dans la source : une spécifi￾cation conjointe rapprochant formellement l’axe vertical et l’axe horizontal est attendue, et le socle n’en 
+
+recense aucun projet public à la date d’arrêt — ce qui n’établit pas qu’il n’en existe pas. Toute affirmation sur 
+
+son contenu ou son calendrier relève de la projection.
+
+8.6 La frontière : une complémentarité déclarée, et par qui
+
+8.6.1 Limites et modes d’échec de l’axe vertical
+
+Le contrat agent-outil présente des modes d’échec qui lui sont propres et tiennent à la nature lue-par-le￾modèle de ses descriptions :
+
+• l’empoisonnement d’outils — injecter des instructions malveillantes dans la description d’un outil, 
+
+ingérée par le modèle comme si elle émanait d’une source de confiance ;
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 99 sur 663
+
+---
+
+## [Page 100] (`page-100.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+• le mandataire confus et le vol de jeton — exploiter une autorisation mal confinée, ce à quoi répond 
+
+précisément la validation d’audience (§ 8.2.2) ;
+
+• l’absence de versionnement sémantique des outils — le contrat ne signale pas qu’un outil a changé de 
+
+comportement ;
+
+• une découverte pauvre, qui ne permet pas un appariement fin entre tâche et outil (ch. 9 § 9.1).
+
+Le troisième point mérite d’être souligné : c’est l’évolution, troisième terme de l’invariant, qui manque ici. 
+
+Un schéma stable peut recouvrir un comportement changé, et rien ne le signale.
+
+Deux faits datés, et une qualification contestée qu’il faut rapporter comme telle. Les parties se nomment  : 
+
+une attribution anonymisée n’est pas une attribution. La Cloud Security Alliance a fait le point sur 
+
+l’accumulation de vulnérabilités dans une note de 2026 ; une divulgation d’OX Security (avril 2026) a 
+
+estimé à environ 200 000 le nombre d’instances exposées par un comportement de transport par défaut. La 
+
+qualification de ce comportement comme « défaut de conception » demeure contestée, Anthropic le tenant 
+
+pour un choix intentionnel documenté. La somme rapporte le désaccord et ne le tranche pas — et le chiffre 
+
+demeure une estimation d’un tiers, attribuée à chaque occurrence à celui qui la produit. Que ce désaccord 
+
+n’ait pas été arbitré publiquement relève d’une absence de documentation.
+
+Et la réserve F-01 tient jusque dans la description des échecs : ce sont des risques attachés à un cadre 
+
+d’autorisation, non la démonstration qu’un protocole « sécurisé » aurait failli.
+
+8.6.2 Modes d’échec propres à l’axe horizontal
+
+La coordination agent-agent se déploie sur un spectre. À une extrémité, la négociation implicite, portée 
+
+par le langage naturel dans l’invite — elle domine la pratique, au prix d’une absence de garantie vérifiable 
+
+sur l’accord conclu. À l’autre, la négociation explicite — plus rigoureuse, peu déployée.
+
+Cette gradation détermine les modes d’échec :
+
+• un transport syntaxiquement valide n’exclut pas un désaccord sémantique sur l’intention : deux agents 
+
+peuvent « s’entendre » sur des messages bien formés tout en interprétant divergemment la tâche ;
+
+• la délégation introduit ses pathologies — boucles et interblocages lorsque des agents se renvoient 
+
+indéfiniment une tâche, ambiguïté des capacités annoncées, perte de l’engagement en cours de chaîne ;
+
+• multiplier les arêtes du graphe d’interaction élargit d’autant la surface d’attaque.
+
+Ces défaillances, irréductibles à un agent isolé, sont caractéristiques des systèmes composés, et le ch. 11 en 
+
+donne la taxonomie unifiée.
+
+Perspective recherche. Les protocoles à engagements sociaux observables (ch.  7 §  7.2.1) offrent 
+
+une réponse théorique à la non-vérifiabilité de la sémantique mentaliste, en ancrant l’accord dans des 
+
+engagements publics plutôt que dans des états mentaux supposés — pont direct vers les contrats compor￾tementaux probabilistes du ch. 7 § 7.1.5. La nécessité, pour les systèmes multi-agents, de poser des questions 
+
+de clarification plutôt que de présumer l’accord est étayée empiriquement.
+
+8.6.3 « Dans les agents, entre les agents » : une doctrine déclarée par une partie
+
+Reste la doctrine qui donne son titre au chapitre et porte sa thèse.
+
+Elle est explicite : le protocole agent-agent se déclare complémentaire du protocole agent-outil et non un 
+
+remplacement. La répartition est énoncée sans ambiguïté — l’un pour l’intégration des outils et du contexte 
+
+au niveau de l’agent individuel, l’autre pour la communication et la coordination entre agents —, et se résume 
+
+dans la formule « dans les agents, entre les agents ».
+
+Deux précisions d’attribution s’imposent, et elles sont le cœur de cette section.
+
+Première : cette doctrine est celle du projet agent-agent. Le socle la trace au site de ce protocole, dans 
+
+l’annonce de sa version 1.0. Elle n’est pas un accord conjoint publié par les deux projets, et la somme 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 100 sur 663
+
+---
+
+## [Page 101] (`page-101.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+ne dispose d’aucune source établissant que l’autre projet l’a endossée dans ces termes. Cela n’en diminue 
+
+pas la valeur — une déclaration publique de non-remplacement est un engagement que les spécifications 
+
+ultérieures pourront confirmer ou démentir — mais cela en fixe le statut : une position déclarée par une 
+
+partie, non un traité entre deux parties.
+
+Seconde : la formule « de nombreux systèmes utilisent les deux » n’est pas une métrique. Elle n’est ni 
+
+chiffrée, ni datée, ni définie, et elle émane du même projet. Elle établit que la combinaison est prévue et 
+
+revendiquée par les mainteneurs ; elle n’établit aucun volume de déploiement. Le lecteur reconnaîtra ici la 
+
+réserve centrale du ch. 7 § 7.6 — le soutien déclaré ne vaut pas déploiement — dans une variante plus discrète, 
+
+et pour cela plus insidieuse.
+
+Précision de régime, datée du 28 juillet 2026, et elle porte sur la forme de la trace, non sur son fond. 
+
+L’instruction à la source primaire confirme la doctrine et échoue à retrouver le verbatim que le socle citait, 
+
+à une adresse qui ne résout plus (S-013). Le fond est attesté, la citation littérale ne l’est pas — ce chapitre 
+
+rend donc la doctrine en français et ne reproduit ce verbatim nulle part. À ne pas confondre avec la formule 
+
+« dans les agents, entre les agents », que la thèse et le titre de cette section portent bien entre guillemets : 
+
+c'est le rendu français du positionnement, porté comme tel par le socle (S-002), non le verbatim demeuré 
+
+introuvable.
+
+Ces réserves posées, reste à dire ce que la doctrine vaut. Lecture de l’auteur — sa valeur n’est pas descriptive 
+
+mais prescriptive. Elle fournit un critère de découpage — l’accès aux outils d’un côté, la délégation entre 
+
+agents de l’autre —, et un critère de découpage est ce dont manque cruellement une organisation qui débute. 
+
+Le socle établit la doctrine et son attribution ; il n’établit ni cette valeur prescriptive, ni le besoin qu’elle 
+
+prétend combler.
+
+Mais un critère n’est pas une contrainte, et c’est le troisième terme de la thèse. Rien, dans les protocoles 
+
+eux-mêmes tels que le socle les documente, n’empêche une équipe de faire transiter par des appels d’outils 
+
+ce qui est en réalité une délégation entre agents, ou l’inverse. La frontière entre les deux axes est une décision 
+
+d’architecture que l’organisation doit prendre, documenter et défendre — elle n’est pas donnée par la technique.
+
+Et la frontière est floue en pratique — constat de la source, arrêté à juin 2026, non une opinion : les tâches 
+
+asynchrones de l’axe vertical (§  8.2.3) empiètent sur le terrain de la délégation de l’axe horizontal — 
+
+recouvrement postérieur aux revues d’interopérabilité de l’écosystème, qui ne pouvaient donc pas en tenir 
+
+compte. Mieux vaut retenir un critère de choix pragmatique qu’une frontière nette : l’axe vertical lorsqu’on 
+
+consomme une capacité bien délimitée sous le contrôle de l’hôte ; l’axe horizontal lorsqu’on délègue une tâche 
+
+à un acteur opaque et autonome.
+
+Il serait enfin malhonnête de laisser croire que cette doctrine est le seul découpage disponible. Le socle 
+
+en documente au moins deux autres : une feuille de route séquentielle antérieure, dont le ch. 7 § 7.3 a 
+
+montré que la deuxième étape est devenue obsolète comme prescription ; et le positionnement d’une couche 
+
+d’infrastructure articulant l’espace par les couches plutôt que par les axes, que le ch. 10 § 10.2 examine. Que 
+
+ces découpages soient moins commodes ou datés est défendable ; qu’ils n’existent pas ne l’est pas.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 101 sur 663
+
+---
+
+## [Page 102] (`page-102.png`)
+
+Compendium 8 · Anatomie : MCP (agent-outil) et A2A (agent-agent)
+
+Figure 8.6 — « Dans les agents, entre les agents » : la répartition déclarée des deux axes.
+
+8.7 Les intégrations infonuagiques : lire le statut, pas la présence
+
+Un protocole ouvert ne vaut, pour une institution, que par les plateformes qui l’implémentent. Sur ce point, 
+
+le socle documente l’axe horizontal avec précision — et il faut d’abord relever une asymétrie : cette précision 
+
+ne porte que sur lui.
+
+L’état documenté au printemps 2026 est le suivant. Chez un premier fournisseur, le protocole est intégré 
+
+à une plateforme d’atelier en préversion, et à un produit d’assistant en disponibilité générale depuis 
+
+avril 2026. Chez un deuxième, l’intégration est portée par un environnement d’exécution d’agents. Chez le 
+
+troisième, elle est d’origine, le protocole y étant né.
+
+Ces statuts sont documentés par des sources d'avril 2026, et l'instruction du 28 juillet 2026 ne les a rouverts 
+
+qu'à moitié (socle consolidé S-003). Les deux statuts du premier fournisseur tiennent : la plateforme d'atelier 
+
+porte toujours sa mention de préversion, le produit d'assistant n'en porte aucune. Le volet du deuxième 
+
+fournisseur n'a pas été consulté. Une confirmation partielle n’est pas une confirmation — l’inventaire reste 
+
+borné à ce qui a été rouvert, et le reste demeure à la date de sa source.
+
+Cet inventaire dit deux choses.
+
+La première : les trois grands fournisseurs d’infonuagique public implémentent le protocole, et les trois 
+
+siègent au comité de pilotage technique (ch. 7 § 7.4.1). Lecture de l’auteur — le socle établit les intégrations 
+
+et la composition du comité ; la convergence qu’on y lit, et son caractère peu commun dans un marché 
+
+disputé, est une inférence d’architecture, non un fait documenté.
+
+La seconde est plus utile encore à qui prépare un dossier : les statuts diffèrent, et c’est la différence qui 
+
+compte. Une préversion et une disponibilité générale n’engagent pas le fournisseur au même degré. 
+
+Lecture de l’auteur — le socle établit les statuts, pas ce qu’ils emportent : la somme ne documente ni les 
+
+garanties de service attachées à chaque statut, ni leur réception par une seconde ligne de défense. Ce qui 
+
+en découle tient en une consigne : l’architecte prudent lit le statut avant de lire la marque.
+
+Il faut enfin nommer une limite de ce chapitre plutôt que la laisser se combler par le silence. Le socle fournit 
+
+cet inventaire pour l’axe horizontal ; il ne fournit pas d’inventaire équivalent, plateforme par plateforme 
+
+et statut par statut, pour l’axe vertical. Ce qu’il documente de ce dernier se trouve du côté des cadriciels 
+
+d’orchestration, et relève du ch. 23.
+
+L’absence d’un inventaire infonuagique de l’axe vertical dans le socle n’établit pas l’absence d’un tel 
+
+support : elle établit que la somme ne peut pas en dresser la carte. C’est une absence de documentation
+
+— degré 3, qui n’autorise aucune conclusion. La distinction est celle entre ce qui n’existe pas et ce qui n’a pas 
+
+été vérifié ; la somme s’astreint à ne jamais la franchir.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 102 sur 663
+
+---
+
+## [Page 103] (`page-103.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+9 · Découverte, registres, portabilité et pile protocolaire
+
+Livre I — Coopérer : fondements de l’interopérabilité et couche protocolaire agentique. Second mouvement — la 
+
+couche protocolaire agentique (ch. 7-11).
+
+Thèse — la découverte et le nommage des agents, et la portabilité inter-modèles/inter-cadriciels, sont les 
+
+propriétés que l’étagement de la pile protocolaire rend possibles — ou trahit.
+
+9.1 Découverte, registres et nommage des agents et des outils
+
+Versant protocolaire seul. Le Vol. I Monographie §3.4 est partagé déclaré avec le ch. 15 (Livre II), qui en 
+
+prend le versant identité et conformité — les registres gouvernés. Ce qui suit est un pont, pas une reprise : 
+
+le ch. 15 ne reconstruira pas ce chapitre, et ce chapitre ne préempte pas le sien.
+
+La pile décrite jusqu’ici suppose résolu un problème qu’elle ne traite pourtant pas de front : avant qu’un 
+
+agent puisse appeler un outil ou déléguer une tâche, il doit d’abord savoir que cet outil ou ce pair existe, 
+
+juger qu’il convient à la tâche du moment, puis obtenir une adresse pour l’atteindre.
+
+La proposition organisatrice de cette section mérite d’être posée d’emblée, parce qu’elle contredit une lecture 
+
+naturelle. La vraie nouveauté agentique ne tient pas à la découverte prise isolément — l’intégration 
+
+d’entreprise la pratique depuis longtemps (ch. 1 § 1.4.3) — mais au couplage indissociable de la découverte, 
+
+de l’identité et de la confiance. Trouver un agent ne sert à rien si l’on ne peut établir qui il est ni se fier à ce 
+
+qu’il prétend offrir. Ce triptyque reformule l’invariant du Livre à l’échelle d’un réseau ouvert d’acteurs auto￾descriptifs.
+
+9.1.1 La leçon d’UDDI : une récurrence en trois temps
+
+L’écosystème agentique rejoue un cycle déjà observé, et le ch. 1 § 1.3.1 en avait posé le premier temps.
+
+Au début des années 2000, l’architecture des services web reposait sur trois piliers que le ch. 1 § 1.3.1 nomme 
+
+un à un : une enveloppe de messagerie, un langage de description d’interfaces, et un annuaire universel et 
+
+public — l’UDDI — chargé de recenser les services. Cet annuaire a échoué relativement, et le diagnostic est 
+
+précis : trop ambitieux dans sa portée mondiale, il supposait une découverte au temps de conception — un 
+
+développeur consulte le registre, choisit un service, code l’intégration — là où le besoin réel d’appariement 
+
+à l’exécution restait marginal. Les grands annuaires publics ont fermé.
+
+La leçon n’est pas que les registres sont inutiles, et c’est le contresens le plus fréquent. Elle est que la curation 
+
+et la fédération l’emportent sur le tout-dynamique et la centralisation. Deuxième temps : le pendule est 
+
+revenu, par les registres d’API d’entreprise, vers des catalogues gouvernés et de portée maîtrisée.
+
+Troisième temps — le passage aux registres d’agents prolonge cette récurrence, et les premières 
+
+taxonomies des solutions — centralisées, d’entreprise, distribuées — retrouvent le même arbitrage. Deux 
+
+propositions en découlent et structurent la suite :
+
+1. la découverte sous curation surpasse le tout-dynamique ;
+
+2. la fédération surpasse la centralisation.
+
+L’enjeu agentique n’est donc pas de réinventer l’annuaire, mais d’éviter de répéter l’erreur d’UDDI tout en 
+
+ajoutant ce que les services web n’avaient pas : un appariement sémantique à l’exécution et une couche de 
+
+confiance native.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 103 sur 663
+
+---
+
+## [Page 104] (`page-104.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+Que ces deux propositions vaillent au-delà du cas historique dont elles sont tirées n’est pas établi : elles 
+
+sont inférées d’une récurrence observée, non démontrées. C’est une absence de documentation sur leur 
+
+généralité.
+
+9.1.2 Trois moments qu’il ne faut pas confondre
+
+La découverte agentique se décompose en trois moments distincts :
+
+Tableau 9.1 — Les trois moments de la découverte agentique, que le monde des services web réduisait à un seul.
+
+Moment Question Nature
+
+Découverte qui existe ? énumérer les agents et outils accessibles dans un périmètre
+
+Sélection qui convient à cette tâche ? choisir parmi les candidats celui dont les capacités répondent à 
+
+l’intention
+
+Résolution où et comment l’atteindre ? obtenir adresse, transport et paramètres de connexion
+
+Dans le monde des services web, ces trois moments se réduisaient pour l’essentiel à une recherche d’adresse 
+
+exacte au temps de conception.
+
+La spécificité agentique tient à ce que les capacités sont décrites en langage naturel assorti de schémas, et que la 
+
+sélection devient un appariement sémantique — non une résolution exacte. Un agent client formule un besoin 
+
+en intention, pas en signature de méthode ; le système doit donc rapprocher une description de tâche d’une 
+
+description de capacité — opération intrinsèquement probabiliste et lue par le modèle à l’inférence.
+
+Ce déplacement explique pourquoi le deuxième moment concentre la difficulté : il recoupe directement 
+
+l’interopérabilité sémantique du § 9.4, et ne peut, en l’état des protocoles, s’appuyer sur aucune garantie 
+
+déterministe d’adéquation.
+
+9.1.3 Auto-description et catalogues fédérés
+
+Le premier moment s’appuie sur des artefacts d’auto-description publiés par chaque acteur et agrégés 
+
+en catalogues fédérés.
+
+Côté agent-agent, la carte d’agent est exposée à un emplacement bien connu, de sorte que tout client 
+
+peut récupérer la description d’un agent à partir de son seul domaine (ch. 8 § 8.4.2). Côté schématisation des 
+
+capacités, un cadre de schéma ouvert propose un format normalisé pour décrire ce qu’un agent sait faire. 
+
+Côté agent-outil, un registre fournit un catalogue assorti d’une interface décrite formellement, selon un 
+
+modèle fédéré plutôt que centralisé, un nommage en domaine inversé, et plusieurs voies de vérification de 
+
+propriété.
+
+Mise en œuvre. Distinguer un registre d’une place de marché est opérationnel, non rhétorique. Le registre 
+
+sert la découverte technique — résoudre un nom vers une description et une adresse vérifiables ; la 
+
+place de marché sert la distribution commerciale — vitrine, monétisation, curation éditoriale (§ 9.1.5). Et 
+
+un catalogue est lui-même un contrat, soumis à versionnement et dépréciation comme les protocoles qu’il 
+
+indexe : l’invariant du Livre s’applique au registre autant qu’à l’outil qu’il décrit.
+
+9.1.4 Annuaires, services de noms et registres d’identité
+
+Au-delà du catalogue, une couche d’annuaires et de services de noms vise à résoudre un identifiant stable
+
+d’agent vers une identité vérifiable et une adresse courante — fonction analogue à celle du système de 
+
+noms de domaine, mais adossée à une preuve cryptographique.
+
+Trois familles d’initiatives coexistent : un annuaire fédéré centré sur les capacités, à adressage par contenu, 
+
+signature de provenance et distribution par table de hachage ; un service de noms proposant une résolution 
+
+analogue au système de noms de domaine doublée d’une infrastructure à clés publiques, dont une seconde 
+
+version est ancrée au domaine ; et un groupe communautaire de normalisation cherchant à coordonner les 
+
+efforts épars autour d’attestations vérifiables liant un agent à son organisation.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 104 sur 663
+
+---
+
+## [Page 105] (`page-105.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+Perspective recherche. Le verrou conceptuel commun à ces initiatives est de distinguer trois objets que le 
+
+système de noms de domaine confond : l’identifiant stable — qui désigne durablement l’agent —, l’adresse
+
+— où le joindre, mutable — et la capacité — ce qu’il sait faire, versionnée. Des travaux poussent cette 
+
+séparation jusqu’à une couche de faits attestés au-delà du système de noms, tandis que des explorations 
+
+natives testent l’hypothèse inverse : réutiliser l’infrastructure existante. Un service de noms n’est fiable que 
+
+si l’identité résolue est elle-même attestée — et c’est le ch. 15 qui en traite le versant gouverné.
+
+9.1.5 Places de marché, gouvernance et modes d’échec des registres
+
+Par-dessus la couche technique se greffe une couche commerciale, où coexistent jardins clos propriétaires 
+
+et standards ouverts. Cette couche pose des exigences que la simple résolution n’impose pas : vérification 
+
+de propriété, signatures et provenance, mécanismes de révocation.
+
+Or l’introduction d’un registre crée des modes d’échec qui lui sont propres, distincts de ceux d’un agent isolé :
+
+• une carte d’agent ou une description d’outil peut mentir sur ses capacités réelles ;
+
+• le nommage ouvre la porte au typosquattage et à l’appropriation d’espaces de noms ;
+
+• le registre lui-même peut être empoisonné, et la résolution diriger un client vers un imposteur ;
+
+• la dépendance à un registre central recrée le point unique de défaillance que l’échec d’UDDI illustrait au 
+
+§ 9.1.1 — et que la fédération vise précisément à éviter.
+
+Mise en œuvre. La parade tient à l’attestation à chaque étage plutôt qu’à la confiance dans un opérateur 
+
+unique : provenance cryptographique et adressage par contenu contre la carte mensongère et le squattage ; 
+
+révocation coordonnée et signature des descriptions contre la résolution vers un imposteur. Qualification : 
+
+une signature de provenance démontre qu’un artefact provient de la clé déclarée et n’a pas été altéré ; elle 
+
+ne démontre pas que la description est exacte, ni que l’outil se comporte comme elle l’annonce. Signer une 
+
+carte mensongère produit une carte mensongère authentifiée.
+
+La gouvernance d’une place de marché — curation, examen, retrait — relève de l’interopérabilité organisa￾tionnelle, non du seul protocole : c’est un contrat de confiance entre opérateur, fournisseur et consommateur.
+
+Figure 9.1 — Les trois moments de la découverte agentique, que le monde des services web réduisait à un seul.
+
+9.2 La pile de protocoles agentiques et son étagement
+
+9.2.1 Pourquoi une « pile » : du protocole isolé au modèle en couches
+
+L’écosystème n’a pas émergé comme un protocole unique mais comme une famille de spécifications 
+
+apparues en moins de deux ans.
+
+L’observation structurante est que ces spécifications n’occupent pas le même emplacement fonctionnel  : le 
+
+protocole agent-outil régit le contrat vertical, le protocole agent-agent le contrat horizontal, les protocoles 
+
+de règlement la couche économique. Elles s’étagent davantage qu’elles ne se concurrencent.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 105 sur 663
+
+---
+
+## [Page 106] (`page-106.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+Cette lecture doit toutefois être nuancée par un fait établi au ch. 8 § 8.6.3 : la frontière entre les deux axes 
+
+principaux reste floue, les tâches asynchrones de l’un empiétant sur le terrain de la délégation de l’autre.
+
+Deux registres se distinguent, et les confondre est la faute de cette section. La pile descriptive, de facto, 
+
+retenue ici parce qu’elle décrit ce que les architectes assemblent effectivement ; et les propositions norma￾tives, qui prétendent prescrire un ordonnancement strict des couches. C’est la première qui structure 
+
+la suite.
+
+Parmi les spécifications de cette famille figure l’ACP protocolaire, dont le ch. 8 § 8.5.1 a établi qu’il a 
+
+fusionné et n’est pas un standard vivant. Il figure à la généalogie de la pile, jamais à son état courant — et 
+
+son sigle, comme les trois autres branches de la collision, n’est jamais employé nu (siège de l’encadré au 
+
+ch. 7 § 7.5).
+
+9.2.2 L’analogie en couches et ses limites
+
+La métaphore d’une pile en couches s’est imposée comme outil pédagogique, et plusieurs travaux la forma￾lisent en modèles explicites.
+
+Le décompte de couches diffère d’une proposition à l’autre, ce qui suffit à signaler qu’aucune n’a été adoptée 
+
+comme référence : ces modèles restent des contributions académiques concurrentes, et les citer comme 
+
+un cadre canonique serait une faute de statut.
+
+L’analogie capture utilement l’idée d’emplacements fonctionnels distincts et d’encapsulation, mais 
+
+elle masque trois traits propres au domaine :
+
+1. la négociation dynamique de capacités à l’exécution n’a pas d’équivalent dans le modèle d’origine, où 
+
+les couches sont fixées à la conception — l’alternative décentralisée du ch. 8 § 8.5.2 en fait pourtant une 
+
+primitive ;
+
+2. les dépendances inter-couches ne sont pas strictes — un agent peut combiner les deux axes sans 
+
+hiérarchie imposée ;
+
+3. le contenu transporté n’est pas un format binaire mais des intentions sémantiques, dont l’interprétation 
+
+déborde toute couche de transport.
+
+Perspective recherche. Ces propositions illustrent une tension méthodologique : transposer un modèle 
+
+conçu pour des canaux déterministes à des acteurs probabilistes et auto-descriptifs. La grille d’analyse en 
+
+trois plans de Yuan et coll. (2026) — celle que mobilise le § 9.4.1 — suggère pourquoi aucune ne fait consensus : 
+
+une pile en couches modélise bien le transport et la syntaxe, mais le niveau sémantique-pragmatique résiste 
+
+à la stratification, car l’alignement d’intentions traverse l’ensemble de la pile plutôt que d’y occuper une couche.
+
+9.2.3 Les couches transversales : positionnement par renvoi
+
+Cette sous-section ne réintroduit aucun protocole déjà traité ; elle se borne à les positionner les uns par 
+
+rapport aux autres. C’est un choix délibéré contre le catalogue redondant, et il est conforme à la doctrine 
+
+de la somme : une notion posée une fois se cite, elle ne se répète pas.
+
+Quatre strates fonctionnelles structurent la pile descriptive :
+
+Tableau 9.2 — Quatre strates, dont une seule n’est pas empilable.
+
+Strate Ce qu’elle couvre Où elle est traitée
+
+Transport et session trajectoire vers le découplage, liaisons multiples ch. 8 § 8.1.3
+
+Découverte et capacités trouver, sélectionner, résoudre § 9.1
+
+Sémantique et orchestration l’écart entre accord de protocole et compréhension § 9.4
+
+Identité et confiance transversale — ne s’empile pas, traverse tout ch. 3, Livre II
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 106 sur 663
+
+---
+
+## [Page 107] (`page-107.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+La strate d’identité est résolument transversale, et ce fait est décisif : elle ne s’empile pas au-dessus des 
+
+autres mais les traverse toutes, puisque chaque arête du graphe d’interaction — appel d’outil, délégation de 
+
+tâche, traversée de frontière organisationnelle — requiert authentification, autorisation et provenance. Ce 
+
+caractère non stratifiable de l’identité est précisément l’une des limites de l’analogie relevée au § 9.2.2 — et la 
+
+raison pour laquelle le Livre II est un livre entier plutôt qu’une couche.
+
+9.2.4 Composition : des protocoles simultanés, non alternatifs
+
+Le point décisif, souvent mécompris lorsqu’on présente ces protocoles comme rivaux, est qu’ils sont simultanés 
+
+et non alternatifs.
+
+Un scénario de référence le rend tangible. Un agent assistant traitant une demande utilisateur invoque, dans 
+
+une même session : le protocole agent-outil pour accéder à ses outils et ressources ; le protocole agent￾agent pour déléguer un sous-objectif à un agent spécialisé d’un autre fournisseur ; une couche d’interface
+
+pour solliciter une validation ou un complément d’information de l’humain ; puis, si la tâche aboutit à un 
+
+achat, une couche de règlement pour autoriser et exécuter le paiement (ch. 10).
+
+La configuration de référence observable en production à juin 2026, gel de la source, combine d’abord 
+
+les deux axes principaux : c’est le socle minimal d’un système agentique interopérable franchissant les 
+
+frontières de cadriciel et d’organisation. Les couches agent-humain et règlement s’ajoutent selon le besoin 
+
+applicatif.
+
+Cet emboîtement matérialise l’invariant : chaque couche est un contrat distinct, ce qui découple les 
+
+préoccupations — un changement de moyen de paiement n’affecte pas le contrat agent-outil — et permet une 
+
+évolution indépendante des strates.
+
+Le flou entre les deux axes principaux rappelle toutefois que l’emboîtement n’est pas étanche : la composition 
+
+réelle relève d’un choix d’ingénierie, non d’une prescription protocolaire.
+
+9.2.5 Matrice de maturité et de décision
+
+Mise en œuvre. Ce tableau est un instantané daté, et c’est sa valeur comme sa limite. Repris du Vol. I 
+
+Monographie §3.7.5, à l’état de juin 2026, il croise, pour chacun des protocoles retenus, l’axe couvert, le 
+
+statut de maturité, la gouvernance et la recommandation d’usage. Les statuts reprennent strictement les 
+
+qualifications des sections amont : ce qui est marqué candidat ou expérimental ne doit pas être déployé comme 
+
+acquis. Sept lignes ici pour les neuf de la source, et l’écart tient à DEUX REGROUPEMENTS, non à un 
+
+retrait : la couche commerciale y tient une ligne pour deux spécifications — son développement est au ch. 10 
+
+—, et la couche agent-humain une ligne pour deux également, d’où sa gouvernance à deux termes ; cette 
+
+dernière retient le statut le plus prudent des deux, l’une des spécifications réunies étant expérimentale et 
+
+l’autre seulement émergente. Aucune ligne de la source n’est omise ; deux paires sont réunies.
+
+Tableau 9.3 — Matrice de maturité et de décision, à juin 2026, gel du Vol. I. Instantané, non classement durable.
+
+Protocole Axe Statut Gouvernance Usage recommandé
+
+Agent-outil vertical production ; révision 
+
+stable, candidate à 
+
+venir
+
+fondation dédiée socle pour exposer outils et res￾sources ; adopter la révision 
+
+datée stable, traiter le cœur 
+
+sans état comme cible
+
+Agent-agent horizontal production ; version 
+
+1.0 stable, écosys￾tème large
+
+fondation faîtière standard de fait pour la déléga￾tion ; combiner avec le précé￾dent
+
+Décentralisé horizontal + identi￾té
+
+émergent ; condi￾tionné à la matu￾rité de son socle 
+
+d’identité
+
+communauté et 
+
+groupe de normali￾sation
+
+topologies pair-à-pair et négo￾ciation de méta-protocole ; ho￾rizon ≈ 2027
+
+Règlement (mandat) économique émergent ; version 
+
+préliminaire
+
+fondation distincte 
+
+du reste de la pile
+
+couche de mandat vérifiable ; 
+
+suivre la trajectoire (ch. 10)
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 107 sur 663
+
+---
+
+## [Page 108] (`page-108.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+Protocole Axe Statut Gouvernance Usage recommandé
+
+Règlement (machine￾natif)
+
+économique émergent à traction 
+
+réelle
+
+fondation dédiée micropaiements ; la plus forte 
+
+traction de production de sa 
+
+couche
+
+Commerce (paiement) commercial émergent ; spécifica￾tion mouvante
+
+consortium 
+
+d’éditeurs
+
+achat agentique ; à suivre par 
+
+révision datée
+
+Interface agent-hu￾main
+
+agent-humain expérimental fondation dédiée / 
+
+communauté
+
+validation et interfaces riches ; 
+
+hors production critique
+
+Métrique auto-déclarée, attribuée : le jalon d’adoption du protocole agent-agent — plus de 150 organisations 
+
+de soutien, au 9 avril 2026 — est rapporté par la Linux Foundation, qui gère le protocole ; la réserve du ch. 7 
+
+§ 7.6 s’applique — soutien n’est pas production.
+
+La logique de décision se résume ainsi. Pour un système interopérable de production, les deux axes 
+
+principaux constituent le socle minimal ; la couche agent-humain s’ajoute dès qu’un point de validation ou 
+
+une interface riche est requis ; la couche de règlement n’intervient que pour les cas commerciaux et reste 
+
+le segment le moins stabilisé, avec une gouvernance distincte du reste de la pile. Les protocoles marqués 
+
+émergents appellent une veille active plutôt qu’un engagement architectural irréversible.
+
+Figure 9.2 — La pile protocolaire agentique : quatre strates, dont une seule ne s’empile pas.
+
+9.3 Portabilité inter-modèles et inter-cadriciels
+
+La portabilité est une dimension d’interopérabilité distincte de celles examinées jusqu’ici. Là où les 
+
+sections précédentes traitent de la capacité de systèmes hétérogènes à dialoguer, celle-ci traite de la capacité 
+
+d’une application à changer de modèle sous-jacent ou de cadriciel d’exécution sans réécriture — c’est-à-dire 
+
+de la lutte contre la dépendance captive.
+
+9.3.1 Le standard de fait et le paradoxe du verrouillage inverse
+
+L’interface Chat Completions d’OpenAI — le point d'extrémité /v1/chat/completions et le schéma de 
+
+message qu'il impose — s'est imposée comme norme de fait, sans qu'aucun organisme de normalisation ne 
+
+l'ait spécifiée. Sa diffusion procède de l'adoption en masse plutôt que d'un processus délibératif : les serveurs 
+
+d'inférence ouverts et les passerelles tierces l'émulent précisément parce qu'elle est le format que la plupart 
+
+des outils savent déjà parler.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 108 sur 663
+
+---
+
+## [Page 109] (`page-109.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+Le nommer est une condition de la démonstration qui suit, et non un détail d’exposition. Le paradoxe du 
+
+verrouillage inverse porte sur une grammaire d’échange identifiable, gouvernée par un éditeur nommé ; énoncé 
+
+sur un standard anonyme, il serait invérifiable — une démonstration sans témoin. Et le fait est daté : l’énoncé 
+
+décrit l’état du 30 juillet 2026, où cette interface est encore le pivot d’émulation de l’écosystème, alors même 
+
+que son éditeur en pousse la relève (§ 9.3.2).
+
+On retrouve ici la distinction classique entre standard de fait et standard de droit — la conformité n’est pas 
+
+certifiée mais constatée à l’usage. Le ch. 15 § 15.2.3 en est le domicile dans la somme, et le ch. 3 § 3.4.4
+
+en tient l’autre versant : la certification tierce, qui convertit une compatibilité espérée en compatibilité 
+
+attestée. Ce chapitre y renvoie et ne les reconstruit pas.
+
+Le paradoxe propre à ce cas tient à un double mouvement de couplage, et il mérite d’être suivi pas à pas. 
+
+D’un côté, l’interface découple l’application du fournisseur : un client écrit pour elle peut, en principe, 
+
+pointer vers un autre fournisseur compatible sans modifier son code. De l’autre, cette même portabilité 
+
+instaure un verrouillage inverse — non plus à un fournisseur mais à un schéma : l’écosystème entier se 
+
+conforme à la forme de ce contrat, et toute capacité qui s’en écarte devient, par construction, non portable.
+
+Le découplage à l’égard du fournisseur se paie donc d’un couplage à l’égard d’une grammaire d’échange que 
+
+personne ne gouverne formellement et dont l’évolution échappe à tout contrat public. Le ch.  1 § 1.3 le posait 
+
+déjà, sur les architectures d’intégration : le couplage ne disparaît pas, il se déplace.
+
+9.3.2 Fragmentation des formats et passerelles de médiation
+
+Mise en œuvre. Trois familles de contrats coexistent, et il faut les nommer pour que l’arbitrage soit repro￾ductible. Chat Completions (OpenAI) est la plus portable et sans état : c’est le format que les passerelles 
+
+émulent. La Responses API du même éditeur unifie derrière une interface unique des primitives agentiques 
+
+et un état serveur ; elle remplace l’Assistants API, dont OpenAI a annoncé la dépréciation le 26 août 
+
+2025 et fixé le retrait au 26 août 2026 (survenu à cette date) — soit moins d’un mois après la date d’arrêt de 
+
+cet ouvrage. Cette échéance n’est PAS au tableau 50.1, et l’écart se déclare plutôt qu’il ne se comble : le tableau 
+
+porte onze événements, cardinal contrôlé et cité à trois endroits de la somme, et y ajouter une rangée depuis 
+
+un chapitre du Livre I n’est pas le geste à faire. Question ouverte : un retrait d’interface daté, public et situé 
+
+à vingt-sept jours de la date d’arrêt satisfait-il le critère du PROGRAMMÉ du § 49.0 ? RÉPONDU OUI, et la 
+
+rangée est inscrite — 2 septembre 2026. Le critère est celui du ch. 49 § 49.0, siège du tri, et il n’est pas repris 
+
+ici : une date de retrait annoncée par le responsable de l’objet, publiquement, un an à l’avance, y satisfait 
+
+sans réserve. Le tableau 50.1 porte donc quatorze événements et non onze, et celui-ci est le seul dont la date 
+
+soit PASSÉE au moment où on l’inscrit. La proximité à la date d’arrêt n’était pas le critère : elle rendait l’objet 
+
+urgent, elle ne le rendait pas éligible ; c’est la nature de l’engagement qui le rend éligible. Chez Anthropic, 
+
+l’API Messages est le format sans état de référence, souvent émulé lui aussi. La fragmentation n’est pas 
+
+tant dans le tronc commun que dans les capacités avancées — appel d’outils, sorties structurées, gestion 
+
+d’état serveur — qui divergent d’un fournisseur à l’autre et brisent la substituabilité.
+
+La réponse de l’industrie est une couche d’adaptation qui normalise ces formats derrière une interface 
+
+unique : bibliothèques et mandataires traduisant plus d’une centaine d’interfaces, plans de contrôle multi￾fournisseurs, routage et repli.
+
+Ces passerelles instancient des patrons déjà catalogués au ch. 1 : le traducteur de message, le modèle de 
+
+données canonique, la passerelle d’API (ch. 1 § 1.6.1 et § 1.4.3). Le domaine agentique réemploie ici son propre 
+
+passé sans toujours le savoir.
+
+La limite est structurelle et non conjoncturelle : la médiation converge vers le plus petit dénominateur 
+
+commun, c’est-à-dire les fonctions que tous les fournisseurs partagent. Les capacités propres à un modèle 
+
+restent inaccessibles ou doivent être traversées par des extensions non portables — rouvrant la dépendance 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 109 sur 663
+
+---
+
+## [Page 110] (`page-110.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+que la passerelle prétendait fermer. C’est exactement le piège du modèle canonique que le ch.  1 §  1.6.1 
+
+décrivait : un pivot négligé dégénère en dénominateur appauvri.
+
+9.3.3 Interopérabilité des cadriciels par protocoles partagés
+
+L’interopérabilité entre cadriciels d’orchestration ne s’obtient pas, à juin 2026, par une norme d’agent unique 
+
+qui les coifferait tous, mais par l’adoption commune de protocoles transversaux. C’est un constat d’état daté, 
+
+non une impossibilité de principe — et il vaut d’être opposé à l’intuition inverse.
+
+Dès lors qu’un cadriciel parle ces protocoles, il devient capable de consommer les outils et de déléguer les 
+
+tâches d’un autre, indépendamment de son modèle interne d’agent. La couverture demeure inégale : certains 
+
+environnements annoncent une prise en charge native des deux axes, d’autres les couvrent à des degrés 
+
+variables.
+
+La conséquence d’architecture est nette et conforme à l’invariant  : le cadriciel devient un détail 
+
+d’implémentation derrière un contrat protocolaire stable.
+
+Perspective recherche. Cette convergence par protocoles partagés plutôt que par standard d’agent unique 
+
+répond à un besoin qu’une prise de position érige en programme : l’interopérabilité inter-écosystèmes
+
+reste un chantier ouvert que l’adoption de protocoles communs amorce sans le clore. Des propositions de 
+
+couche d’échange neutre entre agents hétérogènes explorent le même principe de découplage par médiation.
+
+9.3.4 Portabilité de la configuration et de la définition d’agent
+
+La portabilité du contrat d’invocation ne suffit pas : encore faut-il pouvoir transporter la définition d’un agent
+
+— ses instructions, ses conventions de projet, sa configuration.
+
+Un manifeste en texte structuré, indépendant de l’outil, propose à cet effet un format dont l’adoption inter￾environnements en a fait une convention largement reprise — c’est celui que le ch. 5 § 5.1.4 décrivait comme 
+
+mémoire procédurale et spécification d’agent à la fois. D’autres approches visent une définition de plus haut 
+
+niveau, neutre vis-à-vis du modèle.
+
+La portabilité des invites, en revanche, demeure fragile : une invite optimisée pour un modèle se dégrade 
+
+lors d’un transfert vers un autre — effondrement de format, perte de structure —, problème que des travaux 
+
+de transfert inter-modèles tentent de circonscrire.
+
+Et ce qui manque est plus profond que ce qui existe. Il n’existe pas de format d’agent portable et neutre 
+
+comparable à ce que les notations de processus ont été pour les processus métier (ch.  1 §  1.6.2), ni de 
+
+portabilité de l’état et de l’exécution durable, l’un comme l’autre restant liés à l’environnement d’origine.
+
+La définition voyage ; l’exécution, elle, reste captive. Que ce format n’existe pas relève d’une absence de 
+
+documentation : le socle n’en recense aucun, ce qui n’établit pas qu’aucune initiative n’y travaille.
+
+9.3.5 Neutralité par fondation : un mécanisme anti-fragmentation, et ses deux limites
+
+Le dernier levier contre la fragmentation est organisationnel plutôt que technique. Une fondation dédiée 
+
+offre un foyer neutre où des artefacts d’origines concurrentes sont placés sous gouvernance commune, 
+
+transposant à l’agentique le rôle qu’ont joué les organismes de normalisation pour l’interopérabilité clas￾sique (ch. 3 § 3.4.4) : neutraliser l’incitation d’un acteur dominant à verrouiller l’écosystème à son avantage.
+
+Deux nuances s’imposent, et elles sont le contrepoids de cette section.
+
+Première : le modèle n’est pas monolithique. La couche de paiement et d’identité commerciale ne converge 
+
+pas vers la même fondation que le reste de la pile, mais vers une fondation d’authentification (ch. 10 § 10.1). 
+
+La pluralité des fondations neutres est une donnée structurelle, non un accident de transition.
+
+Seconde, et surtout : la neutralité de gouvernance n’équivaut pas à l’interopérabilité technique acquise. 
+
+Qu’un standard soit hébergé par une fondation indépendante garantit la maîtrise partagée de son évolution 
+
+— non que deux implémentations conformes se comprendront effectivement. C’est exactement la distinction 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 110 sur 663
+
+---
+
+## [Page 111] (`page-111.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+que le § 9.5 reprend, et elle est le pendant, au plan institutionnel, de la restriction que porte la thèse du ch. 7 
+
+— condition nécessaire et non suffisante : la fondation règle le problème de la propriété du contrat ; elle ne 
+
+dispense pas d’en éprouver l’exécution.
+
+9.4 Interopérabilité sémantique des agents : de l’accord de protocole à la compréhension
+
+Les sections précédentes ont montré que les protocoles stabilisent rapidement le transport et la syntaxe, 
+
+mais laissent ouverte la question décisive : deux agents qui échangent des messages valides partagent-ils la 
+
+même interprétation de ce qu’ils s’échangent ?
+
+C’est ici que se referme la thèse du ch. 2, reprise par copie : « l’interopérabilité sémantique — accord sur 
+
+le sens, pas seulement sur le format — est le niveau que les protocoles agentiques présupposent et que 
+
+peu savent établir ». Et c’est ici que s’en mesure le prix. La forme est celle du ch. 2, reprise sans retrait — 
+
+l’apposition qui borne la notion en fait partie : « peu savent établir » affirme moins que « ne fournissent 
+
+pas », et c’est la forme bornée qui prime.
+
+9.4.1 L’écart entre accord de protocole et compréhension
+
+Un agent peut respecter scrupuleusement un protocole — émettre des messages bien formés, honorer le cycle de 
+
+vie des tâches, signer sa carte — sans interpréter de la même manière que son interlocuteur l’intention véhiculée.
+
+L’accord sur le protocole garantit que les octets transitent et se décodent ; il ne garantit pas que le sens transite.
+
+La grille d’analyse à trois plans de Yuan et coll. (2026) — communication, syntaxique, sémantique —, appli￾quée à dix-huit protocoles, établit ce diagnostic : les protocoles dominants atteignent une bonne maturité 
+
+aux plans de la communication et de la syntaxe, mais demeurent pauvres en mécanismes de clarification, 
+
+d’alignement et de vérification du sens, lesquels sont repoussés vers la couche applicative.
+
+Ce diagnostic recoupe la filiation du ch. 7 § 7.2.1 : le problème n’est pas neuf, il ressurgit sous une forme 
+
+déplacée. Le socle théorique de la compréhension partagée est ancien et robuste — principe coopératif 
+
+et maximes conversationnelles, terrain commun construit par étapes successives, théorie de la pertinence 
+
+posant que l’interprétation mobilise des inférences contextuelles au-delà du contenu littéral.
+
+Ces cadres rappellent que comprendre n’est jamais purement syntaxique : c’est inférer une intention en contexte, 
+
+ce qu’aucune poignée de main protocolaire ne réalise à elle seule.
+
+9.4.2 La sémantique lue par le modèle et l’écart description/comportement
+
+Dans la pile agentique, la description d’un outil est, pour l’essentiel, du texte libre en langage naturel, lu par 
+
+le modèle à l’inférence pour décider s’il convoque cet outil et avec quels arguments.
+
+Cette sémantique lue par le modèle se distingue radicalement de celle d’un contrat d’API (ch. 1 § 1.4.2) : le 
+
+schéma type formellement la forme des paramètres et de la sortie, mais c’est la prose descriptive — non 
+
+vérifiable et non contraignante — qui porte le sens de l’opération et son effet réel.
+
+Il en résulte un écart de sémantique entre ce que la description annonce et ce que le code exécute 
+
+effectivement : rien n’oblige le comportement à se conformer à la promesse textuelle. Les sorties structurées et 
+
+les schémas plus expressifs (ch. 8 § 8.2.3) resserrent la garantie sur la forme des résultats, mais ne comblent 
+
+pas l’écart sur le sens de l’action.
+
+Les implications sont doubles, et la seconde est la plus grave :
+
+1. un défaut de description bénin produit un mauvais choix d’outil — le modèle convoque la mauvaise 
+
+capacité parce que la prose ne reflète pas le comportement ;
+
+2. cette surface est exploitable : une description peut être rédigée pour induire le modèle en erreur — 
+
+empoisonnement de description, traité au ch. 11.
+
+La description devient ainsi à la fois le contrat d’interopérabilité de l’outil et son point de vulnérabilité.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 111 sur 663
+
+---
+
+## [Page 112] (`page-112.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+9.4.3 Ontologies de capacités et ancrage
+
+Pour dépasser la prose libre, deux familles de solutions s’opposent — et le ch. 2 § 2.3 en a posé le socle pré￾agentique.
+
+La première, symbolique et formelle, hérite des langages d’agents et des ontologies lourdes : expressives 
+
+et vérifiables, mais rigides et coûteuses à maintenir, et dont l’échec d’adoption a marqué la lignée histo￾rique. La seconde s’en remet à des descriptions légères en langage naturel : souples, sans garantie de sens 
+
+partagé.
+
+Une convergence par l’ontologie est venue rééquilibrer ce compromis : des cadres structurant agents, 
+
+compétences, intentions, contextes, politiques et résultats  ; un effort de standardisation d’une couche 
+
+sémantique partagée entre analytique et IA ; un cadre de schéma relié à la découverte (§ 9.1.3). L’ancrage
+
+consiste alors à associer une intention exprimée à des classes explicites et à produire une spécification de 
+
+tâche vérifiable par machine — pont vers les contrats comportementaux du ch. 7 § 7.1.5.
+
+Le compromis demeure structurant, et aucune des deux voies ne le dissout : plus la spécification est expressive 
+
+et vérifiable, plus elle est coûteuse à produire et fragile à l’évolution ; plus elle est légère, moins elle garantit 
+
+l’accord de sens.
+
+Mise en œuvre. Recommandation d’architecture : réserver l’ancrage ontologique formel aux capacités 
+
+critiques et inter-organisationnelles, où le coût de spécification se justifie, et tolérer les descriptions en 
+
+langage naturel pour les outils internes à faible enjeu. Une gradation de l’effort, cohérente avec la matrice 
+
+du § 9.2.5.
+
+9.4.4 Le modèle comme couche de médiation sémantique : une prise de position
+
+Une voie alternative au modèle canonique formel du ch. 2 consiste à confier la réconciliation sémantique 
+
+au modèle de langage lui-même  : plutôt que de définir a priori un schéma pivot, demander au modèle 
+
+d’apparier dynamiquement deux vocabulaires.
+
+Ses avantages sont réels : flexibilité, tolérance aux désalignements de surface, absence de modèle canonique 
+
+à maintenir. Ses risques le sont tout autant, et ils sont de nature différente : hallucination d’alignement — 
+
+le modèle « invente » une correspondance plausible mais fausse —, non-déterminisme de la médiation, 
+
+et dette technique déplacée du schéma vers les invites, plus difficile à versionner et à auditer.
+
+La prise de position que défend le Vol. I Monographie §3.5.4 est la suivante — et elle se reprend ici comme une 
+
+position, jamais comme un fait : la médiation par modèle complète, mais ne remplace pas, l’interopérabilité 
+
+sémantique formelle. La souplesse probabiliste traite les cas que la spécification formelle n’avait pas anticipés ; 
+
+la spécification formelle, en retour, contraint et vérifie les propositions du modèle.
+
+Cette synthèse neuro-symbolique — un raisonnement contraint par l’ontologie — est argumentée par 
+
+Tuan et Sanyal (2026), dans une architecture où le raisonnement neuronal opère sous la contrainte d’une 
+
+ontologie de domaine. C’est cette articulation, et non l’un ou l’autre pôle isolé, qui répond au verrou tout en 
+
+préservant le découplage : la couche formelle stabilise le contrat, la couche neuronale absorbe l’évolution.
+
+Qualification, et rappel du ch. 2 § 2.4.1 : un appariement produit par modèle démontre une plausibilité 
+
+lexicale ; il ne démontre pas une équivalence sémantique. Que la fiabilité de ces appariements n’ait pas de 
+
+mesure établie hors bancs dédiés relève d’une absence de documentation.
+
+Perspective recherche. Le débat oppose deux régimes de garantie : la médiation purement neuronale 
+
+maximise le rappel au prix de la précision vérifiable ; l’architecture contrainte par l’ontologie borne l’espace 
+
+des alignements admissibles. La question ouverte est celle de la mesure : comment évaluer la fidélité d’un 
+
+appariement autrement que sur des bancs dédiés, et comment propager une garantie de correction à travers 
+
+une chaîne de délégations probabilistes ? Le ch. 49 la reprend.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 112 sur 663
+
+---
+
+## [Page 113] (`page-113.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+9.4.5 Modes d’échec d’origine sémantique
+
+Les dispositifs précédents délimitent en creux une famille d’échecs propres au plan sémantique, distincts 
+
+des défaillances de transport ou de syntaxe :
+
+• le faux accord sémantique — deux agents convergent syntaxiquement sur une intention qu’ils inter￾prètent différemment. La poignée de main réussit, le protocole valide les messages, et l’échec se manifeste 
+
+en aval, dans le résultat de la tâche — jamais au point d’échange ;
+
+• la dérive de vocabulaire entre versions — une capacité change de sens d’une révision à l’autre sans que 
+
+le contrat formel le signale, brisant le troisième terme de l’invariant ;
+
+• la description trompeuse ou empoisonnée — prolongement direct du § 9.4.2, pont vers le ch. 11 ;
+
+• l’absence de vérification de postconditions — rien ne contrôle, après l’exécution, que l’effet obtenu corres￾pond à l’intention initiale.
+
+Ces modes ont une signature commune, et c’est elle qui les rend difficiles à outiller : l’erreur transite en langage 
+
+naturel, échappe donc aux contrôles de schéma, et se propage le long des chaînes de délégation. Le ch. 11 en 
+
+donne la taxonomie unifiée.
+
+9.5 Test de conformité et certification des protocoles
+
+9.5.1 Définir « interopérable » de façon mesurable
+
+Le ch. 3 § 3.4.3 a posé la distinction : la conformité atteste qu’une implémentation respecte une spécifica￾tion ; l’interopérabilité atteste que deux implémentations échangent et utilisent effectivement ce qu’elles 
+
+s’échangent.
+
+La couche agentique hérite de cette distinction mais en aggrave la portée, parce que les acteurs y sont non 
+
+déterministes : le succès d’un échange ne se réduit plus à la validité d’un message, il s’évalue à la réussite 
+
+d’une tâche déléguée.
+
+Définir « interopérable » de façon opérationnelle suppose donc de le mesurer par des indicateurs propres 
+
+au régime agentique : taux de réussite de la tâche déléguée et fidélité du transfert d’intention d’un agent à 
+
+l’autre — et non le seul succès de la poignée de main.
+
+Le Vol. I Monographie §3.12.1 en dégage une pyramide d’évaluation à trois étages :
+
+Tableau 9.4 — La pyramide d’évaluation de l’interopérabilité agentique : trois étages, aucun ne subsumant le suivant.
+
+Étage Ce qu’il mesure Nature
+
+Conformité protocolaire un message est-il valide ? une transition d’état légale ? déterministe et automatisable
+
+Interopérabilité entre implé￾mentations
+
+deux implémentations distinctes du même protocole se 
+
+comprennent-elles ?
+
+déterministe, plus coûteux
+
+Bancs de tâches inter-agents la collaboration produit-elle le résultat attendu ? intrinsèquement non détermi￾niste
+
+Chaque étage couvre une fraction du problème sans subsumer le suivant  : franchir la poignée de main 
+
+n’implique pas l’accord sémantique sur l’intention.
+
+9.5.2 Suites de conformité et test de la négociation
+
+L’écosystème a produit un outillage de conformité dédié, qui cible explicitement les révisions datées — 
+
+organisation des vérifications par domaines, validation d’implémentations sur les différents transports, 
+
+outils d’inspection visuelle. Côté agent-agent, une trousse de compatibilité couvre les liaisons de transport 
+
+et filtre les exigences selon leur force normative, et la validation de carte devient un point de contrôle propre 
+
+depuis l’introduction des cartes signées.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 113 sur 663
+
+---
+
+## [Page 114] (`page-114.png`)
+
+Compendium 9 · Découverte, registres, portabilité et pile protocolaire
+
+Rappel de la réserve portée par F-01 du Vol. II — nommer le volume n’est pas un ornement : le socle du Vol. III 
+
+porte un homonyme, qui traite de signature de carte, matière voisine de celle-ci. Ces outils attestent qu’une 
+
+implémentation respecte une révision datée. Ils ne la déclarent pas sécurisée, et le ch. 11 traite ce qui leur 
+
+échappe.
+
+Le test le plus spécifique à l’interopérabilité agentique porte sur la négociation — de version et de capacités 
+
+—, où il s’agit de vérifier la rétrocompatibilité et la dégradation gracieuse lorsque deux pairs n’annoncent 
+
+pas le même jeu de fonctionnalités.
+
+Cet enjeu devient crucial avec le cœur sans état et le cadre d’extensions de la révision candidate du ch. 8 
+
+§ 8.2.1 : un client doit pouvoir interagir avec un serveur ignorant une extension sans rompre l’échange.
+
+S’y ajoutent les tests aller-retour, qui éprouvent la fidélité de traduction d’un message lorsqu’il franchit 
+
+la frontière entre deux écosystèmes — première mesure concrète, quoique partielle, de la fidélité de transfert 
+
+d’intention posée au § 9.5.1.
+
+9.5.3 Bancs inter-agents et vers une certification
+
+Au sommet de la pyramide, les bancs inter-agents évaluent, en régime non déterministe, la collaboration 
+
+entre agents issus de fournisseurs différents — par opposition aux bancs mono-agent du ch. 6 § 6.3. Les 
+
+métriques pertinentes y sont propres à l’interopérabilité : taux de réussite de la tâche déléguée, fidélité 
+
+du transfert d’intention, et surcoût de coordination — latence, jetons et messages consommés par la 
+
+négociation.
+
+Des travaux balisent ce terrain, mais aucun banc standardisé véritablement inter-fournisseurs ne s’impose à 
+
+juin 2026, gel de la source. C’est une absence de documentation, et non un fait négatif vérifié : le socle 
+
+n’en recense aucun.
+
+La certification est plus embryonnaire encore. L’attestation par un tiers indépendant — qui validerait 
+
+qu’une implémentation est non seulement conforme mais interopérable au sens mesurable du § 9.5.1 — 
+
+n’existe qu’à l’état d’amorce, l’outillage de conformité en fournissant tout au plus le premier étage.
+
+La trajectoire plausible reprend le patron des modèles de maturité du ch. 1 § 1.2.2 : une échelle graduée 
+
+allant de la simple conformité protocolaire jusqu’à l’interopérabilité sémantique et pragmatique vérifiée, qui 
+
+permettrait de situer une implémentation sur un continuum plutôt que de la déclarer binairement conforme. 
+
+Une telle échelle reste à construire — et le ch. 1 § 1.2.2 avait précisément identifié les limites des modèles à 
+
+paliers qu’elle devrait éviter de reproduire.
+
+Ce chapitre ne traite pas la propagation du contexte de trace à travers la frontière protocolaire. C’est le seul 
+
+fait d’observabilité véritablement propre à l’interopérabilité, et il part en entier au ch. 38 — seule affectation 
+
+de cette matière. Le socle pré-agentique du traçage distribué est au ch. 3 § 3.4.5.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 114 sur 663
+
+---
+

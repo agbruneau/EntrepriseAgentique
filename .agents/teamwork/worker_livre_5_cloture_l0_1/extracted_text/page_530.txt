@@ -1,0 +1,142 @@
+## [Page 530] (`page-530.png`)
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+Tableau 47.2 — Les cinq documents d’une relève pour les nomenclatures et la signature d’artefacts, relevés à leur source le 26 juillet 
+
+2026. Aucun n’entre au socle — ce chapitre n’en a pas : ce sont des candidates à instruire, jamais des faits acquis. Les organismes 
+
+publiants sont nommés, et ils ne sont pas anonymisables : une instruction dont le corpus ne porte pas l’identifiant de ses sources 
+
+n’a pas de critère de clôture exécutable, et la parade de péremption qui vaut pour une dénomination commerciale ne vaut pas pour 
+
+l’éditeur d’une spécification.
+
+Document relevé Ce que la relève porte Réserve portée par la relève elle-même
+
+in-toto Attestation Framework
+
+(spécification v1)
+
+cadre d’attestation du projet 
+
+in-toto, hébergé par la CNCF
+
+le niveau de maturité CNCF du projet n’est pas porté par 
+
+la page relevée
+
+obre 2025 par l’OWASP et 
+
+Ecma International, normalisée 
+
+ECMA-424 le 10 décembre 2025 ; 
+
+précision relevée le 30 juillet 
+
+2026 : c’en est la 2ᵉ édition, la 1ʳᵉ
+
+ayant normalisé CycloneDX 1.6
+
+en juin 2024
+
+fait à distinguer d’un format d’éditeur : c’est une nomen￾clature devenue norme d’organisme. Et l’édition compte : 
+
+une norme d’organisme qui en est à sa deuxième édition 
+
+en dix-huit mois se cite avec son édition, faute de quoi 
+
+« ECMA-424 » désigne deux textes
+
+ée sous la Fondation Linux, or￾ganisée en deux pistes — Build
+
+et Source ; approuvée le 24 no￾vembre 2025, précédée de deux 
+
+candidates (20 juin et 10 no￾vembre 2025) n candidate depuis 
+
+janvier
+
+2026) ; le projet se déclare 
+
+norme internationale ISO/IEC 
+
+5962:2021
+
+Réserve LEVÉE le 30 juillet 2026 sur le journal du projet, lu 
+
+à sa source : la page de spécification porte le statut sans la 
+
+date, l’annonce porte la date — l’énumération des niveaux, 
+
+elle, reste non relevée Réserve LEVÉE le 30 juillet CONTRE 
+
+l’énoncé du projet. La norme s’intitule Information techno￾logy — SPDX® Specification V2.2.1 : ISO/IEC 5962:2021 
+
+fixe SPDX 2.2.1, non 3.x. Le projet est fondé à se dire 
+
+normalisé et il ne l’est pas dans la version qu’il sert — 
+
+c’est exactement l’écart que la réserve pressentait, et la 
+
+prudence du relevé était justifiée
+
+NIST SP 800-218A Secure Software Development 
+
+Practices for Generative AI and 
+
+Dual-Use Foundation Models: 
+
+An SSDF Community Profile, 
+
+finale, 26 juillet 2024 ; profil 
+
+communautaire du SSDF v1.1, 
+
+adressé aux producteurs de 
+
+modèles, aux producteurs de 
+
+systèmes qui les emploient et 
+
+à leurs acquéreurs
+
+profil, non norme imposant conformité
+
+2026, et elle se résout
+
+Trois choses que cette table ne dit pas, et qu’aucune lecture ne doit lui prêter. (1) Elle ne dit pas ce que 
+
+chacune de ces spécifications prescrit : le contenu normatif n’a pas été ouvert, et une notice de page n’est 
+
+pas un texte. (2) Elle ne dit pas qu’elles soient adoptées par quiconque : aucune métrique d’adoption n’a été 
+
+relevée, et une métrique auto-déclarée devrait de toute façon être attribuée à sa source à chaque occurrence. 
+
+(3) Elle ne dit pas qu’elles s’appliquent à un agent : quatre des cinq portent sur le logiciel en général, la 
+
+cinquième sur le développement de modèles, et aucune ne nomme l’objet composé du § 47.1. Le socle ne 
+
+documente aucune nomenclature dont le périmètre déclaré couvre les cinq composants du tableau 47.1 — 
+
+degré 3, et il ne s’ensuit pas qu’il n’en existe pas.
+
+La distinction que la relève établit, en revanche, et qui a une portée d’architecture. Une nomenclature 
+
+devenue norme d’organisme — CycloneDX 1.7 par ECMA-424 — et un format d’éditeur n’ont pas le même 
+
+régime d’évolution  : la première a un forum, un cycle et une procédure de révision  ; le second a un 
+
+propriétaire. C’est exactement le critère que le ch. 49 § 49.3 applique aux forums de gouvernance, et le 
+
+§ 47.10 y revient au grain du déploiement. Ce que la relève n’établit pas : que la normalisation confère 
+
+l’interopérabilité. Qualifier un mécanisme par ce que sa spécification démontre, jamais par ce qu’un statut de 
+
+norme laisse attendre — et rien de ce qui a été relevé ne démontre que deux outils lisant CycloneDX 1.7 
+
+produisent le même inventaire d’un même agent.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 530 sur 663
+
+---
+

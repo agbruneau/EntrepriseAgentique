@@ -1,0 +1,98 @@
+## [Page 561] (`page-561.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+sa forme d’origine est une loi d’humour d’ingénierie — ce qui n’en fait pas une prédiction fausse, mais interdit de 
+
+la citer comme une régularité établie.* Le régime qu’elle décrit — agent hors session, déclenché par événement, 
+
+sollicitant l’humain sur ses propres canaux — touche aussi les ch. 37, 39 et 40, et il relève de la couche d’exécution.
+
+Ce chapitre n’en est pas un, et la relève reste donc portée ici sans être consommée : la somme n’a aucun chapitre 
+
+de la couche d’exécution, et la thèse citée demeure un repérage [C] non extrait. par le projeté et le spéculatif. Le 
+
+second mouvement de ce chapitre dit ce que la somme ne sait pas ; le ch. 50 dit quand elle cessera d’être 
+
+actuelle.
+
+49.12 Les lacunes résiduelles du socle unifié
+
+Ce que ce chapitre dit ici, aucun autre ne le dit : ce que la somme n’établit pas. C’est le chapitre qu’un 
+
+auteur ayant quelque chose à vendre ne pourrait pas écrire de bonne foi — et un registre de lacunes n’est 
+
+pas un aveu de faiblesse, c’est un instrument de travail : l’architecte qui construit sur les conclusions de 
+
+la somme a besoin de savoir lesquelles reposent sur un vote à trois juges, lesquelles sur une extraction de 
+
+source primaire, lesquelles sur un repérage que nul n’a confirmé.
+
+Trois avertissements précèdent tout registre, et le premier dit ce que la thèse de ce mouvement enregistre 
+
+exactement.
+
+(2) La distinction qui gouverne tout ce mouvement, reprise du Vol. II Monographie §21.1. Le socle ne 
+
+documente pas X signifie qu’aucune source du corpus n’atteste X : c’est une absence de documentation
+
+— degré 3 —, non un fait négatif vérifié. La formule « fait négatif vérifié » est réservée aux cas où le socle 
+
+établit l’absence par un balayage documenté. Confondre les deux régimes transforme une ignorance en constat, 
+
+et c’est la faute que ce chapitre a pour fonction d’empêcher. (3) Le registre est hérité, pas soldé. Chaque 
+
+volume donne l’état de ses lacunes à son gel ; certaines étaient déjà « réduites » sans être fermées. Aucune 
+
+ne se déclare close ici sans source primaire nouvelle datée, et le simple fait de figurer dans une table ne vaut 
+
+ni instruction ni clôture.
+
+(1) La thèse parle des « lacunes des trois socles sources », et ce registre est cela — pas autre chose. Ce n’est 
+
+pas un registre du socle consolidé : une lacune du socle consolidé serait un trou dans un objet refondu ; celles￾ci sont des trous hérités, dont la refonte n’a pas décidé du sort. Depuis le 28 juillet 2026, l’Annexe B existe
+
+et compte 159 entrées. Le réexamen du 2 septembre 2026 a conclu que cette condition ne commandait rien : 
+
+l'existence de l'Annexe B n'arbitre aucune lacune, et le socle consolidé — « constitué, non arbitré », sans registre 
+
+de lacunes propre — n'en porte aucune qui lui soit imputable. La thèse garde donc sa forme, définitivement. 
+
+Le rapprochement qui restait dû est fait le 29 octobre 2026 : aucune entrée de l'Annexe B ne porte l'identifiant 
+
+d'une lacune, et seule la lacune §10.9e a une entrée qui l'instruit (S-090, ch. 50) ; les autres lignes restent sans 
+
+identifiant S-nnn, ce qui est l'état même d'une lacune.
+
+49.12.1 Les onze lacunes du Vol. II, reprises une à une par leur identifiant
+
+Le Vol. II recense onze lacunes ouvertes à sa date de gel, et son ch. 21 le dit en toutes lettres. Le cardinal 
+
+appartient au Vol. II, qui fait autorité sur le socle et les lacunes : la §10.11 a été ouverte le 17 juillet 2026, à 
+
+l’occasion de la construction d’une frise chronologique. Un format de restitution nouveau — frise, matrice, 
+
+tableau — est un révélateur de ce que la prose absorbe en silence, et c’est ainsi que cette onzième est apparue.
+
+Tableau 49.1 — Les onze lacunes du Vol. II, reprises par identifiant, avec leur chapitre porteur dans la somme et leur état au 27 juillet 
+
+2026. Aucune n’est silencieusement omise ; les états repris sont ceux du registre des lacunes, non une ré-instruction conduite ici.
+
+Lacune Objet Chapitre(s) por￾teur(s)
+
+État repris
+
+§10.1 Désignation de l’organisme de normalisation tech￾nique du cadre bancaire — fait négatif vérifié au 16 
+
+juillet 2026, aucun arrêté
+
+ch. 30 (instruit), 
+
+ch. 32
+
+ouverte — attend un acte réglemen￾taire
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 561 sur 663
+
+---
+

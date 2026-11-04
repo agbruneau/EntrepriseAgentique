@@ -1,0 +1,440 @@
+[846] (p.638): [846] (p.638): SEC (2023). SEC Charges Investment Adviser Betterment for Misstatements Concerning Tax Loss Harvesting Service. Press Release 2023-80, 18.4.2023 (pénalité 9 M$ ; ordre IA-6288). https://www.sec.gov/newsroom/ press-​releases/2023-​80 — cf. §5.3, §5.4, §5.10
+
+[847] (p.638): [847] (p.638): SEC (2025). Notice of Withdrawal of Proposed Regulatory Actions (retrait de propositions, dont S7-12-23 Predictive Data Analytics). Release No.  33-11377 (12.6.2025)  ; publié au FR 17.6.2025 (doc 2025-11110). https://www.federalregister.gov/documents/2025/06/17/2025-​11110/withdrawal-​of-​ proposed-​regulatory-​actions — cf. §5.3, §5.10
+
+[848] (p.638): [848] (p.638): Service Mesh Interface (servicemeshinterface/smi-spec) / CNCF (2020). Service Mesh Interface (SMI) Specification (projet Sandbox, archivé en 2023). https://github.com/servicemeshinterface/smi-​spec.
+
+[849] (p.638): [849] (p.638): ServiceNow (avec Oxford Economics) (2025). Enterprise AI Maturity Index 2025 (~4 500 dirigeants, 16 pays ; score moyen 44→35 ; Pacesetters 18,2 %). https://www.servicenow.com/standard/resource-​center/ white-​paper/wp-​enterprise-​ai-​maturity-​index-​2025.html.
+
+[850] (p.638): [850] (p.638): ServiceNow, Inc.  (2025). New Agentic AI Innovations (AI Agent Orchestrator «  control tower  », AI Agent Studio). Communiqué 29 janv. 2025 ; clients mars 2025. https://newsroom.servicenow.com/press-​ releases/details/2025/ServiceNow-​announces-​new-​agentic-​AI-​innovations-​to-​autonomously-​solve-​the-​ most-​complex-​enterprise-​challenges-​01-​29-​2025-​traffic/default.aspx.
+
+[851] (p.638): [851] (p.638): ServiceNow, Inc. (2025). ServiceNow AI Governance (inventaire et flux de gouvernance d’entreprise pour agents et modèles ; produit AI Control Tower). https://www.servicenow.com/products/ai-​control-​tower. html. (cf. §4.8.3)
+
+[852] (p.638): [852] (p.638): Shao, Y., Zope, H., Jiang, Y., et al.  (2025). Future of Work with AI Agents: Auditing Automation and Augmentation Potential across the U.S. Workforce. Stanford SALT Lab. arXiv:2506.06576.
+
+[853] (p.638): [853] (p.638): Shao, Z.; Wang, P.; Zhu, Q.; Xu, R.; Song, J.; et al. (DeepSeek-AI) (2024). DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models. arXiv:2402.03300 (introduit GRPO).
+
+[854] (p.638): [854] (p.638): Sharma, Rishi  ; de Vos, Martijn  ; Chari, Pradyumna  ; Raskar, Ramesh  ; Kermarrec, Anne-Marie (2025). Collaborative Agentic AI Needs Interoperability Across Ecosystems (position paper, EPFL/MIT). arXiv:2505.21550.
+
+[855] (p.638): [855] (p.638): Sheth, A. P. (1999). Changing Focus on Interoperability in Information Systems: From System, Syntax, Structure to Semantics. Dans Interoperating Geographic Information Systems (dir. M. Goodchild et al.), Springer (Kluwer), p. 5-29. DOI 10.1007/978-​1-​4615-​5189-​8_2.
+
+[856] (p.638): [856] (p.638): Sheth, A. P.; Larson, J. A. (1990). Federated Database Systems for Managing Distributed, Heterogeneous, and Autonomous Databases. ACM Computing Surveys, vol. 22, no 3, p. 183-236. DOI 10.1145/96602.96604.
+
+[857] (p.638): [857] (p.638): Shift Technology (2025). Shift Technology Launches AI Claims Platform — Shift Claims, powered by agentic AI (fraud assessment, triage, automation). 16.9.2025 ; PRNewswire 302557099. https://www.shift-​ technology.com/resources/press/shift-​technology-​launches-​ai-​claims-​platform — cf. §5.5, §5.8, §5.12.2
+
+[858] (p.638): [858] (p.638): Shift Technology (2026). Agentic AI is the future, and the future is now (insurance fraud / claims agentic AI report). 21.4.2026. https://www.shift-​technology.com/resources/reports-​and-​insights/agentic-​ ai-​is-​the-​future-​and-​the-​future-​is-​now — cf. §5.5, §5.8
+
+[859] (p.638): [859] (p.638): Shinn, N.; Cassano, F.; Berman, E.; Gopinath, A.; Narasimhan, K.; Yao, S. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. arXiv:2303.11366 (NeurIPS 2023).
+
+[860] (p.638): [860] (p.638): Shoham, Y.; Leyton-Brown, K. (2009). Multiagent Systems: Algorithmic, Game-Theoretic, and Logical Foundations. Cambridge University Press. ISBN 9780521899437.
+
+[861] (p.638): [861] (p.638): Shu, R., Das, N., Yuan, M., Sunkara, M. & Zhang, Y. (2024). Towards Effective GenAI Multi-Agent Collabo￾ration: Design and Evaluation for Enterprise Applications. Amazon Science, arXiv:2412.05449. ---
+
+[862] (p.639): [862] (p.639): Siemens AG et NVIDIA (2025). Siemens and NVIDIA Preview Industrial Tech Stack for AI-Era Manufac￾turing (Xcelerator + Omniverse, jumeaux numériques). NVIDIA GTC, oct. 2025. https://press.siemens. com/global/en/pressrelease/siemens-​and-​nvidia-​preview-​industrial-​tech-​stack-​ai-​era-​manufacturing.
+
+[863] (p.639): [863] (p.639): Sigelman, B. H.; Barroso, L. A.; Burrows, M.; Stephenson, P.; Plakal, M.; Beaver, D.; Jaspan, S.; Shanbhag, C. (2010). Dapper, a Large-Scale Distributed Systems Tracing Infrastructure. Google Technical Report dapper-2010-1. https://research.google/pubs/dapper-​a-​large-​scale-​distributed-​systems-​tracing-​ infrastructure/.
+
+[864] (p.639): [864] (p.639): Singh, A.; Ehtesham, A.; Kumar, S.; Khoei, T. T. (2025). Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG. arXiv:2501.09136.
+
+[865] (p.639): [865] (p.639): Singh, Aditi ; Ehtesham, Abul ; Lambe, Mahesh ; et al. (2025). Evolution of AI Agent Registry Solutions : Centralized, Enterprise, and Distributed Approaches. arXiv:2508.03095.
+
+[866] (p.639): [866] (p.639): Singh, Munindar P. (1998). Agent Communication Languages : Rethinking the Principles. IEEE Computer, vol. 31, no. 12, pp. 40-47. DOI 10.1109/2.735849.
+
+[867] (p.639): [867] (p.639): Singh, Munindar P. (2000). A Social Semantics for Agent Communication Languages. In Issues in Agent Communication, LNAI vol. 1916, Springer, pp. 31-45. DOI 10.1007/10722777_3.
+
+[868] (p.639): [868] (p.639): Skan AI (2026). Agentic Ontology of Work (AOW), Version 1.0 (Agents, Skills, Intents, Contexts, Policies, Memory, Confidence, Outcomes). Whitepaper (lancement 10 fév. 2026). skan.ai/whitepapers/agentic-​ ontology-​of-​work.
+
+[869] (p.639): [869] (p.639): SmartBear / PactFlow (2024). PactFlow: Bi-Directional Contract Testing — Documentation. https://docs. pactflow.io/.
+
+[870] (p.639): [870] (p.639): Smith, R. G. (1980). The Contract Net Protocol: High-Level Communication and Control in a Distributed Problem Solver. IEEE Transactions on Computers, vol.  C-29, no 12, p.  1104-1113. DOI 10.1109/ TC.1980.1675516.
+
+[871] (p.639): [871] (p.639): Snell, C.; Lee, J.; Xu, K.; Kumar, A. (2024). Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters. arXiv:2408.03314.
+
+[872] (p.639): [872] (p.639): Snowflake (2025). Snowflake Horizon Catalog (gouvernance/découverte) et Cortex Analyst (text-to-SQL gouverné par modèle sémantique YAML/Semantic Views  ; policies au niveau moteur). https://www. snowflake.com/en/product/features/horizon/.
+
+[873] (p.639): [873] (p.639): Snowflake et partenaires — Open Semantic Interchange (OSI) (2026). Open Semantic Interchange (OSI) — spécification v1.0 (modèle sémantique standardisé, couche analytics/BI/AI ; Apache 2.0). open-semantic￾interchange.org (annonce 23 sept. 2025 ; v1.0 le 27 janvier 2026).
+
+[874] (p.639): [874] (p.639): SOA Manifesto Working Group (Arsanjani, A.; Booch, G.; Brown, P.; Chappell, D.; Erl, T.; Josuttis, N.; Krafzig, D.; Little, M.; et al.) (2009). SOA Manifesto. 2e International SOA Symposium, Rotterdam, 23 octobre 2009. http://www.soa-​manifesto.org/.
+
+[875] (p.639): [875] (p.639): Solace Corporation (2024). Understanding Event Meshes. https://docs.solace.com/Get-​Started/ understanding-​event-​meshes.htm.
+
+[876] (p.639): [876] (p.639): Soria Parra, D. — Model Context Protocol (2026).The 2026 MCP Roadmap (aires de priorité, Working Groups, Extensions reverse-DNS). Model Context Protocol Blog (Linux Foundation / LF Projects), 9 mars 2026. https://blog.modelcontextprotocol.io/posts/2026-​mcp-​roadmap/ — cf. §7.2.1
+
+[877] (p.639): [877] (p.639): Soria Parra, D., Delimarsky, D. — Model Context Protocol (2026).The 2026-07-28 MCP Specification Release Candidate (cycle Active/Deprecated/Removed ≥ 12 mois). Model Context Protocol Blog, 21 mai 2026. https://blog.modelcontextprotocol.io/posts/2026-​07-​28-​release-​candidate/ — cf. §7.2.1
+
+[878] (p.639): [878] (p.639): Soria Parra, David (MCP, lead core maintainer) (2025). MCP joins the Agentic AI Foundation. blog.modelcontextprotocol.io (9 déc. 2025). ---
+
+[879] (p.640): [879] (p.640): South, T., Marro, S., Hardjono, T., Mahari, R., Whitney, C. D., Greenwood, D., Chan, A. & Pentland, A. (2025). Authenticated Delegation and Authorized AI Agents. arXiv:2501.09674. https://arxiv. org/abs/2501.09674 — cf. §5.5, §5.13
+
+[880] (p.640): [880] (p.640): South, Tobin ; Cecchetti, S. ; Fletcher, G. ; et al. (OpenID Foundation, AIIM Community Group) (2025). Identity Management for Agentic AI: The new frontier of authorization, authentication, and security for an AI agent world. OpenID Foundation (whitepaper, 7 oct. 2025) ; arXiv:2510.25819. [Whitepaper OpenID et sa prépublication arXiv sont le même document ; entrée unique, cf. cat. 4 fusionnée ici.]
+
+[881] (p.640): [881] (p.640): Sparx Systems (2026). Enterprise Architect — support ArchiMate (v16 certifiée Open Group pour Archi￾Mate 3.1 ; support natif ArchiMate 3.x via MDG Technology, 23 viewpoints ; IA conversationnelle via tiers, ex. Kernaro AI, à dater). https://sparxsystems.com/products/mdg/tech/archimate/archimate.html — cf. §6.0.8, §6.7, §6.9
+
+[882] (p.640): [882] (p.640): Sperber, Dan & Wilson, Deirdre (1995). Relevance  : Communication and Cognition (2e éd.). Oxford  : Blackwell (1re éd. 1986). ISBN 978-0631198789.
+
+[883] (p.640): [883] (p.640): SPIFFE Project (CNCF) (s.d.). Secure Production Identity Framework for Everyone (SPIFFE) Specification / SPIRE (projet diplômé). https://github.com/spiffe/spiffe.
+
+[884] (p.640): [884] (p.640): Sporny, M.; Longley, D.; Kellogg, G.; Lanthaler, M.; Champin, P.-A.; Lindstrom, N. (Eds.) (2020). JSON-LD 1.1: A JSON-based Serialization for Linked Data. W3C Recommendation, 16 juillet 2020. https://www.w3. org/TR/2020/REC-​json-​ld11-​20200716/.
+
+[885] (p.640): [885] (p.640): Sporny, M.; Thibodeau Jr, T.; Herman, I.; Cohen, G.; Jones, M. B. (Eds.) (2025). Verifiable Credentials Data Model v2.0. W3C Recommendation, 15 mai 2025. https://www.w3.org/TR/vc-​data-​model-​2.0/.
+
+[886] (p.640): [886] (p.640): Sridharan, C. (2018). Distributed Systems Observability: A Guide to Building Robust Systems. O’Reilly Media. ISBN 978-1-492-03343-1.
+
+[887] (p.640): [887] (p.640): Stanford Institute for Human-Centered AI (HAI) (2025). The 2025 AI Index Report. Rapport annuel (avril 2025). https://hai.stanford.edu/ai-​index/2025-​ai-​index-​report.
+
+[888] (p.640): [888] (p.640): STOMP Specification contributors (2012). STOMP Protocol Specification, Version 1.2, 22 octobre 2012. https://stomp.github.io/stomp-​specification-​1.2.html.
+
+[889] (p.640): [889] (p.640): Stoplight (stoplightio) (2024). Spectral: Open-Source API Description Linter. https://github.com/ stoplightio/spectral.
+
+[890] (p.640): [890] (p.640): Stripe (2025). Developing an open standard for agentic commerce (co-annonce de l’ACP avec OpenAI ; Shared Payment Token, 2025-09-29). Stripe Newsroom. stripe.com/blog/developing-​an-​open-​standard-​ for-​agentic-​commerce.
+
+[891] (p.640): [891] (p.640): Stripe (2026). Agentic Commerce Protocol | Stripe Documentation. https://docs.stripe.com/agentic-​ commerce/acp — cf. §5.11, §5.13
+
+[892] (p.640): [892] (p.640): Stripe (avec Tempo) (2025-2026). Merchant Payments Protocol (MPP) — règlement de commerce agentique par stablecoins on-chain (Tempo). mpp.dev.
+
+[893] (p.640): [893] (p.640): Stripe, Tempo (2026). Machine Payments Protocol (MPP) — open standard for billing AI agents over HTTP (HTTP 402 ; stablecoins via Tempo on-chain, cartes/BNPL via Shared Payment Tokens). mpp.dev (lancement 2026-03-18).
+
+[894] (p.640): [894] (p.640): Sumers, T. R.; Yao, S.; Narasimhan, K.; Griffiths, T. L. (2023). Cognitive Architectures for Language Agents (CoALA). arXiv:2309.02427 (TMLR, 2024).
+
+[895] (p.640): [895] (p.640): Sumsub (2026). AI Agent Verification Introduces Agent-to-Human Binding to Establish Human Accoun￾tability in AI. Sumsub Newsroom, 29 janvier 2026. https://sumsub.com/newsroom/sumsubs-​ai-​agent-​ verification-​introduces-​agent-​to-​human-​binding-​to-​establish-​human-​accountability-​in-​ai/. ---
+
+[896] (p.641): [896] (p.641): Sun, S., Evans, S. (2026). Composable Attestation: A Generalized Framework for Continuous and Incre￾mental Trust in AI-Driven Distributed Systems. arXiv (cs.CR). arXiv:2603.02451. https://arxiv.org/abs/2603. 02451 — cf. §7.5.4
+
+[897] (p.641): [897] (p.641): Sutton, R. S.; Barto, A. G. (2018). Reinforcement Learning: An Introduction (2nd Edition). MIT Press, Cambridge MA. ISBN 9780262039246. T
+
+[898] (p.641): [898] (p.641): Tardieu, O.; Grove, D.; Bercea, G.-T.; Castro, P.; Cwiklik, J.; Epstein, E. (2023). Reliable Actors with Retry Orchestration. Proceedings of the ACM on Programming Languages (PACMPL), vol. 7, no PLDI, p. 1293-1316. DOI 10.1145/3591273.
+
+[899] (p.641): [899] (p.641): Tatipamula, M., Liu, X., Sun, Y., Imran, M. A. (2026). The Syntactic-Semantic Internet: Engineering Infrastructures for Autonomous Systems. arXiv (cs.NI / eess.SP). arXiv:2602.00818. — cf. §7.6.6
+
+[900] (p.641): [900] (p.641): Temenos AG (2025).Temenos Launches AI-Powered Money Movement & Management Platform at Sibos. 29.9.2025. https://www.temenos.com/press_release/temenos-​launches-​ai-​powered-​money-​movement-​ management-​platform/ — cf. §5.7, §5.11
+
+[901] (p.641): [901] (p.641): Temenos AG (2026). Temenos Launches Embedded AI Capabilities to Help Banks Move Faster, Stay in Control, and Create Better Experiences (Temenos AI Agents, Copilots, Conversational Studio, FCM AI Agent). GlobeNewswire 3289629, 7.5.2026. https://www.globenewswire.com/news-​release/ 2026/05/07/3289629/0/en/temenos-​launches-​embedded-​ai-​capabilities-​to-​help-​banks-​move-​faster-​stay-​ in-​control-​and-​create-​better-​experiences.html — cf. §5.7, §5.11, §5.12.2
+
+[902] (p.641): [902] (p.641): Temporal Technologies (2025). Temporal Platform Documentation — Durable Execution (Workflow Exe￾cution recouvrable, Event History, replay). https://docs.temporal.io/workflow-​execution.
+
+[903] (p.641): [903] (p.641): Temporal Technologies (2026). Temporal Platform Documentation (Durable Execution). https://docs. temporal.io/.
+
+[904] (p.641): [904] (p.641): Terbu, O.; Lodderstedt, T.; Yasuda, K.; Fett, D.; Heenan, J. (Eds.) (2025). OpenID for Verifiable Presentations 1.0 (Final Specification), 9 juillet 2025. https://openid.net/specs/openid-​4-​verifiable-​presentations-​1_0-​ final.html.
+
+[905] (p.641): [905] (p.641): Thakur, N.; Reimers, N.; Rücklé, A.; Srivastava, A.; Gurevych, I. (2021). BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models. arXiv:2104.08663 (NeurIPS 2021 Datasets & Benchmarks).
+
+[906] (p.641): [906] (p.641): The Linux Foundation (2025). Linux Foundation Announces the Formation of the Agentic AI Foundation (AAIF) (MCP, goose, AGENTS.md), 9 décembre 2025. https://www.linuxfoundation.org/press/linux-​ foundation-​announces-​the-​formation-​of-​the-​agentic-​ai-​foundation.
+
+[907] (p.641): [907] (p.641): The Linux Foundation (2025). Linux Foundation Launches the Agent2Agent Protocol Project, 23 juin 2025. https://www.linuxfoundation.org/press/linux-​foundation-​launches-​the-​agent2agent-​protocol -​project-​to-​enable-​secure-​intelligent-​communication-​between-​ai-​agents.
+
+[908] (p.641): [908] (p.641): The Linux Foundation (2025). Linux Foundation Welcomes the AGNTCY Project, 29 juillet 2025. https://www.linuxfoundation.org/press/linux-​foundation-​welcomes-​the-​agntcy-​project-​to-​standardize-​ open-​multi-​agent-​system-​infrastructure-​and-​break-​down-​ai-​agent-​silos.
+
+[909] (p.641): [909] (p.641): The Linux Foundation (2026). Linux Foundation is Launching the x402 Foundation and Welco￾ming the Contribution of the x402 Protocol (créé par Coinbase). 2.4.2026 (MCP Dev Summit NA). https://www.linuxfoundation.org/press/linux-​foundation-​is-​launching-​the-​x402-​foundation-​and-​ welcoming-​the-​contribution-​of-​the-​x402-​protocol — cf. §5.7, §5.13
+
+[910] (p.641): [910] (p.641): The MITRE Corporation (2025). MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems). Base de connaissances vivante. atlas.mitre.org. ---
+
+[911] (p.642): [911] (p.642): The Open Group & BIAN (2020). The Banking Industry Architecture Network (BIAN) — BIAN Service Landscape exprimée en ArchiMate (édition en ligne, Portfolio of Digital Open Standards  ; SL v7.0 en ArchiMate 3  ; accès SSO/membre). https://digital-​portfolio.opengroup.org/archimate-​bian/ — cf.  §6.4, §6.5
+
+[912] (p.642): [912] (p.642): The Open Group & BIAN e.V. (2020). ArchiMate® Modeling Notation for the Financial Industry Reference Model: Banking Industry Architecture Network (BIAN). Open Group Guide G205 ; ISBN 1-947754-52-2 ; 31 mars 2020 ; 37 p. (modèle d’exemple associé G205M ; ancré sur BIAN Metamodel & Service Landscape v7.0 d’après le texte d’introduction du Guide ; le billet de blog officiel du 9 avr. 2020 évoque « BIAN 8.0 » — v7.0 retenue car plus proche de la source). https://publications.opengroup.org/g205 — cf. §6.3, §6.4, §6.5
+
+[913] (p.642): [913] (p.642): The Open Group (2014). TOGAF® 9.1 Framework and ArchiMate® 2.1 Modeling Language Harmoni￾zation: A Practitioner’s Guide to Using the TOGAF® Framework and the ArchiMate® Language (Project Harmony). White Paper W14C (déc. 2014 ; série W14A glossaires, W14B viewpoints, W14D content metamodel). https://publications.opengroup.org/w14c — cf. §6.0, §6.7 (contenu historique : TOGAF 9.1 / ArchiMate 2.1)
+
+[914] (p.642): [914] (p.642): The Open Group (2019).ArchiMate® Model Exchange File Format for the ArchiMate Modeling Language, Version 3.1. Doc. C19C (applicable aux modèles 3.1/3.2 ; schémas XSD sur opengroup.org/xsd/archimate ; guide d’accompagnement G204). https://publications.opengroup.org/c19c — cf. §6.7
+
+[915] (p.642): [915] (p.642): The Open Group (2019). Capability-Based Planning: Supporting Project/Portfolio and Digital Capabi￾lities Mapping Using the TOGAF® and ArchiMate® Standards (Open Group Guide). Doc. G193 ; ISBN 1-947754-34-8 ; 16 juil. 2019 (s’appuie sur le White Paper W16C, lui-même supersédé par G233 en 2023 ; G193 demeure une publication courante). https://publications.opengroup.org/g193 — cf. §6.3, §6.10
+
+[916] (p.642): [916] (p.642): The Open Group (2022). ArchiMate® 3.2 Specification. Doc. C226  ; ISBN 1-957866-02-4  ; oct. 2022 (supersédé par C260/ArchiMate 4 en avr. 2026 ; reste pertinent pour Specialization, stereotype, Profiles). https://pubs.opengroup.org/architecture/archimate32-​doc/ — cf. §6.0, §6.1
+
+[917] (p.642): [917] (p.642): The Open Group (2022). The Open Group Guide: How to Use the ArchiMate® Modeling Language to Support the TOGAF® Standard. Doc. G21E  ; 25 avr. 2022. https://publications.opengroup.org/g21e — cf. §6.0, §6.7
+
+[918] (p.642): [918] (p.642): The Open Group (2022). The TOGAF® Standard, 10th Edition — Introduction and Core Concepts. Doc. C220 ; ISBN hardcopy 978-94-018-0859-0 (eBook 978-94-018-0860-6) ; avr. 2022 (lancement 25 avr. 2022 ; Technical Corrigendum 1 appliqué en mai 2025). https://publications.opengroup.org/c220 — cf. §6.0, §6.3, §6.7
+
+[919] (p.642): [919] (p.642): The Open Group (2022). TOGAF® Series Guide: Value Streams. Doc. G178 ; ISBN 1-947754-02-7 ; 25 avr. 2022 (remplace G170). https://publications.opengroup.org/g178 — cf. §6.3
+
+[920] (p.642): [920] (p.642): The Open Group (2026). ArchiMate® 4 Specification. Doc. C260 ; ISBN 1-957866-75-8 ; publié le 27 avr. 2026 (supersède C226 ; passage des couches aux domaines, ~30 % de concepts en moins, ~40 types d’éléments). https://publications.opengroup.org/c260 — cf. §6.0, §6.1, §6.4, §6.5, §6.6, §6.7, §6.11
+
+[921] (p.642): [921] (p.642): The Open Group (2026). The Open Group Announces ArchiMate® 4 Specification (annonce officielle). 27 avr. 2026 (complétée par le billet de blog « Discussing the Release of the ArchiMate® 4 Specifica￾tion », 20 mai 2026). https://www.opengroup.org/The-​Open-​Group-​Announces-​ArchiMate%C2%AE-​4-​ Specification — cf. §6.0 (source secondaire/communiqué ; la spec C260 reste la référence primaire)
+
+[922] (p.642): [922] (p.642): The Open Group (X/Open) (1991). Distributed Transaction Processing: The XA Specification. X/Open CAE Specification, document C193. ISBN 1-872630-24-3. https://publications.opengroup.org/c193.
+
+[923] (p.642): [923] (p.642): The White House (2026). Securing the Nation Against Advanced Cryptographic Attacks (Executive Order 14412 ; échéances fédérales de migration post-quantique : clés d’ici fin 2030, signatures d’ici fin --- 2031). Signé 22 juin 2026 ; Federal Register 25 juin 2026 (91 FR 38483). https://www.federalregister.gov/ documents/2026/06/25/2026-​12909/ — cf. §7.4.1
+
+[924] (p.643): [924] (p.643): Thomson, M.; Benfield, C. (Eds.) (2022). HTTP/2. IETF, RFC 9113. https://www.rfc-​editor.org/rfc/rfc9113.
+
+[925] (p.643): [925] (p.643): Thought Machine (2026). Vault Core (page produit officielle, core banking cloud-native). https://www. thoughtmachine.net/vault-​core — cf. §5.7, §5.11
+
+[926] (p.643): [926] (p.643): Thought Machine (couv. FinTech Futures) (2021). Thought Machine wins major core banking deal with JP Morgan Chase (déploiement Vault). Sept.  2021. https://www.fintechfutures.com/core-​banking-​ technology/thought-​machine-​wins-​major-​core-​banking-​deal-​with-​jp-​morgan-​chase — cf. §5.7, §5.12.2
+
+[927] (p.643): [927] (p.643): Tibebu, H., Shemtaga, H. (2026). The Accountability Horizon: An Impossibility Theorem for Governing Human-Agent Collectives. arXiv (cs.AI). arXiv:2604.07778. https://arxiv.org/abs/2604.07778 — cf. §7.10.4
+
+[928] (p.643): [928] (p.643): Tirupathi, S., Salwala, D., Daly, E. & Vejsbjerg, I. (2025). GAF-Guard: An Agentic Framework for Risk Management and Governance in Large Language Models. arXiv:2507.02986. https://arxiv.org/abs/2507. 02986 — cf. §5.4
+
+[929] (p.643): [929] (p.643): Token Security (2025). Token Security — découverte et gouvernance des agents IA et NHI (AI Discovery Engine ; moindre privilège). https://www.token.security/.
+
+[930] (p.643): [930] (p.643): Tolk, A.; Diallo, S. Y.; Turnitsa, C. D. (2007). Applying the Levels of Conceptual Interoperability Model in Support of Integratability, Interoperability, and Composability for System-of-Systems Engineering. Journal of Systemics, Cybernetics and Informatics (JSCI), vol. 5, no 5, p. 65-74. ISSN 1690-4524. https://www. iiisci.org/journal/pdv/sci/pdfs/p468106.pdf.
+
+[931] (p.643): [931] (p.643): Tolk, A.; Muguira, J. A. (2003). The Levels of Conceptual Interoperability Model (LCIM). Fall Simulation Interoperability Workshop (SIW), SISO, Orlando, paper 03F-SIW-007.
+
+[932] (p.643): [932] (p.643): Traceloop (2026). OpenLLMetry — Open-Source Observability for LLM Applications Based on OpenTele￾metry (Apache-2.0 ; exportable Datadog/Honeycomb). https://github.com/traceloop/openllmetry.
+
+[933] (p.643): [933] (p.643): Tractable Ltd. (2026). Tractable — AI for accident & disaster recovery (computer-vision damage appraisal). https://tractable.ai/ — cf. §5.8, §5.12.2 (libellés produits ayant évolué)
+
+[934] (p.643): [934] (p.643): Trivedi, H.; Balasubramanian, N.; Khot, T.; Sabharwal, A. (2023). Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions (IRCoT). arXiv:2212.10509 (ACL 2023).
+
+[935] (p.643): [935] (p.643): Trulioo (avec PayOS) (2025). Know Your Agent (KYA): An Identity Framework for Trusted Agentic Com￾merce (Digital Agent Passport). https://www.trulioo.com/resources/white-​papers/know-​your-​agent-​an-​ identity-​framework-​for-​trusted-​agentic-​commerce.
+
+[936] (p.643): [936] (p.643): Trulioo (et PayOS) (2025). Know Your Agent (KYA) : An Identity Framework for Trusted Agentic Commerce + Digital Agent Passport (DAP). Trulioo (livre blanc d’industrie). trulioo.com/resources/white-​papers/ know-​your-​agent-​an-​identity-​framework-​for-​trusted-​agentic-​commerce.
+
+[937] (p.643): [937] (p.643): Tuan, Thanh Luong & Sanyal, Abhijit (2026). Ontology-Constrained Neural Reasoning in Enterprise Agentic Systems : A Neurosymbolic Architecture for Domain-Grounded AI Agents. arXiv:2604.00555. U
+
+[938] (p.643): [938] (p.643): U.S. Department of the Treasury (2024). Artificial Intelligence in Financial Services (rapport faisant suite au RFI de 2024). Communiqué JY2760 (19.12.2024). https://home.treasury.gov/news/press-​releases/ jy2760 — cf. §5.3, §5.4, §5.11
+
+[939] (p.643): [939] (p.643): U.S. Department of the Treasury (2024). Managing Artificial Intelligence-Specific Cybersecurity Risks in the Financial Services Sector. Communiqué JY2212 (27.3.2024). https://home.treasury.gov/news/press-​ releases/jy2212 — cf. §5.4, §5.5, §5.11 ---
+
+[940] (p.644): [940] (p.644): U.S. Department of the Treasury (2024). Request for Information on Uses, Opportunities, and Risks of Artificial Intelligence in the Financial Services Sector. 89 FR 50048 (12.6.2024)  ; FR Doc 2024-12336. https://www.federalregister.gov/documents/2024/06/12/2024-​12336/request-​for-​ information-​on-​uses-​opportunities-​and-​risks-​of-​artificial-​intelligence-​in-​the-​financial — cf.  §5.3, §5.4, §5.11
+
+[941] (p.644): [941] (p.644): UK Financial Conduct Authority (2026). AI: Artificial Intelligence in Financial Services (dont AI Live Testing). FCA, Royaume-Uni. https://www.fca.org.uk/firms/ai-​financial-​services — cf. §7.9.6
+
+[942] (p.644): [942] (p.644): Unit 42 (Palo Alto Networks) (2025). New Prompt Injection Attack Vectors Through MCP Sampling. unit42.paloaltonetworks.com.
+
+[943] (p.644): [943] (p.644): United Nations General Assembly (2025). Terms of Reference and Modalities for the Independent International Scientific Panel on AI and the Global Dialogue on AI Governance. Résolution A/RES/79/325 (adoptée par consensus, 26 août 2025). https://docs.un.org/en/A/RES/79/325 — cf. §7.3.4
+
+[944] (p.644): [944] (p.644): United States Congress (2025). GENIUS Act — Guiding and Establishing National Innovation for U.S. Stablecoins Act. Public Law 119-27, 18 juil. 2025 (139 Stat. 419) ; mise en œuvre OCC Bulletin 2026-3 (25 fév. 2026). https://occ.treas.gov/news-​issuances/bulletins/2026/bulletin-​2026-​3.html — cf. §7.1.3, §7.9.3
+
+[945] (p.644): [945] (p.644): Unity Catalog Project (LF AI & Data / Linux Foundation) (2024). Unity Catalog OSS — Open, Multi-modal Catalog for Data & AI. https://github.com/unitycatalog/unitycatalog. V
+
+[946] (p.644): [946] (p.644): Valmeekam, K.; Marquez, M.; Olmo, A.; Sreedharan, S.; Kambhampati, S. (2023). PlanBench: An Exten￾sible Benchmark for Evaluating Large Language Models on Planning and Reasoning about Change. arXiv:2206.10498 (NeurIPS 2023 Datasets & Benchmarks).
+
+[947] (p.644): [947] (p.644): Valmeekam, K.; Marquez, M.; Sreedharan, S.; Kambhampati, S. (2023). On the Planning Abilities of Large Language Models: A Critical Investigation. arXiv:2305.15771 (NeurIPS 2023).
+
+[948] (p.644): [948] (p.644): van der Aalst, W. M. P.; ter Hofstede, A. H. M.; Kiepuszewski, B.; Barros, A. P. (2003). Workflow Patterns. Distributed and Parallel Databases, vol.  14, no 1, p.  5-51. Springer. DOI 10.1023/A:1022883727209. (contexte non cité)
+
+[949] (p.644): [949] (p.644): Van Riel, J., Poels, G. (2023). A Method for Developing Generic Capability Maps. Business & Information Systems Engineering, 65(4), 403-424. DOI 10.1007/s12599-​023-​00793-​z. https://link.springer.com/article/ 10.1007/s12599-​023-​00793-​z — cf. §6.3, §6.10
+
+[950] (p.644): [950] (p.644): Visa (2025). The Future is Here: Visa Announces New Era of Commerce Featuring AI (Visa Intelligent Com￾merce). 30.4.2025 (releaseId.21366). https://usa.visa.com/about-​visa/newsroom/press-​releases.releaseId. 21366.html — cf. §5.7, §5.13
+
+[951] (p.644): [951] (p.644): Visa (2025). Trusted Agent Protocol — Visa Developer (capability). https://developer.visa.com/capabilities/ trusted-​agent-​protocol — cf. §5.5, §5.13
+
+[952] (p.644): [952] (p.644): Visa (avec Cloudflare) (2025). Trusted Agent Protocol (TAP) (signe l’identité de l’agent dans des en￾têtes HTTP via RFC 9421 / Web Bot Auth  ; Ed25519). GitHub visa/trusted-agent-protocol (annonce 2025-10-14).
+
+[953] (p.644): [953] (p.644): Visa (avec Cloudflare) (2025). Visa Introduces Trusted Agent Protocol (HTTP Message Signatures, aligné sur Web Bot Auth (Cloudflare) ; « Agent Intent »). Newsroom, 14 oct. 2025. https://usa.visa.com/about-​ visa/newsroom/press-​releases.releaseId.21716.html.
+
+[954] (p.644): [954] (p.644): Visa ; Mastercard (2025). Visa and Mastercard both launch new agentic AI payments tools (Visa Trusted Agent Protocol / Mastercard Agent Pay). Couverture Digital Commerce 360 (16 oct. 2025  ; sources primaires : Visa Trusted Agent Protocol 14 oct. 2025, Mastercard Agent Pay 29 avril 2025). https://www. digitalcommerce360.com/2025/10/16/visa-​mastercard-​both-​launch-​agentic-​ai-​payments-​tools/. ---
+
+[955] (p.645): [955] (p.645): Visa, avec Cloudflare (2025). Visa Introduces Trusted Agent Protocol: An Ecosystem-Led Framework for AI Commerce. 14.10.2025. https://investor.visa.com/news/news-​details/2025/Visa-​Introduces-​Trusted -​Agent-​Protocol-​An-​Ecosystem-​Led-​Framework-​for-​AI-​Commerce/default.aspx — cf. §5.5, §5.7, §5.13
+
+[956] (p.645): [956] (p.645): vLLM (2026). vLLM — serveur d’inférence exposant un serveur compatible OpenAI (et Anthropic Messages API). docs.vllm.ai. W
+
+[957] (p.645): [957] (p.645): W3C / FIDO Alliance (Hodges, J.; Jones, J. C.; Jones, M. B.; Kumar, A.; Lundberg, E., Eds.) (2021). Web Authentication: An API for accessing Public Key Credentials — Level 2. W3C Recommendation, 8 avril 2021. https://www.w3.org/TR/webauthn-​2/.
+
+[958] (p.645): [958] (p.645): W3C Agent Identity Registry Protocol Community Group (2026). Call for Participation / charte (CG proposée 2026-04-22, appel à participation 2026-04-24 ; attestations vérifiables liant l’agent à son organi￾sation). w3.org/community/agent-​identity/.
+
+[959] (p.645): [959] (p.645): W3C Agent Identity Registry Protocol Community Group (2026). Call for Participation in Agent Identity Registry Protocol Community Group (proposé 22 avr. 2026). W3C. https://www.w3.org/ community/agent-​identity/ — cf. §7.3.2, §7.4.3
+
+[960] (p.645): [960] (p.645): W3C AI Agent Memory Interoperability Community Group (2026). AI Agent Memory Interopera￾bility Community Group (mémoire portable inter-fournisseurs ; proposé 18 mai 2026, lancé 3 juin 2026). W3C. https://www.w3.org/community/ai-​agent-​memory-​interop/ — cf. §7.3.2
+
+[961] (p.645): [961] (p.645): W3C AI Agent Protocol Community Group (2025). Agent Network Protocol White Paper. W3C CG Draft Report, w3c-​cg.github.io/ai-​agent-​protocol/.
+
+[962] (p.645): [962] (p.645): W3C AI Agent Protocol Community Group (2025). AI Agent Protocol Community Group (protocoles inter-agents, identité, métadonnées, sécurité, interopérabilité ; proposé 8 mai 2025). W3C. https://www. w3.org/community/agentprotocol/ — cf. §7.3.2
+
+[963] (p.645): [963] (p.645): W3C AI Agent Protocol Community Group (proposée par Gaowei Chang et al.) (2025). AI Agent Protocol Community Group (mission et charte) (proposée 8 mai 2025 ; 1re réunion 18 juin 2025). w3.org/ community/agentprotocol/.
+
+[964] (p.645): [964] (p.645): W3C Autonomous Agents on the Web Community Group (proposée par Fabien Gandon) (2023). Auto￾nomous Agents on the Web (WebAgents) Community Group — Charter (Hypermedia MAS / Linked Data). w3.org/community/webagents/.
+
+[965] (p.645): [965] (p.645): W3C Decentralized Identifier Working Group (2026). Decentralized Identifiers (DIDs) v1.1. W3C Candidate Recommendation Snapshot, 5 mars 2026. https://www.w3.org/TR/did-​1.1/ — cf. §7.3.2, §7.4.2
+
+[966] (p.645): [966] (p.645): W3C DID Working Group (Sporny, M. ; Guy, A. ; Sabadello, M. ; Reed, D., Eds.) (2022). Decentralized Identifiers (DIDs) v1.0. W3C Recommendation, 19 juillet 2022.
+
+[967] (p.645): [967] (p.645): W3C Distributed Tracing Working Group (2021). Trace Context (Level 1). W3C Recommendation, 23 novembre 2021.
+
+[968] (p.645): [968] (p.645): W3C Distributed Tracing Working Group (2021). Trace Context (Level 1). W3C Recommendation, 23 novembre 2021. https://www.w3.org/TR/trace-​context/.
+
+[969] (p.645): [969] (p.645): W3C Distributed Tracing Working Group (2024). Propagation format for distributed context: Baggage. W3C Candidate Recommendation. https://www.w3.org/TR/baggage/.
+
+[970] (p.645): [970] (p.645): W3C Distributed Tracing Working Group (2024). Trace Context Level 2. W3C Candidate Recommendation Draft, 28 mars 2024.
+
+[971] (p.645): [971] (p.645): W3C OWL Working Group (2012). OWL 2 Web Ontology Language Document Overview (Second Edition). W3C Recommendation, 11 décembre 2012. https://www.w3.org/TR/2012/REC-​owl2-​overview -​20121211/. ---
+
+[972] (p.646): [972] (p.646): W3C Semantic Agent Communication Community Group (2025). Semantic Agent Communication Community Group Charter (ontologie RDF/OWL d’Intent/Delegation/Capability  ; AgentIDL). W3C. https://w3c-​cg.github.io/s-​agent-​comm/ — cf. §7.3.2, §7.6.1
+
+[973] (p.646): [973] (p.646): W3C VC Working Group (Sporny, M. ; Thibodeau Jr, T. ; Herman, I. ; Cohen, G. ; Jones, M. B., Eds.) (2025). Verifiable Credentials Data Model v2.0. W3C Recommendation, 15 mai 2025.
+
+[974] (p.646): [974] (p.646): W3C Verifiable Credentials Working Group (2026). Verifiable Credentials Working Group Charter (VCDM 2.1 visée CR 2027 ; API de cycle de vie en Recommandation 2028 ; charte 11 mars 2026 – 31 mars 2028). W3C. https://w3c.github.io/vc-​charter-​2026/ — cf. §7.4.2
+
+[975] (p.646): [975] (p.646): W3C, Distributed Tracing Working Group (2024). Trace Context Level 2. W3C Candidate Recommenda￾tion Draft, 28 mars 2024 (la version stable demeure Level 1, W3C Recommendation, 23 novembre 2021). https://www.w3.org/TR/trace-​context-​2/.
+
+[976] (p.646): [976] (p.646): Wang, Bin ; Liu, Zexin ; Yu, Hao ; et al. (2025). MCPGuard : Automatically Detecting Vulnerabilities in MCP Servers. arXiv:2510.23673.
+
+[977] (p.646): [977] (p.646): Wang, L.; Ma, C.; Feng, X.; Zhang, Z.; Yang, H.; Zhang, J.; Chen, Z.; Tang, J.; Chen, X.; Lin, Y.; Zhao, W. X.; Wei, Z.; Wen, J.-R. (2024). A Survey on Large Language Model based Autonomous Agents. arXiv:2308.11432 (Frontiers of Computer Science, vol. 18, no. 6, DOI:10.1007/s11704-​024-​40231-​1).
+
+[978] (p.646): [978] (p.646): Wang, L.; Xu, W.; Lan, Y.; Hu, Z.; Lan, Y.; Lee, R. K.-W.; Lim, E.-P. (2023). Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models. arXiv:2305.04091 (ACL 2023).
+
+[979] (p.646): [979] (p.646): Wang, S., Raskar, R., Lambe, M., et al. (2025). Using the NANDA Index Architecture in Practice: An Enterprise Perspective. Project NANDA / MIT. arXiv:2508.03101.
+
+[980] (p.646): [980] (p.646): Wang, W., Tolk, A., Wang, W. (2009).The Levels of Conceptual Interoperability Model: Applying Systems Engineering Principles to M&S (LCIM, niveaux L0-L6). arXiv:0908.0191 ; DOI 10.48550/arXiv.0908.0191 (SpringSim’09). https://arxiv.org/abs/0908.0191 — cf. §6.10 (ancrage primaire ; à conserver ici uniquement pour la transposition LCIM → plateaux/agents, sinon renvoi ch. 1-5)
+
+[981] (p.646): [981] (p.646): Wang, X.; Chen, Y.; Yuan, L.; Zhang, Y.; Li, Y.; Peng, H.; Ji, H. (2024). Executable Code Actions Elicit Better LLM Agents (CodeAct). arXiv:2402.01030 (ICML 2024).
+
+[982] (p.646): [982] (p.646): Wang, X.; Wei, J.; Schuurmans, D.; Le, Q.; Chi, E.; Narang, S.; Chowdhery, A.; Zhou, D. (2022). Self-Consistency Improves Chain of Thought Reasoning in Language Models. arXiv:2203.11171 (ICLR 2023).
+
+[983] (p.646): [983] (p.646): Wang, Y., Guo, S., Pan, Y., et al.  (2025). Internet of Agents: Fundamentals, Applications, and Challenges. arXiv (cs.MA) ; accepté IEEE Transactions on Cognitive Communications and Networking. arXiv:2505.07176 ; DOI 10.1109/TCCN.2025.3623369. — cf. §7.6.6
+
+[984] (p.646): [984] (p.646): Wang, Y.; Chen, X. (2025). MIRIX: Multi-Agent Memory System for LLM-Based Agents. arXiv:2507.07957.
+
+[985] (p.646): [985] (p.646): Wang, Yaxuan ; Liu, Quan ; Wang, Zhenting ; et al. (2025). PromptBridge : Cross-Model Prompt Transfer for Large Language Models. arXiv:2512.01420.
+
+[986] (p.646): [986] (p.646): Wang, Zhiqiang ; Gao, Yichao ; Wang, Yanting ; et al. (2025). MCPTox : A Benchmark for Tool Poisoning Attack on Real-World MCP Servers (45 serveurs, 353 outils, 1312 cas). arXiv:2508.14925.
+
+[987] (p.646): [987] (p.646): Watson, S. & Rowand, E. (Activant Capital) (2025). The Agent Control Plane (proposition «  AI Fran￾kenstack », control plane model-agnostic). https://www.activantcapital.com/research/the-​agent-​control -​plane.
+
+[988] (p.646): [988] (p.646): Wealthfront Corporation (2025). Automated Investing Methodology White Paper (Classic portfolio) — MPT, tax-loss harvesting. https://www.wealthfront.com/methodology — cf. §5.10, §5.12.2
+
+[989] (p.646): [989] (p.646): Wealthsimple (Canada) (2025). Wealthsimple’s investment philosophy for our managed portfolios. https://help.wealthsimple.com/hc/en-​ca/articles/360056590454-​Wealthsimple-​s-​investment-​philosophy-​ for-​our-​managed-​portfolios — cf. §5.10, §5.12.2 ---
+
+[990] (p.647): [990] (p.647): Wegner, P. (1996). Interoperability. ACM Computing Surveys, vol.  28, no 1, p.  285-287. DOI 10.1145/234313.234424.
+
+[991] (p.647): [991] (p.647): Wei, J.; Wang, X.; Schuurmans, D.; Bosma, M.; Ichter, B.; Xia, F.; Chi, E.; Le, Q.; Zhou, D. (2022). Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. arXiv:2201.11903 (NeurIPS 2022).
+
+[992] (p.647): [992] (p.647): Wibowo, J. A., Polyzos, G. C. (2025). Toward a Safe Internet of Agents. arXiv (cs.MA). arXiv:2512.00520. — cf. §7.10.4
+
+[993] (p.647): [993] (p.647): Wierda, G. (2024). Mastering ArchiMate — Edition 3.2. R&A (ISBN non publié à ce jour). — cf. §6.4 (ouvrage de praticien)
+
+[994] (p.647): [994] (p.647): Wilde, E. (2019). The Sunset HTTP Header Field. IETF, RFC 8594. DOI 10.17487/RFC8594.
+
+[995] (p.647): [995] (p.647): Willison, S. (2023). The Dual LLM pattern for building AI assistants that can resist prompt injection. Simon Willison’s Weblog (25 avril 2023). https://simonwillison.net/2023/Apr/25/dual-​llm-​pattern/.
+
+[996] (p.647): [996] (p.647): Willison, S. (2025a). I think « agent » may finally have a widely enough agreed upon definition to be useful jargon now. Simon Willison’s Weblog/Newsletter (18 sept. 2025 ; définition « an LLM agent runs tools in a loop to achieve a goal »). https://simonwillison.net/2025/Sep/18/agents/.
+
+[997] (p.647): [997] (p.647): Willison, S. (2025b). The lethal trifecta for AI agents: private data, untrusted content, and external com￾munication. Simon Willison’s Weblog (16 juin 2025). https://simonwillison.net/2025/Jun/16/the-​lethal-​ trifecta/.
+
+[998] (p.647): [998] (p.647): Willison, Simon (2025). The lethal trifecta for AI agents : private data, untrusted content, and external communication. simonwillison.net (16 juin 2025).
+
+[999] (p.647): [999] (p.647): wilmerkrisp — d’après BIAN e.V. (2020). BIAN Service Landscape 7.0 in ArchiMate 3 (modèle ouvert, Model Exchange File Format ; 304+ Service Domains, 2 000+ Service Operations ; Sparx EA / Archi). Dépôt GitHub. https://github.com/wilmerkrisp/bian — cf.  §6.5 (source communautaire, non officielle BIAN ; contexte non cité)
+
+[1000] (p.647): [1000] (p.647): Wooldridge, M. (2009). An Introduction to MultiAgent Systems (2e édition). John Wiley & Sons. ISBN 978-0-470-51946-2.
+
+[1001] (p.647): [1001] (p.647): Wooldridge, M.; Jennings, N. R. (1995). Intelligent Agents: Theory and Practice. The Knowledge Enginee￾ring Review (Cambridge University Press), vol. 10, no. 2, pp. 115-152. DOI:10.1017/S0269888900008122.
+
+[1002] (p.647): [1002] (p.647): Workato (2025). Workato Agentic Orchestration et Agent Trust / Agent Auth (RBAC d’agents, guardrails, MCP d’entreprise). https://docs.workato.com/agentic/agentic.html —
+
+[1003] (p.647): [1003] (p.647): Workato (2025). Workato Delivers Industry’s First Enterprise MCP Platform for AI Agents (serveurs MCP gérés  ; identité/accès, gouvernance, observabilité). Business Wire, 1ᵉʳ oct. 2025. https:// www.businesswire.com/news/home/20251001259763/en/Workato-​Delivers-​Industrys-​First-​Enterprise-​ MCP-​Platform-​for-​AI-​Agents.
+
+[1004] (p.647): [1004] (p.647): World Economic Forum (2025). Non-Human Identities: Agentic AI’s New Frontier of Cybersecurity Risk. Oct. 2025. https://www.weforum.org/stories/2025/10/non-​human-​identities-​ai-​cybersecurity/.
+
+[1005] (p.647): [1005] (p.647): World Economic Forum (2025). The Future of Jobs Report 2025. 8 jan. 2025 (>1 000 entreprises ; net +78 M emplois d’ici 2030 ; ~39 % des compétences évoluent). https://www.weforum.org/publications/the-​future -​of-​jobs-​report-​2025/.
+
+[1006] (p.647): [1006] (p.647): World Economic Forum (2025).The Future of Jobs Report 2025. WEF Insight Report, janv. 2025. https:// reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf — cf. §7.8.5
+
+[1007] (p.647): [1007] (p.647): World Economic Forum (avec Capgemini) (2025). AI Agents in Action: Foundations for Evaluation and Governance. Livre blanc, 27 nov. 2025 (4 piliers  ; gouvernance calibrée à l’autonomie). https://www. weforum.org/publications/ai-​agents-​in-​action-​foundations-​for-​evaluation-​and-​governance/. ---
+
+[1008] (p.648): [1008] (p.648): World Economic Forum (avec Capgemini) (2026). Making Agentic AI Work for Government: A Readi￾ness Framework. Avril 2026 (70 fonctions gouvernementales, 9 catégories). https://www.weforum.org/ publications/making-​agentic-​ai-​work-​for-​government-​a-​readiness-​framework/.
+
+[1009] (p.648): [1009] (p.648): World Wide Web Consortium (W3C) (2005). SOAP Message Transmission Optimization Mechanism (MTOM). W3C Recommendation, 25 janvier 2005. https://www.w3.org/TR/2005/REC-​soap12-​mtom-​ 20050125/.
+
+[1010] (p.648): [1010] (p.648): World Wide Web Consortium (W3C) (2006). Web Services Addressing 1.0 — Core. W3C Recommendation, 9 mai 2006. https://www.w3.org/TR/2006/REC-​ws-​addr-​core-​20060509/.
+
+[1011] (p.648): [1011] (p.648): World Wide Web Consortium (W3C) (2007). SOAP Version 1.2 Part 1: Messaging Framework (Second Edi￾tion). W3C Recommendation, 27 avril 2007. https://www.w3.org/TR/2007/REC-​soap12-​part1-​20070427/.
+
+[1012] (p.648): [1012] (p.648): World Wide Web Consortium (W3C) (2007). Web Services Description Language (WSDL) Version 2.0 Part 1: Core Language. W3C Recommendation, 26 juin 2007. https://www.w3.org/TR/2007/REC-​wsdl20 -​20070626/.
+
+[1013] (p.648): [1013] (p.648): World Wide Web Consortium (W3C) (2007). Web Services Policy 1.5 — Framework. W3C Recommendation, 4 septembre 2007. https://www.w3.org/TR/2007/REC-​ws-​policy-​20070904/.
+
+[1014] (p.648): [1014] (p.648): Wright, A.; Andrews, H.; Hutton, B. (Eds.); Dennis, G. (2022). JSON Schema: A Media Type for Describing JSON Documents (Draft 2020-12). IETF Internet-Draft draft-bhutton-json-schema-01, 16 juin 2022. https:// json-​schema.org/draft/2020-​12/json-​schema-​core.
+
+[1015] (p.648): [1015] (p.648): Wu, D.; Wang, H.; Yu, W.; Zhang, Y.; Chang, K.-W.; Yu, D. (2024). LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory. arXiv:2410.10813 (ICLR 2025).
+
+[1016] (p.648): [1016] (p.648): Wu, Q.; Bansal, G.; Zhang, J.; Wu, Y.; Zhang, S.; Zhu, E.; Li, B.; Jiang, L.; Zhang, X.; Wang, C. (2023). AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation Framework. arXiv:2308.08155 (COLM 2024).
+
+[1017] (p.648): [1017] (p.648): Wu, S., Irsoy, O., Lu, S., Dabravolski, V., Dredze, M., Gehrmann, S., Kambadur, P., Rosenberg, D. & Mann, G. (2023). BloombergGPT: A Large Language Model for Finance. arXiv:2303.17564. https:// arxiv.org/abs/2303.17564 — cf. §5.1, §5.2, §5.4, §5.10, §5.11
+
+[1018] (p.648): [1018] (p.648): Wu, Y.; Liang, S.; Zhang, C.; Wang, Y.; Zhang, Y.; Guo, H.; Tang, R.; Liu, Y. (2025). From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs. arXiv:2504.15965. X
+
+[1019] (p.648): [1019] (p.648): Xi, Z.; Chen, W.; Guo, X.; He, W.; Ding, Y.; Hong, B.; Zhang, M.; et al.; Gui, T. (2023). The Rise and Potential of Large Language Model Based Agents: A Survey. arXiv:2309.07864.
+
+[1020] (p.648): [1020] (p.648): Xiao, Y., Sun, E., Luo, D. & Wang, W. (2024). TradingAgents: Multi-Agents LLM Financial Trading Framework. arXiv:2412.20138. https://arxiv.org/abs/2412.20138 — cf. §5.10, §5.12
+
+[1021] (p.648): [1021] (p.648): Xie, Q., Han, W., Chen, Z., Xiang, R. et al. (2024). FinBen: A Holistic Financial Benchmark for Large Language Models. arXiv:2402.12659 (NeurIPS 2024 Datasets & Benchmarks). https://arxiv.org/abs/2402. 12659 — cf. §5.1, §5.12
+
+[1022] (p.648): [1022] (p.648): Xie, Q., Han, W., Zhang, X., Lai, Y., Peng, M., Lopez-Lira, A. & Huang, J. (2023). PIXIU: A Large Language Model, Instruction Data and Evaluation Benchmark for Finance (benchmark FLARE). arXiv:2306.05443 (NeurIPS 2023). https://arxiv.org/abs/2306.05443 — cf. §5.1, §5.12
+
+[1023] (p.648): [1023] (p.648): Xie, T.; Zhang, D.; Chen, J.; Li, X.; Zhao, S.; Cao, R.; Hua, T. J.; Cheng, Z.; Shin, D.; Lei, F.; Liu, Y.; Xu, Y.; Zhou, S.; Savarese, S.; Xiong, C.; Zhong, V.; Yu, T. (2024). OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments. arXiv:2404.07972 (NeurIPS 2024).
+
+[1024] (p.648): [1024] (p.648): Xie, Yizhe ; Zhu, Congcong ; Zhang, Xinyue ; et al. (2026). From Spark to Fire : Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration. arXiv:2603.04474. ---
+
+[1025] (p.649): [1025] (p.649): Xu, B.; Peng, Z.; Lei, B.; Mukherjee, S.; Liu, Y.; Xu, D. (2023). ReWOO: Decoupling Reasoning from Obser￾vations for Efficient Augmented Language Models. arXiv:2305.18323.
+
+[1026] (p.649): [1026] (p.649): Xu, W.; Liang, Z.; Mei, K.; Gao, H.; Tan, J.; Zhang, Y. (2025). A-MEM: Agentic Memory for LLM Agents. arXiv:2502.12110 (NeurIPS 2025 ; méthode Zettelkasten).
+
+[1027] (p.649): [1027] (p.649): Xu, Wenxin ; Wang, Taotao ; Xia, Yihan ; Zhang, Shengli ; Liew, Soung Chang (2026). Agent-OSI : A Layered Protocol Stack Toward a Decentralized Internet of Agents. arXiv:2602.13795. Y
+
+[1028] (p.649): [1028] (p.649): Yan, S.-Q.; Gu, J.-C.; Zhu, Y.; Ling, Z.-H. (2024). Corrective Retrieval Augmented Generation (CRAG). arXiv:2401.15884.
+
+[1029] (p.649): [1029] (p.649): Yan, W. (Cognition) (2025). Don’t Build Multi-Agents. Cognition AI Blog (juin 2025  ; single writer / continuous context). https://cognition.ai/blog/dont-​build-​multi-​agents.
+
+[1030] (p.649): [1030] (p.649): Yang, H., Lin, L., She, Y., Liao, X., Wang, J., Zhang, R., Mo, Y. & Wang, C. D. (2025). FinRobot: Generative Business Process AI Agents for Enterprise Resource Planning in Finance. arXiv:2506.01423. https://arxiv.org/abs/2506.01423 — cf. §5.7, §5.11
+
+[1031] (p.649): [1031] (p.649): Yang, H., Liu, X.-Y. & Wang, C. D. (2023). FinGPT: Open-Source Financial Large Language Models. arXiv:2306.06031 ; FinLLM Workshop @ IJCAI 2023. https://arxiv.org/abs/2306.06031 — cf. §5.1, §5.7
+
+[1032] (p.649): [1032] (p.649): Yang, H., Zhang, B., Wang, N., Guo, C. et al.  / AI4Finance Foundation (2024). FinRobot: An Open-Source AI Agent Platform for Financial Applications using Large Language Models. arXiv:2405.14767. https://arxiv.org/abs/2405.14767 — cf. §5.7, §5.10, §5.12
+
+[1033] (p.649): [1033] (p.649): Yang, J.; Jimenez, C. E.; Wettig, A.; Lieret, K.; Yao, S.; Narasimhan, K.; Press, O. (2024). SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering. arXiv:2405.15793 (NeurIPS 2024).
+
+[1034] (p.649): [1034] (p.649): Yang, X.; Sun, K.; et al. (2024). CRAG — Comprehensive RAG Benchmark. arXiv:2406.04744 (NeurIPS 2024 Datasets & Benchmarks ; Meta, distinct de Corrective RAG 2401.15884).
+
+[1035] (p.649): [1035] (p.649): Yang, Y.; Chai, H.; Song, Y.; Qi, S.; Wen, M.; Li, N.; Liao, J.; Hu, H.; Lin, J.; Chang, G.; Liu, W.; Wen, Y.; Yu, Y.; Zhang, W. (2025). A Survey of AI Agent Protocols. arXiv:2504.16736.
+
+[1036] (p.649): [1036] (p.649): Yang, Y.; Ma, M.; Huang, Y.; Chai, H.; Gong, C.; Geng, H.; Zhou, Y.; Wen, Y.; Fang, M.; Chen, M.; Gu, S.; Jin, M.; Spanos, C.; Yang, Y.; Abbeel, P.; Song, D.; Zhang, W.; Wang, J. (2025). Agentic Web: Weaving the Next Web with AI Agents. arXiv:2507.21206.
+
+[1037] (p.649): [1037] (p.649): Yang, Z.; Qi, P.; Zhang, S.; Bengio, Y.; Cohen, W.; Salakhutdinov, R.; Manning, C. D. (2018). HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering. arXiv:1809.09600 (EMNLP 2018).
+
+[1038] (p.649): [1038] (p.649): Yao, S.; Shinn, N.; Razavi, P.; Narasimhan, K. (2024). tau-bench: A Benchmark for Tool-Agent-User Inter￾action in Real-World Domains. arXiv:2406.12045 (métrique pass^k ; Sierra Research).
+
+[1039] (p.649): [1039] (p.649): Yao, S.; Yu, D.; Zhao, J.; Shafran, I.; Griffiths, T. L.; Cao, Y.; Narasimhan, K. (2023). Tree of Thoughts: Deliberate Problem Solving with Large Language Models. arXiv:2305.10601 (NeurIPS 2023).
+
+[1040] (p.649): [1040] (p.649): Yao, S.; Zhao, J.; Yu, D.; Du, N.; Shafran, I.; Narasimhan, K.; Cao, Y. (2022). ReAct: Synergizing Reasoning and Acting in Language Models. arXiv:2210.03629 (ICLR 2023).
+
+[1041] (p.649): [1041] (p.649): Yehudai, A.; Eden, L.; Li, A.; Uziel, G.; Zhao, Y.; Bar-Haim, R.; Cohan, A.; Shmueli-Scheuer, M. (2025). Survey on Evaluation of LLM-based Agents. arXiv:2503.16416.
+
+[1042] (p.649): [1042] (p.649): Yolum, Pinar & Singh, Munindar P. (2002). Flexible Protocol Specification and Execution  : Applying Event Calculus Planning Using Commitments. Proceedings of AAMAS ’02, ACM, pp.  527-534. DOI 10.1145/544862.544867.
+
+[1043] (p.649): [1043] (p.649): Young, G. (2010). CQRS Documents. Recueil auto-publié. https://cqrs.wordpress.com/wp-​content/ uploads/2010/11/cqrs_documents.pdf. ---
+
+[1044] (p.650): [1044] (p.650): Yu, T.; Zhang, R.; Yang, K.; Yasunaga, M.; Wang, D.; et al. (2018). Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task. arXiv:1809.08887 (EMNLP 2018).
+
+[1045] (p.650): [1045] (p.650): Yu, Y., Li, H., Chen, Z., Jiang, Y. et al. (2023). FinMem: A Performance-Enhanced LLM Trading Agent with Layered Memory and Character Design. arXiv:2311.13743 ; AAAI Spring Symposium 2024. https:// arxiv.org/abs/2311.13743 — cf. §5.10
+
+[1046] (p.650): [1046] (p.650): Yu, Y., Yao, Z., Li, H., Deng, Z. et al. (2024). FinCon: A Synthesized LLM Multi-Agent System with Conceptual Verbal Reinforcement for Enhanced Financial Decision Making. arXiv:2407.06567 (NeurIPS 2024). https://arxiv.org/abs/2407.06567 — cf. §5.10, §5.12
+
+[1047] (p.650): [1047] (p.650): Yuan, Dun ; Lyu, Fuyuan ; Yuan, Ye ; et al. (Liu, Xue) (2026). Beyond Message Passing : A Semantic View of Agent Communication Protocols. arXiv:2604.02369. [Prépublication : fixer le numéro de version arXiv au moment de citer.]
+
+[1048] (p.650): [1048] (p.650): Yuan, X., Xu, H., Xu, S., Zou, C., Xiong, J. (2026).TraderBench: How Robust Are AI Agents in Adversarial Capital Markets? arXiv. arXiv:2603.00285. https://arxiv.org/abs/2603.00285 — cf. §7.9.6 Z
+
+[1049] (p.650): [1049] (p.650): Zaharia, M.; Ghodsi, A.; Xin, R.; Armbrust, M. (2021). Lakehouse: A New Generation of Open Platforms that Unify Data Warehousing and Advanced Analytics. CIDR 2021. https://www.cidrdb.org/cidr2021/papers/ cidr2021_paper17.pdf.
+
+[1050] (p.650): [1050] (p.650): Zelikman, E.; Wu, Y.; Mu, J.; Goodman, N. D. (2022). STaR: Bootstrapping Reasoning With Reasoning. arXiv:2203.14465 (NeurIPS 2022).
+
+[1051] (p.650): [1051] (p.650): Zhan, Q.; Liang, Z.; Ying, Z.; Kang, D. (2024). InjecAgent: Benchmarking Indirect Prompt Injections in Tool-Integrated Large Language Model Agents. arXiv:2403.02691 (Findings of ACL 2024).
+
+[1052] (p.650): [1052] (p.650): Zhang, C., Liu, X., Zhang, Z., Jin, M., Li, L. et al. (2024). When AI Meets Finance (StockAgent): Large Language Model-based Stock Trading in Simulated Real-world Environments. arXiv:2407.18957. https:// arxiv.org/abs/2407.18957 — cf. §5.10, §5.12
+
+[1053] (p.650): [1053] (p.650): Zhang, P., Meng, R., Xu, X., et al. (2026). Towards Semantic-based Agent Communication Networks: Vision, Technologies, and Challenges. arXiv (eess.SP). arXiv:2603.24328. — cf. §7.6.1
+
+[1054] (p.650): [1054] (p.650): Zhang, W., Zhao, L., Xia, H., Sun, S. et al. (2024).A Multimodal Foundation Agent for Financial Trading: Tool-Augmented, Diversified, and Generalist (FinAgent). arXiv:2402.18485 ; KDD 2024. https://arxiv.org/ abs/2402.18485 — cf. §5.10
+
+[1055] (p.650): [1055] (p.650): Zhang, Y., Cai, Y., Zuo, X., et al. (2024). The Fusion of Large Language Models and Formal Methods for Trustworthy AI Agents: A Roadmap. arXiv (cs.SE / cs.AI). arXiv:2412.06512. — cf. §7.6.2
+
+[1056] (p.650): [1056] (p.650): Zhang, Z.; Bo, X.; Ma, C.; Li, R.; Chen, X.; Dai, Q.; Zhu, J.; Dong, Z.; Wen, J.-R. (2024). A Survey on the Memory Mechanism of Large Language Model based Agents. arXiv:2404.13501 (ACM TOIS, DOI:10.1145/3748302).
+
+[1057] (p.650): [1057] (p.650): Zheng, L.; Chiang, W.-L.; Sheng, Y.; Zhuang, S.; Wu, Z.; Zhuang, Y.; Lin, Z.; Li, Z.; Li, D.; Xing, E. P.; Zhang, H.; Gonzalez, J. E.; Stoica, I. (2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. arXiv:2306.05685 (NeurIPS 2023 Datasets & Benchmarks).
+
+[1058] (p.650): [1058] (p.650): Zheng, Lifan ; Chen, Jiawei ; Yin, Qinghong ; et al. (2025). Rethinking the Reliability of Multi-agent System : A Perspective from Byzantine Fault Tolerance. arXiv:2511.10400.
+
+[1059] (p.650): [1059] (p.650): Zhong, W.; Guo, L.; Gao, Q.; Ye, H.; Wang, Y. (2024). MemoryBank: Enhancing Large Language Models with Long-Term Memory. arXiv:2305.10250 (AAAI 2024, vol. 38, no. 17, pp. 19724-19731, DOI:10.1609/ aaai.v38i17.29946). ---
+
+[1060] (p.651): [1060] (p.651): Zhou, A.; Yan, K.; Shlapentokh-Rothman, M.; Wang, H.; Wang, Y.-X. (2023). Language Agent Tree Search Unifies Reasoning, Acting, and Planning in Language Models (LATS). arXiv:2310.04406 (ICML 2024).
+
+[1061] (p.651): [1061] (p.651): Zhou, S.; Xu, F. F.; Zhu, H.; Zhou, X.; Lo, R.; Sridhar, A.; Cheng, X.; Ou, T.; Bisk, Y.; Fried, D.; Alon, U.; Neubig, G. (2023). WebArena: A Realistic Web Environment for Building Autonomous Agents. arXiv:2307.13854 (ICLR 2024).
+
+[1062] (p.651): [1062] (p.651): Zhu, Kunlun ; Liu, Zijia ; Li, Bingxuan ; et al. (You, Jiaxuan) (2025). Where LLM Agents Fail and How They can Learn From Failures. arXiv:2509.25370.
+
+[1063] (p.651): [1063] (p.651): Zhu, X.; She, G.; Xue, B.; et al. (2022). Dissecting Service Mesh Overheads. arXiv preprint. arXiv:2207.00592.
+
+[1064] (p.651): [1064] (p.651): Zinnia (2025). Zinnia Unveils The Policy Processor (TPP) 8.0 — AI-Powered Leap Forward in L&A Under￾writing. BusinessWire 20251103363926, nov. 2025. https://zinnia.com/en/news/zinnia-​unveils-​the-​policy -​processor-​8-​0-​an-​ai-​powered-​leap-​forward-​in-​la-​underwriting — cf. §5.9, §5.11, §5.12.2 à
+
+[1065] (p.651): [1065] (p.651): Zinnia (2026). Zinnia Announces Collaboration with Snowflake to Deliver Real-Time Insurance Analytics and AI Solutions. 20.1.2026 ; BusinessWire 20260120636802. https://www.businesswire.com/news/home/ 20260120636802/en/Zinnia-​Announces-​Collaboration-​with-​Snowflake-​to-​Deliver-​Real-​Time-​Insurance -​Analytics-​and-​AI-​Solutions — cf. §5.6, §5.9, §5.11
+

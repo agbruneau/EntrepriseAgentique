@@ -1,0 +1,372 @@
+
+=== PAGE 527 ===
+
+Compendium
+
+Livre V — Livrer et clore
+
+L’agent comme livrable logiciel, horizon et frontière
+
+47 · L’artefact livré : provenance des composants et mise en service
+
+Livre V — Livrer et clore : l’agent comme livrable logiciel, horizon et frontière. Premier mouvement — l’agent 
+
+comme livrable logiciel : provenance, mise en service, sémantique d’effet (ch. 47-48). Chapitre d’ouverture du 
+
+Livre, et chapitre à deux mouvements : il porte deux thèses.
+
+Les deux mouvements portent chacun leur titre — un lecteur qui entre par le milieu doit pouvoir savoir quel 
+
+objet il lit. Premier mouvement — La provenance des composants : de quoi un agent est fait — thèse citée 
+
+en tête ; sections § 47.1 à § 47.7.
+
+Thèse — l’identité du Livre II certifie le porteur d’un agent, jamais sa composition — poids de modèle, 
+
+serveurs d’outils, bibliothèques, invites ; la provenance des composants (nomenclatures logicielles et d’IA, 
+
+signature et attestation d’artefacts) est le chaînon entre le passeport du ch. 16 et l’intégrité en exécution du 
+
+ch. 20 — et le front le plus mûr des trois (jugement que deux relèves confirment : politique de dépréciation 
+
+protocolaire, compromissions de chaîne d’approvisionnement d’agents).
+
+Second mouvement — La mise en service d’un artefact non reproductible — thèse ci-dessous ; sections § 47.8 
+
+à § 47.12.
+
+Thèse du second mouvement — mettre en service un agent dont le comportement n’est pas reproductible 
+
+à l’identique exige une discipline propre — jeux d’essai de référence, barrière d’évaluation au déploiement, 
+
+versionnement à cinq horloges (modèle, invites, outils, politique — et le harnais, porteur de version 
+
+autonome des quatre) — sans laquelle l’évaluation continue du ch. 39 mesure un artefact que l’organisation 
+
+ne sait pas même désigner.
+
+Deux thèses pour un chapitre, et les deux portent la même marque. Le ch. 47 réunit deux chapitres antérieurs, 
+
+conservés intégralement. Chacune des deux thèses est une construction d’auteur, socle à constituer — ce qui 
+
+est sans équivalent dans les vingt et un chapitres des Livres I et II, où la thèse citée était toujours adossée 
+
+à un volume source. Citer verbatim une thèse sans socle n’en fait pas un énoncé du chapitre : les deux sont 
+
+reprises comme programme de travail.
+
+47.1 L’agent comme artefact composé
+
+La forme antérieure comptait quatre horloges ; une relève en exhibait un cinquième porteur — le harnais. 
+
+Une décision d’auteur du 27 juillet 2026 range cette matière dans les sections existantes, sans chapitre neuf : 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 527 sur 663
+
+---
+
+
+=== PAGE 528 ===
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+le § 47.8.1 est l’un des deux points d’atterrissage reconnus, avec le ch. 50 § 50.2. Ce risque est borné, non 
+
+comblé — la somme n’a toujours aucun chapitre de la couche d’exécution.
+
+Les vingt et un chapitres rédigés du Livre I et du Livre II ont traité l’agent comme un interlocuteur : qui 
+
+parle à quoi (ch. 8 à 11), sous quelle autorité (ch. 12 à 21). Ce chapitre le traite comme un artefact — une 
+
+chose qu’une organisation assemble, signe, livre, met en service, remplace. C’est le déplacement que l’audit 
+
+de couver
+
+Lecture de l’auteur — l’inventaire qui suit est une construction de ce chapitre. Ce que le socle établit : rien, 
+
+et cette ligne n’est pas une figure de style — le socle consolidé existe depuis le 28 juillet 2026, ce chapitre n’y 
+
+a aucune entrée, et aucune des cinq lignes du tableau 47.1 ne résout contre une entrée numérotée d’aucun 
+
+socle. Ce qu’il n’établit pas : que ces cinq composants soient les bons, qu’ils épuisent la composition d’un 
+
+agent, ni qu’un inventaire soit le bon instrument pour la décrire. L’inventaire vaut comme vocabulaire de 
+
+travail, non comme résultat.
+
+Tableau 47.1 — Les cinq composants d’un agent et leurs horloges propres, construction d’auteur du présent chapitre au 27 juillet 
+
+2026. Aucune ligne ne résout contre une entrée de socle ; la colonne de droite renvoie aux sièges qui traitent la matière, jamais à une 
+
+source qui l’établirait.
+
+Composant Ce qui le fait changer Qui en décide Où la somme en traite
+
+Poids de modèle version publiée par son fournisseur ; re￾trait d’une version antérieure
+
+le fournisseur, pas l’exploitant ch. 6 § 6.3 (évaluation) ; 
+
+§ 47.8
+
+Serveurs d’outils révision d’une définition d’outil ; ajout 
+
+ou retrait d’un serveur
+
+l’éditeur du serveur, et le proto￾cole autorise le changement à 
+
+l’exécution
+
+ch. 20 § 20.1 (siège du 
+
+retournement) ; § 47.4
+
+Bibliothèques et hôte 
+
+d’exécution
+
+mise à jour de dépendance ; correctif 
+
+de sécurité
+
+la chaîne de distribution du logi￾ciel
+
+§ 47.2, § 47.3
+
+Invites et fichiers 
+
+d’instructions
+
+édition d’un fichier, sans compilation ni 
+
+déploiement
+
+quiconque a accès au dépôt ou 
+
+au répertoire de configuration
+
+§ 47.7 (relève) ; § 47.8
+
+Politique 
+
+d’autorisation
+
+révision d’une règle, d’une portée, d’un 
+
+seuil d’approbation
+
+l’exploitant, et c’est le seul des 
+
+cinq
+
+ch. 3 (socle IAM) ; § 47.8
+
+Ce que l’inventaire fait voir, et qui est la seule chose qu’il établisse : les cinq horloges ne sont pas synchrones, 
+
+et une seule appartient à l’exploitant. Un agent dont la politique n’a pas changé depuis six mois peut avoir 
+
+changé quatre fois de comportement observable : nouveau millésime de modèle, définition d’outil révisée, 
+
+dépendance mise à jour, fichier d’instructions édité. La question « quelle version de cet agent est en production » 
+
+n’a donc pas de réponse à un seul terme — c’est le constat que le § 47.8 reprend sous le nom de versionnement 
+
+à cinq horloges, dont le quintet ne se superpose pas à celui de ce tableau : le § 47.8 le déclare plutôt que de 
+
+les fondre.
+
+Ce que la thèse citée affirme, et le seul point où ce chapitre peut l’appuyer sur du texte rédigé. « L’identité 
+
+du Livre II certifie le porteur, jamais la composition » : le tableau 16.1 du ch. 16 § 16.1 énumère les quatre 
+
+pièces du passeport et, pour chacune, ce que le socle établit et n’établit pas. Aucune des quatre ne porte un 
+
+composant — la carte signée démontre l’intégrité d’un contenu canonicalisé au regard d’une clé, l’inscription 
+
+au registre porte des outils invocables et des bornes de portée, la chaîne de mandat exprime une délégation, 
+
+les attestations de conformité n’ont qu’un nom de champ facultatif. La thèse se vérifie donc par l’absence 
+
+d’une ligne dans une table rédigée, ce qui est une vérification faible mais réelle — et c’est tout ce dont ce 
+
+chapitre dispose. Elle ne se vérifie pas comme un fait négatif : le socle que mobilise le ch. 16 ne documente 
+
+pas de mécanisme d’identité portant la composition, et c’est une absence de documentation, non un fait négatif 
+
+vérifié (degré 3).
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 528 sur 663
+
+---
+
+
+=== PAGE 529 ===
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+Figure 47.1 — Les cinq composants d’un agent et leurs horloges propres : ce qui les fait changer, et qui en décide.
+
+47.2 Nomenclatures logicielles et d’IA : état des normes et de l’outillage
+
+Cette section est l’une des deux du chapitre dont le socle est « à constituer avant rédaction », et la manière dont 
+
+elle est écrite en découle entièrement. Les sources primaires restaient à constituer ; elles ne l’ont pas été. Le 
+
+seul geste admissible est donc d’exposer l’état de ce qui a été relevé, et de formuler l’instruction à conduire 
+
+— jamais d’écrire le contenu d’une spécification qu’on n’a pas ouverte. C’est la règle que le § 17.5 du ch. 17 
+
+a établie ; elle s’applique ici sans adaptation.
+
+Ce qui est relevé, et à quel régime. Une relève du 26 juillet 2026 nomme cinq documents, tous relevés à 
+
+leur source ce jour-là. Le tableau ci-dessous les reprend avec leurs réserves d’origine, sans en ajouter ni en 
+
+retirer.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 529 sur 663
+
+---
+
+
+=== PAGE 530 ===
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+Tableau 47.2 — Les cinq documents d’une relève pour les nomenclatures et la signature d’artefacts, relevés à leur source le 26 juillet 
+
+2026. Aucun n’entre au socle — ce chapitre n’en a pas : ce sont des candidates à instruire, jamais des faits acquis. Les organismes 
+
+publiants sont nommés, et ils ne sont pas anonymisables : une instruction dont le corpus ne porte pas l’identifiant de ses sources 
+
+n’a pas de critère de clôture exécutable, et la parade de péremption qui vaut pour une dénomination commerciale ne vaut pas pour 
+
+l’éditeur d’une spécification.
+
+Document relevé Ce que la relève porte Réserve portée par la relève elle-même
+
+in-toto Attestation Framework
+
+(spécification v1)
+
+cadre d’attestation du projet 
+
+in-toto, hébergé par la CNCF
+
+le niveau de maturité CNCF du projet n’est pas porté par 
+
+la page relevée
+
+obre 2025 par l’OWASP et 
+
+Ecma International, normalisée 
+
+ECMA-424 le 10 décembre 2025 ; 
+
+précision relevée le 30 juillet 
+
+2026 : c’en est la 2ᵉ édition, la 1ʳᵉ
+
+ayant normalisé CycloneDX 1.6
+
+en juin 2024
+
+fait à distinguer d’un format d’éditeur : c’est une nomen￾clature devenue norme d’organisme. Et l’édition compte : 
+
+une norme d’organisme qui en est à sa deuxième édition 
+
+en dix-huit mois se cite avec son édition, faute de quoi 
+
+« ECMA-424 » désigne deux textes
+
+ée sous la Fondation Linux, or￾ganisée en deux pistes — Build
+
+et Source ; approuvée le 24 no￾vembre 2025, précédée de deux 
+
+candidates (20 juin et 10 no￾vembre 2025) n candidate depuis 
+
+janvier
+
+2026) ; le projet se déclare 
+
+norme internationale ISO/IEC 
+
+5962:2021
+
+Réserve LEVÉE le 30 juillet 2026 sur le journal du projet, lu 
+
+à sa source : la page de spécification porte le statut sans la 
+
+date, l’annonce porte la date — l’énumération des niveaux, 
+
+elle, reste non relevée Réserve LEVÉE le 30 juillet CONTRE 
+
+l’énoncé du projet. La norme s’intitule Information techno￾logy — SPDX® Specification V2.2.1 : ISO/IEC 5962:2021 
+
+fixe SPDX 2.2.1, non 3.x. Le projet est fondé à se dire 
+
+normalisé et il ne l’est pas dans la version qu’il sert — 
+
+c’est exactement l’écart que la réserve pressentait, et la 
+
+prudence du relevé était justifiée
+
+NIST SP 800-218A Secure Software Development 
+
+Practices for Generative AI and 
+
+Dual-Use Foundation Models: 
+
+An SSDF Community Profile, 
+
+finale, 26 juillet 2024 ; profil 
+
+communautaire du SSDF v1.1, 
+
+adressé aux producteurs de 
+
+modèles, aux producteurs de 
+
+systèmes qui les emploient et 
+
+à leurs acquéreurs
+
+profil, non norme imposant conformité
+
+2026, et elle se résout
+
+Trois choses que cette table ne dit pas, et qu’aucune lecture ne doit lui prêter. (1) Elle ne dit pas ce que 
+
+chacune de ces spécifications prescrit : le contenu normatif n’a pas été ouvert, et une notice de page n’est 
+
+pas un texte. (2) Elle ne dit pas qu’elles soient adoptées par quiconque : aucune métrique d’adoption n’a été 
+
+relevée, et une métrique auto-déclarée devrait de toute façon être attribuée à sa source à chaque occurrence. 
+
+(3) Elle ne dit pas qu’elles s’appliquent à un agent : quatre des cinq portent sur le logiciel en général, la 
+
+cinquième sur le développement de modèles, et aucune ne nomme l’objet composé du § 47.1. Le socle ne 
+
+documente aucune nomenclature dont le périmètre déclaré couvre les cinq composants du tableau 47.1 — 
+
+degré 3, et il ne s’ensuit pas qu’il n’en existe pas.
+
+La distinction que la relève établit, en revanche, et qui a une portée d’architecture. Une nomenclature 
+
+devenue norme d’organisme — CycloneDX 1.7 par ECMA-424 — et un format d’éditeur n’ont pas le même 
+
+régime d’évolution  : la première a un forum, un cycle et une procédure de révision  ; le second a un 
+
+propriétaire. C’est exactement le critère que le ch. 49 § 49.3 applique aux forums de gouvernance, et le 
+
+§ 47.10 y revient au grain du déploiement. Ce que la relève n’établit pas : que la normalisation confère 
+
+l’interopérabilité. Qualifier un mécanisme par ce que sa spécification démontre, jamais par ce qu’un statut de 
+
+norme laisse attendre — et rien de ce qui a été relevé ne démontre que deux outils lisant CycloneDX 1.7 
+
+produisent le même inventaire d’un même agent.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 530 sur 663
+
+---
+

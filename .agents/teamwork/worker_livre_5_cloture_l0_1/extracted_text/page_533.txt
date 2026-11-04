@@ -1,0 +1,74 @@
+## [Page 533] (`page-533.png`)
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+Vérifier dans le temps suppose de savoir à quoi comparer  ; or l’objet auquel comparer — la définition 
+
+consentie, avec sa version et son empreinte — est précisément ce que le § 47.1 range parmi les composants 
+
+et que rien n’inventorie. Ce que le socle établit (par le ch. 20 § 20.1) : l’énumération des huit champs du type 
+
+qui décrit un outil, dont aucun ne porte de version, d’empreinte ni de signature, sur une page nommée d’une 
+
+révision nommée. Ce qu’il n’établit pas : qu’une nomenclature ou une attestation d’artefact aurait empêché 
+
+un retournement, ni qu’un retournement ait été observé en production. Le chapitre décrit un maillon, non 
+
+un incident — c’est la formule du ch. 20, et elle vaut ici mot pour mot. Un renvoi entrant se referme ici. Le 
+
+ch. 20 § 20.1 porte une relève « portée ici et non consommée » qui désigne nommément ce chapitre : le 
+
+retournement a un grain plus fin que le serveur d’outils — l’extension déclarative du harnais —,
+
+Cette section ne rejoue pas le retournement : elle le relit. Le ch. 20 § 20.1 en est le siège — mécanique, niveaux 
+
+de preuve, bornes du balayage, réserve temporelle sur la révision protocolaire annoncée au brouillon, ratifiée 
+
+depuis, le 28 juillet 2026. Il établit ceci, et le présent chapitre le reprend sans le reconstruire : le retournement 
+
+n’exploite aucun défaut du mécanisme d’admission ; il exploite le fait que la décision d’invocation s’appuie sur 
+
+un objet que le protocole autorise à changer après l’octroi de la confiance, sans prescrire de le relier à ce qui avait 
+
+été consenti. et l’incident public candidat est décrit au ch. 47 § 47.7, qui l’instruit et déclare son propre défaut 
+
+d’attribution. Forme re-vérifiée mot à mot contre sa cible au 28 juillet 2026 : le relevé antérieur en citait une 
+
+variante que le ch. 20 ne porte pas — « décrit au ch. 47, non rédigé » —, et une relève citée de mémoire est 
+
+une relève qu’on n’a pas rouverte. Les deux termes de l’annonce sont tenus au § 47.7 : l’incident y est décrit 
+
+comme candidat, et le défaut d’attribution y est déclaré — aucun énoncé du ch. 20 ne s’y adosse, et aucun 
+
+énoncé du présent chapitre ne l’établit. Le superlatif que ce paragraphe portait — « le seul de tout le Livre à 
+
+l’être » — est retiré : le domaine des renvois entrants du Livre n’a pas été relevé, et un superlatif sans domaine 
+
+balayé est un relevé, non une couverture.
+
+Figure 47.4 — Le retournement du ch. 20 relu comme défaut de provenance : la même attaque, vue de l’autre bout.
+
+47.5 La provenance comme pièce candidate du passeport du ch. 16
+
+Cette section est une construction d’auteur sur un objet qui n’existe dans aucune spécification, et le cumul des 
+
+deux impose de la lire avec la plus grande réserve du chapitre. Le passeport d’agent est déclaré par le ch. 16 
+
+comme objet de synthèse construit par la somme ; lui proposer une cinquième pièce est donc un geste 
+
+d’auteur sur un objet déjà virtuel.
+
+Lecture de l’auteur — la proposition, énoncée en une phrase : la provenance des composants est la pièce que 
+
+les quatre autres présupposent sans la porter. Ce que le socle établit : le tableau 16.1 du ch. 16 § 16.1, pour 
+
+chacune des quatre pièces, ce qu’elle démontre et ce qu’elle ne démontre pas — et le constat que le ch. 16 en 
+
+tire lui-même : sur les quatre pièces, aucune ne fournit à une autre l’ancrage qui lui manque, constat borné à 
+
+ces quatre matières nommées. Ce qu’il n’établit pas, et la liste est plus longue que la proposition : ni qu’une 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 533 sur 663
+
+---
+

@@ -1,0 +1,76 @@
+## [Page 540] (`page-540.png`)
+
+Compendium 48 · La sémantique d’effet : idempotence, compensation, réconciliation
+
+Figure 48.1 — Les trois classes d’effet d’une action d’agent, et ce qu’une reprise produit.
+
+48.2 Idempotence et rejouabilité des appels d’outils
+
+Une formule borne cette section, et il faut l’appliquer à la lettre : « ce que les spécifications protocolaires en disent 
+
+— à instruire, jamais présumé ». Aucune passe d’instruction protocolaire n’a été conduite pour ce chapitre. 
+
+Ce qui suit est donc ce que des chapitres rédigés de la somme portent déjà, plus l’état de l’absence — jamais 
+
+une lecture de spécification faite ici.
+
+Ce que la somme porte, et c’est peu mais c’est précis. Le ch. 8 § 8.2.3 établit que les tâches asynchrones du 
+
+protocole agent-outil sont expérimentales, que le mécanisme se rapproche, sans s’y identifier, de l’exécution 
+
+durable de l’intégration d’entreprise, et surtout qu’il ne fournit pas les garanties de reprise et d’idempotence 
+
+d’un moteur durable — leur contrat ne saurait être présenté comme stable. C’est un énoncé sur ce que le 
+
+mécanisme ne démontre pas, et il est repris tel quel : un mécanisme se qualifie par ce que sa spécification 
+
+démontre, jamais par la parenté qu’on lui prête. Le rapprochement avec un moteur durable est précisément ce 
+
+que le ch. 8 refuse de tenir pour une équivalence.
+
+Ce que la somme porte du côté de l’outil. Le ch. 4 § 4.4.2 range l’idempotence parmi les propriétés de 
+
+conception d’un outil — une même requête répétée produit le même état, ce qui protège des réessais et des 
+
+duplications d’effets de bord. Lecture de l’auteur — la conséquence est dissymétrique et elle est le cœur de 
+
+la section : l’idempotence est une propriété de l’outil invoqué, pas du protocole qui l’invoque, ni de l’agent qui 
+
+décide de l’invoquer. Ce que le socle établit : la propriété et son intérêt, par le ch. 4. Ce qu’il n’établit pas : 
+
+qu’un protocole agentique la prescrive, l’exprime dans un champ, ou permette à un appelant de savoir si 
+
+l’outil qu’il appelle la possède.
+
+L’absence, à son degré exact. Le socle consolidé de la somme ne documente aucune spécification protocolaire 
+
+prescrivant l’idempotence d’un appel d’outil, ni aucun champ qui la déclarerait — degré 3, absence de 
+
+documentation dans le corpus de cet ouvrage. Deux bornes accompagnent ce constat, et sans elles il serait 
+
+faux. (1) Le balayage sur lequel il s’appuie n’a pas été mené pour cette question : le ch. 20 § 20.1 rapporte 
+
+l’énumération des huit champs du type qui décrit un outil, dont aucun ne porte de version, d’empreinte ni 
+
+de signature — ce balayage-là portait sur l’intégrité, non sur l’idempotence, et il était borné à une page d’une 
+
+révision nommée. L’étendre à l’idempotence serait exactement l’élargissement que le contrôle de bornage du 
+
+Vol. III écarte. (2) Une révision majeure du protocole agent-outil est annoncée au brouillon — dont la date 
+
+n’est pas confirmée à la source — et tout constat de cette section est à rejouer sur la révision publiée : il 
+
+ne vaut pas par avance pour elle. Elle est publiée depuis le 28 juillet 2026 (2026-07-28) ; le rejeu reste à faire 
+
+— constat du 23 octobre 2026. L’instruction à conduire, formulée pour qu’elle soit ouvrable. Question : une 
+
+spécification protocolaire agentique prescrit-elle, exprime-t-elle ou permet-elle de déclarer l’idempotence 
+
+d’une opération invocable, et sous quelle forme un appelant peut-il l’établir avant d’invoquer ? Corpus à 
+
+ouvrir, nommé par ses identifiants et non par des périphrases, faute de quoi le critère de clôture ne serait 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 540 sur 663
+
+---
+

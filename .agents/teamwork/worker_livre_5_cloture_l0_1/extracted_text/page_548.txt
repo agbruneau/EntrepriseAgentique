@@ -1,0 +1,76 @@
+## [Page 548] (`page-548.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+49.1.3 Les échéances financières et de règlement
+
+Le vertical financier ajoute sa propre frise, dont seule la temporalité est retenue ici — le détail est au § 49.9 
+
+et aux chapitres du Livre III. Le Vol. I relève : l’entrée en vigueur statutaire d’un encadrement des jetons 
+
+de paiement adossés au dollar au plus tard le 18 janvier 2027 ; une phase pilote de monnaie numérique de 
+
+banque centrale européenne au second semestre 2027, une première émission n’étant qu’une éventualité
+
+évoquée pour 2029 ; l’obligation de recevoir les messages de reporting en novembre 2027 et la fin de 
+
+coexistence à l’horizon 2028 pour la migration de messagerie financière ; une vérification obligatoire du 
+
+bénéficiaire hors zone euro le 9 juillet 2027 ; et la reconnaissance d’un organisme de normalisation de 
+
+banque ouverte états-unien jusqu’au 8 janvier 2030.
+
+Le rail temps réel canadien fait exception, et la formulation est imposée par la réserve F-29 du Vol. II : il s’inscrit 
+
+dans la fenêtre par vagues, sans date ferme unique, et sa cible a connu quatre cibles successives — 2019, 
+
+2022, 2023, 2026. On n’écrit jamais qu’il est « lancé » ni « en production ». Le ch. 33 en est le siège.
+
+49.1.4 Le caractère mouvant du « programmé »
+
+Un engagement daté n’est pas pour autant un fait stable, et c’est la discipline de re-datation qui garde cette 
+
+mouvance visible. Le cas du règlement omnibus (§ 49.0.2) l’illustre : l’ensemble des reports dépendait de 
+
+son adoption, et les avoir présentés comme acquis avant celle-ci aurait été une faute de statut. La règle qui en 
+
+découle structure tout le chapitre : tout engagement daté porte sa source et son statut, et toute affirmation 
+
+portant sur 2027-2028 est révisable.
+
+Ce que cette section lègue au ch. 50, et qui n’est pas repris ici : les échéances de cette frise qui périment des 
+
+passages de la somme sont événements de péremption, et leur registre est au ch. 50 § 50.2. Une frise 
+
+dit quand quelque chose arrive ; un registre de péremption dit ce qui tombe quand cela arrive. Les deux ne se 
+
+confondent pas, et le second n’est pas dupliqué ici.
+
+Figure 49.1 — La grappe d’échéances 2027-2032, et la concentration de 2027.
+
+49.2 Trajectoire des protocoles : vers la coexistence stratifiée gouvernée
+
+La couche protocolaire est, pour l’essentiel, livrée. Ce qui reste ouvert pour l’horizon n’est donc plus de 
+
+savoir quelles fonctionnalités viendront, mais comment ces standards évolueront — par quels mécanismes de 
+
+gouvernance, à quelle cadence, sous quelle forme de cohabitation. Le Vol. I signale une rupture de méthode
+
+survenue après juin 2026 : là où les protocoles annonçaient des échéances de livraison, ils publient désormais 
+
+des programmes de priorité sans engagement temporel. La feuille de route MCP du 22 août 2026 en est un 
+
+cas : cinq priorités, dont l’identité d’agent, et aucune date. La conséquence de lecture est nette : il faut lire 
+
+des agendas de gouvernance, non des feuilles de route produit. La feuille de route d’un protocole agent-outil 
+
+abandonne la cadence par jalons datés au profit d’aires de priorité pilotées par des groupes de travail, sans 
+
+dates de livraison engagées. Ce déplacement est un fait documenté quant à la structure de gouvernance — donc 
+
+PROGRAMMÉ à ce seul titre — mais il interdit d’en déduire un calendrier de fonctionnalités.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 548 sur 663
+
+---
+

@@ -1,0 +1,86 @@
+## [Page 538] (`page-538.png`)
+
+Compendium 48 · La sémantique d’effet : idempotence, compensation, réconciliation
+
+Deux réserves ferment le mouvement, et elles se cumulent. (1) Rien de ce qui précède ne se qualifie par ce 
+
+qu’un registre promet ; le dispositif relevé ne démontre ni l’unicité, ni la fraîcheur, ni la révocabilité d’un 
+
+enregistrement. (2) Le socle ne documente aucun registre d’agents portant un champ de version d’artefact 
+
+— degré 3, et il ne s’ensuit pas qu’aucun n’en porte. Une construction d’auteur posée là où le socle est muet 
+
+est celle qu’aucune relecture ne peut réfuter, faute de fait auquel la confronter : c’est le motif pour lequel cette 
+
+section s’arrête à une proposition nommée.
+
+48 · La sémantique d’effet : idempotence, compensation, réconciliation
+
+Livre V — Livrer et clore : l’agent comme livrable logiciel, horizon et frontière. Premier mouvement — l’agent 
+
+comme livrable logiciel : provenance, mise en service, sémantique d’effet (ch. 47-48). Second et dernier chapitre 
+
+du mouvement, et troisième des trois fronts de matière neuve.
+
+La forme antérieure écrivait « n’est spécifié ni par les protocoles ni par l’encadrement » — un quanti￾ficateur universel négatif qu’aucun balayage ne soutient. Ce que le corpus établit est une absence de 
+
+documentation, au degré 3, et non un fait négatif vérifié.
+
+Thèse — une action d’agent produit des effets dans des systèmes d’enregistrement, et ce qui advient 
+
+quand elle réussit à moitié — idempotence, compensation, réconciliation — n’est documenté par rien de 
+
+ce que la somme a instruit, ni du côté des protocoles (Livre I) ni du côté de l’encadrement (Livre III) ; 
+
+c’est en finance que le coût de ce silence est maximal (un virement à moitié réussi n’est pas un incident 
+
+d’observabilité, c’est un écart comptable).
+
+Ce bloc était absent du rendu .html jusqu'au 28 juillet 2026, et son emplacement en était la cause : placé 
+
+entre la thèse et le séparateur, il tombait hors du corps que le générateur projette. Il est déplacé après 
+
+le séparateur, où les ch. 47 et 49 placent le leur. Le défaut n'était pas un rendu régénéré depuis un état 
+
+intermédiaire mais une omission silencieuse du générateur : le .md faisait foi et le .html ne le disait pas. La 
+
+dette est d’appareil et elle reste ouverte — un contrôle de parité qui compare les titres de section ne voit pas 
+
+cette classe, et rien de versionné ne l’attrape aujourd’hui.
+
+La thèse est une construction d’auteur, socle à constituer, et elle porte deux propositions de statuts inégaux 
+
+qu’il faut séparer avant d’entrer dans le chapitre. La seconde — un virement à moitié réussi est un écart 
+
+comptable — est une lecture d’auteur, et elle est reprise comme telle. La première — cela n’est documenté 
+
+par rien de ce que la somme a instruit, ni du côté des protocoles ni du côté de l’encadrement — est une absence, 
+
+et la forme que la thèse porte depuis son réalignement dit exactement à quoi elle est bornée : elle porte sur 
+
+le corpus instruit par la somme, non sur les protocoles ni sur l’encadrement eux-mêmes. C’est une absence 
+
+de documentation dans le corpus de la somme, au degré 3, non un fait négatif vérifié — et aucun balayage 
+
+documenté ne l’élève au-dessus de ce degré. La borne est désormais dans la thèse, et elle se lit comme une 
+
+borne, non comme une atténuation de style : le chapitre ne peut pas écrire que les protocoles n’en disent rien ; 
+
+il écrit que rien de ce que la somme a instruit ne le documente, ce qui n’est pas la même proposition et 
+
+n’autorise pas la même conclusion.
+
+Un fait neuf du 28 juillet 2026 change ce que ce chapitre pourrait un jour établir, sans rien changer à ce 
+
+qu’il établit aujourd’hui. Le socle consolidé existe depuis le 28 juillet 2026 : pour la première fois, « ce que 
+
+la somme a instruit » désigne un corpus fini, numéroté et balayable, là où la thèse visait jusqu’ici un objet 
+
+qu’aucun instrument ne délimitait. Le degré ne bouge pas pour autant — un balayage de chaînes n’est pas 
+
+un balayage sémantique, et le conduire est un acte d’instruction, non de relecture. La thèse a été bornée ; 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 538 sur 663
+
+---
+

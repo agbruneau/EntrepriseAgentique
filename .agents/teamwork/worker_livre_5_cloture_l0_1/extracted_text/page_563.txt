@@ -1,0 +1,176 @@
+## [Page 563] (`page-563.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+vingt-deux lacunes numérotées, dont quatre closes. Deux closes par instruction aboutie (valeur probante des 
+
+cartes signées ; mécanique et attestation des risques protocolaires), une close par instruction infructueuse 
+
+(le corpus d’appui annoncé et non déposé — échec documenté, et l’échec est un résultat), une close par décision 
+
+et non par instruction (un fichier de faits partagés que le Vol. III a décidé de ne pas créer — décision que 
+
+la somme rouvre expressément, comme elle y était autorisée). Sept sont instruites sans être closes ; dix ne 
+
+sont pas instruites ; une est repérée sans extraction.
+
+Tableau 49.2 — Les vingt-deux lacunes numérotées du Vol. III, reprises de son Monographie §28.5 avec leur état d'instruction, et 
+
+rattachées à leur chapitre porteur dans la somme. Cardinal et répartition re-mesurés sur la colonne d'état de la source, non recopiés 
+
+d'un document amont. Borne reprise de la source : cette colonne reprend les qualifications que le Vol. III porte lui-même — ce n’est 
+
+pas une ré-instruction, et aucune passe de recherche n’a été conduite ici sur aucune d’elles.
+
+Lacune Objet État repris de sa source Où la somme la 
+
+porte
+
+1 Valeur probante des cartes 
+
+d’agent signées
+
+instruite et close — ancrage renvoyé hors protocole, 
+
+révocation non outillée, gouvernance des clés absente
+
+ch. 15 § 15.1
+
+2 Mécanique et attestation 
+
+des risques protocolaires
+
+instruite et close — deux énoncés de statuts différents, 
+
+à ne jamais fondre : la spécification ne nomme aucune 
+
+menace d’identité classique (degré 1) ; aucun identifiant 
+
+de vulnérabilité visant le protocole (degré 3)
+
+ch. 19 § 19.1, ch. 11
+
+3 Désignation de l’organisme 
+
+de normalisation technique
+
+instruite, non close — au 27 juin 2026 le texte officiel 
+
+écrit encore « sera désigné » ; quatre chaînes cherchées, 
+
+zéro occurrence
+
+ch. 30, ch. 32
+
+4 Contenu de la ligne direc￾trice IA de l’AMF
+
+instruite, non close — attentes relevées, aucune des 
+
+deux dates en divergence ne figure à la source
+
+ch. 27
+
+5 Ce qui n’existe pas encore 
+
+en matière de registre
+
+instruite, non close — quatre dispositifs, quatre ré￾serves de statut
+
+ch. 15 § 15.3
+
+6 Délégation au-delà de deux 
+
+sauts
+
+non instruite — front ouvert hérité du Vol. I ch. 17 § 17.6 ; 
+
+§ 49.13
+
+7 Métrique d’horizon de tâche 
+
+déléguée
+
+non instruite — un balayage d’un document n’instruit 
+
+pas une lacune de la littérature ; distincte de la lacune 
+
+15, à ne pas fusionner
+
+ch. 40 § 40.1 ; 
+
+§ 49.13
+
+8 Composante homonyme 
+
+d’un cadre d’écosystème
+
+non instruite — garde-fou hérité, sans niveau ch. 7 § 7.5
+
+9 Caractérisation du frame
+
+opérationnel
+
+non instruite — question du Vol. II que ce volume ne 
+
+reprend pas
+
+ch. 29
+
+10 Gouvernance du protocole 
+
+de paiement
+
+instruite, non arbitrée — annonce établie, matérialisa￾tion non établie ; divergence dissoute par le fait
+
+ch. 10
+
+11 Corpus d’appui non déposé instruite et infructueuse, close — trois ouvrages annon￾cés, zéro déposé
+
+avant-propos
+
+12 Fichier de faits partagés in￾existant
+
+close par décision, non par instruction décision rouverte
+
+13 Statut réel du projet portant 
+
+l’horloge post-quantique
+
+instruite, non close — demeure un projet public initial ch. 21 § 21.1
+
+ch. 17 § 17.1
+
+instruite, non 
+
+close — révi￾sion du 6 juillet 
+
+2026, expirant 
+
+le 7 janvier 2027 
+
+— −11 du 30 
+
+juill. 2026, exp. 
+
+31 janv. 2027 15
+
+Métriques d’observabilité instruite, non close — neuf entrées versées ; les seize 
+
+métriques relevées mesurent des opérations, pas un 
+
+parc (F-96 du Vol. III, ⚖ vote dû, non conduit ; exclue du 
+
+socle consolidé à ce titre)
+
+ch. 38, ch. 40
+
+16 RGPD non instruite — « absent du socle et du programme de 
+
+constitution » ; degré 3
+
+ch. 30
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 563 sur 663
+
+---
+

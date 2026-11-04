@@ -1,0 +1,74 @@
+## [Page 560] (`page-560.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+Figure 49.11 — Trois axes, et des futurs qui s’y lisent différemment.
+
+49.11.3 Discontinuités à faible probabilité et fort impact
+
+Trois discontinuités dont la matérialisation invaliderait l’hypothèse même sur laquelle reposent les autres 
+
+trajectoires. (1) La rupture cryptographique : l’apparition d’un calculateur quantique cryptographique￾ment pertinent dans une fenêtre parfois avancée — SPÉCULATIF — casserait les algorithmes à clé publique 
+
+classiques sur lesquels repose toute l’identité agentique du Livre II. (2) L’incident systémique d’un réseau 
+
+d’agents  : une cascade corrélée par monoculture parmi des agents financiers, dont l’irréversibilité du 
+
+règlement interdirait la correction a posteriori (ch.  31 § 31.1.1, siège du patron d’irréversibilité ; § 49.9 ; ch.  
+
+48 § 48.4). (3) La discontinuité de capacité — percée ou plateau — qui briserait l’extrapolation de la courbe 
+
+d’horizon de tâche (§ 49.7).
+
+Le critère de conception qui en découle est constant, et c’est le legs pratique du chapitre : concevoir des points 
+
+de coupure et de réversibilité indépendants du scénario nominal — des dispositifs de confinement et d’arrêt 
+
+qui ne supposent pas que le futur ressemblera à la trajectoire centrale.
+
+49.11.4 Six conditions, et aucune n’est acquise
+
+Sous forme de conditions et non de prédictions, ce qui devrait être tranché d’ici 2032 pour que le pari 
+
+économique de la somme se réalise. (1) La résolution au moins partielle du verrou sémantique (§ 49.6.1), faute 
+
+de quoi l’interopérabilité reste syntaxique. (2) Une identité et une confiance composables, déployées dans 
+
+un régime post-quantique respectant l’horloge (§ 49.4 ; ch. 21). (3) Une certification mesurable, adossée 
+
+à une science de l’évaluation aujourd’hui largement absente (§ 49.6.4). (4) Un régime de responsabilité et 
+
+d’attribution comblant le vide laissé par le retrait de la directive (§ 49.10). (5) Une soutenabilité outillée d’un 
+
+standard d’attribution d’empreinte par appel d’agent, qui n’existe pas (§ 49.7). (6) Une portabilité neutre des 
+
+agents, à défaut de quoi l’effet économique reste capté par les exécuteurs dominants (§ 49.2.2).
+
+Aucune de ces six conditions n’est acquise au gel : leur réunion conditionne la réalisation de la promesse, et le 
+
+défaut d’une seule suffit à la compromettre.
+
+49.11.5 Ce que la clôture du premier mouvement lègue
+
+La proposition cardinale, et elle est de statut mixte : les protocoles d’interopérabilité agentique sont, pour 
+
+l’essentiel, livrés, gouvernés, déployés et formalisés  ; ce qui reste ouvert pour la fenêtre n’est plus surtout 
+
+technique mais institutionnel et économique. Le verrou de 2027-2032 est moins de connecter que de 
+
+gouverner, de garantir et d’imputer. Et la clôture honnête consiste à rouvrir : les deux ancrages datés de 
+
+l’horizon — la grappe réglementaire de 2027 et la migration post-quantique de 2030-2035 — sont les seuls 
+
+points quasi certains d’un cône qui, vers 2032, se trouve dominé
+
+Relève, portée ici et non consommée. Une thèse de trajectoire sur la couche d’exécution est candidate à ce chapitre : 
+
+« tout harnais s’étend jusqu’à devenir un claw* », décalque d’une loi d’ingénierie, énoncée en conférence le 21 
+
+juillet 2026. Si elle entre, elle entre en PROJETÉ, attribuée nommément à son auteur, jamais en PROGRAMMÉ : 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 560 sur 663
+
+---
+

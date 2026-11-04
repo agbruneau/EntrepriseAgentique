@@ -1,0 +1,580 @@
+## [Page 419] (`page-419.png`)
+
+Compendium 36 · Prospective : AP2 sur les rails canadiens ?
+
+4. Les trois objets à ne pas confondre (§ 36.2.5) : jeton de valeur public, dépôt tokenisé, jeton d’autorisation.
+
+La distinction est un point d’architecture, pas de vocabulaire.
+
+5. Le trou de responsabilité de l’achat non intentionnel (§ 36.2.6) : les cadres de rétrofacturation n’ont pas 
+
+été conçus pour une instruction autorisée mais non voulue.
+
+6. L’asymétrie de documentation entre un rail et un protocole (§ 36.3) : le fait le plus solide du chapitre, et 
+
+la faute symétrique qu’il interdit.
+
+7. Les cinq questions de la série AP2 / rail en temps réel (§ 36.4), chacune avec ce qui la trancherait — une 
+
+seule a bougé, et elle n’est close qu’en partie.
+
+Ce que le chapitre ne lègue pas. Il ne lègue aucune articulation documentée, aucun pronostic, aucune 
+
+correspondance sémantique, aucune règle d’accès de rail. Il ne lègue aucun fait de la relève du § 36.5 — 
+
+repérages seuls. Et il ne lègue aucun rail lancé : la réserve F-29 du Vol. II tient jusqu’au dernier mot.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 419 sur 663
+
+---
+
+## [Page 420] (`page-420.png`)
+
+Compendium
+
+Livre IV — Appliquer, exploiter, produire et 
+
+composer
+
+AgentMesh, AgentOps, fabrique d’agents et synthèse architecturale
+
+37 · Le maillage d’agents : du service mesh au point d’application (PEP/
+
+PDP et zero trust agentique)
+
+Livre IV — Appliquer, exploiter, produire et composer : AgentMesh, AgentOps, fabrique d’agents et synthèse 
+
+architecturale. Premier mouvement — appliquer (ch. 37). Chapitre unique du mouvement, et chapitre d’ouverture 
+
+du Livre : il porte les deux désambiguïsations que le Livre impose à ses neuf autres chapitres.
+
+Thèse — le présent ouvrage définit le maillage d’agents par filiation avec le patron service mesh — un plan 
+
+de données qui médiatise chaque arête, un plan de contrôle qui centralise la politique ; cette définition 
+
+est celle de l’ouvrage, et le terme n’en a pas d’autre qui fasse autorité. La filiation retenue fournit un 
+
+instrument de tri par statut des offres que le Vol. III a ouvertes. Coût déclaré, repris de la source : elle 
+
+n’affirme rien de l’écart entre le discours des fournisseurs et leurs réalisations — la forme antérieure, « trie 
+
+ce que le terme recouvre réellement de ce qu’il recouvre en marketing », affirmait exactement l’énoncé que 
+
+la source déclare ne pas faire. déployé — report d’un bornage que le Vol. III avait fait le 21 juill. 2026.
+
+Thèse du second mouvement — Lecture de l’auteur — le maillage est un lieu où le passeport du ch. 16 
+
+pourrait devenir opposable, et le seul que la somme instruise — PEP adossé à un PDP, transposition du 
+
+zero trust au graphe d’agents. Vérifier chaque arête, sans confiance héritée de la topologie, est un principe 
+
+d’architecture posé par l’ouvrage, non une propriété relevée d’un maillage
+
+37.0 Ouverture : ce que ce Livre applique, et les deux mots qu’il faut désambiguïser d’abord
+
+Les trois Livres qui précèdent ont produit trois choses distinctes et aucune n’est un dispositif. Le Livre I a 
+
+posé la couche protocolaire — ce qui parle à quoi, et sous quelles spécifications (ch. 8 à 11). Le Livre II a 
+
+construit un objet — le passeport d’agent du ch. 16 — et l’a laissé sans lieu : il assemble une carte signée, 
+
+une inscription au registre, une chaîne de mandat et des attestations, constate qu’aucune de ces pièces ne 
+
+fournit aux autres l’ancrage qui leur manque, et renvoie à ce chapitre la seconde moitié de Q-D — que peux￾tu faire ?, quatrième question de la grille du ch. 14 —, c’est-à-dire l’opposabilité des bornes de privilège au 
+
+point d’application. Le Livre III a produit des obligations. Le présent Livre instruit où tout cela s’applique, 
+
+se mesure, se produit et se compose.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 420 sur 663
+
+---
+
+## [Page 421] (`page-421.png`)
+
+Compendium 37 · Le maillage d’agents : du service mesh au point d’application (PEP/PDP et zero trust agentique)
+
+Le chapitre qui l’ouvre est celui du lieu. Il ne demande pas ce qu’un agent doit prouver — le Livre II l’a 
+
+demandé — mais où la preuve est exigée, par quoi, et ce qu’il en reste de démontrable à cet endroit.
+
+Deux désambiguïsations commandent tout le Livre, et elles sont posées ici avant la première affirmation.
+
+Première — « AgentMesh », imposée en tête de Livre. « AgentMesh » désigne dans toute la somme le 
+
+patron d’infrastructure : un plan de données qui médiatise chaque arête du graphe d’interaction, un 
+
+plan de contrôle qui centralise la politique. Le terme sert ailleurs dans l’industrie à nommer une équipe 
+
+plateforme, un produit commercial et une couche de courtage. Aucune phrase de ce Livre n’emploie 
+
+le terme sans que le sens visé soit déterminable d’elle-même.
+
+Seconde — « plan de contrôle ». Le patron décrit ici comporte un plan de contrôle, et le sigle qui l’abrège 
+
+porte une collision à quatre branches dont le siège est au ch. 7 § 7.5. Ce chapitre n’en reconstruit aucune : 
+
+il y renvoie à chaque emploi, comme la somme l’exige de tout chapitre touchant cette matière. Reconstruire 
+
+un encadré de désambiguïsation ailleurs qu’à son siège est la manière la plus sûre de faire diverger les branches.
+
+Et un faux ami est déclaré plutôt que fui. « Plan de contrôle » au sens du maillage de services pré-agentique 
+
+— le socle transposable posé au ch. 1 § 1.3.4 — n’est aucun des sens que le Vol. III distingue : celui-ci vise 
+
+le plan de contrôle au sens infrastructure de sa propre Partie VII, agentique et obtenu par filiation, non 
+
+le patron dont la filiation part. Le § 37.1 l’emploie dans ce sens pré-agentique, et le dit.
+
+Le chapitre se lit en deux mouvements et neuf temps. Le premier mouvement établit ce que le maillage est — 
+
+d’où vient la filiation et ce qu’elle n’autorise pas (§ 37.1), ce que le socle documente des réalisations (§ 37.2), 
+
+pourquoi l’arête est devenue la frontière (§ 37.3), ce que la grille du ch. 14 en dit (§ 37.4). Le second établit ce 
+
+qu’il applique — où se prend et où s’applique la décision (§ 37.5), quels garde-fous d’exécution s’y logent 
+
+(§ 37.6), comment le zero trust s’y transpose (§ 37.7), ce qu’il trace de la chaîne de mandat et ce qu’il n’en 
+
+résout pas (§ 37.8), et à quelles conditions tout cela est faux (§ 37.9).
+
+Ce que le chapitre ne traite pas, dit ici pour qu’on ne le prenne pas pour un oubli. Le routage sémantique
+
+n’y entre pas : la source l’a coupé à son test d’appartenance, faute de répondre à que vérifie-t-il de l’identité 
+
+ou du mandat ?, et aucune entrée ne le documente. La couche de transport n’y entre pas davantage, coupée 
+
+au même contrôle le 22 juillet 2026 pour le même motif. L’émission n’y entre pas — elle est au Livre II. Et 
+
+l’accord entre agents sous asynchronie et défaillance partielle n’y entre pas : ce chapitre est fermé à cette 
+
+matière par décision d’auteur, périmètre assumé et déclaré.
+
+Premier mouvement — Du service mesh à l’agent mesh : généalogie et anatomie
+
+37.1 Généalogie et définition : ce que la filiation apporte, ce que le socle en porte
+
+Avertissement de portée, posé avant la première ligne de généalogie, et repris de la source parce qu’il 
+
+commande tout le reste. Le titre annonce une généalogie ; le socle n’en porte pas la source. Le Vol. III ne 
+
+documente pas le patron du maillage de services : c’est une absence de documentation dans le corpus de 
+
+cet ouvrage, non un fait négatif vérifié (degré 3). Le constat est vérifiable sur pièce et il n’est pas anodin — 
+
+le programme de constitution de son socle nommait le corpus service mesh parmi les sources à instruire, et 
+
+aucune des affirmations retenues ne porte sur ce corpus. La filiation revendiquée n’hérite donc de rien : elle 
+
+est posée. Sa valeur est celle d’un instrument d’analyse, jamais celle d’un fait rapporté.
+
+37.1.1 Le terme, et son statut
+
+« Maillage d’agents » (agent mesh) est un terme de fournisseur avant d’être un terme de norme ; il n’a pas 
+
+de définition normative à date. La somme l’emploie au sens que le Vol. III lui a donné à son siège unique, et 
+
+ne le redéfinit pas :
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 421 sur 663
+
+---
+
+## [Page 422] (`page-422.png`)
+
+Compendium 37 · Le maillage d’agents : du service mesh au point d’application (PEP/PDP et zero trust agentique)
+
+un dispositif d’infrastructure interposé sur les interactions d’un parc d’agents — entre agents, entre agent 
+
+et outil, entre agent et service —, composé d’un plan de données qui médiatise chaque arête du graphe 
+
+d’interaction et d’un plan de contrôle qui en centralise la politique.
+
+Convention de lecture pour tout le chapitre : « plan de contrôle » s’entend ici au sens infrastructure, et 
+
+il ne s’emploie jamais sans ce qualificatif ou son renvoi (les quatre sens siègent au ch.  7 §  7.5). Deux 
+
+bornes accompagnent cette définition, et la seconde est celle qu’on perd le plus vite. Première — l’absence 
+
+de définition normative est un degré 3, pas un balayage : l’instruction déclare n’avoir rencontré aucune 
+
+définition normative du terme dans un texte de norme ouvert, ce qui est une absence de documentation 
+
+dans le corpus consulté, non un fait négatif vérifié
+
+Le compendium hérite pourtant, lui, d’un socle que le Vol. III n’avait pas. Le ch.  1 § 1.3.4 pose le maillage 
+
+de services pré-agentique : séparation d’un plan de contrôle, qui distribue configuration et politique, et 
+
+d’un plan de données fait de mandataires latéraux (sidecar proxies) interceptant tout le trafic de chaque 
+
+service ; coût mesurable du modèle latéral ; plans de données alternatifs — modes ambiants dissociant une 
+
+couche par nœud du reste, déport dans le noyau du système d’exploitation ; convergence du routage d’entrée 
+
+et du trafic est-ouest sous une abstraction déclarative unique  ; et le maillage d’événements comme 
+
+pendant événementiel. Ce n’est pas une contradiction entre volumes, et le confondre avec une contradiction 
+
+effacerait l’information qui compte : « le socle du Vol. III ne documente pas le service mesh » et « le Vol. I le 
+
+documente » sont logiquement compatibles. C’est une lacune de couverture, datée, et l’énoncé du Vol. 
+
+III reste exact dans son périmètre. La conséquence pratique est double : la filiation est mieux adossée dans 
+
+la somme qu’elle ne l’était chez sa source — mais au régime [C], le Vol. I entrant par ses références et non 
+
+par le contenu de ses affirmations Une filiation adossée en [C] ne porte toujours aucun fait central.. Seconde — 
+
+le relevé porte sur l’anglais. L’expression française « maillage d’agents » n’a fait l’objet d’aucune recherche 
+
+distincte : ce que le socle documente est l’emploi de agent mesh chez deux fournisseurs, et rien de l’usage 
+
+francophone.
+
+37.1.2 Ce que le socle documente du terme est une homonymie, constatée sur pièce
+
+« Agent mesh » désigne deux objets techniquement distincts chez les deux fournisseurs consultés, docu￾mentés chacun par son éditeur (Vol. III F-72, [B, degré 1]). Chez Solo.io, une couche de connectivité
+
+posée par analogie explicite avec le maillage de services, à laquelle le communiqué de son éditeur — daté du 
+
+24 avril 2025 — assigne la sécurité, l’observabilité, le cloisonnement et les garde-fous : objectifs annoncés 
+
+par le fournisseur, non propriétés démontrées. Chez Solace, un cadriciel applicatif multi-agent bâti sur un 
+
+connecteur d'IA propriétaire, une trousse de développement d'agents et le protocole A2A — dépôt public 
+
+SolaceLabs/solace-agent-mesh, version 1.28.4 du 29 juin 2026.
+
+Trois bornes, et la troisième interdit une conclusion qu’on tire spontanément. Un : les deux noms d’éditeurs 
+
+ne figurent pas au libellé de l’entrée de socle qui les agrège  ; ils sont pris aux sources primaires que 
+
+l’instruction a ouvertes et citées — anonymiser un éditeur est une faute au même titre qu’en recommander un. 
+
+Deux : le relevé porte sur deux fournisseurs et n’autorise aucune clause d’exclusivité — il ne dresse pas la 
+
+liste des emplois du terme. Trois : le second objet n’est pas une réinstanciation du maillage de services, et la 
+
+définition posée ci-dessus ne le décrit pas, ni ne prétend le décrire. C’est précisément ce que le tri par filiation 
+
+permet de dire, et c’est tout ce qu’il permet de dire.
+
+37.1.3 Ce que la généalogie apporte, et ce qu’elle ne prouve pas
+
+Les trois pièces que la filiation nomme — le conteneur adjoint (sidecar), la passerelle (gateway), la séparation 
+
+des deux plans — sont des objets d’ingénierie que le ch. 1 § 1.3.4 documente et que le socle du Vol. III ne 
+
+porte pas. Il en va de même de l’authentification mutuelle du transport (mutual TLS, mTLS). Aucun énoncé 
+
+du présent chapitre ne dépend de ces quatre objets : ils sont nommés comme l’origine revendiquée d’une 
+
+analogie, jamais mobilisés comme faits.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 422 sur 663
+
+---
+
+## [Page 423] (`page-423.png`)
+
+Compendium 37 · Le maillage d’agents : du service mesh au point d’application (PEP/PDP et zero trust agentique)
+
+Un seul membre de la généalogie est documenté au socle, et c’est celui qui touche à l’identité — ce qui 
+
+n’est pas une coïncidence mais la conséquence du périmètre du Vol. III. La spécification d’identité de charge 
+
+de travail SPIFFE, de statut « Stable », définit l’identité comme un URI conforme au RFC 3986 composé 
+
+d’un nom de domaine de confiance et d’un chemin, et le document d’identité vérifiable (SVID) comme le 
+
+mécanisme par lequel une charge de travail communique son identité à une ressource ou à un appelant ; 
+
+elle énonce qu’un SVID est valide s’il a été signé par une autorité du domaine de confiance de l’identité qu’il 
+
+porte (Vol. III F-87, [B]).
+
+Ce que cette spécification démontre est une vérification de signature dans un domaine de confiance. Elle 
+
+n’énonce pas ce que cette vérification n’établit pas — ni preuve de propriété d’une entité, ni décision 
+
+d’autorisation : absence de documentation dans le corpus, non fait négatif vérifié (degré 3). Côté fondation, 
+
+l’organisme qui héberge le projet classe SPIFFE et SPIRE au niveau « Graduated », sa page projet datant ce 
+
+passage du 23 août 2022 pour l’un et du 22 août 2022 pour l’autre (Vol. III F-88, [B]). Divergence d'un jour 
+
+entre deux pages de la même fondation, reproduite telle quelle et non arbitrée — et re-constatée à la source 
+
+le 28 juillet 2026 (socle consolidé, S-134), la fondation la reconduisant onze mois après le relevé d’origine sans 
+
+la corriger ni l’expliquer ; et « Graduated » est un niveau de maturité de fondation, qui ne mesure ni adoption 
+
+ni déploiement.
+
+Le siège de ce moment de la généalogie est au ch. 3 § 3.3, où le socle IAM pré-agentique est posé une seule 
+
+fois pour toute la somme. Ce chapitre l’y renvoie et ne le reconstruit pas ; ce qu’il en retient tient en une 
+
+phrase : c’est le substrat d’identité vérifiable que le maillage de services a légué, et le seul dont la somme dispose 
+
+au socle.
+
+37.1.4 Ce que la filiation permet de trier — et la formule qui n’est pas écrite
+
+Lecture de l’auteur — la filiation fournit un critère de tri, et un seul : est un maillage d’agents au sens de 
+
+cette somme ce qui présente les deux plans, médiatise les arêtes et centralise la politique. Ce que le socle 
+
+établit : l’homonymie du terme chez deux éditeurs nommés (F-72, [B, degré 1]) ; l’existence d’une syntaxe 
+
+d’autorisation par arête dans un mécanisme ouvert (F-71, [B]) ; le tri par statut de trois offres (F-70, [B]). 
+
+Ce qu’il n’établit pas : que les objets ainsi triés se comportent conformément à ce que leurs éditeurs en 
+
+annoncent, ni qu’un écart existe entre ce discours et ces réalisations. La formule « ce que le terme recouvre 
+
+réellement contre ce qu’il recouvre en marketing » n’est donc pas écrite dans ce chapitre, et son absence est 
+
+le premier effet du réalignement déclaré en tête : un tri par statut déclaré n’est pas un démenti de discours 
+
+commercial, et confondre les deux ferait de la neutralité fournisseur une posture plutôt qu’une règle.
+
+37.2 Anatomie du maillage agentique, à l’état daté
+
+La règle de cette section est le statut, et il se dit à chaque mention. Annonce, feuille de route, préversion 
+
+et disponibilité générale documentée sont quatre choses différentes ; la production attestée par un tiers 
+
+indépendant en est une cinquième. Les offres nommées ci-dessous sont retenues comme cas d’instanciation 
+
+documentés par sources primaires, jamais comme recommandations — et la neutralité fournisseur interdit 
+
+de recommander, non de nommer : un statut non attribué à son éditeur n’est pas revalidable au gel suivant.
+
+37.2.1 Trois offres, trois statuts
+
+Le socle porte trois passerelles ou mandataires d’arête, chacun avec son statut auto-déclaré (Vol. III F-70, 
+
+[B]).
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 423 sur 663
+
+---
+
+## [Page 424] (`page-424.png`)
+
+Compendium 37 · Le maillage d’agents : du service mesh au point d’application (PEP/PDP et zero trust agentique)
+
+Tableau 37.1 — Les trois offres portées par le socle du Vol. III, avec leurs statuts auto-déclarés au 21 juillet 2026. Chaque qualification 
+
+est celle de son éditeur, nommé ; aucune n’a fait l’objet d’une vérification indépendante.
+
+Objet Éditeur ou porteur Statut auto-déclaré, à sa date Ce que le statut ne dit pas
+
+Passerelle MCP Docker, au titre de 
+
+« Docker AI Gover￾nance »
+
+réservée sur invitation — soit une disponi￾bilité restreinte, distincte d’une disponibilité 
+
+générale
+
+rien d’un déploiement consta￾té
+
+Amazon Bedrock 
+
+AgentCore (dont 
+
+Gateway et Identity)
+
+AWS généralement disponible depuis le 13 oc￾tobre 2025, dans neuf régions nommées
+
+disponibilité générale annon￾cée par le fournisseur, non 
+
+déploiement constaté par un 
+
+tiers
+
+agentgateway, 
+
+mandataire ouvert
+
+projet déclaré de la 
+
+Linux Foundation (hé￾bergé par l’AAIF au 17 
+
+août 2026)
+
+v1.4.0-alpha.2, signalée pré-version ; der￾nière publication non marquée pré-version : 
+
+v1.3.1 du 22 juin 2026
+
+qu’une syntaxe pré-version 
+
+soit un contrat stable
+
+L’un des trois statuts a bougé depuis le gel, et il se date plutôt qu’il ne se réécrit. La re-datation à la 
+
+source primaire du 28 juillet 2026 — socle consolidé v1.2, entrée S-116 — enregistre que la version 1.4.0 du 
+
+mandataire ouvert a été publiée le 27 juillet 2026 et n’y est pas signalée pré-version : elle y est à la fois la 
+
+publication la plus récente et la plus récente stable. Le tableau ci-dessus conserve l’état du 21 juillet 2026, 
+
+qui est celui du socle sur lequel ce chapitre est écrit ; ce que le constat périme est la citation du numéro et 
+
+de la date, non le tri lui-même — un tri par statut reste un tri par statut quand un statut change. La réserve de 
+
+pré-version que les § 37.2.2, § 37.4 et § 37.5.1 reprennent porte donc cette date, et elle ne s’écrit nulle part 
+
+au présent intemporel. Au 23 octobre 2026, la dernière publication stable est v1.6.0, du 2 octobre.
+
+Deux clauses d'exclusivité auto-déclarées ne sont pas reprises : celle que la page produit d'AWS énonce sur 
+
+elle-même, et celle du fichier de présentation d'agentgateway. Aucun balayage ne permet de les établir, et 
+
+elles restent attribuées à leur auteur.
+
+La colonne qui manque est celle qui compte, et elle est vide. Le socle ne documente aucun maillage d’agents 
+
+en production attestée par un tiers indépendant  : c’est une absence de documentation dans le corpus, 
+
+non un fait négatif vérifié (degré 3). Le rapport d’instruction qualifie lui-même cette colonne d’absence de 
+
+documentation, et le déclare faute de passe dédiée.
+
+Trois écarts de cardinal et de vocabulaire sont hérités, déclarés, et non résolus ici. Un : la thèse du Vol. III 
+
+annonce « cinq réalisations », là où la répartition constatée en nomme six — l’écart tient à un protocole 
+
+de transport à l’état de brouillon, rangé ou non parmi les offres selon la convention de comptage. Deux : la 
+
+même thèse appelle la production « la quatrième catégorie du tri », alors que le rapport la traite comme 
+
+le troisième degré d’un tri à trois. Trois : la disponibilité restreinte, seul statut sous lequel la passerelle 
+
+de Docker se laisse ranger, ne figure ni dans le tri à trois degrés ni dans les quatre statuts du cadrage. La 
+
+somme écrit les statuts tels que les sources les portent et ne tranche aucun des trois : un cardinal ne se recopie 
+
+jamais, il se re-mesure.
+
+37.2.2 Ce qu’un mandataire d’arête spécifie, et à quel titre
+
+La documentation du mandataire ouvert spécifie une politique d’autorisation propre à MCP, écrite en 
+
+Common Expression Language (CEL), évaluée contre des invocations de méthodes et exposant des champs 
+
+d’outil, d’invite et de ressource (Vol. III F-71, [B]).
+
+Trois bornes, inséparables de l’énoncé. Un : c’est ce que la documentation décrit, non un comportement 
+
+démontré ni évalué indépendamment. Deux : au 21 juillet 2026, la publication la plus récente d'agentgateway
+
+— le mandataire nommé au § 37.2.1 — est signalée pré-version (F-70), la syntaxe existe et sa stabilité n’est 
+
+pas déclarée ; cette borne porte sa date, et le § 37.2.1 enregistre ce qui a bougé depuis. Trois : l’énumération 
+
+des champs n’est pas exhaustive, le contrôle de bornage ayant retiré la clause d’exclusivité de l’affirmation 
+
+d’origine — aucun fait négatif ne se dérive de cette liste, et le § 37.4 en tire la conséquence.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 424 sur 663
+
+---
+
+## [Page 425] (`page-425.png`)
+
+Compendium 37 · Le maillage d’agents : du service mesh au point d’application (PEP/PDP et zero trust agentique)
+
+37.2.3 Le courtage : A2A normalise le chemin et décline le registre
+
+Le degré compte et se dit : c’est un fait négatif ÉTABLI, degré 2 — porté par une réserve de la documentation 
+
+du projet lui-même, non par un balayage du texte normatif de la spécification. Le siège de ce constat est 
+
+le ch. 9, qui l’instruit ; ce qui appartient ici est sa conséquence d’anatomie : un maillage qui fournit un 
+
+courtage le fait sans API de registre normalisée par ce protocole. L’énoncé plus large « le courtage n’est pas 
+
+dans le protocole » n’est pas soutenu — la source le déclare expressément de son propre relevé.
+
+Un service d’annuaire concurrent prend l’option inverse et se spécifie par un Internet-Draft de soumission 
+
+individuelle, à sa révision 02 du 6 juillet 2026 : travaux émergents, non une norme ratifiée. Une question 
+
+héritée reste ouverte et n’est pas comblée ici : l’intitulé complet de la composante « ACP » d’un projet de 
+
+fondation, et son identité ou non avec le protocole ACP fusionné dans A2A, ne sont caractérisés par aucune 
+
+entrée (Vol. III H-10, [C]). Conséquence opposable : ces deux emplois du sigle ne sont jamais agrégés, et 
+
+le siège de la désambiguïsation est au ch. 7 § 7.5 — quatre branches —, que ce chapitre ne reconstruit pas.
+
+37.2.4 Datation, et une échéance qui pèse sur cette section
+
+MCP est une interface client-serveur JSON-RPC 2.0 dotée d’un cadre d’autorisation fondé sur OAuth, 
+
+dont la gouvernance a été transférée en décembre 2025 à l’Agentic AI Foundation (Vol. III H-09, [A]). 
+
+« Cadre d’autorisation », jamais « sécurisé » : la forme est imposée par la réserve F-01 du Vol. II, et le ch. 8 
+
+en est le siège. Une révision majeure — protocole sans état, retrait de l’en-tête de session — est annoncée 
+
+au brouillon, et sa date n’est pas confirmée à la source : la revalidation d’ouverture du Vol. III a établi la 
+
+substance et non la date. La somme écrit donc « annoncé au brouillon » et jamais une date de publication. 
+
+Aucune conséquence n’en est tirée ici : ce que cette révision changerait pour un mandataire d’arête n’est 
+
+documenté par aucune entrée, et l’inférer serait exactement la faute que la somme prend pour objet.
+
+Le protocole A2A, lancé par Google en avril 2025 et transféré à la Linux Foundation en juin 2025, a pour 
+
+première spécification stable sa v1.0, son dernier correctif v1.0.1 datant du 28 mai 2026 (Vol. III H-01, [A ; 
+
+ligne v1.0.1 en B]). Il est hébergé par l’Agentic AI Foundation depuis le 17 août 2026, sans changement de 
+
+version — constat du 23 octobre 2026 (rapport). Sa documentation définit un chemin de découverte normalisé, 
+
+énumère trois stratégies — URI bien connue, registres organisés, configuration directe — et déclare expli￾citement qu’aucune API normalisée n’est prescrite pour les registres organisés (Vol. III F-43, [B, degré 2]).
+
+Et une échéance de péremption pèse sur ce paragraphe, datée du lendemain du gel. La ratification de cette 
+
+révision est enregistrée au 28 juillet 2026 — soit le lendemain de la date de gel de la somme. Le gel ne 
+
+s’avance pas d’un jour pour l’absorber ; la re-datation est due, et elle est due au ch. 8 avant de l’être ici. 
+
+Elle a été faite depuis, et son résultat se consigne sans rien verser — 28 juillet 2026, entrée S-001 du socle 
+
+consolidé : la révision annoncée est servie comme révision courante à cette date, et la péremption que l’entrée 
+
+avait datée est advenue. Le constat porte sur la bascule, jamais sur le contenu : la revalidation en bloc est 
+
+ouverte et non exécutée, le texte de la révision neuve n’a pas été extrait, et ce qu’elle changerait pour un 
+
+mandataire d’arête n’est pas mieux documenté qu’avant. Le siège de la re-datation demeure le ch. 8.
+
+37.3 Ce que l’arête change : la non-compositionnalité de la sûreté
+
+La prémisse est une thèse d’un volume antérieur, et elle s’attribue. Le Vol. I écrit qu’« un agent sûr et un 
+
+outil sûr, une fois composés, ne donnent pas un système sûr ; la sûreté n’est pas une propriété composition￾nelle », et que « la frontière de confiance n’est plus le périmètre d’un système mais chaque arête du graphe 
+
+d’interaction » ; son corollaire pose qu’« un modèle de menace agentique doit raisonner sur le graphe de 
+
+composition, pas sur l’inventaire des composants » (Vol. III H-24, [C] ; Vol. I Monographie §3.10.1).
+
+Trois précautions, et elles ne sont pas rhétoriques. Le niveau — H-24 entre en [C] : la vérification du Vol. I 
+
+porte sur ses références, non sur le contenu de ses affirmations. Elle entre donc comme thèse d’un volume 
+
+antérieur, à attribuer, et aucune affirmation centrale de ce chapitre ne s’y adosse comme à un acquis. Le siège
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 425 sur 663
+
+---
+
+## [Page 426] (`page-426.png`)
+

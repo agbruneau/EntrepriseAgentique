@@ -1,0 +1,66 @@
+## [Page 527] (`page-527.png`)
+
+Compendium
+
+Livre V — Livrer et clore
+
+L’agent comme livrable logiciel, horizon et frontière
+
+47 · L’artefact livré : provenance des composants et mise en service
+
+Livre V — Livrer et clore : l’agent comme livrable logiciel, horizon et frontière. Premier mouvement — l’agent 
+
+comme livrable logiciel : provenance, mise en service, sémantique d’effet (ch. 47-48). Chapitre d’ouverture du 
+
+Livre, et chapitre à deux mouvements : il porte deux thèses.
+
+Les deux mouvements portent chacun leur titre — un lecteur qui entre par le milieu doit pouvoir savoir quel 
+
+objet il lit. Premier mouvement — La provenance des composants : de quoi un agent est fait — thèse citée 
+
+en tête ; sections § 47.1 à § 47.7.
+
+Thèse — l’identité du Livre II certifie le porteur d’un agent, jamais sa composition — poids de modèle, 
+
+serveurs d’outils, bibliothèques, invites ; la provenance des composants (nomenclatures logicielles et d’IA, 
+
+signature et attestation d’artefacts) est le chaînon entre le passeport du ch. 16 et l’intégrité en exécution du 
+
+ch. 20 — et le front le plus mûr des trois (jugement que deux relèves confirment : politique de dépréciation 
+
+protocolaire, compromissions de chaîne d’approvisionnement d’agents).
+
+Second mouvement — La mise en service d’un artefact non reproductible — thèse ci-dessous ; sections § 47.8 
+
+à § 47.12.
+
+Thèse du second mouvement — mettre en service un agent dont le comportement n’est pas reproductible 
+
+à l’identique exige une discipline propre — jeux d’essai de référence, barrière d’évaluation au déploiement, 
+
+versionnement à cinq horloges (modèle, invites, outils, politique — et le harnais, porteur de version 
+
+autonome des quatre) — sans laquelle l’évaluation continue du ch. 39 mesure un artefact que l’organisation 
+
+ne sait pas même désigner.
+
+Deux thèses pour un chapitre, et les deux portent la même marque. Le ch. 47 réunit deux chapitres antérieurs, 
+
+conservés intégralement. Chacune des deux thèses est une construction d’auteur, socle à constituer — ce qui 
+
+est sans équivalent dans les vingt et un chapitres des Livres I et II, où la thèse citée était toujours adossée 
+
+à un volume source. Citer verbatim une thèse sans socle n’en fait pas un énoncé du chapitre : les deux sont 
+
+reprises comme programme de travail.
+
+47.1 L’agent comme artefact composé
+
+La forme antérieure comptait quatre horloges ; une relève en exhibait un cinquième porteur — le harnais. 
+
+Une décision d’auteur du 27 juillet 2026 range cette matière dans les sections existantes, sans chapitre neuf : 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 527 sur 663
+
+---
+

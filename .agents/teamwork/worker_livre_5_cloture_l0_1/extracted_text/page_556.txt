@@ -1,0 +1,94 @@
+## [Page 556] (`page-556.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+L’organisation agentique. Un cabinet projette un déplacement de la supervision humaine du « dans la 
+
+boucle » vers un positionnement « au-dessus de la boucle », où l’humain ne valide plus chaque action mais 
+
+pilote des résultats et arbitre les exceptions — accompagné de nouveaux rôles, dont l’exploitation d’agents 
+
+et la responsabilité de leur identité. Statut intégralement PROJETÉ : modèle cible plausible, non état observé.
+
+Et le rapprochement que ce chapitre peut faire, lui, est un renvoi : le rôle de responsable d’identité d’agents 
+
+renvoie à la fabrique de confiance du ch. 43 § 43.1 — « fabrique » y désigne la fabrique d’identité, non la 
+
+fabrique d’agents du ch. 41.
+
+Les tendances pour 2027 — 24 octobre 2026 (veille). Le 20 octobre 2026, Gartner groupe quatre de ses dix 
+
+tendances stratégiques sous la gouvernance de la plateforme d’agents autonomes : plateformes de contexte, 
+
+harnais des agents de codage, identité des agents, remédiation autonome des expositions ; une cinquième, la 
+
+technologie souveraine, vise la sortie des fournisseurs critiques. Statut PROJETÉ, et une liste de tendances 
+
+n’est pas une mesure : elle situe l’agenda de la somme — contexte, identité, preuve, sortie — dans celui d’un 
+
+analyste, sans rien établir de plus. Ses chiffres sont au ch. 20 § 20.7, au ch. 24 § 24.4.3 et au § 49.7. La 
+
+recomposition du travail. C’est la section où la distinction mesuré / projeté doit être la plus rigoureuse. 
+
+Du côté PROJETÉ, une organisation internationale anticipe à l’horizon 2030 un solde net d’emplois positif 
+
+assorti d’une transformation profonde des compétences. Du côté des premiers signaux mesurés, une 
+
+étude universitaire documente un recul relatif de l’emploi des jeunes travailleurs de vingt-deux à vingt￾cinq ans dans les métiers les plus exposés. Le verrou analytique est explicite : attribuer causalement à l’IA 
+
+agentique — plutôt qu’au cycle conjoncturel ou à d’autres facteurs structurels — la variation d’emploi observée 
+
+reste méthodologiquement contesté. Le signal est un fait mesuré sur une cohorte et une fenêtre données ; sa 
+
+généralisation est une projection.
+
+Le fil économique de la somme se referme ici, et sur un aveu de statut. Si les protocoles et les architectures 
+
+multi-agents atteignaient la maturité, la mutualisation des connecteurs ferait basculer le coût d’intégration 
+
+de l’ordre quadratique à l’ordre linéaire. Mais aucune étude chiffrée publique ne quantifie, à juin 2026, la 
+
+baisse de coût d’intégration imputable spécifiquement aux standards ouverts agentiques. L’énoncé demeure 
+
+donc SPÉCULATIF — un pari conceptuel cohérent, non un résultat mesuré ; le présenter autrement confondrait 
+
+une hypothèse séduisante avec un fait établi. Et le verrou est autant définitionnel que mesurable : tant que 
+
+« transaction agentique » et « intégration » ne sont pas définies de façon stable, la baisse de coût imputable 
+
+aux standards ouverts restera non identifiable empiriquement.
+
+49.9 La finance à l’horizon
+
+Le vertical financier franchit dans la fenêtre un seuil de nature plutôt que de degré : l’agentique ne se 
+
+surajoute plus à des copilotes encadrés, elle s’insère dans des rails de paiement et de règlement de plus en 
+
+plus instantanés, irrévocables et tokenisés, sous la pression d’un faisceau d’échéances datées (§ 49.1.3).
+
+Le patron directeur, de statut PROJETÉ, est celui qu’expose une note d’une institution financière interna￾tionale : l’intelligence agentique demeure en amont, dans la formation de l’intention et l’orchestration, tandis 
+
+que l’autorisation et le règlement restent déterministes, ancrés dans les rails réglementés existants. C’est la 
+
+déclinaison financière du fil conducteur de la somme, et le ch. 34 en est le siège pour le présent ; ce chapitre 
+
+n’en projette que la trajectoire.
+
+La course aux rails de mandat. La gouvernance d’un protocole de paiement agentique a basculé vers une 
+
+alliance d’authentification le 28 avril 2026, avec deux groupes de travail techniques (§ 49.3) ; en parallèle 
+
+se généralisent des offres de paiement agentique de réseaux de cartes, et coexistent plusieurs protocoles de 
+
+mandat vérifiable. Une tension réglementaire structure cette trajectoire, et elle est de fond : l’authentification 
+
+forte du client est conçue comme liée au payeur présent, alors que les paiements pré-autorisés exécutés par 
+
+un agent relèvent d’un schéma « humain non présent » qu’il faut requalifier juridiquement. La fragmentation 
+
+des protocoles de mandat reste l’inconnue décisive pour le coût d’intégration du commerce agentique.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 556 sur 663
+
+---
+

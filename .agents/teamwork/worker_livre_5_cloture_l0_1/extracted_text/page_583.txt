@@ -1,0 +1,94 @@
+## [Page 583] (`page-583.png`)
+
+Compendium Vol. III, L’entreprise agentique — 96 entrées, S-047 à S-142
+
+• S-117 — L'autorisation par arête existe, spécifiée. [B] — Vol. III F-71 §7.9.
+
+• S-118 — « Agent mesh » désigne deux objets distincts chez deux fournisseurs. [B, degré 1] — Vol. III 
+
+F-72 §7.9.
+
+• S-119 — Le socle zero trust est ancien et le volet agentique est un projet. [B] — Vol. III F-73 §7.9. SP 
+
+800-207 août 2020.
+
+• S-120 — Le déplacement est daté, et c'est une rupture déclarée. [B] — Vol. III F-74 §7.9. V1.42.0, 12 
+
+juin 2026.
+
+• S-121 — Le dépôt dédié ne porte, à cette date, aucun numéro de version qui lui soit propre : liste 
+
+des publications vide, liste des étiquettes vide, section « Schema URL » du README réduite au mot 
+
+« TODO ». Aucun numéro de version propre au dépôt dédié n'est donc citable à cette date. [B, degré 
+
+2] — Vol. III F-75 §7.9. État au 21 juill. 2026.
+
+• S-122 — L'échelle de maturité des groupes de conventions sémantiques compte cinq échelons, non trois. 
+
+[B] — Vol. III F-76 §7.9.
+
+• S-123 — Le statut relevé des documents agentiques est le premier échelon. [B] — Vol. III F-77 §7.9. Relevé 
+
+du 21 juill. 2026.
+
+• S-124 — Une conformité annoncée peut pointer un millésime périmé. [B] — Vol. III F-78 §7.9. Millésime 
+
+du 25 août 2025, antérieur au 12 juin 2026.
+
+• S-125 — Le modèle de données des accréditations vérifiables v2.0 est une Recommandation, et elle n'a 
+
+pas été révisée. [B] — Vol. III F-79 §7.10. Recommandation 15 mai 2025.
+
+• S-126 — La v2.1 est un brouillon de travail, et le document le dit de lui-même. [B] — Vol. III F-80 §7.10. 
+
+Working Draft du 11 mai 2026.
+
+• S-127 — DID Core v1.0 est une Recommandation, et sa page signale des errata. [B] — Vol. III F-81 §7.10. 
+
+Recommandation 19 juill. 2022.
+
+• S-128 — DID v1.1 n'a pas dépassé le Candidate Recommendation Snapshot, et ce qui l'établit est un relevé 
+
+de liste. [A] — Vol. III F-82 §7.10. Snapshot 5 mars 2026.
+
+• S-129 — Un Community Group du W3C, sa mission et son décompte affiché — avec son statut dit à la 
+
+mention. [B] — Vol. III F-83 §7.10. CG depuis 8 mai 2025.
+
+• S-130 — Le mode d'octroi par justificatifs de client existe, et c'est le pendant technique du constat de 
+
+S-073. [B] — Vol. III F-84 §7.10.
+
+• S-131 — Les sept Internet-Drafts du groupe WIMSE, datés, et aucun publié en RFC. [B] — Vol. III F-85
+
+§7.10. Relevé 21 juill. 2026 ; huit documents au 23 oct. 2026, dont aims-00, adopté.
+
+• S-132 — Ce que WIMSE énonce des intermédiaires d'IA, et à quel titre. [B] — Vol. III F-86 §7.10. I-D du 
+
+6 juill. 2026, exp. 7 janv. 2027.
+
+• S-133 — SPIFFE-ID. [B] — Vol. III F-87 §7.10.
+
+• S-134 — La maturité CNCF de SPIFFE et de SPIRE, et la divergence d'un jour que la fondation porte elle￾même. [B] — Vol. III F-88 §7.10. 22 / 23 août 2022.
+
+• S-135 — L'article 12.1 de la Loi 25 : trois informations sur demande, plus un alinéa distinct. [B] — Vol. 
+
+III F-89 §7.10. Extraction du 21 juill. 2026 (HTTP 403 contourné).
+
+• S-136 — Douze métriques définies, toutes des histogrammes, toutes au premier échelon. [B] — Vol. III 
+
+F-90 §7.11. Ouvert le 21 juill. 2026.
+
+• S-137 — Quatre des douze portent sur l'agent ou le flux de travail, huit non. [B] — Vol. III F-91 §7.11. 
+
+Relevé du 21 juill. 2026.
+
+• S-138 — Aucune dimension d'identité, de mandat, de conversation ni de révocation dans ce document. 
+
+[B, degré 1] — Vol. III F-93 §7.11. Balayage du 21 juill. 2026.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 583 sur 663
+
+---
+

@@ -1,0 +1,86 @@
+## [Page 545] (`page-545.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+que cinq chapitres attendaient. Il ne lègue aucun mécanisme : ni idempotence prescrite, ni compensation 
+
+spécifiée, ni clé de jointure — mais il lègue désormais le patron d’une clé de jointure qui fonctionne ailleurs, 
+
+et la borne qui interdit de la transposer sans travail. La somme sait désormais nommer ce qui advient quand 
+
+une action d’agent réussit à moitié ; elle ne sait pas encore ce qu’un exploitant doit en faire, et le ch. 49 § 49.14 
+
+l’enregistre à ce titre.
+
+49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+Livre V — Livrer et clore : l’agent comme livrable logiciel, horizon et frontière. Second mouvement — horizon 
+
+et frontière de la connaissance vérifiable (ch. 49-50). Premier des deux chapitres de clôture, et chapitre à deux 
+
+mouvements.
+
+Thèse — une grappe d’échéances datées (PROGRAMMÉ) structure l’horizon  ; au-delà, la trajectoire des 
+
+protocoles, de la gouvernance par couche, de l’identité vérifiable/PQC, de la menace et de la recherche se lit en 
+
+PROJETÉ, jamais en SPÉCULATIF déguisé en certitude.
+
+Thèse du second mouvement — ce que l’on ne sait pas encore, dit honnêtement — lacunes des trois socles 
+
+sources, questions ouvertes, agenda de recherche, dont le problème des deux sauts (ch. 17) et les indicateurs 
+
+manquants (ch. 40).
+
+Deux thèses pour un chapitre, et la seconde porte une date de péremption que la première phrase doit nommer.
+
+Le registre du § 49.12 ne devient pas pour autant celui du socle consolidé : une porte franchie ouvre le droit 
+
+de refaire le registre, elle ne le refait pas — le socle consolidé recense des faits, non des lacunes, et les huit 
+
+entrées qui portent la matière du premier mouvement y sont toutes en [C].
+
+49.0 Orientation : lire un chapitre prospectif sans céder à la prédiction
+
+SIÈGE DU TRI PROSPECTIF POUR TOUTE LA SOMME. Les trois statuts et leur définition sont posés ici une 
+
+seule fois, et aucun autre chapitre ne les redéfinit. Les ch. 15, ch. 16 § 16.4 et ch. 21 y renvoient ; tout 
+
+chapitre qui trie un énoncé prospectif emploie ces statuts sans les redéfinir. L’instrument est hérité du Vol. 
+
+I Monographie §7.0.2, en [C] — et un instrument de tri n’est pas un fait : il ne devient pas central en recevant 
+
+un siège.
+
+Un chapitre tourné vers l’avenir n’obéit pas au même contrat de lecture qu’un chapitre descriptif. Les 
+
+quarante-huit chapitres qui précèdent ont arrêté un état des lieux ; celui-ci ne pose aucun état nouveau — il 
+
+projette cet acquis sur la fenêtre 2027-2032. La distinction n’est pas de style : elle décide de ce qu’un lecteur 
+
+peut verser à un dossier.
+
+49.0.1 Les trois statuts épistémiques
+
+Trois statuts, et un libellé d’ancrage qui n’est pas prospectif.
+
+• PROGRAMMÉ — un engagement daté réel : texte réglementaire à entrée en vigueur future, feuille 
+
+de route publiée, échéance de standard. C’est un fait sur le futur, qui doit porter sa source et sa date, et 
+
+que la prudence impose de marquer « à re-vérifier » pour toute échéance 2026-2028.
+
+• PROJETÉ — une prévision d’analyste ou d’institution. Elle exige source nominative, millésime et 
+
+périmètre explicites, à chaque occurrence.
+
+• SPÉCULATIF — un pari de recherche, un scénario, une discontinuité.
+
+• FAIT ÉTABLI — libellé d’ancrage pour un fait passé, daté et démontré par une source primaire ; distinct 
+
+par nature d’un engagement futur.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 545 sur 663
+
+---
+

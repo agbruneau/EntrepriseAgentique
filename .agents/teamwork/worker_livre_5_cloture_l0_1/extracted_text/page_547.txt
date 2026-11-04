@@ -1,0 +1,96 @@
+## [Page 547] (`page-547.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+49.1 La grappe d’échéances 2027-2032 : le squelette daté (PROGRAMMÉ)
+
+Avant les trajectoires, l’ossature : ce qui, dans la fenêtre, n’est ni prévision d’analyste ni pari de recherche, 
+
+mais engagement daté. Cette section ne réexplique aucun régime déjà traité aux Livres III et IV ; elle 
+
+n’ajoute que la temporalité et l’effet conjoint de ces échéances sur les déploiements agentiques.
+
+Deux bornes valent pour toute la frise, et sans elles rien de ce qui suit n’est utilisable. (1) Toutes ces échéances 
+
+entrent en [C] : elles viennent du Vol. I, dont la vérification porte sur ses références et non sur le contenu 
+
+de ses affirmations. (2) La revérification du 28 juillet 2026 ne couvre qu’une part de cette frise. Les jalons 
+
+d’identité et de standards du § 49.1.2 sont portés au socle consolidé par deux entrées seulement — S-143
+
+(l'horloge) et S-144 (les jalons de normalisation) —, instruites à leur source primaire : S-144 est changée, 
+
+son brouillon d'architecture étant passé de la révision -07 à la révision -08 le 6 juillet 2026, sans qu’aucun 
+
+jalon daté de l’entrée bouge ; et S-143 n'est instruite que PARTIELLEMENT, l'instruction ayant constaté le 
+
+statut du document de transition, non son contenu — les deux figures de dépréciation et de retrait que cette 
+
+section reprend n’ont pas été extraites verbatim. La grappe de 2027 du § 49.1.1 et les échéances financières 
+
+du § 49.1.3 n’ont, elles, aucune entrée qui les reçoive du Vol. I au socle consolidé : aucune de leurs dates n’a 
+
+été reprise à sa source primaire. Une frise de dates non revérifiées est un objet dangereux, et c’est pourquoi 
+
+la marque de sa source est reconduite ligne à ligne.
+
+49.1.1 La concentration de 2027
+
+La formulation imposée s’applique ici et à chaque occurrence de la somme : la ligne directrice canadienne pose 
+
+des attentes — on écrit « attendu par E-23 », jamais « exigé par » —, et la « supervision humaine » n’est 
+
+pas l’une des cinq attentes au socle. Le ch. 25 en est le siège, et ce chapitre n’en développe rien.
+
+Le critère de lecture que le Vol. I en tire, et qui vaut pour l’architecte : séparer les dates fermes déjà en 
+
+vigueur des dates stabilisées par un acte encore en cours de publication. Seule cette distinction permet de 
+
+calibrer un plan de conformité qui ne soit ni en avance sur le droit ni en retard sur lui.
+
+49.1.2 Identité, standards, et l’horloge de fond
+
+Le siège de l’horloge post-quantique est au ch.  21 § 21.1, et ce chapitre n’y re-date rien. La formulation imposée 
+
+vaut à chaque mention : les jalons de dépréciation (2030) et de retrait (2035) sont visés, jamais « fixés », et 
+
+le statut du document qui les porte se dit — c’est un projet, non une norme finale. Un chapitre prospectif est 
+
+exactement l’endroit où cette règle se casse, et c’est pourquoi elle est répétée ici. Du côté des standards, le Vol. 
+
+I relève un agenda d’identité décentralisée dont les jalons sont visés et non engagés : une recommandation 
+
+candidate de modèle de données d’accréditations vérifiables visée en 2027, des interfaces de cycle de 
+
+vie visées en 2028, un stade de recommandation candidate atteint le 5 mars 2026 pour les identifiants 
+
+décentralisés, une architecture d’identité de charge de travail — matière du socle IAM, dont le siège est le
+
+ch. 3 et qui n’est pas reconstruite ici — dont la publication est visée sur 2026-2027 sans date d’engagement 
+
+ferme, propre aux processus de l’organisme concerné. Ces dates de livraison demeurent « à re-vérifier », et 
+
+le ch. 13 en est le siège pour la matière elle-même.
+
+2027 n’est pas une date parmi d’autres  : c’est le moment où les exigences pesant sur les déploiements 
+
+agentiques cessent d’être indicatives pour devenir contraignantes. Le Vol. I recense, pour cette seule année : 
+
+le report du régime haut-risque européen — Annexe III au 2 décembre 2027, Annexe I au 2 août 2028 —, 
+
+adopté par le Conseil le 29 juin 2026, publication au Journal officiel à suivre (publié depuis, le 24 juillet 2026 : 
+
+règlement (UE) 2026/1744) ; l’application du règlement anti-blanchiment au 10 juillet 2027, sous l’autorité 
+
+instituée en 2024 ; la fin des frais de changement de fournisseur d’informatique en nuage au 12 janvier 
+
+2027, levier direct de portabilité ; la montée du plancher de production prudentiel à 60 % au 1ᵉʳ janvier 2027, 
+
+sur une trajectoire vers 72,5 % au 1ᵉʳ janvier 2030 ; et, au Canada et au Québec, l’entrée en vigueur de la 
+
+ligne directrice E-23 du BSIF et de la ligne directrice sur l’IA de l’AMF le 1ᵉʳ mai 2027.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 547 sur 663
+
+---
+

@@ -1,0 +1,96 @@
+## [Page 581] (`page-581.png`)
+
+Compendium Vol. III, L’entreprise agentique — 96 entrées, S-047 à S-142
+
+• S-067 — Incident public daté d'identité non humaine. [A] — Vol. III F-21 §7.8. 8-18 août 2025.
+
+• S-068 — La spécification A2A ne nomme aucune menace d'identité classique. [A, degré 1] — Vol. III 
+
+F-22 §7.8.
+
+• S-069 — Empoisonnement de mémoire, publication revue par les pairs. [A] — Vol. III F-23 §7.8. NeurIPS 
+
+2024.
+
+• S-070 — La confusion de délégué est nommée dans la littérature. [A] — Vol. III F-24 §7.8.
+
+• S-071 — Le détournement réussit sur des agents individuellement sains. [A] — Vol. III F-25 §7.8.
+
+• S-072 — Quatre identifiants de vulnérabilité, vote incomplet. [B] — Vol. III F-26 §7.8. Vote à rejouer avant 
+
+emploi central.
+
+• S-073 — L'hypothèse humaine d'OAuth est dans le flux, pas dans les définitions. [B] — Vol. III F-27 §7.9.
+
+• S-074 — La §4 de SCIM Core Schema ne définit aucun type de ressource pour un mandataire logiciel. 
+
+[B, degré 1] — Vol. III F-28 §7.9.
+
+• S-075 — Les jetons de transaction sont pré-normatifs, et datés. [A] — Vol. III F-29 §7.9. Rév. −09 du 6 
+
+juill. 2026, exp. 7 janv. 2027 ; −11 du 30 juill. 2026, exp. 31 janv. 2027.
+
+• S-076 — Community Groups, ce qu'ils produisent et ce qu'ils ne produisent pas. [B] — Vol. III F-30 §7.9. 
+
+CG proposé 22 avr. 2026.
+
+• S-077 — Le fossé d'adoption financière n'est pas comblé. [C, degré 1] — Vol. III F-31 §7.9. Rapport du 
+
+19 juill. 2026.
+
+• S-078 — Un précédent institutionnel existe hors du champ agentique. [B] — Vol. III F-32 §7.9. Version 
+
+du 25 mars 2026.
+
+• S-079 — La GA d'Entra Agent ID est datée d'avril 2026. [B] — Vol. III F-33 §7.9. Avril 2026, selon l'éditeur.
+
+• S-080 — La GA du produit ne vaut pas GA de ses capacités. [A] — Vol. III F-34 §7.9. État au 21 juill. 2026.
+
+• S-081 — Réserve explicite d'absence de couverture entre les deux plans d'identité d'agent. [A, degré 2]
+
+— Vol. III F-35 §7.9.
+
+• S-082 — Les pairs infonuagiques, datés et triés. [C] — Vol. III F-36 §7.9. GA Google Cloud 22 avr. 2026.
+
+• S-083 — « Blueprint » est défini, et c'est un objet d'annuaire. [B] — Vol. III F-37 §7.9.
+
+• S-084 — La spécification CSA est un brouillon de labs, et son en-tête le dit. [A] — Vol. III F-38 §7.9. Page 
+
+consultée le 21 juill. 2026.
+
+• S-085 — Le relevé ne soutient pas la mise à jour du 20 mai 2026 annoncée par la revalidation d'ouverture 
+
+(P0.6) : le balayage de la page ne fait apparaître aucune chaîne de date postérieure au 27 mars 2026, ni 
+
+section de révision, ni mention last updated. La source primaire corrige la recherche secondaire. [B, 
+
+degré 1] — Vol. III F-39 §7.9. Balayage du 21 juill. 2026.
+
+• S-086 — toolAccessList et permissionBoundaries sont des champs obligatoires. [B] — Vol. III F-40 §7.9.
+
+• S-087 — Le brouillon IETF dont la spécification CSA se réclame est expiré et archivé. [B, degré 2] — 
+
+Vol. III F-41 §7.9. −00 du 16 oct. 2025, expiré.
+
+• S-088 — La consolidation IETF a eu lieu, et elle a été renvoyée. [B, degré 2] — Vol. III F-42 §7.9. IETF 
+
+125, 19 mars 2026.
+
+• S-089 — A2A normalise la découverte et décline le registre. [B, degré 2] — Vol. III F-43 §7.9. Rév. 02 
+
+du 6 juill. 2026.
+
+• S-090 — Le transfert d'AP2 est annoncé par une source primaire, et qualifié. [A] — Vol. III F-44 §7.9. 28 
+
+avr. 2026.
+
+• S-091 — Trois mois après, le transfert n'est pas matérialisé. [B, degré 1] — Vol. III F-45 §7.9. Constat à 
+
+~3 mois du 28 avr. 2026.
+
+• S-092 — Les mandats AP2 sont spécifiés et versionnés. [B] — Vol. III F-46 §7.9. V0.2.0, 28 avr. 2026.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 581 sur 663
+
+---
+

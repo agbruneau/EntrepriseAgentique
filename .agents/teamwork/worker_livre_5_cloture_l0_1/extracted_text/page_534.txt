@@ -1,0 +1,90 @@
+## [Page 534] (`page-534.png`)
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+cinquième pièce comblerait cet écart, ni qu’un format existe pour la porter, ni qu’un émetteur l’émettrait, 
+
+ni qu’un vérificateur saurait quoi en faire. Une pièce candidate n’est pas une pièce ; c’est une question posée.
+
+Et la comparaison avec la quatrième pièce interdit d’aller plus loin. Le ch. 16 § 16.1 établit que des quatre, 
+
+l’attestation de conformité est la moins documentée : les trois autres sont adossées à au moins une spécifi￾cation instruite, elle n’a qu’un nom de champ facultatif relevé hors socle. Une cinquième pièce serait, au gel, 
+
+moins documentée encore que la quatrième — elle n’a ni champ, ni nom de champ. Le socle ne documente 
+
+aucun mécanisme d’identité d’agent portant la composition de l’agent — degré 3. Le § 47.12 rencontre la 
+
+même limite du côté du registre.
+
+47.6 Les divulgations de chaîne d’approvisionnement du 1ᵉʳ semestre 2026
+
+Cette section n’a pas de contenu, et son absence de contenu est le contenu. Une relève la porte, avec sa qualifi￾cation propre : candidates, à instruire à sources primaires. Aucune instruction n’a été conduite ; aucune source 
+
+primaire n’a été extraite ; et écrire ici la description d’incidents qu’on n’a pas ouverts produirait exactement la 
+
+faute que le § 17.5 du ch. 17 a refusé de commettre.
+
+Ce que la relève porte, tel quel et sans ajout : des candidats du 1ᵉʳ semestre 2026 existent — compromis￾sions de plateformes d’agents, divulgations en conférence de sécurité —, et ils sont à instruire à sources 
+
+primaires avant de déclarer l’événement survenu. C’est aussi, mot pour mot, ce que le ch. 50 § 50.2 porte 
+
+pour son septième événement de péremption — dont l’intitulé se lit « premier incident public documentant 
+
+l’usurpation du justificatif propre d’un agent », la forme « premier incident public d’identité agentique » 
+
+ayant été corrigée par sa source le 22 juillet 2026. La formulation restreinte de cette absence a son siège au 
+
+ch. 19 § 19.6, qui la pose une seule fois pour toute la somme ; elle est reprise ici, non reformulée.
+
+Trois bornes, parce qu’une section vide se lit mal. (1) Le socle ne documente aucune divulgation de 
+
+compromission de chaîne d’approvisionnement visant un agent d’entreprise, à aucun niveau — degré 3 ; 
+
+il ne s’ensuit pas qu’il n’en existe pas, et la prudence du ch. 20 § 20.0 sur l’interprétation des absences 
+
+s’applique intégralement. (2) Le jugement de la thèse — « le front le plus mûr des trois » — s’appuie en partie 
+
+sur cette relève, qui n’établit rien : la relève confirme sans le prouver. Le jugement de maturité reste donc une 
+
+construction d’auteur, non un constat. (3) Le § 47.7 porte, lui, un incident candidat plus précisément décrit 
+
+— et il reste candidat.
+
+L’instruction à conduire. Question : existe-t-il, au 1ᵉʳ semestre 2026, une divulgation publique documentée 
+
+d’une compromission par la chaîne d’approvisionnement d’un composant d’agent — serveur d’outils, 
+
+extension, modèle, dépendance — avec identifiant, date et périmètre ? Corpus à ouvrir : la relève ne porte 
+
+aucun identifiant — ni identifiant de vulnérabilité, ni nom d’éditeur, ni nom de conférence —, et l’établir 
+
+est donc le premier acte de l’instruction, non son résultat. Le corpus se nomme par ses instruments : le 
+
+catalogue CVE et la base NVD du NIST pour les identifiants de vulnérabilité ; les avis de sécurité publiés 
+
+par les éditeurs et les projets des composants visés, à leurs propres canaux ; les actes des conférences de 
+
+sécurité du 1ᵉʳ semestre 2026, dont la liste est à arrêter à l’ouverture de l’instruction. Critère de clôture : un 
+
+identifiant de vulnérabilité ou un avis daté de l’éditeur du composant, l’un et l’autre nommés — éditeur, 
+
+composant, vecteur, date —, non une reprise journalistique, non un billet de blogue d’un fournisseur de 
+
+sécurité seul. Un critère de clôture qui ne nomme pas la source qu’il attend n’est pas opposable : c’est la raison 
+
+pour laquelle aucun terme de cette instruction n’est laissé anonyme. Échec documenté : si aucune divulgation 
+
+ne satisfait ce critère, l’énoncé qui en sort est le socle ne documente aucun incident de cette classe, au degré 3 
+
+— jamais « aucun n’a eu lieu ».
+
+47.7 Relève : l’extension déclarative, composant que la nomenclature ne voit pas
+
+Ce que la relève établit du mécanisme, et c’est un point d’architecture, non un incident. Les harnais 
+
+admettent des extensions par simple configuration — fichiers d’instructions réutilisables, serveurs d’outils 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 534 sur 663
+
+---
+

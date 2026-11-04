@@ -1,0 +1,196 @@
+## [Page 571] (`page-571.png`)
+
+Compendium 50 · Péremption et protocole de revalidation
+
+Événement Ce que le socle en porte Tri Ce qui se refait
+
+pas rallongé. L’entrée en vigueur du cadre 
+
+n’est pas la mise en service du système La 
+
+couche protocolaire entière du Livre I se 
+
+périme au rythme de SES DEUX spécifica￾tions, non de la seule première — c’est le 
+
+point que les
+
+socle demeure dû ; ch. 11 ; 
+
+ch. 47 § 47.4
+
+Transfert de gouver￾nance du protocole de 
+
+paiement agentique
+
+versions antérieures perdaient. Côté agent￾outil, l'événement EST SURVENU : la révi￾sion annoncée au brouillon — protocole 
+
+sans état, retrait de l'en-tête de session 
+
+— est servie à sa source le 28 juillet 
+
+2026 (S-001, changée), le jour même que 
+
+la source annonçait. La divergence de sta￾tut que ce chapitre signalait est close par 
+
+l'événement, non par un arbitrage : les 
+
+trois volumes en portaient trois lectures — 
+
+révision visée, finalisation attendue, date 
+
+non confirmée à la source —, et les trois 
+
+demeurent exactes à leur date. Côté agent￾agent, rien n'a bougé au 29 octobre 2026 : 
+
+dernier correctif v1.0.1 du 28 mai 2026, 
+
+aucune version majeure ni mineure neuve 
+
+(S-002) ; AAIF depuis le 17 août 2026 
+
+CANDIDAT SURVENU À MOITIÉ, et c'est la 
+
+moitié qui compte. L’ANNONCE est éta￾blie : le don à la FIDO Alliance, annoncé 
+
+le 28 avril 2026 par un billet officiel de 
+
+l’organisation cédante, est constaté
+
+FAIT ÉTABLI — de 
+
+l’annonce, non du trans￾fert. Ce que la somme 
+
+périmera est la matériali￾sation, et elle n’est pas 
+
+survenue
+
+ch. 10 ; la divergence cor￾respondante, re-tranchée 
+
+sur pièce. Le socle gelé 
+
+du Vol. II n’est pas corri￾gé rétroactivement : le fait 
+
+s’écrit comme postérieur à 
+
+son instruction, et cela se 
+
+dit
+
+Normalisation du pas￾seport d’agent
+
+sur ses quatre éléments — date, version, 
+
+cas d'usage nommé, deux groupes de 
+
+travail techniques —, ce qui a instruit 
+
+la lacune §10.9e du Vol. II par source pri￾maire nouvelle datée (S-090). Le TRANS￾FERT, lui, n'est pas matérialisé : six mois 
+
+après l'annonce, au 29 octobre 2026, le 
+
+dépôt canonique demeure chez l'éditeur 
+
+d'origine, sa racine ne porte aucun do￾cument de gouvernance ni de charte, 
+
+l'index de spécifications du cessionnaire 
+
+ne publie rien d'agentique, et les deux 
+
+groupes de travail sont annoncés sans 
+
+échéance (S-091) Le passeport ne figure 
+
+dans AUCUNE spécification à date : c'est 
+
+un objet de synthèse construit par le 
+
+corpus. Le relevé propre du Vol. III 
+
+n'en confirme aucune échéance — un 
+
+brouillon de travail du 11 mai 2026, 
+
+un stade de recommandation candidate 
+
+du 5 mars 2026 non dépassé, sept docu￾ments de groupe de travail dont aucune 
+
+date de publication n'est annoncée — 
+
+huit le 23 oct., dont un adopté
+
+Tri mixte, et il ne se 
+
+simplifie pas : SPÉCULA￾TIF pour l’assemblage
+
+des quatre pièces, PRO￾JETÉ pour deux des 
+
+trois voies ; aucun des 
+
+trois n’est PROGRAMMÉ, 
+
+l’absence de jalon daté 
+
+étant le critère du PRO￾GRAMMÉ
+
+ch. 16 en entier ; la couche 
+
+« identité et registre » du 
+
+tableau des six couches, 
+
+ch. 43 § 43.1
+
+Stabilisation des 
+
+conventions séman￾tiques d’observabilité
+
+dépôt dédié sans version citable ; do￾cuments agentiques au premier des cinq 
+
+échelons — développement, alpha, bêta, 
+
+candidat, stable ; rupture datée du 12 juin 
+
+2026
+
+SPÉCULATIF — aucun ja￾lon daté relevé
+
+ch. 38 ; ch. 40 ; lacune 
+
+15 du Vol. III ; la couche 
+
+« exploitation » du ch. 43 
+
+§ 43.1
+
+Premier incident pu￾blic documentant 
+
+l’usurpation du justifica￾tif propre d’un agent 
+
+(intitulé corrigé à la 
+
+Des incidents d’identité non humaine
+
+sont publics, datés et documentés — une 
+
+campagne d’août 2025, jetons compromis, 
+
+révocation d’ensemble le 20 août 2025. Ce 
+
+qui reste non documenté est l’usurpation 
+
+SPÉCULATIF — scénario, 
+
+sans calendrier ni enga￾gement
+
+ch. 19 § 19.1 ; ch. 20 ; 
+
+et le § 47.6, dont les divul￾gations candidates du 1ᵉʳ
+
+semestre 2026 ne sont pas 
+
+instruites
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 571 sur 663
+
+---
+

@@ -1,0 +1,168 @@
+## [Page 564] (`page-564.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+Lacune Objet État repris de sa source Où la somme la 
+
+porte
+
+17 Sous-comité international 
+
+sur l’IA
+
+non instruite — nommé par un intitulé, documenté par 
+
+aucune entrée ; degré 3
+
+ch. 30
+
+18 Comité européen de nor￾malisation
+
+non instruite — même constat, même régime ; degré 3 ch. 30
+
+19 OpenID Connect non instruite — deux corpus normatifs sur trois au 
+
+socle ; aucune entrée ne porte OpenID Connect ; retirer 
+
+un mot d’un titre ne retire pas un trou du socle
+
+ch. 12, second 
+
+mouvement
+
+20 Cadre d’architecture d’un 
+
+portefeuille européen 
+
+d’identité numérique
+
+source repérée, non extraite — niveau [C], jamais fait 
+
+central
+
+ch. 13
+
+21 Corrélation entre trace 
+
+d’exécution et chaîne de 
+
+mandat
+
+non instruite — la pièce de jonction n’a été ouverte par 
+
+aucune instruction
+
+ch. 38 § 38.5 ; 
+
+ch. 48 § 48.5
+
+22 Notation d’architecture du 
+
+Vol. I
+
+non instruite — nommée cinq fois par le cadrage, zéro 
+
+fois dans les sections balayées ; degré 3
+
+ch. 44
+
+Quatre lacunes de plus, ouvertes par la rédaction du Vol. III et non portées à son propre registre. Sa source 
+
+les déclare et remonte leur ouverture : le coût d’exploitation d’un point d’application par arête — latence, 
+
+coût, disponibilité introduits entre deux agents (ch. 37) ; la restitution datée du mandat et des bornes de 
+
+privilège (ch.  25) ; l’organisation d’une fabrique de confiance agentique — répartition des responsabilités, 
+
+compétences, conduite du changement (ch. 43) ; et la résidence des renseignements personnels appliquée à 
+
+un agent (ch. 30). Ici, « fabrique » désigne la fabrique de confiance du ch. 43 § 43.1, non la fabrique d’agents 
+
+du ch.  41. Aucune recherche n’a été conduite sur ces quatre ; la quatrième est déclarée hors du périmètre 
+
+de toutes les instructions de sa source.
+
+49.12.3 Trois absences déclarées au degré 3, qui ne sont ni d’une série ni de l’autre
+
+Une troisième série existe, et il faut d’abord dire pourquoi elle ne peut rejoindre aucune des deux précédentes. La 
+
+rédaction du Livre II a rencontré trois absences que le texte rédigé du Vol. III déclare au degré 3 sans les 
+
+numéroter. Les verser dans l’une des deux tables aurait périmé un cardinal contrôlé. Elles forment une série 
+
+propre, sans numéro parce que leur source ne leur en donne pas.
+
+Tableau 49.3 — Les trois absences déclarées au degré 3 dans le texte rédigé du Vol. III, non numérotées par lui, avec ce que le Vol. I 
+
+en porte au régime [C]. Aucune n’est comblée, et la table est écrite pour que cela ne puisse pas se lire autrement.
+
+Absence déclarée Ce que le Vol. I en porte Qualification Chapitre porteur
+
+Ratio des identités machines aux iden￾tités humaines et prolifération des se￾crets — aucun ordre de grandeur au 
+
+socle
+
+un ordre de grandeur attribué à son 
+
+éditeur d’origine, daté de 2025
+
+illustrée au régime [C], 
+
+NON instruite — le chiffre 
+
+est une métrique auto￾déclarée : illustration, ja￾mais preuve
+
+ch. 12 § 12.2
+
+Contenu technique d’un corpus de 
+
+normalisation du web — aucun ex￾trait des quatre documents ; profils 
+
+d’interopérabilité non documentés
+
+modèle de données des ac￾créditations vérifiables, méthode 
+
+d’identifiant ancrée au web, distinc￾tion qui est l’agent / ce qu’il a le 
+
+droit de faire
+
+couverte au régime [C], à 
+
+instruire à la source pri￾maire pour élévation
+
+ch. 13 § 13.1-13.2
+
+Chaîne d’approvisionnement — 
+
+aucune définition normative de 
+
+l’expression, aucun mécanisme 
+
+d’attestation d’intégrité à l’exécution
+
+la chaîne d’approvisionnement des 
+
+outils et trois contrôles — vérifica￾tion de provenance, épinglage de 
+
+version, admission par passerelle
+
+couverte au régime [C], à 
+
+instruire pour élévation
+
+ch. 20 § 20.3 et 
+
+§ 20.8 ; ch. 47 
+
+§ 47.2-47.3
+
+Ces trois cas ne sont pas des contradictions entre volumes, et c’est la règle la plus utile que la somme 
+
+ait produite sur elle-même. « Le socle de A ne documente pas X » et « B documente X » sont logiquement 
+
+compatibles : c’est une lacune de couverture, non une divergence, l’énoncé du volume le plus ancien 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 564 sur 663
+
+---
+

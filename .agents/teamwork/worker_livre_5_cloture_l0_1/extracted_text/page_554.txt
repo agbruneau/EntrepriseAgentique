@@ -1,0 +1,94 @@
+## [Page 554] (`page-554.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+Et la clôture de ce front est une condition, non une prédiction : la promesse économique de la somme — le 
+
+passage d’un coût d’intégration quadratique à un coût linéaire — ne se réalisera que si ces agendas franchissent 
+
+le seuil du spéculatif vers le programmé. Le § 49.11 en fait l’une de ses six conditions.
+
+49.7 Trajectoire technologique et macro
+
+Cette section change de focale : elle examine les forces de fond qui rendent l’interopérabilité non plus un 
+
+raffinement souhaitable mais une condition structurelle de viabilité. Ces forces ne se décrètent ni par un 
+
+texte réglementaire ni par une feuille de route de standard : elles s’imposent par la pente économique et 
+
+physique.
+
+La courbe de capacité. Le Vol. I relève un travail de mesure d’un organisme d’évaluation selon lequel la 
+
+durée des tâches qu’un agent accomplit avec un taux de réussite donné double environ tous les sept mois, 
+
+tendance affinée dans une mise à jour ultérieure avec un signe d’accélération après 2024. Métrique attribuée 
+
+à son auteur, à son millésime et à son périmètre, et la distinction que le Vol. I impose est reprise : extrapoler la 
+
+droite de doublement est une lecture mesurée ; prédire une capacité datée est un pari. Et le verrou décisif pour 
+
+l’interopérabilité est ailleurs : ces métriques évaluent un agent isolé face à une tâche close (§ 49.6.4).
+
+L’économie de l’inférence. Le coût du jeton d’inférence s’est effondré — baisse rapide mais inégale selon 
+
+les tâches, documentée par un organisme de recherche cité nominativement par le Vol. I —, mais absorbée 
+
+par l’explosion du calcul au moment de l’inférence et par la multiplication du nombre d’agents : la dépense 
+
+totale ne décroît pas mécaniquement. Deux trajectoires en découlent : la bascule vers des modèles petits 
+
+ou embarqués, thèse attribuée à un laboratoire industriel qui soutient que les petits modèles de langage 
+
+sont l’avenir de l’agentique ; et l’émergence d’architectures hétérogènes. L’argument central, et il est le 
+
+moteur de tout l’ouvrage : sans coût marginal bas, pas de flottes d’agents ; mais avec des flottes hétérogènes 
+
+assemblant des modèles de fournisseurs et de natures différentes, l’interopérabilité cesse d’être optionnelle pour 
+
+devenir obligatoire. Un angle mort subsiste : le coût marginal réel d’une trajectoire multi-saut, où chaque 
+
+délégation ajoute des appels, demeure mal modélisé et difficile à imputer.
+
+La soutenabilité. Une agence internationale de l’énergie projette un quasi-doublement de la consommation 
+
+électrique des centres de données à l’horizon 2030 — projection d’institution, à citer comme telle et non 
+
+comme un fait acquis —, à quoi s’ajoute une empreinte hydrique documentée tant côté gouvernemental 
+
+qu’académique. La conséquence prospective est l’émergence d’un budget énergie-eau-carbone par agent et 
+
+par trajectoire, érigé en critère de conception et de localisation. Mais ce mouvement bute sur un verrou de 
+
+mesure : aucun standard d’attribution d’empreinte par appel d’agent n’existe à juin 2026 — le socle du Vol. I 
+
+n’en documente aucun, degré 3 —, et sans méthode normalisée pour imputer une consommation à une délégation 
+
+précise dans une chaîne multi-saut, la soutenabilité reste un objectif sans instrument de mesure interopérable.
+
+La souveraineté. Du côté européen, une pile souveraine se met en place — plan d’action pour un continent 
+
+de l’IA, usines d’IA d’une entreprise commune de calcul haute performance, gigafactories adossées à une 
+
+facilité d’investissement d’environ 20 milliards d’euros —, tandis que du côté américain la trajectoire est 
+
+marquée par la volatilité des contrôles à l’exportation. Le risque prospectif porte un nom et il est de nature 
+
+réglementaire, non technique : une fragmentation juridictionnelle du calcul rendant certains agents non 
+
+interopérables par construction — deux agents conformes chacun dans leur ressort pourraient se révéler 
+
+incapables de coopérer non pour une raison technique mais réglementaire. La portabilité inter-modèles 
+
+(§ 49.2.2) fonctionne comme contre-feu.
+
+Un analyste nomme ce contre-feu — 24 octobre 2026 (veille) : parmi ses tendances pour 2027, Gartner (2026)
+
+décrit des technologies souveraines conçues, techniquement et juridiquement, pour offrir des stratégies de 
+
+sortie réalistes face aux fournisseurs critiques, et projette que plus de 75 % des organisations établies hors 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 554 sur 663
+
+---
+

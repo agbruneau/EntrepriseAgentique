@@ -1,0 +1,92 @@
+## [Page 557] (`page-557.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+Monnaie programmable et règlement. Les objets monétaires sur lesquels un agent peut déclencher un 
+
+règlement se diversifient selon des trajectoires de statuts contrastés : PROGRAMMÉ pour les calendriers 
+
+d’encadrement des jetons de paiement et pour la phase pilote de la monnaie numérique de banque centrale 
+
+européenne au second semestre 2027 ; PROJETÉ non ferme pour une première émission évoquée en 
+
+2029 ; PROJETÉ, et à citer comme tel, pour la tokenisation des actifs réels, dont les estimations d’analystes 
+
+à l’horizon 2030-2034 divergent fortement. Le piège central est déplacé, et il est irréversible : le règlement 
+
+y est sans mécanisme de rétrofacturation, de sorte qu’une erreur d’agent sur monnaie programmable n’est pas 
+
+rattrapable a posteriori. C’est le point que le ch. 48 § 48.4 reprend au grain de la sémantique d’effet, et qu’il 
+
+ne reconstruit pas.
+
+Une exigence croise les deux horloges de l’horizon : les signatures et l’identité qui autorisent ces règlements 
+
+devront être re-signées avant les échéances de dépréciation cryptographique (§ 49.4 ; siège au ch. 21 § 21.1). 
+
+Concilier crypto-agilité, débit élevé de règlements et identités d’agent éphémères reste un problème non résolu.
+
+Le risque systémique des agents corrélés. Le siège en est le ch. 31 § 31.1.2, qui pose la chaîne causale une 
+
+seule fois ; ce paragraphe la projette sur la fenêtre et ne la re-dérive pas. Il ne s’agit plus du risque d’une 
+
+décision isolée mais de la corrélation des comportements lorsque de nombreux agents partagent les mêmes 
+
+modèles, fournisseurs et signaux. Le Vol. I relève une convergence de vues prudentielles — comité européen 
+
+du risque systémique, conseil de stabilité financière avec des indicateurs de suivi et un constat de concen￾tration des fournisseurs, banque centrale nationale intégrant l’IA à son cadre de stabilité, banque des 
+
+règlements internationaux — toutes de statut PROJETÉ : ce sont des analyses prospectives et des indicateurs, 
+
+non des mesures de réalisation, et aucune ne quantifie un seuil systémique établi. Côté SPÉCULATIF, une 
+
+modélisation académique suggère une croissance non linéaire du risque avec la densité d’agents corrélés. 
+
+Le verrou ouvert est prudentiel : faut-il des exigences nouvelles — contracycliques, ou de type « peau dans le 
+
+jeu » — pour internaliser le risque de monoculture ?
+
+La migration des standards de données. Le patron le plus fort transféré à l’horizon est conceptuellement 
+
+décisif : le standard cesse d’être un texte que l’agent doit deviner pour devenir un code versionné, exécu￾table, adossé à un modèle de données — réduisant l’hallucination et rendant la production auditable. C’est 
+
+l’incarnation financière du fil contrat/évolution : un schéma versionné est le contrat stable sur lequel un 
+
+agent peut s’appuyer sans réinterpréter à chaque exécution. Le ch. 33 en est le siège ; le rail temps réel 
+
+canadien y est nommé sans jamais être dit lancé (réserve F-29).
+
+La maturation de l’autonomie bornée. Le goulot d’étranglement n’est pas la qualité du raisonnement mais 
+
+la fiabilité de bout en bout du flux de travail : les bancs d’essai financiers publiés convergent sur des taux de 
+
+réussite faibles sur des tâches réalistes. La trajectoire la plus crédible n’est donc pas l’autonomie pleine mais 
+
+l’émergence d’agents robustes sur des opérations circonscrites, et le recours à des bacs à sable réglementaires 
+
+comme voie de production graduée. Un vide doit être signalé au titre de la discipline anti-emballement : il 
+
+n’existe, à juin 2026, aucun banc d’essai public mature côté assurance ni pour les processus de lutte contre 
+
+le blanchiment agentiques — absence de documentation dans le corpus du Vol. I, degré 3 —, de sorte que toute 
+
+affirmation d’autonomie dans ces domaines relève de la projection non étayée.
+
+49.10 Responsabilité, assurabilité et gouvernance de l’émergence
+
+La proposition institutionnelle de la somme atteint ici son point de tension. Les protocoles sont livrés et 
+
+gouvernés (§ 49.2, § 49.3) ; ce qui demeure à construire relève des régimes de responsabilité, des mécanismes 
+
+d’attribution et de la gouvernance du comportement collectif. La fenêtre porte des jalons datés réels, mais 
+
+l’essentiel reste un agenda à trancher, du PROGRAMMÉ au SPÉCULATIF.
+
+Le vide de responsabilité. La trajectoire part d’un fait : le retrait de la directive européenne sur la responsabilité en 
+
+matière d’intelligence artificielle, confirmé au programme de travail de la Commission pour 2025. Le contentieux 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 557 sur 663
+
+---
+

@@ -1,3 +1,7 @@
 # Sorties de compilation Typst des annexes
 sources/**/*.pdf
 __pycache__/
+
+# Répertoires de travail temporaires des revues (rendus de pages, découpage en tranches)
+documents/scratch/
+.review_chunks_cadre/

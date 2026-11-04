@@ -1,0 +1,96 @@
+## [Page 536] (`page-536.png`)
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+choses que cela ne change pas (1) Ce risque est borné, non comblé : la somme n’a toujours aucun chapitre 
+
+de la couche d’exécution. (3) Le régime de preuve n’a pas bougé : la relève reste un repérage [C] non extrait, 
+
+et le contenu de la cinquième horloge ne peut pas davantage s’écrire ici qu’hier — ce qui a changé est qu’il 
+
+a désormais un domicile, non une source. La section porte donc la relève, sa qualification et son domicile. 
+
+L’obligation qui en découlait est payée : le jalon J-IV-7 exigeait que la cinquième horloge soit confrontée au 
+
+texte des ch. 37 à 40. Confrontation faite le 29 octobre 2026, sans contradiction : le ch. 37 déclare que le 
+
+harnais n’a de chapitre nulle part, le § 39.4 ne versionne que le mandat, la carte et la déclaration des bornes, 
+
+et le § 39.5 renvoie au ch. 47 sans s’y adosser.
+
+47.9 Jeux d’essai de référence et barrière d’évaluation au déploiement
+
+La thèse impose des jeux d’essai de référence pour un artefact non reproductible, et c’est une difficulté 
+
+nommée, pas une difficulté d’outillage. Un jeu d’essai suppose une sortie attendue ; un comportement non 
+
+déterministe n’en fournit pas. Une relève nomme la difficulté — le problème de l’oracle — et une réponse 
+
+constituée : le test métamorphique, qui vérifie des relations nécessaires entre plusieurs exécutions au lieu 
+
+d’une sortie attendue. Source de référence relevée le 26 juillet 2026 : Chen, Kuo, Liu, Poon, Towey, Tse et 
+
+Zhou, Metamorphic Testing: A Review of Challenges and Opportunities, ACM Computing Surveys 51(1), 
+
+article 4, 2018, DOI 10.1145/3143561.
+
+Ce que la relève établit, et ce qu’elle n’établit pas — la borne est dans la relève elle-même. Elle établit que 
+
+la barrière d’évaluation de cette section est un problème d’oracle, non un problème d’outillage : l’énoncer 
+
+autrement ferait prescrire un dispositif qui ne peut pas fonctionner. Elle n’établit pas l’applicabilité du test 
+
+métamorphique à un agent d’entreprise, nulle part documentée — degré 3 — et une réponse constituée 
+
+dans une discipline voisine n’est pas une réponse disponible. À instruire à la source primaire ; n’entre pas 
+
+au socle.
+
+Ce que la somme porte déjà, et qui n’est pas reconstruit ici. Le ch. 6 § 6.3 traite l’évaluation et ses difficultés 
+
+propres — pourquoi évaluer un agent est difficile, le modèle comme juge et ses biais, les bancs de capacité. 
+
+Ce chapitre ne rejoue ni la difficulté ni les bancs : il ajoute le seul grain qui lui appartient, celui de la mise en 
+
+service — une barrière franchie ou non franchie à un instant, sur un artefact nommé, avec une conséquence 
+
+de déploiement.
+
+47.10 Promotion par environnements et GitOps du parc
+
+Deux barrières, deux grains, à ne jamais fondre. Celle-ci porte sur l’artefact et sa mise en service ; la barrière de
+
+certification du ch.  41 § 41.4 porte sur l’admission au parc. Le problème de l’oracle vaut pour les deux et 
+
+ne se dissout pas en changeant d’échelle — c’est la seule chose que ce chapitre puisse dire du ch. 41. Son sort a 
+
+été tranché depuis, et l’arbitrage n’est pas un acquittement : le chapitre est maintenu sous réserve, son socle non 
+
+constitué, et le retrait demeure l’issue si les instructions du ch. 41 échouent. Un renvoi entrant se referme ici. Le
+
+ch.  40 § 40.6 déclare son pont vers ce chapitre sans le franchir : ce que devient la pré-production gouvernée 
+
+— jeux d’évaluation figés, déploiement fantôme, non-régression avant promotion — quand l’objet promu est un 
+
+artefact non reproductible y est renvoyé au ch. 47. Le présent chapitre est ce domicile, et ce qu’il peut en dire est 
+
+borné par ce qui suit : il ne dispose d’aucune source sur la promotion d’un tel artefact, et nommer un domicile 
+
+n’est pas répondre à la question qu’on y adresse.
+
+Cette section applique au grain du déploiement ce que le ch. 39 § 39.4 traite au grain du cycle de vie, et elle 
+
+ne le reconstruit pas. Les ch. 39 et 40 ont été rédigés
+
+Lecture de l’auteur — ce que la promotion par environnements suppose, et que les cinq horloges du § 47.1 
+
+rendent problématique. Promouvoir un artefact d’un environnement au suivant suppose que l’artefact 
+
+promu soit celui qui a été éprouvé. Or trois des cinq composants peuvent changer entre l’épreuve et la 
+
+promotion sans qu’aucun acte de déploiement n’ait lieu : le millésime de modèle appartient à son fournisseur, 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 536 sur 663
+
+---
+

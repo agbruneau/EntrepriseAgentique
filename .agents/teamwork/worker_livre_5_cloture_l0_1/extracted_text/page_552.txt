@@ -1,0 +1,92 @@
+## [Page 552] (`page-552.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+Ce que la trajectoire ajoute au grain de l’horizon, et rien de plus : la symétrie attaque/défense fait de la 
+
+sécurité agentique un domaine où les deux camps s’outillent du même substrat, de sorte qu’aucune projec￾tion d’avantage durable ne s’y soutient. Le socle de la somme ne documente aucune mesure de l’asymétrie 
+
+entre attaque et défense agentiques dans le temps — degré 3 ; une trajectoire sans mesure est une hypothèse 
+
+de travail, et le ch. 20 § 20.11 la range parmi ses agendas de recherche.
+
+49.6 Le programme de recherche
+
+SIÈGE DU VERROU SÉMANTIQUE ET PRAGMATIQUE POUR TOUTE LA SOMME. Le verrou est posé ici 
+
+une seule fois, hérité du Vol. I Monographie §7.6.1 et §3.13.3. Le ch. 2 (données et sémantique), le ch. 9
+
+(découverte) et le ch. 43 en appliquent la matière sans la redémontrer. Relevé re-mesuré le 28 juillet 2026 : 
+
+le ch. 2 § 2.3 renvoie désormais ici au grain de la section ; les ch. 9 et ch. 43 renvoient au ch. 49, sans ce 
+
+grain. Le siège est donc nommé par les trois chapitres au chapitre, par un seul à la section. L’entrée est en [C] : 
+
+le siège organise, il n’établit pas.
+
+À l’horizon 2027-2032, l’interopérabilité agentique cesse d’être un problème de transport. Le passage de 
+
+messages entre agents est, pour l’essentiel, résolu au niveau syntaxique ; les protocoles existent, sont 
+
+gouvernés et coexistent (§ 49.2). Ce qui demeure ouvert relève d’un autre registre : comment partager le 
+
+sens d’une intention déléguée, comment garantir un comportement sur une chaîne d’acteurs probabilistes, 
+
+et comment mesurer l’interopérabilité de manière reproductible. Le statut dominant de cette section est le 
+
+SPÉCULATIF, ponctué de jalons PROGRAMMÉS.
+
+49.6.1 Le verrou sémantique et pragmatique
+
+Le programme dominant de la fenêtre consiste à faire remonter l'alignement d'intentions et de tâches 
+
+du niveau applicatif — où il est aujourd'hui négocié par des invites interprétées par un grand modèle de 
+
+langage — vers le protocole lui-même. Le Vol. I Monographie §3.13.3 en donne le constat de départ : les 
+
+standards actuels excellent aux niveaux technique et syntaxique mais demeurent pauvres en clarification, 
+
+en alignement et en vérification sémantiques — deux agents peuvent échanger des messages valides tout en 
+
+divergeant sur l’intention.
+
+La proposition du Vol. I, reprise comme thèse attribuée : ce verrou restera largement ouvert au-delà de 2030. 
+
+Sa résolution suppose de doter le protocole d’une représentation explicite et partagée de l’intention, de la 
+
+délégation et de la capacité — le passage d’un contrat syntaxique à un contrat sémantique.
+
+La difficulté de fond n’est pas la notation, et c’est ce que la première tentative de standardisation révèle  : 
+
+un groupe communautaire travaille à une ontologie des notions d’intention, de délégation et de capacité, 
+
+assortie d’un langage de description d’interface inter-agents. Mais la difficulté est la convergence des référen￾tiels sémantiques entre fournisseurs : une intention exprimée dans l’ontologie d’un émetteur doit conserver 
+
+son sens chez un destinataire conçu indépendamment, sans quoi le partage du sens régresse vers une 
+
+traduction avec perte. Statut mixte à tenir : la charte d’un groupe communautaire est un jalon PROGRAMMÉ ; 
+
+l’aboutissement d’une ontologie normative et interopérable demeure SPÉCULATIF.
+
+49.6.2 Garanties composables sur des acteurs probabilistes
+
+Un contrat comportemental peut être posé sur un agent isolé ; l’enjeu prospectif est d’obtenir des garanties 
+
+composables sur des chaînes de délégation hétérogènes, où chaque maillon est un acteur probabiliste. Le Vol. 
+
+I relève des travaux qui formalisent des contrats comportementaux d’agents avec application à l’exécution, 
+
+tout en posant explicitement la composition de ces contrats comme un travail futur : garantir un agent ne 
+
+garantit pas, en l’état des connaissances, la chaîne d’agents qui l’invoque.
+
+La question théorique sous-jacente est nommée et elle n’est pas résolue : sous quelles conditions une propriété 
+
+vérifiée localement sur chaque agent se transmet-elle à leur agencement ? Les méthodes formelles classiques 
+
+supposent des composants déterministes et des interfaces stables ; les chaînes d’agents violent les deux 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 552 sur 663
+
+---
+

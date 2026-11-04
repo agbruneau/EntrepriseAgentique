@@ -1,0 +1,68 @@
+## [Page 546] (`page-546.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+La règle absolue qui en découle, et c’est le garde-fou anti-emballement de tout le Livre : ne jamais présenter 
+
+du PROJETÉ ni du SPÉCULATIF comme acquis. Elle se double d’une seconde règle, qui vaut pour toute la 
+
+somme : le tri prospectif et les niveaux [A]/[B]/[C] sont deux instruments distincts, jamais l’un pour 
+
+l’autre. Un énoncé peut être PROGRAMMÉ et en [C] — c’est le cas de la quasi-totalité de ce premier mouvement.
+
+49.0.2 Le cône d’incertitude, et la discipline de re-datation
+
+L’outil qui structure le chapitre est le cône d’incertitude, dont la propriété centrale est de s’élargir avec le 
+
+temps : 2027 est dense en PROGRAMMÉ, 2032 est dominé par le PROJETÉ et le SPÉCULATIF, à mesure que 
+
+les engagements fermes se raréfient. La frise du § 49.1 en est l’ossature ; c’est par rattachement à elle que 
+
+se positionnent les trajectoires.
+
+Un statut n’est pas un état figé du document, et le Vol. I en donne le cas d’école. Le règlement omnibus européen 
+
+portant report des échéances du régime haut-risque est resté des mois en statut conditionnel — accord 
+
+politique provisoire du 7 mai 2026, fiche de suivi législatif « close to adoption » au 22 mai 2026 — avant son 
+
+adoption par le Conseil le 29 juin 2026, la publication au Journal officiel restant à suivre. Elle est intervenue 
+
+le 24 juillet 2026, règlement (UE) 2026/1744, en vigueur le 27 juillet — constat du 23 octobre 2026 (rapport). Les 
+
+reports qu’il porte sont donc passés, en quelques semaines, de suspendus à PROGRAMMÉS. De là la marque 
+
+« à re-vérifier » apposée systématiquement à toute date 2026-2028 : le programmé d’aujourd’hui peut être 
+
+le projeté de demain.
+
+Figure 49.0 — Le cône d’incertitude et les trois statuts épistémiques.
+
+49.0.3 Ce que le chapitre ne fait pas
+
+Il ne prédit ni fonctionnalité produit, ni date d’intelligence générale : il lit des agendas de gouvernance, des 
+
+calendriers réglementaires et des programmes de recherche. La distinction n’est pas rhétorique — annoncer 
+
+qu’un modèle « saura faire X en 2029 » relèverait de la prédiction de capacité, là où le chapitre se borne à 
+
+constater qu’un groupe de travail est chargé d’un livrable, qu’un texte entre en vigueur à une date, ou qu’une 
+
+communauté formule un problème ouvert. Les horizons de capacité eux-mêmes sont traités en incertitude 
+
+bornée (§ 49.7).
+
+La conséquence de conception est directe et elle est reprise du Vol. I  : puisque la date d’une éventuelle 
+
+rupture est indécidable, concevoir l’autonomie pour être robuste à l’incertitude plutôt que l’optimiser pour 
+
+un futur particulier. Un appel d’offres « à l’épreuve du futur » s’écrit autour d’engagements vérifiables
+
+— un standard a-t-il un forum, un cycle de dépréciation, une échéance ? — et non autour de promesses de 
+
+performance.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 546 sur 663
+
+---
+

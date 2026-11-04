@@ -1,0 +1,34 @@
+
+
+==================== PAGE 419 ====================
+
+
+
+Compendium 36 · Prospective : AP2 sur les rails canadiens ?
+
+4. Les trois objets à ne pas confondre (§ 36.2.5) : jeton de valeur public, dépôt tokenisé, jeton d’autorisation.
+
+La distinction est un point d’architecture, pas de vocabulaire.
+
+5. Le trou de responsabilité de l’achat non intentionnel (§ 36.2.6) : les cadres de rétrofacturation n’ont pas 
+
+été conçus pour une instruction autorisée mais non voulue.
+
+6. L’asymétrie de documentation entre un rail et un protocole (§ 36.3) : le fait le plus solide du chapitre, et 
+
+la faute symétrique qu’il interdit.
+
+7. Les cinq questions de la série AP2 / rail en temps réel (§ 36.4), chacune avec ce qui la trancherait — une 
+
+seule a bougé, et elle n’est close qu’en partie.
+
+Ce que le chapitre ne lègue pas. Il ne lègue aucune articulation documentée, aucun pronostic, aucune 
+
+correspondance sémantique, aucune règle d’accès de rail. Il ne lègue aucun fait de la relève du § 36.5 — 
+
+repérages seuls. Et il ne lègue aucun rail lancé : la réserve F-29 du Vol. II tient jusqu’au dernier mot.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 419 sur 663
+
+---
+

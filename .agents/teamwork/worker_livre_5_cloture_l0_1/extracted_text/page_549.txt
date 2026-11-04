@@ -1,0 +1,90 @@
+## [Page 549] (`page-549.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+Deux instruments structurent cette nouvelle économie d’évolution, et l’un des deux est le plus directement 
+
+actionnable de tout le chapitre. Premièrement, les extensions en notation inversée deviennent la voie par 
+
+laquelle une proposition expérimentale chemine vers le statut normatif, ce qui institutionnalise un espace 
+
+d’expérimentation distinct du cœur stable. Deuxièmement, un cycle de vie actif → déprécié → retiré, assorti 
+
+d’une fenêtre de dépréciation d’au moins douze mois, formalise la mise hors service.
+
+Pour le praticien, la conséquence est une compétence d’architecture à part entière : cibler une révision 
+
+précise, suivre les avis de dépréciation, planifier la migration dans la fenêtre de douze mois. Au-delà, 
+
+l’interopérabilité se rompt silencieusement — la survie aux dépréciations se conçoit ex ante, par découplage 
+
+du connecteur et contractualisation de la version.
+
+Du côté du protocole agent-agent, le Vol. I relève trois chantiers annoncés — une spécification 
+
+d’interopérabilité, la consolidation des efforts de registre, un programme de conformité assorti d’une certi￾fication — sans aucune date de livraison : feuille de route publiée, non échéancier engagé. Et le point critique 
+
+est une distinction qu’il faut tenir : une certification atteste qu’une implémentation respecte une spécifi￾cation, non qu’elle interopère effectivement avec une autre implémentation conforme. Un programme 
+
+de certification crédible suppose des bancs d’essai inter-fournisseurs capables d’éprouver un comportement non 
+
+déterministe — dispositif qui reste largement à construire (§ 49.6).
+
+49.2.1 Convergence ou coexistence ?
+
+C’est l’une des incertitudes centrales du chapitre, et son statut est SPÉCULATIF. Une «  spécification 
+
+d’interopérabilité conjointe  » entre les deux protocoles, évoquée dans le discours d’écosystème, reste 
+
+attendue et non publiée à juin 2026 : ni la feuille de route de l’un ni le communiqué de l’autre n’y renvoient 
+
+par un livrable daté. La présenter comme acquise serait une erreur de qualification — c’est le cas d’école du 
+
+garde-fou du § 49.0.
+
+La proposition du Vol. I, reprise ici comme thèse attribuée et non comme fait : l'horizon consacrera plutôt 
+
+une coexistence stratifiée et gouvernée qu'un protocole unifié, par analogie avec la cohabitation durable 
+
+de plusieurs protocoles de transport sur la pile web, chacun occupant une niche d'usage stable. Le Vol. I 
+
+Monographie §3.13.2 l’établit au présent — l’écosystème de 2026 ne converge pas vers un protocole unique et ne 
+
+devrait pas le faire — et ajoute la condition qui compte : cette coexistence n’est une force d’interopérabilité 
+
+qu’à la condition que les frontières inter-protocoles soient elles-mêmes spécifiées. D’où l’enjeu du pont entre 
+
+les deux protocoles, attendu sans brouillon public à juin 2026 — le ch. 8 § 8.5 en est le siège.
+
+49.2.2 Le verrou de la portabilité d’agent neutre
+
+Le dernier verrou protocolaire de l’horizon. Malgré l’existence de conventions de documentation d’agent, 
+
+d’un cadre de schéma agentique ouvert et d’un langage de définition d’agent présenté comme le premier 
+
+ouvert pour l’entreprise, il n’existe toujours pas de format d’agent portable de jure. Et la distinction que le 
+
+Vol. I ajoute est celle qui décide de l’affaire : la portabilité de la définition ne résout ni celle de l’état ni celle 
+
+de l’exécution durable — mémoire de travail, sessions longues et points de reprise restent attachés au 
+
+runtime qui les héberge. Tant qu’un agent ne peut être déplacé entre exécuteurs sans réécriture ni perte d’état, 
+
+le découplage promis par la couche protocolaire reste partiel.
+
+L'enjeu dépasse la commodité technique, et le Vol. I Monographie §3.13.2 le dit en toutes lettres : la porta￾bilité inter-modèles et inter-cadriciels cesse d'être une commodité d'ingénierie pour devenir un levier de 
+
+souveraineté — pouvoir remplacer un modèle ou un cadriciel sans réécrire la couche d'interopérabilité, c'est 
+
+éviter la dépendance à un fournisseur extra-juridictionnel. Le découplage y prend une valeur politique, et le 
+
+§ 49.7 y revient sous l’angle de la fragmentation juridictionnelle.
+
+Une réserve de qualification s’impose : les trois conventions nommées ci-dessus sont des conventions 
+
+de fait, non des garanties de réversibilité. Une exigence de portabilité dans un appel d’offres ne peut, 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 549 sur 663
+
+---
+

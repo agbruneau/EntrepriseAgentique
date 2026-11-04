@@ -1,0 +1,78 @@
+## [Page 541] (`page-541.png`)
+
+Compendium 48 · La sémantique d’effet : idempotence, compensation, réconciliation
+
+pas exécutable  : les pages de définition d’outil des révisions courantes de MCP (agent-outil) et d’A2A
+
+(agent-agent), les deux protocoles dont le ch. 8 tient l’anatomie, dans leur texte intégral ; côté IETF, RFC 
+
+9110 (HTTP Semantics, Fielding, Nottingham et Reschke, 2022), qui définit les méthodes idempotentes — 
+
+le document de l’IETF sur les clés de requête (« Idempotency-Key ») n’est nommé par aucun chapitre ni par 
+
+aucune relève : son identifiant est à établir à l’ouverture de l’instruction, et cet établissement en est le premier 
+
+acte ; les contrats de tâche des moteurs d’exécution durable relevés au ch. 22 § 22.5. Critère de clôture : 
+
+un champ nommé, ou un énoncé normatif cité et daté, portant l’idempotence d’une opération — non une 
+
+recommandation de bonne pratique dans une page de guide. Échec documenté : si le corpus n’en porte pas, 
+
+l’énoncé qui en sort reste au degré 3, et la thèse du chapitre est confirmée dans sa lettre sans être établie — 
+
+nuance qui doit survivre à l’instruction.
+
+Figure 48.2 — La seule composition qui tienne sous pannes : livraison au-moins-une-fois et consommateur idempotent.
+
+48.3 Compensation et sagas au grain de l’agent
+
+Le patron est acquis et ne se reconstruit pas ici. Le ch. 1 § 1.6.2.2 pose la saga — renoncement à l’atomicité 
+
+globale au profit d’une suite de transactions locales, chacune assortie d’une compensation qui annule 
+
+sémantiquement son effet —, ses deux variantes orchestrée et chorégraphiée, et le régime de cohérence 
+
+dans lequel ce renoncement s’inscrit. Le ch. 22 § 22.5 porte l’exécution durable, sa reprise et son rejeu. Ce 
+
+chapitre applique ; il ne réexpose ni l’un ni l’autre.
+
+Lecture de l’auteur — ce que « au grain de l’agent » change, et c’est la seule proposition propre de la section. 
+
+Une saga classique suppose que l’ensemble des étapes soit connu du concepteur : la compensation de 
+
+l’étape k est écrite en même temps que l’étape k. Un agent qui compose sa trajectoire à l’exécution — c’est la 
+
+définition même que le ch. 22 donne de l’orchestration pilotée par un agent générateur de plans — produit 
+
+des suites d’étapes que personne n’a écrites, donc des suites dont personne n’a écrit les compensations. Ce 
+
+que le socle établit : le patron et ses variantes (ch. 1 § 1.6.2.2) ; que la trajectoire d’un agent générateur de 
+
+plans n’est pas fixée à la conception (ch. 22 § 22.5, avec ses niveaux propres). Ce qu’il n’établit pas : qu’un 
+
+mécanisme de compensation ait été spécifié pour une trajectoire composée à l’exécution, ni qu’un moteur 
+
+durable en fournisse un. Le socle consolidé ne documente aucun dispositif de compensation dont la portée 
+
+soit une trajectoire d’agent non fixée à la conception — degré 3.
+
+Deux bornes ferment cette section, et la seconde est une décision d’auteur qu’il est interdit de rouvrir ici.
+
+(1) La compensation n’est pas l’annulation. Elle annule sémantiquement — un remboursement compense un 
+
+débit, il ne le supprime pas ; les deux écritures subsistent. C’est la formule du ch. 1 § 1.6.2.2, et elle décide 
+
+de tout le § 48.4 : dans un système d’enregistrement, la compensation laisse une trace, et c’est cette trace que la 
+
+réconciliation lit.
+
+(2) L’accord entre agents sous asynchronie et défaillance partielle n’est pas traité, et cette absence est un 
+
+périmètre assumé, non un oubli. Le ch. 1 § 1.6.2.2 pose les résultats d’impossibilité au grain pré-agentique
+
+et déclare qu’il est le seul endroit de l’ouvrage où ils figurent ; une décision d’auteur du 27 juillet 2026 a 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 541 sur 663
+
+---
+

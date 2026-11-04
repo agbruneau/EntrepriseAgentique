@@ -1,0 +1,68 @@
+## [Page 578] (`page-578.png`)
+
+Compendium
+
+Annexe B — Liste des références
+
+Les 159 entrées du socle consolidé du Vol. IV, dans l'ordre de la série S-001 à S-159 et groupées par volume 
+
+d'origine. Ajoutée au rendu après le chapitre 50 le 29 juillet 2026, sur instruction d'auteur.
+
+Lecture
+
+Chaque entrée porte quatre champs : son identifiant consolidé, l’objet de l’affirmation, son niveau de 
+
+preuve et sa provenance dans les volumes sources, puis, lorsqu’elle en a une, la datation de sa source. 
+
+Les niveaux sont ceux de leur volume d’origine, conservés sans être re-subis : [A] — vote adversarial à 
+
+trois juges chargés de réfuter, aucun n’y étant parvenu ; [B] — source primaire ouverte et citée, sans vote 
+
+complet ; [C] — repérage, source identifiée et contenu non extrait. Un degré qualifie l’absence, jamais la 
+
+preuve : degré 1 fait négatif vérifié, degré 2 fait négatif établi, degré 3 absence de documentation.
+
+Cette liste n’est pas une bibliographie et n’en tient pas lieu. Elle inventorie les faits sur lesquels la 
+
+somme adosse ses énoncés, non les documents dont ces faits proviennent : ceux-là vivent à l’Annexe I 
+
+— Bibliographie générale consolidée (1 065 entrées uniques depuis le nettoyage du 29 octobre 2026), 
+
+qui est une réunion verbatim des bibliographies sources et non une vérification. Une ligne ne remplace 
+
+pas son entrée. L’énoncé intégral, la formulation imposée, le degré d’absence, la re-datation motivée et les 
+
+réserves vivent au socle consolidé — un abrégé oriente, il n’atteste pas. Une entrée [C] ou de volet [C] ne 
+
+porte jamais un fait central : elle se cite en corroboration, jamais en appui.
+
+Vol. II, L’autonomie encadrée — 46 entrées, S-001 à S-046
+
+• S-001 — MCP. [A] — Vol. II F-01 §7.1 + Vol. III H-09 §7.2. Spécification rév. 2025-11-25, revalidée le 16 
+
+juill. 2026 ; rév. 2026-07-28 courante depuis le 28 juill. 2026.
+
+• S-002 — A2A. [A] — Vol. II F-02 §7.1 + Vol. III H-01 §7.2. Lancement avril 2025 ; hébergé par l'AAIF 
+
+depuis le 17 août 2026.
+
+• S-003 — Intégrations infonuagiques d'A2A. [A] — Vol. II F-03 §7.1. Azure AI Foundry en préversion.
+
+• S-004 — AP2. [A] — Vol. II F-04 §7.1. Lancement sept. 2025 (annonce Google Cloud du 16 sept. 2025).
+
+• S-005 — AGNTCY. [A] — Vol. II F-05 §7.1 + Vol. III H-10 §7.2. Ouverture mars 2025.
+
+• S-006 — Feuille de route académique. [A] — Vol. II F-06 §7.1. Préprint de mai 2025, non révisé par 
+
+les pairs.
+
+• S-007 — Microsoft Entra Agent ID. [A] — Vol. II F-07 §7.2 + Vol. III H-02 §7.2. GA approximative (« ~avril￾mai 2026 »).
+
+• S-008 — Spécification CSA « Agent Registry ». [A, statut BROUILLON] — Vol. II F-08 §7.2 + Vol. III 
+
+H-03 §7.2. Publication 27 mars 2026, statut BROUILLON.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 578 sur 663
+
+---
+

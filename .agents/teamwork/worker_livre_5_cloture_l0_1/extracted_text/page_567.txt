@@ -1,0 +1,94 @@
+## [Page 567] (`page-567.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+une réussite sur k essais » masque l’effondrement de la consistance, que « réussite sur les k essais » révèle. (2)
+
+L’évaluation non contaminée : on évalue un système et non un modèle, dans
+
+Deux divergences non arbitrées sont transmises telles quelles, et l’arbitrage par chronologie est interdit : la 
+
+gouvernance du protocole de paiement, dissoute par le fait et non tranchée — instruite depuis, le 27 juillet 
+
+2026, par extraction de source primaire (§ 49.12.1) — et la date de publication de la ligne directrice IA de 
+
+l’AMF, entière, aucune des deux dates ne figurant à la source. La seconde est CLOSE depuis le 28 juillet 
+
+2026, et la manière dont elle l’est vaut plus que la clôture : la revérification l’a instruite — quatre URL de 
+
+l’autorité, quatre refus 403 —, et aucune des deux dates ne se lit à la source. Elle est donc close par l’instruction, 
+
+non par un arbitrage : la somme écrit « avril 2026 » en déclarant ses trois états Une divergence dont on 
+
+découvre qu’aucun de ses termes n’est à la source n’est plus une divergence : c’est une absence de datation — 
+
+et une source primaire nouvelle datée la rouvrirait. un contexte non déterministe où la dérive des versions 
+
+d’interfaces fermées et la contamination des jeux d’essai érodent la reproductibilité (§ 49.6.4). (3) La 
+
+sécurité, et elle se distingue des deux autres par sa nature : ce n’est pas un retard de capacité que le progrès 
+
+comblera, mais une propriété structurelle — l’injection d’invite reste non résoluble au niveau du modèle parce 
+
+qu’instructions et données partagent le même flux de jetons, et l’asymétrie joue contre le défenseur. (4) La 
+
+mémoire persistante et l’apprentissage continu : consolider, oublier et apprendre en continu sans dériver ni 
+
+corrompre l’état interne — et sans ouvrir un nouveau vecteur d’empoisonnement de la mémoire — n’a pas 
+
+de solution éprouvée à l’échelle de la production (ch. 47 § 47.11 pour ce que le retour arrière ne restaure pas).
+
+49.14 Les frontières de la fabrique de confiance
+
+« Fabrique » y désigne la fabrique de confiance — l’étage d’émission et de vérification du Livre II —, non la 
+
+fabrique d’agents du ch. 41 (le siège de la collision est au ch. 43 § 43.1) ; les deux vivent dans la somme, et 
+
+l’ambiguïté se lève par la phrase, jamais par le contexte.
+
+Le partage avec le ch. 50 est déclaré : la matière de péremption du Vol. II Monographie §21.3 part en entier
+
+au ch. 50 § 50.2 et § 50.3 ; cette section n’en reprend rien. Ce qui reste ici est la question de fond que la clôture 
+
+du Vol. II laissait ouverte : jusqu’où la fabrique de confiance porte-t-elle ?
+
+Trois frontières, et chacune est déjà établie ailleurs — la section les rassemble, elle ne les démontre pas.
+
+Première frontière : le deuxième saut. Le ch.  17 § 17.6 établit que le socle n’établit pas qu’une chaîne de 
+
+mandat soit interrogeable à un instant quelconque, et que la frontière ne passe pas à un rang numéroté 
+
+de sauts mais au premier changement de régime — lorsque le vérificateur cesse d’être celui qui a ancré le 
+
+mandat, ou cesse d’appartenir au domaine où le contexte se propage. C’est la frontière la plus dure de la 
+
+somme, parce qu’elle borne ce que l’architecture peut promettre : au-delà, la vérification devient une question 
+
+de recherche (§ 49.13.2).
+
+Deuxième frontière  : les indicateurs manquants. Le ch.  40 §  40.1 porte les indicateurs de l’AgentOps et 
+
+l’absence de grandeur de parc. Ce que la somme en sait vient du Vol. III  : aucune grandeur de parc, 
+
+aucune dimension d’identité ou de mandat dans une métrique, aucun délai de révocation, aucun horodatage 
+
+d’évaluation exportable. Exposer un instrument qui ne mesure pas ce dont on doit répondre est un résultat ; 
+
+fabriquer le chiffre qui manque serait la faute que le Vol. III prend pour objet — et la somme ne le fabrique pas 
+
+davantage.
+
+Troisième frontière : ce que la composition ne compose pas. Les garanties ne se composent pas (§ 49.6.2) ; les 
+
+quatre pièces du passeport ne se complètent pas — sur les quatre, aucune ne fournit à une autre l’ancrage qui 
+
+lui manque (ch. 16 § 16.1) ; et une cinquième pièce candidate serait moins documentée encore (ch. 47 § 47.5). 
+
+Le point commun des trois est une même erreur de raisonnement, et la nommer est le legs de cette section : la 
+
+présomption qu’un assemblage hérite des propriétés de ses parties.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 567 sur 663
+
+---
+

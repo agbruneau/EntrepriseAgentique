@@ -1,0 +1,94 @@
+## [Page 558] (`page-558.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+se rabat donc sur la directive révisée du fait des produits défectueux, qui inclut explicitement le logiciel et les 
+
+systèmes d’IA dans la notion de produit, dont la transposition est due au 9 décembre 2026 — date à re-vérifier — 
+
+et qui ne s’applique qu’aux produits mis sur le marché après ce terme (après le 8 décembre 2026, par rectificatif 
+
+du 7 mai 2026). Subsistent des angles morts structurels, et ils sont exactement ceux de la somme : le régime couvre 
+
+mal les relations entre entreprises et exclut largement les pertes purement économiques — deux configurations 
+
+centrales pour des chaînes de délégation inter-organisationnelles. La question ouverte est nette : la directive 
+
+suffit-elle aux préjudices nés d’actions autonomes franchissant les frontières d’organisations, ou faudra-t-il un 
+
+instrument dédié ? La piste d’audit comme substitut de fait au droit. En l’absence de régime dédié, la charge 
+
+bascule vers la preuve. Le critère d’architecture qui en découle : les journaux doivent être infalsifiables, 
+
+attribuables et admissibles. Attribuables suppose de relier chaque action à une identité non humaine et à sa 
+
+chaîne de délégation — ch. 17, dont le § 17.6 établit que l’interrogeabilité de cette chaîne n’est pas acquise. 
+
+Admissibles ajoute une contrainte procédurale : survivre en litige, résister aux exigences de communication 
+
+de la preuve, s’articuler à des seuils de divulgation qui diffèrent d’une juridiction à l’autre. Et une exigence 
+
+montante croise l’horloge de l’horizon : la propriété rendant toute altération détectable doit elle-même devenir 
+
+post-quantique — un journal scellé en 2027 par un algorithme classique pourrait voir sa valeur probante 
+
+contestée au-delà de 2030 (§ 49.4).
+
+L’assurabilité comme régulateur de fait. C’est la proposition la plus contre-intuitive du chapitre, et elle 
+
+est reprise du Vol. I comme thèse attribuée  : faute de régime de responsabilité tranché, c’est le marché 
+
+de la couverture qui fixera de facto le prix du risque agentique et, par-là, les bornes du déployable. La 
+
+trajectoire observée part de l’exclusion — polices générales écartant les préjudices liés à l’IA générative 
+
+— vers l’émergence d’offres affirmatives dédiées, analysées par une association de recherche du secteur 
+
+comme une réponse naissante. La question prospective est SPÉCULATIVE et trois propriétés contrarient 
+
+les hypothèses actuarielles classiques : la dérive comportementale des modèles dans le temps, l’émergence de 
+
+comportements non prévus, et la corrélation systémique entre agents partageant des modèles ou des fournisseurs
+
+— cette dernière détruisant l’indépendance des sinistres sur laquelle repose la mutualisation (§ 49.9). Deux 
+
+issues se dessinent : des garanties paramétriques, et un résiduel non assurable que devrait absorber le 
+
+bilan de l’entreprise ou un fonds public.
+
+Pour l’architecte, l’assurabilité devient un critère de conception : une offre affirmative exigera vraisembla￾blement des preuves — journaux admissibles, bornage de l’autonomie sous contrôle de finalité, points 
+
+de coupure vérifiables. À défaut de standard d’attestation reconnu, chaque assureur imposera son propre 
+
+référentiel, ce qui plaide pour une instrumentation neutre et portable de la traçabilité. Et « attestation » y 
+
+désigne l’attestation de conformité, quatrième pièce du passeport (ch. 16 § 16.1), non l’attestation de plate￾forme du ch. 47 § 47.3.
+
+La gouvernance de l’émergence. Les modes de défaillance multi-agents et les cascades, traités comme défauts 
+
+à corriger aux ch. 6 et 11, deviennent des objets de gouvernance lorsqu’on cherche à régir le comportement 
+
+collectif d’un réseau d’agents. Le verrou est formel, et c’est un résultat d’impossibilité : le Vol. I relève 
+
+un théorème selon lequel aucun cadre de gouvernance ne peut satisfaire simultanément quatre propriétés 
+
+— attributabilité, borne de prévisibilité, non-vacuité et complétude — pour des collectifs humains-agents. 
+
+Statut SPÉCULATIF mais argumenté, et la conséquence est directive : aucune architecture de responsabilité 
+
+ne sera parfaite ; tout choix sacrifie l’une de ces propriétés, et la gouvernance consiste à arbitrer ce compromis 
+
+explicitement plutôt qu’à prétendre l’éliminer. Côté faits datés, les premiers cadres dédiés apparaissent — 
+
+un cadre national de gouvernance de l’IA agentique lancé le 22 janvier 2026 ; et l’exigence de visibilité et 
+
+d’identité vérifiable est posée comme condition nécessaire, non suffisante, de toute imputation.
+
+Relève, portée ici et non consommée. Une préimpression de juillet 2026 (arXiv 2607.11999) propose une 
+
+pile d’assurance des agents à huit composantes, à l’horizon 2030 — première architecture candidate pour une 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 558 sur 663
+
+---
+

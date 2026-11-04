@@ -1,0 +1,28 @@
+## [Page 529] (`page-529.png`)
+
+Compendium 47 · L’artefact livré : provenance des composants et mise en service
+
+Figure 47.1 — Les cinq composants d’un agent et leurs horloges propres : ce qui les fait changer, et qui en décide.
+
+47.2 Nomenclatures logicielles et d’IA : état des normes et de l’outillage
+
+Cette section est l’une des deux du chapitre dont le socle est « à constituer avant rédaction », et la manière dont 
+
+elle est écrite en découle entièrement. Les sources primaires restaient à constituer ; elles ne l’ont pas été. Le 
+
+seul geste admissible est donc d’exposer l’état de ce qui a été relevé, et de formuler l’instruction à conduire 
+
+— jamais d’écrire le contenu d’une spécification qu’on n’a pas ouverte. C’est la règle que le § 17.5 du ch. 17 
+
+a établie ; elle s’applique ici sans adaptation.
+
+Ce qui est relevé, et à quel régime. Une relève du 26 juillet 2026 nomme cinq documents, tous relevés à 
+
+leur source ce jour-là. Le tableau ci-dessous les reprend avec leurs réserves d’origine, sans en ajouter ni en 
+
+retirer.
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 529 sur 663
+
+---
+

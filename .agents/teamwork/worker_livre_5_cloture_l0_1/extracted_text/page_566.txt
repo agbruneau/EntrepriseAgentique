@@ -1,0 +1,96 @@
+## [Page 566] (`page-566.png`)
+
+Compendium 49 · L’horizon 2027-2032 et la frontière de la connaissance vérifiable
+
+les pairs, dont les auteurs déclarent eux-mêmes des menaces à la validité — expériences initiales, invites non 
+
+comparées, facteurs confondants. Le cadre conceptuel est repris ; les chiffres, à titre d’illustration seulement. (2)
+
+Le deuxième ne figure à aucune des six questions : il porte sur la convergence érigée en principe directeur 
+
+du blueprint, formulée par un manifeste académique, une expérimentation et un patron de fournisseur, dont 
+
+deux partagent une autrice et deux une organisation. La convergence est un faisceau réel ; elle ne vaut pas 
+
+corroboration indépendante. (3) Le troisième n’y figure pas davantage, et il est méthodologique — il porte 
+
+sur l’appareil de vérification du Vol. II lui-même, non sur son agenda : sur les 384 affirmations extraites 
+
+par les trois passes du Vol. II, 75 seulement ont atteint le vote adversarial à trois juges — un peu moins d’un 
+
+cinquième —, dont 69 confirmées à l’unanimité et 6 réfutées. Le plafond était budgétaire et il est documenté. 
+
+Lecture de l’auteur — ce que cela établit : les décomptes et la limite ; ce que cela n’établit pas : que les entrées 
+
+non votées soient moins exactes — seulement qu’elles sont moins vérifiées. Les trois se lisent ensemble parce 
+
+qu’ils bornent la même chose — ce que la table peut soutenir —, non parce qu’ils seraient trois lignes de la table.
+
+49.13.2 Les questions transmises par le Vol. III
+
+Trois questions propres, formulées pour instruction plutôt que résolues, et sa source les énonce ainsi : par 
+
+quel mécanisme documenté une révocation se propage-t-elle le long d’une chaîne de délégation (ch. 20 
+
+§ 20.6) ; par quelle clé de jointure une trace se rattache-t-elle au mandat qui autorisait l’action tracée (ch. 38 
+
+§ 38.5 ; ch. 48 § 48.5) ; et quelle grandeur mesurerait la portée d’une tâche déléguée à travers plusieurs agents 
+
+plutôt que l’horizon d’un agent isolé (ch. 40 § 40.1) ?
+
+La plus développée des trois est celle des deux sauts, et sa source la décompose en cinq. La mécanique 
+
+reste au ch. 17 § 17.6 ; ici, l’énoncé de recherche qui en sort — le partage est déclaré et il est tenu. Question 
+
+d’ensemble : existe-t-il un mécanisme documenté par lequel un vérificateur situé au-delà du premier maillon 
+
+établisse, à l’instant où il agit, l’identité du mandant d’origine, la portée du mandat et sa validité courante ? 
+
+Les cinq sous-questions, avec leur corpus et leur critère de clôture, portent sur l’atténuation de la portée 
+
+d’un maillon au suivant, la fraîcheur de l’autorité à chaque saut, l’ancrage transitif lorsque l’ancrage 
+
+de confiance est renvoyé au déploiement, la preuve opposable devant un tiers, et l’imputabilité — au 
+
+troisième maillon, qui répond de l’acte ? —, dont le critère de clôture est le rattachement documenté d’un 
+
+acte de maillon terminal à une entité juridique nommée. La cinquième est nommée ici plutôt que renvoyée 
+
+à sa source : une sous-question laissée anonyme dans une liste de cinq se lit comme une ellipse, et un énoncé 
+
+de recherche transmis sans son objet n’est pas instruisible. Lecture de l’auteur reprise de la source — ce que le 
+
+socle établit : les périmètres déclarés et les états de piste. Ce qu’il n’établit pas : que ces cinq sous-questions 
+
+soient les bonnes, ni qu’elles épuisent le problème, ni qu’une réponse à chacune composerait une réponse à 
+
+l’ensemble — c’est la présomption de composition que la non-compositionnalité de la sûreté invite à traiter 
+
+avec méfiance (§ 49.6.2).
+
+La métrique d’horizon de tâche déléguée est transmise avec un constat qui la borne, et il est précis. Le Vol. III 
+
+établit que les compteurs d’appels des conventions relevées comptent les appels directs, les appels de sous￾agents ou d’agents auxquels la tâche est transférée étant attribués séparément. Une chaîne de délégation 
+
+n’est donc pas reconstituable par sommation de ces compteurs — non par insuffisance de l’instrument, mais par 
+
+construction déclarée de sa sémantique. Et la lecture que sa source en tire est celle que la somme reprend : la 
+
+couche de mesure ne sait pas de quel agent elle parle au sens où l’entend le Livre II — elle agrège par un libellé 
+
+applicatif renommable et facultatif (F-92 du Vol. III, ⚖ vote dû, non conduit ; exclue du socle consolidé à 
+
+ce titre, comme F-96), quand l'entreprise doit répondre d'un mandataire identifié.
+
+49.13.3 Les quatre frontières du Vol. I
+
+Le Vol. I Monographie §2.13.2 transmet quatre frontières non résolues, en [C], et elles arrivent ici depuis 
+
+le ch. 6. (1) L’effondrement sur les tâches à horizon long : une boucle qui réussit fréquemment un pas 
+
+isolé échoue à composer des trajectoires de plusieurs dizaines d’étapes ; mesurer le potentiel par « au moins 
+
+Gel au 27 juillet 2026 · actualisation du 1er novembre 2026 Page 566 sur 663
+
+---
+
