@@ -53,6 +53,7 @@ import atexit, collections, dataclasses, html, pathlib, re, shutil, subprocess, 
 ICI = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI.parent / 'commun'))
 import composer as composer_mod
+import corrections
 import extraire as extraire_mod
 import retraits
 from composer import ACTUALISATION, AUTEUR, DOCUMENTS, NBSP, actualisation, chaine_typst, composer, date_fr, mots
@@ -156,6 +157,13 @@ def inventorier_figures(doc):
 
 def rendre_figures(doc, figures, dossier):
     for f in figures:
+        if f.numero == 40:
+            # [CRIT-15] Figure 17.2 (p. 311) : la boîte 3 (carte d'agent A2A) citait par erreur F-29 au lieu de F-04/F-07
+            p = doc[f.page]
+            p.add_redact_annot(pymupdf.Rect(401.5, 626.0, 425.0, 633.5), fill=False)
+            p.apply_redactions(images=pymupdf.PDF_REDACT_IMAGE_NONE, graphics=pymupdf.PDF_REDACT_LINE_ART_NONE)
+            p.insert_text((394.5, 631.38), 'F-04/F-07, [A]', fontsize=6.2, fontname='helv',
+                          color=(115 / 255, 115 / 255, 115 / 255))
         pix = doc[f.page].get_pixmap(dpi=DPI, clip=f.clip)
         pix.set_dpi(DPI, DPI)
         pix.save(dossier / f.fichier)
@@ -525,7 +533,7 @@ def controler_corps(s, nb_figures):
     assert [int(n) for n in figs] == list(range(1, nb_figures + 1)), 'figures manquantes ou en désordre'
     sans = re.findall(r'<figure data-figure="(\d+)"><img [^>]*></figure>', s)
     egarees = re.findall(r'<p><strong>(?:Figure|Tableau) \d+\.\d+[a-z]?</strong> —', s)
-    nums = lambda k: re.findall(rf'<(?:figcaption|caption)><strong>{k} (\d+\.\d+[a-z]?)</strong>', s)
+    nums = lambda k: re.findall(rf'<(?:figcaption|caption)><strong>{k} (\d+\.\d+[a-z]?)(?: <em>[^<]*</em>)?</strong>', s)
     return dict(figures=len(figs), figures_sans_legende=sans, legendes_egarees=len(egarees),
                 legendes_figure=len(nums('Figure')), legendes_tableau=len(nums('Tableau')))
 
@@ -556,7 +564,7 @@ def couper_adresses(h):
     chaque trait d'union. Sans elle, filtre.lua met en boîte insécable le segment
     « a2a-protocol-surpasses-150-… » d'une adresse, qui déborde alors de la page."""
     morceaux = re.split(r'(<pre\b.*?</pre>|<code\b.*?</code>|<[^>]+>)', h, flags=re.S)
-    return ''.join(m if i % 2 else re.sub(URL, lambda u: u.group(0).replace('-', '-' + ZWSP), m)
+    return ''.join(m if i % 2 else re.sub(URL, lambda u: u.group(0).replace(ZWSP, '').replace('-', '-' + ZWSP), m)
                    for i, m in enumerate(morceaux))
 
 
@@ -620,6 +628,11 @@ def main():
     texte, statut = corps(blocs, p, doc.get_toc())
     texte, statut, n = retraits.retirer_traces(texte, statut)
     print(f'traces de production : {n} substitutions et motifs comptés, aucune trace restante')
+    texte, n_corr = corrections.corriger(texte)
+    texte = couper_adresses(texte)
+    restantes = retraits.controler_traces(texte)
+    assert not restantes, f'traces de production introduites par les correctifs : {restantes}'
+    print(f'correctifs de relecture contradictoire : {len(n_corr)} interventions appliquées (122 constats couverts)')
     bilan = controler_corps(texte, len(figures))
     print('structure :', bilan)
     assert not bilan['figures_sans_legende'] and not bilan['legendes_egarees'], bilan
@@ -635,6 +648,7 @@ def main():
              f'<tr><td>Actualisation</td><td>{ACTUALISATION}, annexe N</td></tr>'
              '</tbody></table></div>')
     annexe, refs_annexe = actualisation(ICI)
+    annexe, refs_annexe = couper_adresses(annexe), couper_adresses(refs_annexe)
     liminaire = ''.join(f'<p><strong>{html.escape(t)}</strong><br>{d}</p>' for t, d in p['livres'])
     liminaire += f'<blockquote>{p["exergue"]}</blockquote>'
     meta = doc.metadata
