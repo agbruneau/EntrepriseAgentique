@@ -9,26 +9,39 @@
 <title>Entreprise agentique — Haute direction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" />
 <style>
   /* ===================== SYSTÈME « TRUE BLACK EXECUTIVE » ===================== */
   :root {
+    /* Surfaces : noir OLED, élévation par la luminance */
     --bg-canvas: #000000;
-    --bg-surface-1: #07090E;
-    --bg-surface-2: #0D111A;
-    --bg-glass: rgba(13, 17, 26, 0.72);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-highlight: rgba(255, 255, 255, 0.18);
-    --specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
-    --text-primary: #F8FAFC;
-    --text-secondary: #CBD5E1;
-    --text-muted: #64748B;
-    --accent-exec: #38BDF8;
-    --accent-gold: #F59E0B;
-    --accent-risk: #F43F5E;
-    --exec-line: rgba(56, 189, 248, 0.5);
-    --exec-wash: rgba(56, 189, 248, 0.08);
-    --halo: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(56, 189, 248, 0.06), transparent 70%);
+    --bg-surface-1: #0B0F14;
+    --bg-surface-2: #13171F;
+    --bg-surface-3: #1C222A;
+    --bg-glass: rgb(11 15 20 / 0.74);
+    --border-subtle: rgb(255 255 255 / 0.075);
+    --border-highlight: rgb(255 255 255 / 0.16);
+    --specular: inset 0 1px 0 0 rgb(255 255 255 / 0.09);
+    /* Encre : primaire 19,5:1, secondaire 12:1, discrète 6,2:1 sur le noir (5,7:1 sur une carte) */
+    --text-primary: #F5F7F9;
+    --text-secondary: #BCC5D0;
+    --text-muted: #838D9A;
+    /* Accents : acier (structure, points focaux), or (titres, échéances), carmin (vulnérabilités) */
+    --exec-rgb: 106 199 245;
+    --gold-rgb: 242 194 111;
+    --risk-rgb: 247 105 121;
+    --accent-exec: rgb(var(--exec-rgb));
+    --accent-gold: rgb(var(--gold-rgb));
+    --accent-risk: rgb(var(--risk-rgb));
+    --exec-line: rgb(var(--exec-rgb) / 0.45);
+    --exec-wash: rgb(var(--exec-rgb) / 0.07);
+    /* Données : trois pas validés sur la surface 1 (bande de luminance, séparation en daltonisme) */
+    --viz-1: #3AA0D4;
+    --viz-2: #1F689D;
+    --viz-3: #E65467;
+    --halo:
+      radial-gradient(ellipse 70% 55% at 50% -18%, rgb(var(--exec-rgb) / 0.085), transparent 70%),
+      radial-gradient(ellipse 40% 45% at 100% 0%, rgb(var(--exec-rgb) / 0.03), transparent 70%);
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
     --sans: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -46,17 +59,18 @@
     --hud-w: 9.5rem;
     --foot-reserve: max(0px, calc(var(--hud-w) + var(--edge) + 1rem - var(--pad-x)));
 
-    /* Échelle typographique fluide */
-    --t-kicker: clamp(0.75rem, calc(var(--u) * 0.88), 0.95rem);
-    --t-meta: clamp(0.75rem, calc(var(--u) * 0.92), 0.95rem);
-    --t-small: clamp(0.8125rem, calc(var(--u) * 1.05), 1.1rem);
-    --t-body: clamp(0.875rem, calc(var(--u) * 1.22), 1.3rem);
-    --t-note: clamp(1rem, calc(var(--u) * 1.5), 1.6rem);
-    --t-lead: clamp(1rem, calc(var(--u) * 1.5), 1.6rem);
-    --t-h3: clamp(1rem, calc(var(--u) * 1.6), 1.7rem);
-    --t-h2: clamp(1.75rem, calc(var(--u) * 3.05), 3.4rem);
-    --t-h1: clamp(2.25rem, calc(var(--u) * 4.3), 4.6rem);
-    --t-kpi: clamp(2rem, calc(var(--u) * 3.5), 3.25rem);
+    /* Échelle typographique proportionnelle à la scène : un plancher de lisibilité, aucun plafond,
+       pour que la diapositive garde ses proportions du portable au projecteur 4K */
+    --t-kicker: max(0.75rem, calc(var(--u) * 0.92));
+    --t-meta: max(0.75rem, calc(var(--u) * 0.9));
+    --t-small: max(0.8125rem, calc(var(--u) * 1.08));
+    --t-body: max(0.875rem, calc(var(--u) * 1.28));
+    --t-note: max(1rem, calc(var(--u) * 1.6));
+    --t-lead: max(1rem, calc(var(--u) * 1.55));
+    --t-h3: max(1rem, calc(var(--u) * 1.65));
+    --t-h2: max(1.75rem, calc(var(--u) * 3.2));
+    --t-h1: max(2.25rem, calc(var(--u) * 4.7));
+    --t-kpi: max(2rem, calc(var(--u) * 4.3));
 
     /* Espacements */
     --sp-1: calc(var(--u) * 0.4);
@@ -77,8 +91,10 @@
     color: var(--text-secondary);
     font-family: var(--sans);
     font-feature-settings: "cv11", "ss01";
+    font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     overflow: hidden;
   }
   body::before {
@@ -89,8 +105,9 @@
     pointer-events: none;
     z-index: 0;
   }
-  ::selection { background: rgba(56, 189, 248, 0.3); color: var(--text-primary); }
-  :focus-visible { outline: 2px solid var(--accent-exec); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: rgb(var(--exec-rgb) / 0.3); color: var(--text-primary); }
+  :focus-visible { outline: 2px solid var(--accent-exec); outline-offset: 3px; }
+  a:focus-visible { border-radius: 4px; }
 
   .sr-only {
     position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
@@ -102,16 +119,16 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgb(255 255 255 / 0.04);
     z-index: 40;
   }
   .progress > i {
     display: block;
     height: 100%;
     width: 0;
-    background: var(--accent-exec);
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
-    transition: width 220ms var(--ease);
+    background: linear-gradient(90deg, rgb(var(--exec-rgb) / 0.35), var(--accent-exec));
+    box-shadow: 0 0 10px rgb(var(--exec-rgb) / 0.7);
+    transition: width 420ms var(--ease);
   }
 
   /* ===================== DIAPOSITIVE ===================== */
@@ -129,68 +146,80 @@
     overflow: hidden;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(8px);
-    transition: opacity 220ms var(--ease), transform 220ms var(--ease), visibility 0s linear 220ms;
+    transition: opacity 260ms var(--ease), visibility 0s linear 260ms;
   }
   .slide.active {
     opacity: 1;
     visibility: visible;
-    transform: none;
     z-index: 2;
-    transition: opacity 220ms var(--ease), transform 220ms var(--ease), visibility 0s;
+    transition: opacity 260ms var(--ease), visibility 0s;
   }
 
-  /* En-tête : surtitre en badge, titre, chapeau */
+  /* Entrée de diapositive : un seul mouvement orchestré, l'en-tête puis le corps, bloc par bloc */
+  @keyframes rise { from { opacity: 0; transform: translateY(calc(var(--u) * 0.8)); } }
+  @keyframes grow { from { transform: scaleX(0); } }
+  @keyframes fade { from { opacity: 0; } }
+  @keyframes draw { from { stroke-dashoffset: 1; } }
+  .slide.active > header > *, .slide.active > .body > * { animation: rise 480ms var(--ease) both; }
+  .slide.active > header > :nth-child(2) { animation-delay: 40ms; }
+  .slide.active > header > :nth-child(3) { animation-delay: 80ms; }
+  .slide.active > .body > :nth-child(1) { animation-delay: 110ms; }
+  .slide.active > .body > :nth-child(2) { animation-delay: 160ms; }
+  .slide.active > .body > :nth-child(n+3) { animation-delay: 210ms; }
+  @keyframes grow-y { from { transform: translateX(-50%) scaleY(0); } }
+  .slide.active .kicker::before { transform-origin: 0 50%; animation: grow 700ms var(--ease) 60ms both; }
+  .slide.active .stack.rail::before { transform-origin: 50% 100%; animation: grow-y 1100ms var(--ease) 200ms both; }
+  .slide.active .stack.rail.flow::before { transform-origin: 50% 0; }
+
+  /* En-tête : surtitre, titre, chapeau */
   .kicker {
     display: flex;
     align-items: center;
-    gap: 0.7em;
+    gap: 0.8em;
     margin: 0 0 var(--sp-3);
-    font-family: var(--mono);
     font-size: var(--t-kicker);
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.015em;
     line-height: 1.3;
-    text-transform: uppercase;
     color: var(--accent-exec);
   }
   .kicker::before {
     content: "";
     flex: none;
-    width: 0.5em;
-    height: 0.5em;
-    border-radius: 50%;
-    background: var(--accent-exec);
-    box-shadow: 0 0 0 0.22em rgba(56, 189, 248, 0.14), 0 0 0.9em rgba(56, 189, 248, 0.8);
+    width: 2.2em;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-exec), rgb(var(--exec-rgb) / 0.12));
   }
   .slide h1, .slide h2 {
     margin: 0;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.12;
+    font-weight: 650;
+    letter-spacing: -0.028em;
+    line-height: 1.08;
     color: var(--text-primary);
     text-wrap: balance;
-    max-width: 80%;
+    max-width: 94%;
   }
-  .slide h1 { font-size: var(--t-h1); max-width: 85%; }
-  .slide h2 { font-size: var(--t-h2); font-weight: 600; }
-  /* Accent éditorial : sérif droite, ambre institutionnel */
+  .slide h1 { font-size: var(--t-h1); font-weight: 680; letter-spacing: -0.034em; line-height: 1.04; max-width: 85%; }
+  .slide h2 { font-size: var(--t-h2); }
+  /* Accent éditorial : italique de l'Instrument Serif, or champagne */
   .slide h1 em, .slide h2 em {
     font-family: var(--serif);
-    font-style: normal;
+    font-style: italic;
     font-weight: 400;
-    font-size: 1.1em;
-    letter-spacing: -0.01em;
-    line-height: 1;
+    font-size: 1.14em;
+    letter-spacing: -0.012em;
+    line-height: 0.9;
+    padding-right: 0.04em;
     color: var(--accent-gold);
   }
   .lead {
     margin: var(--sp-3) 0 0;
-    max-width: 60ch;
+    max-width: 58ch;
     font-size: var(--t-lead);
     line-height: 1.45;
+    letter-spacing: -0.006em;
     color: var(--text-secondary);
-    text-wrap: pretty;
+    text-wrap: balance;
   }
 
   .body {
@@ -210,7 +239,8 @@
     gap: var(--sp-4);
     min-height: var(--hud-h);
     padding-right: var(--foot-reserve);
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(90deg, var(--border-highlight), var(--border-subtle) 40%, var(--border-subtle)) 1;
     font-size: var(--t-meta);
     line-height: 1.35;
     color: var(--text-muted);
@@ -226,42 +256,57 @@
 
   /* ===================== PRIMITIVES ===================== */
 
-  /* Carte : surface, bordure spéculaire */
+  /* Surface éclairée par le haut : dégradé de luminance et arête spéculaire */
   .fig, .col, .tile, .stack .row, .matrix, .scale div {
-    background: var(--bg-surface-1);
+    background: linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1) 70%);
     border: 1px solid var(--border-subtle);
     box-shadow: var(--specular);
   }
 
-  /* Bannière « Executive Takeaway » */
+  /* Bannière de synthèse : filet lumineux et lavis qui s'estompe, sans arête droite visible */
   .note {
+    position: relative;
     margin: 0;
-    max-width: 82%;
-    padding: var(--sp-3) var(--sp-4);
-    background: var(--bg-surface-1);
-    border-left: 3px solid var(--accent-exec);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    box-shadow: var(--specular);
+    max-width: 80%;
+    padding: var(--sp-3) var(--sp-5) var(--sp-3) var(--sp-4);
+    background: linear-gradient(90deg, rgb(var(--exec-rgb) / 0.11), rgb(var(--exec-rgb) / 0.04) 45%, transparent 95%);
     font-size: var(--t-note);
     font-weight: 500;
-    line-height: 1.45;
-    letter-spacing: -0.005em;
+    line-height: 1.42;
+    letter-spacing: -0.008em;
     color: var(--text-primary);
     text-wrap: pretty;
   }
+  .note::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent-exec);
+    box-shadow: 0 0 calc(var(--u) * 0.9) rgb(var(--exec-rgb) / 0.75);
+  }
+  .note::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgb(var(--exec-rgb) / 0.4), transparent 70%);
+  }
   /* Contexte secondaire : filet discret, sans fond */
   .note.quiet {
+    max-width: 78%;
     padding: var(--sp-1) 0 var(--sp-1) var(--sp-3);
     background: none;
-    border-left: 1px solid var(--border-highlight);
-    border-radius: 0;
-    box-shadow: none;
     font-size: var(--t-small);
     font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0;
     color: var(--text-secondary);
   }
+  .note.quiet::before { width: 1px; background: var(--border-highlight); box-shadow: none; }
+  .note.quiet::after { display: none; }
 
-  /* Cartes de métriques */
+  /* Cartes de métriques : chiffre en vedette, jauge éventuelle, libellé */
   .figures {
     display: grid;
     grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr));
@@ -269,27 +314,36 @@
   }
   .figures.bento { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.45fr) minmax(0, 0.8fr); }
   .fig {
+    --tone: var(--exec-rgb);
     position: relative;
     overflow: hidden;
-    padding: calc(var(--u) * 1.5) var(--sp-3) var(--sp-3);
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--u) * 1.7) calc(var(--u) * 1.5) calc(var(--u) * 1.5);
     border-radius: var(--radius);
-    transition: transform 220ms var(--ease), border-color 220ms var(--ease), background-color 220ms var(--ease);
   }
   .fig::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--bar, var(--accent-exec)) 0%, transparent 85%);
+    height: 1px;
+    background: linear-gradient(90deg, rgb(var(--tone)), rgb(var(--tone) / 0.25) 45%, transparent 85%);
   }
-  .fig:hover { transform: translateY(-2px); border-color: var(--border-highlight); background-color: var(--bg-surface-2); }
+  .fig::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 75% 65% at 0% 0%, rgb(var(--tone) / 0.1), transparent 70%);
+    pointer-events: none;
+  }
+  .fig > * { position: relative; z-index: 1; }
   .fig b {
     display: block;
     font-size: var(--t-kpi);
     font-weight: 600;
-    letter-spacing: -0.035em;
-    line-height: 1.05;
-    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    font-variant-numeric: lining-nums;
     color: var(--kpi, var(--text-primary));
     white-space: nowrap;
   }
@@ -299,9 +353,58 @@
     font-size: var(--t-small);
     line-height: 1.4;
     color: var(--text-secondary);
+    text-wrap: pretty;
   }
-  .fig.gold { --bar: var(--accent-gold); --kpi: var(--accent-gold); }
-  .fig.risk { --bar: var(--accent-risk); --kpi: var(--accent-risk); }
+  .fig.gold { --tone: var(--gold-rgb); --kpi: var(--accent-gold); }
+  .fig.risk { --tone: var(--risk-rgb); --kpi: var(--accent-risk); }
+
+  /* Jauge : la part se lit sur la piste de la même teinte (valeur imprimée dans la carte) */
+  .meter, .seg {
+    display: flex;
+    flex: none;
+    height: max(4px, calc(var(--u) * 0.34));
+    margin-top: var(--sp-3);
+    border-radius: 999px;
+  }
+  .meter { background: rgb(var(--tone) / 0.16); }
+  .meter::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--v);
+    border-radius: inherit;
+    background: rgb(var(--tone));
+    box-shadow: 0 0 calc(var(--u) * 0.8) rgb(var(--tone) / 0.45);
+    transform-origin: 0 50%;
+  }
+  /* Repère d'une valeur antérieure : une coupure de 2 px dans la barre */
+  .meter.from::after {
+    content: "";
+    position: absolute;
+    top: -1px; bottom: -1px;
+    left: var(--from);
+    width: 2px;
+    background: var(--bg-surface-1);
+  }
+  /* Valeur ouverte (« plus de ») : la barre se prolonge en fondu */
+  .meter.open::before { border-radius: 999px 0 0 999px; }
+  .meter.open::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: var(--v);
+    width: 9%;
+    background: linear-gradient(90deg, rgb(var(--tone) / 0.85), rgb(var(--tone) / 0));
+  }
+  /* Barre segmentée : un tout, ses parties séparées d'un jour de 2 px */
+  .seg { gap: 2px; }
+  .seg > i { flex: var(--w) 1 0%; min-width: 2px; border-radius: 1px; }
+  .seg > i:first-child { border-radius: 999px 1px 1px 999px; background: var(--viz-1); }
+  .seg > i:nth-child(2) { background: var(--viz-2); }
+  .seg > i:last-child { border-radius: 1px 999px 999px 1px; background: var(--viz-3); }
+  .slide.active .meter::before, .slide.active .seg { animation: grow 900ms var(--ease) 260ms both; }
+  .slide.active .meter.open::after { animation: fade 500ms ease 700ms both; }
+  .seg { transform-origin: 0 50%; }
 
   /* Lignes : base commune aux lames et aux matrices */
   .rows { display: flex; flex-direction: column; }
@@ -317,31 +420,29 @@
   }
   .row .n {
     font-family: var(--mono);
-    font-size: 0.86em;
+    font-size: max(0.75rem, 0.82em);
     font-weight: 500;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
     color: var(--text-muted);
   }
-  .row .t { font-weight: 600; color: var(--text-primary); letter-spacing: -0.01em; }
+  .row .t { font-weight: 600; color: var(--text-primary); letter-spacing: -0.012em; }
   .row .r { text-align: right; }
 
   /* Lames empilées (paliers 01–06, couches C1–C6) */
   .stack { gap: calc(var(--u) * 0.5); }
   .stack .row {
-    padding: calc(var(--u) * 0.72) var(--sp-3);
-    border-radius: calc(var(--radius) * 0.85);
-    transition: transform 220ms var(--ease), border-color 220ms var(--ease);
+    padding: calc(var(--u) * 0.78) var(--sp-3);
+    border-radius: calc(var(--radius) * 0.8);
   }
-  .stack .row:hover { border-color: var(--border-highlight); }
   .stack .row .r {
     justify-self: end;
-    padding: 0.28em 0.85em;
-    background: var(--bg-surface-2);
+    padding: 0.3em 0.9em;
+    background: rgb(255 255 255 / 0.035);
     border: 1px solid var(--border-subtle);
     border-radius: 999px;
     font-family: var(--mono);
-    font-size: 0.76em;
+    font-size: max(0.75rem, 0.74em);
     letter-spacing: 0.01em;
     color: var(--text-secondary);
     white-space: nowrap;
@@ -350,56 +451,73 @@
   /* Point focal : palier 06 et couche C4 */
   .stack .row.hl {
     z-index: 1;
-    background: var(--bg-surface-2);
+    background: linear-gradient(90deg, rgb(var(--exec-rgb) / 0.12), rgb(var(--exec-rgb) / 0.03) 60%), var(--bg-surface-2);
     border-color: var(--exec-line);
-    box-shadow: var(--specular), 0 0 0 1px rgba(56, 189, 248, 0.22), 0 0 calc(var(--u) * 2.4) calc(var(--u) * -0.4) rgba(56, 189, 248, 0.35);
-  }
-  /* Puce lumineuse dans la gouttière : le focal se repère sans rompre l'alignement des colonnes */
-  .stack .row.hl::before {
-    content: "";
-    position: absolute;
-    left: calc(var(--u) * -1);
-    top: 50%;
-    width: calc(var(--u) * 0.42);
-    height: calc(var(--u) * 0.42);
-    margin-top: calc(var(--u) * -0.21);
-    border-radius: 50%;
-    background: var(--accent-exec);
-    box-shadow: 0 0 calc(var(--u) * 0.9) rgba(56, 189, 248, 0.9);
-    transform: translateX(-50%);
+    box-shadow: var(--specular), 0 0 0 1px rgb(var(--exec-rgb) / 0.18), 0 0 calc(var(--u) * 2.6) calc(var(--u) * -0.4) rgb(var(--exec-rgb) / 0.4);
   }
   .stack .row.hl .n { color: var(--accent-exec); }
-  .stack .row.hl .r { border-color: var(--exec-line); color: var(--text-primary); }
+  .stack .row.hl .r { border-color: var(--exec-line); background: rgb(var(--exec-rgb) / 0.08); color: var(--text-primary); }
+
+  /* Rail de gouttière : il relie les lames, un nœud par lame, le point focal s'allume */
+  .stack.rail { position: relative; --rail-x: calc(var(--u) * -1.4); }
+  .stack.rail::before {
+    content: "";
+    position: absolute;
+    left: var(--rail-x);
+    top: calc(var(--u) * 1.5);
+    bottom: calc(var(--u) * 1.5);
+    width: 1px;
+    transform: translateX(-50%);
+    background: var(--rail, linear-gradient(180deg, rgb(var(--exec-rgb) / 0.75), rgb(255 255 255 / 0.1) 75%));
+  }
+  .stack.rail.flow { --rail: linear-gradient(180deg, rgb(255 255 255 / 0.12), rgb(var(--exec-rgb) / 0.75) 58%, rgb(255 255 255 / 0.12)); }
+  .stack.rail .row::before {
+    content: "";
+    position: absolute;
+    left: calc(var(--rail-x) - 1px);
+    top: 50%;
+    width: calc(var(--u) * 0.5);
+    height: calc(var(--u) * 0.5);
+    border-radius: 50%;
+    background: var(--bg-canvas);
+    border: 1px solid rgb(255 255 255 / 0.28);
+    transform: translate(-50%, -50%);
+  }
+  .stack.rail .row.hl::before {
+    width: calc(var(--u) * 0.62);
+    height: calc(var(--u) * 0.62);
+    background: var(--accent-exec);
+    border-color: var(--accent-exec);
+    box-shadow: 0 0 0 calc(var(--u) * 0.26) rgb(var(--exec-rgb) / 0.16), 0 0 calc(var(--u) * 1.1) rgb(var(--exec-rgb) / 0.9);
+  }
 
   /* Matrices de gouvernance (verrous, classes, documents) */
   .matrix { border-radius: var(--radius); overflow: hidden; }
   .matrix .row {
-    padding: calc(var(--u) * 0.7) var(--sp-3);
+    padding: calc(var(--u) * 0.78) var(--sp-3);
     border-bottom: 1px solid var(--border-subtle);
   }
   .matrix .row:last-child { border-bottom: 0; }
   .matrix .row.hl {
-    background: linear-gradient(90deg, var(--exec-wash), transparent 65%);
-    box-shadow: inset 3px 0 0 var(--accent-exec);
+    background: linear-gradient(90deg, rgb(var(--exec-rgb) / 0.11), transparent 65%);
+    box-shadow: inset 2px 0 0 var(--accent-exec);
   }
   .matrix .row.hl .n, .matrix .row.hl .t { color: var(--accent-exec); }
-  .matrix .row .r { font-family: var(--mono); font-size: 0.8em; color: var(--text-muted); white-space: nowrap; }
+  .matrix .row .r { font-family: var(--mono); font-size: max(0.75rem, 0.8em); color: var(--text-muted); white-space: nowrap; }
   /* En-tête : taille réduite sur les enfants seulement, les colonnes en em restent alignées */
   .row.head {
-    padding-block: calc(var(--u) * 0.55);
-    background: rgba(255, 255, 255, 0.025);
+    padding-block: calc(var(--u) * 0.6);
+    background: rgb(255 255 255 / 0.022);
     color: var(--text-muted);
   }
   .row.head > * {
-    font-family: var(--mono);
     font-size: var(--t-kicker);
     font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
   .row.head .t { color: var(--text-muted); font-weight: 500; white-space: nowrap; }
 
-  /* Annexe : titres des documents en liens (nouvel onglet) */
+  /* Annexe : titres des documents en liens (nouvel onglet), poids relatif de chaque document */
   .docs a {
     color: var(--text-primary);
     text-decoration: none;
@@ -408,9 +526,26 @@
     background-position: 0 100%;
     background-repeat: no-repeat;
     padding-bottom: 1px;
-    transition: color 220ms var(--ease);
+    transition: color 220ms var(--ease), background-size 220ms var(--ease);
   }
-  .docs a:hover, .docs a:focus-visible { color: var(--accent-exec); }
+  .docs a:hover, .docs a:focus-visible { color: var(--accent-exec); background-image: linear-gradient(var(--accent-exec), var(--accent-exec)); }
+  .docs .row .r { position: relative; }
+  .docs .row .r::before, .docs .row .r::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -0.55em;
+    height: 2px;
+    border-radius: 2px;
+  }
+  .docs .row .r::before { left: 0; background: rgb(255 255 255 / 0.06); }
+  .docs .row .r::after {
+    width: max(3px, calc(var(--p) / 699 * 100%));
+    background: rgb(var(--exec-rgb) / 0.6);
+    transform-origin: 100% 50%;
+  }
+  .docs .row.hl .r::after { background: var(--accent-exec); box-shadow: 0 0 8px rgb(var(--exec-rgb) / 0.5); }
+  .slide.active .docs .row .r::after { animation: grow 900ms var(--ease) 300ms both; }
 
   /* Cartes à trois colonnes */
   .cols {
@@ -419,25 +554,21 @@
     gap: var(--sp-3);
   }
   .col {
-    padding: calc(var(--u) * 1.3) var(--sp-3);
+    padding: calc(var(--u) * 1.4) calc(var(--u) * 1.5);
     border-radius: var(--radius);
-    transition: transform 220ms var(--ease), border-color 220ms var(--ease);
   }
-  .col:hover { transform: translateY(-2px); border-color: var(--border-highlight); }
   .col .tag {
     display: block;
     margin-bottom: var(--sp-2);
-    font-family: var(--mono);
     font-size: var(--t-kicker);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     color: var(--text-muted);
   }
   .col h3 {
     margin: 0 0 var(--sp-1);
     font-size: var(--t-h3);
-    font-weight: 600;
+    font-weight: 620;
     letter-spacing: -0.02em;
     line-height: 1.2;
     color: var(--text-primary);
@@ -447,11 +578,14 @@
     font-size: var(--t-body);
     line-height: 1.45;
     color: var(--text-secondary);
+    text-wrap: pretty;
   }
-  .col.hl {
-    background: var(--bg-surface-2);
+  .col.hl, .tile.hl {
+    background:
+      radial-gradient(ellipse 85% 70% at 0% 0%, rgb(var(--exec-rgb) / 0.12), transparent 70%),
+      linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1) 70%);
     border-color: var(--exec-line);
-    box-shadow: var(--specular), 0 0 calc(var(--u) * 2) calc(var(--u) * -0.6) rgba(56, 189, 248, 0.4);
+    box-shadow: var(--specular), 0 0 calc(var(--u) * 2.2) calc(var(--u) * -0.6) rgb(var(--exec-rgb) / 0.45);
   }
   .col.hl .tag { color: var(--accent-exec); }
 
@@ -464,20 +598,22 @@
   .tile {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-3);
-    padding: var(--sp-3);
+    gap: calc(var(--u) * 1.4);
+    padding: calc(var(--u) * 1.3) calc(var(--u) * 1.15);
     border-radius: var(--radius);
-    transition: border-color 220ms var(--ease);
   }
-  .tile:hover { border-color: var(--border-highlight); }
   .tile .n {
     display: grid;
     place-items: center;
-    width: calc(var(--u) * 2.9);
-    height: calc(var(--u) * 2.9);
+    flex: none;
+    width: calc(var(--u) * 3);
+    height: calc(var(--u) * 3);
+    margin: calc(var(--u) * 0.28);
     border-radius: 50%;
+    background: var(--bg-surface-1);
     border: 1px solid var(--border-highlight);
-    box-shadow: 0 0 0 calc(var(--u) * 0.22) var(--bg-surface-1), 0 0 0 calc(var(--u) * 0.22 + 1px) var(--border-subtle);
+    outline: 1px solid var(--border-subtle);
+    outline-offset: calc(var(--u) * 0.24);
     font-family: var(--mono);
     font-size: var(--t-small);
     font-weight: 600;
@@ -486,20 +622,22 @@
   }
   .tile b {
     display: block;
-    font-size: var(--t-h3);
+    font-size: max(1rem, calc(var(--u) * 1.52));
     font-weight: 600;
-    letter-spacing: -0.015em;
-    line-height: 1.28;
+    letter-spacing: -0.016em;
+    line-height: 1.26;
     color: var(--text-primary);
+    text-wrap: pretty;
   }
-  .tile.hl { background: var(--bg-surface-2); border-color: var(--exec-line); }
   .tile.hl .n {
     color: var(--accent-exec);
+    background: rgb(var(--exec-rgb) / 0.08);
     border-color: var(--accent-exec);
-    box-shadow: 0 0 0 calc(var(--u) * 0.22) var(--bg-surface-2), 0 0 0 calc(var(--u) * 0.22 + 1px) rgba(56, 189, 248, 0.35), 0 0 calc(var(--u) * 1.4) rgba(56, 189, 248, 0.35);
+    outline-color: rgb(var(--exec-rgb) / 0.3);
+    box-shadow: 0 0 calc(var(--u) * 1.5) rgb(var(--exec-rgb) / 0.35);
   }
 
-  /* Échelles en bandeau (N0–N4, P0–P3) */
+  /* Échelles en bandeau (N0–N4, P0–P3) : l'intensité de l'arête croît avec le niveau */
   .scale {
     display: grid;
     grid-template-columns: 5.5em repeat(var(--n, 5), minmax(0, 1fr));
@@ -509,42 +647,94 @@
   }
   .scale > span:first-child {
     align-self: center;
-    font-family: var(--mono);
     font-size: var(--t-kicker);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     color: var(--text-muted);
   }
   .scale div {
-    padding: calc(var(--u) * 0.6) calc(var(--u) * 0.8);
+    --tone: var(--exec-rgb);
+    position: relative;
+    overflow: hidden;
+    padding: calc(var(--u) * 0.7) calc(var(--u) * 0.9);
     border-radius: calc(var(--radius) * 0.7);
     line-height: 1.3;
     color: var(--text-secondary);
+    background:
+      linear-gradient(180deg, rgb(var(--tone) / calc(var(--k, 0) * 0.1)), transparent 85%),
+      linear-gradient(180deg, var(--bg-surface-2), var(--bg-surface-1) 70%);
+  }
+  .scale div::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: rgb(var(--tone) / var(--k, 0));
+    box-shadow: 0 0 calc(var(--u) * 0.8) rgb(var(--tone) / calc(var(--k, 0) * 0.6));
   }
   .scale div b {
     display: block;
-    margin-bottom: 0.15em;
+    margin-bottom: 0.2em;
     font-family: var(--mono);
     font-weight: 600;
     color: var(--text-primary);
   }
+  .scale.levels div:nth-of-type(1) { --k: 0.14; }
+  .scale.levels div:nth-of-type(2) { --k: 0.32; }
+  .scale.levels div:nth-of-type(3) { --k: 0.52; }
+  .scale.levels div:nth-of-type(4) { --k: 0.76; }
+  .scale.levels div:nth-of-type(5) { --k: 1; }
+  .scale.tools div { --tone: var(--gold-rgb); }
+  .scale.tools div:nth-of-type(1) { --k: 0.18; }
+  .scale.tools div:nth-of-type(2) { --k: 0.42; }
+  .scale.tools div:nth-of-type(3) { --k: 0.7; }
+  .scale.tools div:nth-of-type(4) { --k: 1; }
   .scale div.off {
-    background: rgba(244, 63, 94, 0.05);
-    border: 1px dashed rgba(244, 63, 94, 0.55);
+    background: repeating-linear-gradient(135deg, rgb(var(--risk-rgb) / 0.07) 0 6px, transparent 6px 12px), rgb(var(--risk-rgb) / 0.03);
+    border: 1px dashed rgb(var(--risk-rgb) / 0.55);
     box-shadow: none;
     color: var(--text-muted);
   }
+  .scale div.off::before { display: none; }
   .scale div.off b { color: var(--accent-risk); }
 
-  /* Diapo 5 : architecture */
+  /* Diapo 5 : architecture, colonnes de même hauteur */
   .split {
     display: grid;
-    grid-template-columns: minmax(0, 1.28fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
     gap: var(--sp-5);
-    align-items: center;
+    align-items: stretch;
   }
+  .split > .stack > .row { flex: 1 1 auto; }
   .split .note { max-width: none; }
   .stackcol { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .stackcol > .col { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; }
+
+  /* Diapo 1 : couverture, emblème de l'agent enveloppé à droite du titre */
+  .slide.cover h1 { max-width: 62%; }
+  .slide.cover .lead { max-width: min(58ch, 60%); }
+  .slide.cover .note { max-width: 60%; }
+  .emblem {
+    position: absolute;
+    top: calc(var(--pad-top) + var(--u) * 2.2);
+    right: var(--pad-x);
+    width: calc(var(--u) * 29);
+    height: calc(var(--u) * 29);
+    overflow: visible;
+    pointer-events: none;
+  }
+  .emblem :is(rect, path) { stroke-width: 1.1; }
+  .emblem .ring { fill: none; stroke: url(#emLight); stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .emblem .env { fill: none; stroke: var(--accent-exec); stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .emblem .gate { fill: var(--bg-canvas); stroke: var(--accent-exec); }
+  .emblem .wire { stroke: rgb(var(--exec-rgb) / 0.55); }
+  .emblem .axis { stroke: rgb(255 255 255 / 0.07); }
+  .slide.active .emblem .ring, .slide.active .emblem .env {
+    animation: draw 1500ms var(--ease) both;
+    animation-delay: calc(120ms + var(--i) * 110ms);
+  }
+  .slide.active .emblem .gates { animation: fade 700ms ease 900ms both; }
+  .slide.active .emblem .core { animation: fade 1400ms ease 1000ms both; }
 
   /* Diapo 7 : figure du Cadre dans un écrin vitré ajusté à l'image, agrandissable.
      La figure est un conteneur de taille : l'image s'y inscrit (cqw, cqh) sans déborder. */
@@ -570,10 +760,12 @@
     max-height: min(calc(68vh + 2 * var(--sp-3)), 100cqh);
     padding: var(--sp-3);
     /* verre sans flou : derrière l'image il n'y a que le fond noir, un flou n'y coûterait que du calcul */
-    background: var(--bg-glass);
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgb(var(--exec-rgb) / 0.05), transparent 70%),
+      var(--bg-glass);
     border: 1px solid var(--border-subtle);
     border-radius: calc(var(--radius) * 1.4);
-    box-shadow: var(--specular), 0 calc(var(--u) * 2) calc(var(--u) * 5) rgba(0, 0, 0, 0.6);
+    box-shadow: var(--specular), 0 0 0 1px rgb(0 0 0 / 0.6), 0 calc(var(--u) * 2) calc(var(--u) * 5) rgb(0 0 0 / 0.6);
     object-fit: contain;
     cursor: zoom-in;
   }
@@ -601,7 +793,7 @@
   .zoom-btn:hover { color: var(--text-primary); border-color: var(--exec-line); }
   .slide.schema { row-gap: var(--sp-3); padding-top: calc(var(--pad-top) * 0.6); }
   .slide.schema .kicker { margin-bottom: var(--sp-2); }
-  .slide.schema h2 { font-size: clamp(1.4rem, calc(var(--u) * 2.3), 2.6rem); max-width: none; }
+  .slide.schema h2 { font-size: max(1.4rem, calc(var(--u) * 2.3)); max-width: none; }
 
   /* ===================== CONTRÔLES (bas à droite) ===================== */
   svg.i { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -620,7 +812,7 @@
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-subtle);
     border-radius: 999px;
-    box-shadow: var(--specular), 0 0.5rem 1.5rem rgba(0, 0, 0, 0.55);
+    box-shadow: var(--specular), 0 0.5rem 1.5rem rgb(0 0 0 / 0.55);
   }
   .hud > button, .quick-wrap > button {
     display: grid;
@@ -637,7 +829,7 @@
   }
   .hud:hover > button, .hud:focus-within > button,
   .hud:hover .quick-wrap > button, .hud:focus-within .quick-wrap > button { color: var(--text-secondary); }
-  .hud > button:hover, .quick-wrap > button:hover, .quick-wrap > button[aria-expanded="true"], .hud > button[aria-pressed="true"] { color: var(--text-primary); background: rgba(255, 255, 255, 0.07); }
+  .hud > button:hover, .quick-wrap > button:hover, .quick-wrap > button[aria-expanded="true"], .hud > button[aria-pressed="true"] { color: var(--text-primary); background: rgb(255 255 255 / 0.07); }
   .hud > button[aria-disabled="true"] { opacity: 0.3; cursor: default; background: transparent; }
   .hud .sep { width: 1px; height: 55%; margin: 0 3px; background: var(--border-subtle); }
 
@@ -661,15 +853,18 @@
   }
   .quick .panel {
     width: min(27rem, calc(100vw - 2rem));
-    max-height: min(74vh, 40rem);
+    max-height: min(calc(100vh - 5.5rem), 44rem);
     overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255 255 255 / 0.18) transparent;
     padding: 0.85rem;
-    background: rgba(7, 9, 14, 0.97);
+    background: rgb(11 15 20 / 0.97);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     border: 1px solid var(--border-highlight);
     border-radius: 0.9rem;
-    box-shadow: var(--specular), 0 1.5rem 3rem rgba(0, 0, 0, 0.7);
+    box-shadow: var(--specular), 0 1.5rem 3rem rgb(0 0 0 / 0.7);
   }
   .quick h2 {
     display: flex;
@@ -677,14 +872,12 @@
     align-items: baseline;
     margin: 0 0 0.5rem;
     padding: 0 0.5rem;
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-exec);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--text-primary);
   }
-  .quick h2 em { font-style: normal; color: var(--text-muted); letter-spacing: 0.06em; }
+  .quick h2 em { font-style: normal; font-weight: 500; color: var(--text-muted); }
   .quick ol { margin: 0; padding: 0; list-style: none; }
   .quick li button {
     display: flex;
@@ -704,7 +897,7 @@
   }
   .quick li button .n { flex: none; font-family: var(--mono); font-size: 0.78rem; font-variant-numeric: tabular-nums; color: var(--text-muted); }
   .quick li button small { display: block; margin-top: 0.12rem; font-size: 0.76rem; color: var(--text-muted); }
-  .quick li button:hover, .quick li button:focus-visible { background: rgba(255, 255, 255, 0.05); outline: none; }
+  .quick li button:hover, .quick li button:focus-visible { background: rgb(255 255 255 / 0.05); outline: none; }
   .quick li button[aria-current="step"] { background: var(--exec-wash); box-shadow: inset 2px 0 0 var(--accent-exec); }
   .quick li button[aria-current="step"] .n { color: var(--accent-exec); }
   .quick p { margin: 0.6rem 0 0; padding: 0.6rem 0.5rem 0; border-top: 1px solid var(--border-subtle); font-size: 0.72rem; line-height: 1.5; color: var(--text-muted); }
@@ -718,12 +911,12 @@
     max-height: none;
     margin: 0;
     padding: 2.5rem;
-    background: rgba(0, 0, 0, 0.94);
+    background: rgb(0 0 0 / 0.94);
     border: 0;
     color: var(--text-primary);
     cursor: zoom-out;
   }
-  .lightbox::backdrop { background: rgba(0, 0, 0, 0.8); }
+  .lightbox::backdrop { background: rgb(0 0 0 / 0.8); }
   .lightbox[open] {
     display: grid;
     grid-template: minmax(0, 1fr) / minmax(0, 1fr);
@@ -757,6 +950,10 @@
     .slide > .body { flex: 1 0 auto; }
     .slide > .foot { margin-top: auto; }
     .slide.schema { gap: var(--sp-3); }
+    .emblem { display: none; }
+    .slide.cover h1 { max-width: 85%; }
+    .slide.cover .lead { max-width: 58ch; }
+    .slide.cover .note { max-width: 80%; }
   }
   @media screen and (max-width: 900px) {
     .figures, .figures.bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -767,12 +964,14 @@
   @media screen and (max-width: 780px) {
     :root { --u: 7px; --pad-x: 1rem; --pad-top: 1.5rem; --foot-reserve: 0px; }
     .slide { padding-bottom: calc(var(--hud-h) + 2 * var(--edge)); gap: 1.5rem; }
-    .slide h1, .slide h2, .lead, .note { max-width: none; }
+    .slide h1, .slide h2, .lead, .note, .note.quiet,
+    .slide.cover h1, .slide.cover .lead, .slide.cover .note { max-width: none; }
     .cols { grid-template-columns: minmax(0, 1fr); }
     .row, .scale { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
     .row .r, .stack .row .r { justify-self: start; text-align: left; }
+    .docs .row .r { justify-self: stretch; }
     .row.head { display: none; }
-    .stack .row.hl::before { display: none; }
+    .stack.rail::before, .stack.rail .row::before { display: none; }
     .figure { flex: none; height: 60vh; }
     .foot { flex-direction: column; align-items: flex-start; padding-block: 0.5rem; }
   }
@@ -784,8 +983,6 @@
   /* ===================== MOUVEMENT RÉDUIT ===================== */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { transition-duration: 0s !important; animation: none !important; }
-    .slide { transform: none; }
-    .fig:hover, .col:hover { transform: none; }
   }
 
   /* ===================== IMPRESSION A4 PAYSAGE, THÈME SOMBRE ===================== */
@@ -798,6 +995,7 @@
       --foot-reserve: 0px;
       --edge: 6mm;
     }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
     html, body {
       height: auto;
       overflow: visible;
@@ -815,7 +1013,6 @@
       opacity: 1 !important;
       visibility: visible !important;
       transform: none !important;
-      transition: none !important;
       page-break-after: always;
       break-after: page;
       -webkit-print-color-adjust: exact;
@@ -823,7 +1020,6 @@
     }
     .slide:last-child { page-break-after: auto; break-after: auto; }
     .figure img { -webkit-backdrop-filter: none; backdrop-filter: none; background: var(--bg-surface-1); max-height: 100cqh; }
-    .fig:hover, .col:hover { transform: none; }
   }
 </style>
 </head>
@@ -833,7 +1029,7 @@
   <div class="stage" id="stage">
 
     <!-- 01 — COUVERTURE -->
-    <section class="slide active" data-title="Couverture et thèse">
+    <section class="slide cover active" data-title="Couverture et thèse">
       <header>
         <p class="kicker">Présentation à la haute direction · Novembre 2026</p>
         <h1>Interopérabilité et orchestration en <em>entreprise agentique</em></h1>
@@ -852,6 +1048,46 @@
         <span>André-Guy Bruneau M.Sc. IT · Licence CC BY 4.0 · Corpus révisé au 3 novembre 2026</span>
         <span>01 / 11</span>
       </footer>
+      <!-- Emblème de la thèse : six cadres déterministes, l'enveloppe et ses quatre contrôles
+           (authentifier, valider, journaliser, compenser) autour du noyau cognitif -->
+      <svg class="emblem" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="emLight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff" stop-opacity="0.55" />
+            <stop offset="0.55" stop-color="#fff" stop-opacity="0.16" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0.05" />
+          </linearGradient>
+          <radialGradient id="emHalo">
+            <stop offset="0" stop-color="#6AC7F5" stop-opacity="0.16" />
+            <stop offset="0.6" stop-color="#6AC7F5" stop-opacity="0.04" />
+            <stop offset="1" stop-color="#6AC7F5" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="emCore">
+            <stop offset="0" stop-color="#F2C26F" stop-opacity="0.9" />
+            <stop offset="0.3" stop-color="#F2C26F" stop-opacity="0.32" />
+            <stop offset="1" stop-color="#F2C26F" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="200" fill="url(#emHalo)" />
+        <path class="axis" d="M200 0V400M0 200H400" />
+        <rect class="ring" style="--i: 0" x="4" y="4" width="392" height="392" rx="46" pathLength="1" stroke-opacity="0.32" />
+        <rect class="ring" style="--i: 1" x="32" y="32" width="336" height="336" rx="40" pathLength="1" stroke-opacity="0.45" />
+        <rect class="ring" style="--i: 2" x="60" y="60" width="280" height="280" rx="34" pathLength="1" stroke-opacity="0.6" />
+        <rect class="ring" style="--i: 3" x="88" y="88" width="224" height="224" rx="28" pathLength="1" stroke-opacity="0.75" />
+        <rect class="ring" style="--i: 4" x="116" y="116" width="168" height="168" rx="22" pathLength="1" stroke-opacity="0.9" />
+        <rect class="env" style="--i: 5" x="142" y="142" width="116" height="116" rx="17" pathLength="1" stroke-opacity="0.85" />
+        <g class="gates">
+          <path class="wire" d="M200 148V176M252 200H224M200 252V224M148 200H176" />
+          <rect class="gate" x="191" y="138" width="18" height="8" rx="2" />
+          <rect class="gate" x="254" y="191" width="8" height="18" rx="2" />
+          <rect class="gate" x="191" y="254" width="18" height="8" rx="2" />
+          <rect class="gate" x="138" y="191" width="8" height="18" rx="2" />
+        </g>
+        <g class="core">
+          <circle cx="200" cy="200" r="40" fill="url(#emCore)" />
+          <circle cx="200" cy="200" r="6" fill="#F2C26F" />
+        </g>
+      </svg>
     </section>
 
     <!-- 02 — PARADOXE ADOPTION / ASSURANCE -->
@@ -863,10 +1099,10 @@
       </header>
       <div class="body">
         <div class="figures">
-          <div class="fig"><b>40&nbsp;%</b><span>Des apps d'entreprise, fin 2026 (moins de 5&nbsp;% en 2025)</span></div>
-          <div class="fig risk"><b>&gt;&nbsp;40&nbsp;%</b><span>Des projets annulés d'ici fin 2027</span></div>
-          <div class="fig"><b>13&nbsp;%</b><span>Bonne gouvernance (Gartner)</span></div>
-          <div class="fig risk"><b>91,8&nbsp;%</b><span>Des serveurs MCP audités sans OAuth</span></div>
+          <div class="fig"><b>40&nbsp;%</b><i class="meter from" style="--v: 40%; --from: 5%" aria-hidden="true"></i><span>Des apps d'entreprise, fin 2026 (moins de 5&nbsp;% en 2025)</span></div>
+          <div class="fig risk"><b>&gt;&nbsp;40&nbsp;%</b><i class="meter open" style="--v: 40%" aria-hidden="true"></i><span>Des projets annulés d'ici fin 2027</span></div>
+          <div class="fig"><b>13&nbsp;%</b><i class="meter" style="--v: 13%" aria-hidden="true"></i><span>Bonne gouvernance (Gartner)</span></div>
+          <div class="fig risk"><b>91,8&nbsp;%</b><i class="meter" style="--v: 91.8%" aria-hidden="true"></i><span>Des serveurs MCP audités sans OAuth</span></div>
         </div>
         <p class="note quiet">Juillet 2026, banc ExploitGym : environ 1&nbsp;200 agents, coordonnés hors protocole, sortent du bac à sable par un miroir interne. Il a manqué un contrôle qui intercepte l'action avant son exécution.</p>
         <p class="note">Ne pas interdire les agents : imposer une infrastructure de médiation obligatoire avant le 1er&nbsp;mai&nbsp;2027.</p>
@@ -884,7 +1120,7 @@
         <h2>Six paliers d'interopérabilité; le sixième <em>échange des intentions</em></h2>
       </header>
       <div class="body">
-        <div class="rows stack paliers">
+        <div class="rows stack rail paliers">
           <div class="row hl"><span class="n">06</span><span class="t">Agentique</span><span>Intention déclarée, coordination entre agents</span><span class="r">MCP · A2A</span></div>
           <div class="row"><span class="n">05</span><span class="t">Juridique</span><span>Preuve, souveraineté et conformité</span><span class="r">Loi 25 · E-23 · AMF</span></div>
           <div class="row"><span class="n">04</span><span class="t">Politique</span><span>Autorité sur les données et les règles</span><span class="r">Data Contracts · OPA/Cedar</span></div>
@@ -913,7 +1149,7 @@
           <div class="col"><span class="tag">Agent ↔ agent</span><h3>A2A 1.0.1</h3><p>v1.1.0-rc le 29 oct. 2026; aucune gouvernance inter-organisations native.</p></div>
           <div class="col hl"><span class="tag">192 + 40 pièces</span><h3>Littérature</h3><p>74&nbsp;% sans signe de revue par les pairs; les défenses statiques tombent devant l'injection adaptative.</p></div>
         </div>
-        <div class="rows matrix" style="--cols: 13em 1fr 1fr;">
+        <div class="rows matrix" style="--cols: 14.5em 1fr 1fr;">
           <div class="row head"><span class="t">Verrou</span><span>Constat</span><span>Réponse du Cadre</span></div>
           <div class="row hl"><span class="t">Délégation &gt; 2 sauts</span><span>Aucun mécanisme normalisé</span><span>Plafond de 2 sauts, RFC 8693 à chaque saut</span></div>
           <div class="row"><span class="t">Orchestration durable</span><span>Ni MCP ni A2A ne compensent</span><span>Moteur de flux durable et sagas</span></div>
@@ -931,11 +1167,11 @@
       <header>
         <p class="kicker">Cadre CRE-IA-2026-01 · § 4–5</p>
         <h2>Architecture de référence : <em>l'agent enveloppé</em></h2>
-        <p class="lead">Passer d'un maillage N × M à une topologie N + M autour d'un point de passage obligatoire.</p>
+        <p class="lead" style="text-wrap: pretty">Passer d'un maillage N × M à une topologie N + M autour d'un point de passage obligatoire.</p>
       </header>
       <div class="body">
         <div class="split">
-          <div class="rows stack" style="--cols: 2.5em 11em 1fr;">
+          <div class="rows stack rail flow" style="--cols: 2.4em 9.6em 1fr;">
             <div class="row"><span class="n">C1</span><span class="t">Canaux</span><span>Portails, clavardage, approbations humaines</span></div>
             <div class="row"><span class="n">C2</span><span class="t">Orchestration</span><span>Moteur durable, sagas de compensation</span></div>
             <div class="row"><span class="n">C3</span><span class="t">Agents</span><span>8 patrons autorisés, 2 sauts au plus</span></div>
@@ -1012,7 +1248,7 @@
           <div class="row"><span class="t">Modérée</span><span>N3</span><span>P2 sous seuils, humain sur la boucle</span></div>
           <div class="row"><span class="t">Faible</span><span>N3 · N4 sur décision du comité</span><span>P2 interne réversible dans un ODD</span></div>
         </div>
-        <div class="scale" style="--n: 6;">
+        <div class="scale levels" style="--n: 6;">
           <span>Niveaux</span>
           <div><b>N0</b>Déterministe</div>
           <div><b>N1</b>Consultatif</div>
@@ -1021,7 +1257,7 @@
           <div><b>N4</b>Autonomie étendue</div>
           <div class="off"><b>NX</b>Interdit</div>
         </div>
-        <div class="scale" style="--n: 4;">
+        <div class="scale tools" style="--n: 4;">
           <span>Outils</span>
           <div><b>P0</b>Lecture publique</div>
           <div><b>P1</b>Lecture interne</div>
@@ -1044,7 +1280,7 @@
       </header>
       <div class="body">
         <div class="figures">
-          <div class="fig"><b>41</b><span>Attentes : 5 couvertes, 27 partielles, 9 non couvertes</span></div>
+          <div class="fig"><b>41</b><i class="seg" aria-hidden="true"><i style="--w: 5"></i><i style="--w: 27"></i><i style="--w: 9"></i></i><span>Attentes : 5 couvertes, 27 partielles, 9 non couvertes</span></div>
           <div class="fig"><b>12</b><span>Exigences complémentaires EXIG-AMF</span></div>
           <div class="fig"><b>2&nbsp;×&nbsp;/&nbsp;an</b><span>Reddition au Conseil, au minimum</span></div>
           <div class="fig gold"><b>30&nbsp;avril</b><span>Constat formel de conformité, 2027</span></div>
@@ -1092,12 +1328,12 @@
       </header>
       <div class="body">
         <div class="rows docs matrix" style="--cols: 2.5em 13em 1fr 9em;">
-          <div class="row"><span class="n">01</span><span class="t"><a href="documents/NiveauMaturit%C3%A9.pdf" target="_blank" rel="noopener">Échelle de maturité ↗</a></span><span>Six paliers d'interopérabilité, de la syntaxe à l'agentique</span><span class="r">6&nbsp;p.&nbsp;·&nbsp;0,1&nbsp;Mo</span></div>
-          <div class="row"><span class="n">02</span><span class="t"><a href="documents/Veille%20Technologique.pdf" target="_blank" rel="noopener">Veille technologique ↗</a></span><span>Protocoles MCP, A2A et ANP, normes, adoption en entreprise</span><span class="r">126&nbsp;p.&nbsp;·&nbsp;5,8&nbsp;Mo</span></div>
-          <div class="row"><span class="n">03</span><span class="t"><a href="documents/Revue%20de%20litt%C3%A9rature.pdf" target="_blank" rel="noopener">Revue de littérature ↗</a></span><span>192 pièces académiques sur dix fronts</span><span class="r">78&nbsp;p.&nbsp;·&nbsp;1,6&nbsp;Mo</span></div>
-          <div class="row hl"><span class="n">04</span><span class="t"><a href="documents/Cadre%20de%20R%C3%A9f%C3%A9rence.pdf" target="_blank" rel="noopener">Cadre de référence ↗</a></span><span>CRE-IA-2026-01 : 296 exigences d'architecture</span><span class="r">375&nbsp;p.&nbsp;·&nbsp;15,2&nbsp;Mo</span></div>
-          <div class="row"><span class="n">05</span><span class="t"><a href="documents/Note%20AMF%20IA.pdf" target="_blank" rel="noopener">Note AMF IA ↗</a></span><span>Profil d'application québécois, 12 exigences EXIG-AMF</span><span class="r">45&nbsp;p.&nbsp;·&nbsp;1,1&nbsp;Mo</span></div>
-          <div class="row"><span class="n">06</span><span class="t"><a href="documents/Compendium.pdf" target="_blank" rel="noopener">Compendium ↗</a></span><span>Somme en cinq livres et cinquante chapitres</span><span class="r">699&nbsp;p.&nbsp;·&nbsp;29,8&nbsp;Mo</span></div>
+          <div class="row" style="--p: 6"><span class="n">01</span><span class="t"><a href="documents/NiveauMaturit%C3%A9.pdf" target="_blank" rel="noopener">Échelle de maturité ↗</a></span><span>Six paliers d'interopérabilité, de la syntaxe à l'agentique</span><span class="r">6&nbsp;p.&nbsp;·&nbsp;0,1&nbsp;Mo</span></div>
+          <div class="row" style="--p: 126"><span class="n">02</span><span class="t"><a href="documents/Veille%20Technologique.pdf" target="_blank" rel="noopener">Veille technologique ↗</a></span><span>Protocoles MCP, A2A et ANP, normes, adoption en entreprise</span><span class="r">126&nbsp;p.&nbsp;·&nbsp;5,8&nbsp;Mo</span></div>
+          <div class="row" style="--p: 78"><span class="n">03</span><span class="t"><a href="documents/Revue%20de%20litt%C3%A9rature.pdf" target="_blank" rel="noopener">Revue de littérature ↗</a></span><span>192 pièces académiques sur dix fronts</span><span class="r">78&nbsp;p.&nbsp;·&nbsp;1,6&nbsp;Mo</span></div>
+          <div class="row hl" style="--p: 375"><span class="n">04</span><span class="t"><a href="documents/Cadre%20de%20R%C3%A9f%C3%A9rence.pdf" target="_blank" rel="noopener">Cadre de référence ↗</a></span><span>CRE-IA-2026-01 : 296 exigences d'architecture</span><span class="r">375&nbsp;p.&nbsp;·&nbsp;15,2&nbsp;Mo</span></div>
+          <div class="row" style="--p: 45"><span class="n">05</span><span class="t"><a href="documents/Note%20AMF%20IA.pdf" target="_blank" rel="noopener">Note AMF IA ↗</a></span><span>Profil d'application québécois, 12 exigences EXIG-AMF</span><span class="r">45&nbsp;p.&nbsp;·&nbsp;1,1&nbsp;Mo</span></div>
+          <div class="row" style="--p: 699"><span class="n">06</span><span class="t"><a href="documents/Compendium.pdf" target="_blank" rel="noopener">Compendium ↗</a></span><span>Somme en cinq livres et cinquante chapitres</span><span class="r">699&nbsp;p.&nbsp;·&nbsp;29,8&nbsp;Mo</span></div>
         </div>
         <p class="note quiet">Ordre de lecture suggéré : maturité, veille et revue pour le contexte; cadre et note AMF pour les exigences; compendium pour l'approfondissement.</p>
       </div>
